@@ -1,0 +1,232 @@
+INFO 2025-10-12 15:45:01,779 autoreload 15160 15164 Watching for file changes with StatReloader
+INFO 2025-10-12 15:45:45,217 basehttp 15160 14712 "GET /admin/auth/user/ HTTP/1.1" 200 16870
+INFO 2025-10-12 15:45:54,959 basehttp 15160 14712 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-10-12 15:46:56,988 basehttp 15160 14580 "GET /admin/Sales/product/ HTTP/1.1" 200 14734
+INFO 2025-10-12 15:47:02,047 basehttp 15160 14580 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-10-12 15:47:17,575 basehttp 15160 6776 "GET /admin/Sales/category/ HTTP/1.1" 200 12956
+INFO 2025-10-12 15:47:20,493 basehttp 15160 14580 - Broken pipe from ('127.0.0.1', 53146)
+INFO 2025-10-12 15:47:24,840 basehttp 15160 6776 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-10-12 15:47:41,155 basehttp 15160 6776 "GET /admin/Sales/category/add/ HTTP/1.1" 200 18439
+INFO 2025-10-12 15:47:41,418 basehttp 15160 6776 "GET /static/admin/css/forms.css HTTP/1.1" 200 8525
+INFO 2025-10-12 15:47:41,429 basehttp 15160 6380 "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+INFO 2025-10-12 15:47:41,454 basehttp 15160 6776 "GET /static/admin/css/widgets.css HTTP/1.1" 200 11973
+INFO 2025-10-12 15:47:41,461 basehttp 15160 7596 "GET /static/admin/js/inlines.js HTTP/1.1" 200 15628
+INFO 2025-10-12 15:47:41,519 basehttp 15160 7596 "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+INFO 2025-10-12 15:47:46,238 basehttp 15160 14568 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-10-12 15:47:46,334 basehttp 15160 14568 "GET /static/admin/img/inline-delete.svg HTTP/1.1" 200 537
+INFO 2025-10-12 15:49:09,246 basehttp 15160 14568 "POST /admin/Sales/category/add/ HTTP/1.1" 302 0
+INFO 2025-10-12 15:49:13,278 basehttp 15160 14568 "GET /admin/Sales/category/ HTTP/1.1" 200 14634
+INFO 2025-10-12 15:49:16,568 basehttp 15160 14568 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-10-12 15:50:53,242 basehttp 15160 14568 "GET /admin/Sales/subcategory/ HTTP/1.1" 200 16183
+INFO 2025-10-12 15:50:56,425 basehttp 15160 14568 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-10-12 15:51:17,207 basehttp 15160 14568 "GET /admin/Sales/subcategory/1/change/ HTTP/1.1" 200 16961
+INFO 2025-10-12 15:51:20,988 basehttp 15160 14568 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-10-12 15:51:49,128 basehttp 15160 7596 "GET /admin/Sales/product/ HTTP/1.1" 200 14734
+INFO 2025-10-12 15:51:49,128 basehttp 15160 14568 - Broken pipe from ('127.0.0.1', 53161)
+INFO 2025-10-12 15:51:53,772 basehttp 15160 7596 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-10-12 15:52:20,214 basehttp 15160 7596 "GET /admin/Sales/product/add/ HTTP/1.1" 200 21150
+INFO 2025-10-12 15:52:25,803 basehttp 15160 7596 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-10-12 15:55:06,300 basehttp 15160 7596 "POST /admin/Sales/product/add/ HTTP/1.1" 302 0
+INFO 2025-10-12 15:55:15,458 basehttp 15160 7596 "GET /admin/Sales/product/ HTTP/1.1" 200 17801
+INFO 2025-10-12 15:55:19,947 basehttp 15160 7596 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-10-12 15:55:44,332 basehttp 15160 7596 "GET /admin/Sales/product/ HTTP/1.1" 200 17558
+INFO 2025-10-12 15:55:48,886 basehttp 15160 7596 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-10-12 17:43:17,048 basehttp 15160 2408 "OPTIONS /api/token/ HTTP/1.1" 200 0
+ERROR 2025-10-12 17:43:25,264 log 15160 2408 Internal Server Error: /api/token/
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework_simplejwt\views.py", line 46, in post
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\serializers.py", line 225, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\serializers.py", line 447, in run_validation
+    value = self.validate(value)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework_simplejwt\serializers.py", line 73, in validate
+    data = super().validate(attrs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework_simplejwt\serializers.py", line 57, in validate
+    raise exceptions.AuthenticationFailed(
+    ...<2 lines>...
+    )
+rest_framework.exceptions.AuthenticationFailed: No active account found with the given credentials
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\settings.py", line 179, in import_from_string
+    return import_string(val)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\utils\module_loading.py", line 30, in import_string
+    return cached_import(module_path, class_name)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\utils\module_loading.py", line 15, in cached_import
+    module = import_module(module_path)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\importlib\__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1310, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'inventory'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    exception_handler = self.get_exception_handler()
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 304, in get_exception_handler
+    return self.settings.EXCEPTION_HANDLER
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\settings.py", line 227, in __getattr__
+    val = perform_import(val, attr)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\settings.py", line 168, in perform_import
+    return import_from_string(val, setting_name)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\settings.py", line 182, in import_from_string
+    raise ImportError(msg)
+ImportError: Could not import 'inventory.exceptions.custom_exception_handler' for API setting 'EXCEPTION_HANDLER'. ModuleNotFoundError: No module named 'inventory'.
+ERROR 2025-10-12 17:43:25,295 basehttp 15160 2408 "POST /api/token/ HTTP/1.1" 500 159217
+INFO 2025-10-12 17:49:05,745 autoreload 15160 15164 C:\Users\user\OneDrive\Desktop\Inventory\Stock\Stock\settings.py changed, reloading.
+INFO 2025-10-12 17:49:08,169 autoreload 11892 14004 Watching for file changes with StatReloader
+ERROR 2025-10-12 17:50:02,004 log 11892 9836 Internal Server Error: /api/token/
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework_simplejwt\views.py", line 46, in post
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\serializers.py", line 225, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\serializers.py", line 447, in run_validation
+    value = self.validate(value)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework_simplejwt\serializers.py", line 73, in validate
+    data = super().validate(attrs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework_simplejwt\serializers.py", line 57, in validate
+    raise exceptions.AuthenticationFailed(
+    ...<2 lines>...
+    )
+rest_framework.exceptions.AuthenticationFailed: No active account found with the given credentials
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\settings.py", line 179, in import_from_string
+    return import_string(val)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\utils\module_loading.py", line 30, in import_string
+    return cached_import(module_path, class_name)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\utils\module_loading.py", line 15, in cached_import
+    module = import_module(module_path)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python313\Lib\importlib\__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1310, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'sales'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    exception_handler = self.get_exception_handler()
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 304, in get_exception_handler
+    return self.settings.EXCEPTION_HANDLER
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\settings.py", line 227, in __getattr__
+    val = perform_import(val, attr)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\settings.py", line 168, in perform_import
+    return import_from_string(val, setting_name)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\settings.py", line 182, in import_from_string
+    raise ImportError(msg)
+ImportError: Could not import 'sales.exceptions.custom_exception_handler' for API setting 'EXCEPTION_HANDLER'. ModuleNotFoundError: No module named 'sales'.
+ERROR 2025-10-12 17:50:02,030 basehttp 11892 9836 "POST /api/token/ HTTP/1.1" 500 159065
+INFO 2025-10-12 17:51:55,126 autoreload 11892 14004 C:\Users\user\OneDrive\Desktop\Inventory\Stock\Stock\settings.py changed, reloading.
+INFO 2025-10-12 17:51:56,661 autoreload 12056 15332 Watching for file changes with StatReloader
+INFO 2025-10-12 17:52:56,428 basehttp 12056 10300 "GET /admin/auth/user/ HTTP/1.1" 200 16870
+INFO 2025-10-12 17:53:00,816 basehttp 12056 10300 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-10-12 17:53:10,238 basehttp 12056 10300 "GET /admin/auth/user/add/ HTTP/1.1" 200 17546
+INFO 2025-10-12 17:53:10,421 basehttp 12056 10300 "GET /static/admin/css/unusable_password_field.css HTTP/1.1" 200 663
+INFO 2025-10-12 17:53:10,467 basehttp 12056 10300 "GET /static/admin/js/unusable_password_field.js HTTP/1.1" 200 1480
+INFO 2025-10-12 17:53:15,242 basehttp 12056 15296 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-10-12 17:54:12,334 basehttp 12056 15296 "POST /admin/auth/user/add/ HTTP/1.1" 200 17850
+INFO 2025-10-12 17:54:16,352 basehttp 12056 15296 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-10-12 17:56:03,869 basehttp 12056 15296 "POST /admin/auth/user/add/ HTTP/1.1" 302 0
+INFO 2025-10-12 17:56:21,340 basehttp 12056 15296 "GET /admin/auth/user/2/change/ HTTP/1.1" 200 30625
+INFO 2025-10-12 17:56:21,922 basehttp 12056 8944 "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+INFO 2025-10-12 17:56:21,923 basehttp 12056 10300 "GET /static/admin/js/calendar.js HTTP/1.1" 200 9141
+INFO 2025-10-12 17:56:21,930 basehttp 12056 9016 "GET /static/admin/js/SelectBox.js HTTP/1.1" 200 4530
+INFO 2025-10-12 17:56:21,931 basehttp 12056 13128 "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 200 15845
+INFO 2025-10-12 17:56:25,959 basehttp 12056 15296 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-10-12 17:56:26,148 basehttp 12056 9016 "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 677
+INFO 2025-10-12 17:56:26,150 basehttp 12056 13128 "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1086
+INFO 2025-10-12 17:56:26,151 basehttp 12056 15296 "GET /static/admin/img/selector-icons.svg HTTP/1.1" 200 3291
+INFO 2025-10-12 18:04:14,475 basehttp 12056 14676 "POST /admin/auth/user/2/change/ HTTP/1.1" 302 0
+INFO 2025-10-12 18:04:25,318 basehttp 12056 14676 "GET /admin/auth/user/ HTTP/1.1" 200 17559
+INFO 2025-10-12 18:04:55,484 basehttp 12056 14676 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-10-12 18:05:50,606 basehttp 12056 9288 "POST /api/token/ HTTP/1.1" 200 489
+INFO 2025-10-12 18:05:50,611 basehttp 12056 9288 "OPTIONS /api/users/me/ HTTP/1.1" 200 0
+INFO 2025-10-12 18:05:56,374 basehttp 12056 9288 "GET /api/users/me/ HTTP/1.1" 200 222
+INFO 2025-10-12 18:05:56,492 basehttp 12056 9288 "OPTIONS /api/dashboard/summary/ HTTP/1.1" 200 0
+INFO 2025-10-12 18:05:56,492 basehttp 12056 15356 "OPTIONS /api/dashboard/recent_sales/?days=30 HTTP/1.1" 200 0
+INFO 2025-10-12 18:05:56,496 basehttp 12056 15356 "OPTIONS /api/dashboard/summary/ HTTP/1.1" 200 0
+INFO 2025-10-12 18:05:56,496 basehttp 12056 9288 "OPTIONS /api/dashboard/recent_sales/?days=30 HTTP/1.1" 200 0
+INFO 2025-10-12 18:06:01,957 basehttp 12056 15356 "GET /api/dashboard/recent_sales/?days=30 HTTP/1.1" 200 2
+INFO 2025-10-12 18:06:05,039 basehttp 12056 9288 "GET /api/dashboard/summary/ HTTP/1.1" 200 132
+INFO 2025-10-12 18:06:06,658 basehttp 12056 15356 "GET /api/dashboard/recent_sales/?days=30 HTTP/1.1" 200 2
+INFO 2025-10-12 18:06:11,244 basehttp 12056 9288 "GET /api/dashboard/summary/ HTTP/1.1" 200 132
+INFO 2025-10-12 18:06:31,351 basehttp 12056 9288 "OPTIONS /api/products/ HTTP/1.1" 200 0
+INFO 2025-10-12 18:06:31,354 basehttp 12056 15356 "OPTIONS /api/categories/ HTTP/1.1" 200 0
+INFO 2025-10-12 18:06:31,369 basehttp 12056 15356 "OPTIONS /api/subcategories/ HTTP/1.1" 200 0
+INFO 2025-10-12 18:06:31,369 basehttp 12056 9288 "OPTIONS /api/subcategories/ HTTP/1.1" 200 0
+INFO 2025-10-12 18:06:34,809 basehttp 12056 15356 "GET /api/subcategories/ HTTP/1.1" 200 190
+INFO 2025-10-12 18:06:35,568 basehttp 12056 10564 "GET /api/products/ HTTP/1.1" 200 397
+INFO 2025-10-12 18:06:36,891 basehttp 12056 4340 "GET /api/categories/ HTTP/1.1" 200 296
+INFO 2025-10-12 18:06:40,417 basehttp 12056 10564 "GET /api/products/ HTTP/1.1" 200 397
+INFO 2025-10-12 18:06:41,231 basehttp 12056 15356 "GET /api/subcategories/ HTTP/1.1" 200 190
+INFO 2025-10-12 18:06:42,530 basehttp 12056 4340 "GET /api/categories/ HTTP/1.1" 200 296
+INFO 2025-10-12 18:06:53,013 basehttp 12056 4340 "GET /api/users/me/ HTTP/1.1" 200 222
+INFO 2025-10-12 18:06:57,150 basehttp 12056 10564 "GET /api/dashboard/recent_sales/?days=30 HTTP/1.1" 200 2
+INFO 2025-10-12 18:06:58,165 basehttp 12056 4340 "GET /api/users/me/ HTTP/1.1" 200 222
+INFO 2025-10-12 18:07:01,051 basehttp 12056 15356 "GET /api/dashboard/summary/ HTTP/1.1" 200 132
+INFO 2025-10-12 18:07:01,844 basehttp 12056 10564 "GET /api/dashboard/recent_sales/?days=30 HTTP/1.1" 200 2
+INFO 2025-10-12 18:07:08,841 basehttp 12056 15356 "GET /api/dashboard/summary/ HTTP/1.1" 200 132
+INFO 2025-10-12 18:07:17,721 basehttp 12056 15356 "OPTIONS /api/invoices/ HTTP/1.1" 200 0
+INFO 2025-10-12 18:07:17,724 basehttp 12056 10564 "OPTIONS /api/customers/ HTTP/1.1" 200 0
+INFO 2025-10-12 18:07:17,724 basehttp 12056 9288 "OPTIONS /api/customers/ HTTP/1.1" 200 0
+INFO 2025-10-12 18:07:17,724 basehttp 12056 4340 "OPTIONS /api/invoices/ HTTP/1.1" 200 0
+INFO 2025-10-12 18:07:21,707 basehttp 12056 9288 "GET /api/invoices/ HTTP/1.1" 200 52
+INFO 2025-10-12 18:07:22,213 basehttp 12056 10564 "GET /api/products/ HTTP/1.1" 200 397
+INFO 2025-10-12 18:07:22,900 basehttp 12056 4340 "GET /api/customers/ HTTP/1.1" 200 52
+INFO 2025-10-12 18:07:25,215 basehttp 12056 9288 "GET /api/invoices/ HTTP/1.1" 200 52
+INFO 2025-10-12 18:07:26,091 basehttp 12056 10564 "GET /api/products/ HTTP/1.1" 200 397
+INFO 2025-10-12 18:07:35,133 basehttp 12056 4340 "GET /api/customers/ HTTP/1.1" 200 52
