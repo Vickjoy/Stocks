@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from .models import (
     Category, SubCategory, Supplier, Customer, Product,
     MonthlyOpeningStock, StockEntry, Invoice, InvoiceItem,
-    Payment, LPO, AuditLog
+    Payment, LPO, AuditLog, Sale
 )
 
 
@@ -241,3 +241,94 @@ class DashboardSummarySerializer(serializers.Serializer):
     pending_lpos = serializers.IntegerField()
     total_revenue = serializers.DecimalField(max_digits=12, decimal_places=2)
     total_outstanding = serializers.DecimalField(max_digits=12, decimal_places=2)
+
+# Add this to your existing serializers.py
+
+class SaleSerializer(serializers.ModelSerializer):
+    product_code = serializers.CharField(source='product.code', read_only=True)
+    product_name = serializers.CharField(source='product.name', read_only=True)
+    customer_name = serializers.CharField(source='customer.company_name', read_only=True)
+    recorded_by_name = serializers.CharField(source='recorded_by.get_full_name', read_only=True)
+    outstanding_quantity = serializers.SerializerMethodField()
+    
+    class Meta:
+        model = Sale
+        fields = [
+            'id', 'sale_number', 'product', 'product_code', 'product_name',
+            'customer', 'customer_name', 'quantity_ordered', 'quantity_supplied',
+            'outstanding_quantity', 'supply_status', 'unit_price', 'total_amount',
+            'lpo_quotation_number', 'delivery_number', 'recorded_by',
+            'recorded_by_name', 'created_at', 'updated_at'
+        ]
+        read_only_fields = ['id', 'sale_number', 'total_amount', 'created_at', 'updated_at']
+    
+    def get_outstanding_quantity(self, obj):
+        return obj.outstanding_quantity()
+    
+    def validate(self, data):
+        # Validate quantity_supplied doesn't exceed quantity_ordered
+        quantity_ordered = data.get('quantity_ordered', 0)
+        quantity_supplied = data.get('quantity_supplied', 0)
+        supply_status = data.get('supply_status')
+        
+        if supply_status == 'Supplied':
+            data['quantity_supplied'] = quantity_ordered
+        elif supply_status == 'Not Supplied':
+            data['quantity_supplied'] = 0
+        elif supply_status == 'Partially Supplied':
+            if quantity_supplied <= 0 or quantity_supplied >= quantity_ordered:
+                raise serializers.ValidationError(
+                    "For partially supplied, quantity must be between 0 and ordered quantity"
+                )
+        
+        # Check if product has enough stock
+        product = data.get('product')
+        if supply_status in ['Supplied', 'Partially Supplied']:
+            if product.current_stock < quantity_supplied:
+                raise serializers.ValidationError(
+                    f"Insufficient stock. Available: {product.current_stock}, Required: {quantity_supplied}"
+                )
+        
+        return data
+
+
+class SaleCreateSerializer(serializers.ModelSerializer):
+    """Simplified serializer for creating sales"""
+    
+    class Meta:
+        model = Sale
+        fields = [
+            'product', 'customer', 'quantity_ordered', 'quantity_supplied',
+            'supply_status', 'unit_price', 'lpo_quotation_number', 'delivery_number'
+        ]
+    
+    def validate(self, data):
+        # Same validation as SaleSerializer
+        quantity_ordered = data.get('quantity_ordered', 0)
+        quantity_supplied = data.get('quantity_supplied', 0)
+        supply_status = data.get('supply_status')
+        
+        if supply_status == 'Supplied':
+            data['quantity_supplied'] = quantity_ordered
+        elif supply_status == 'Not Supplied':
+            data['quantity_supplied'] = 0
+        elif supply_status == 'Partially Supplied':
+            if quantity_supplied <= 0 or quantity_supplied >= quantity_ordered:
+                raise serializers.ValidationError(
+                    "For partially supplied, quantity must be between 0 and ordered quantity"
+                )
+        
+        # Check stock
+        product = data.get('product')
+        if supply_status in ['Supplied', 'Partially Supplied']:
+            if product.current_stock < data['quantity_supplied']:
+                raise serializers.ValidationError(
+                    f"Insufficient stock. Available: {product.current_stock}, Required: {data['quantity_supplied']}"
+                )
+        
+        return data
+    
+    def create(self, validated_data):
+        # Set the user who recorded this sale
+        validated_data['recorded_by'] = self.context['request'].user
+        return super().create(validated_data)

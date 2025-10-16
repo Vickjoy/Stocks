@@ -8,7 +8,8 @@ from .views import (
     MonthlyOpeningStockViewSet,
     InvoiceViewSet, InvoiceItemViewSet,
     PaymentViewSet, LPOViewSet,
-    AuditLogViewSet, DashboardViewSet
+    AuditLogViewSet, DashboardViewSet,
+    SaleViewSet
 )
 
 # Create a router and register viewsets
@@ -27,6 +28,7 @@ router.register(r'payments', PaymentViewSet, basename='payment')
 router.register(r'lpos', LPOViewSet, basename='lpo')
 router.register(r'audit-logs', AuditLogViewSet, basename='auditlog')
 router.register(r'dashboard', DashboardViewSet, basename='dashboard')
+router.register(r'sales', SaleViewSet, basename='sale')
 
 app_name = 'inventory'
 

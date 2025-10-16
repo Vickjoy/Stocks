@@ -4,7 +4,7 @@ from django.utils.html import format_html
 from .models import (
     Category, SubCategory, Supplier, Customer, Product,
     MonthlyOpeningStock, StockEntry, Invoice, InvoiceItem,
-    Payment, LPO, AuditLog
+    Payment, LPO, AuditLog, Sale
 )
 
 
@@ -291,3 +291,55 @@ class AuditLogAdmin(admin.ModelAdmin):
     def has_delete_permission(self, request, obj=None):
         """Prevent audit log deletion"""
         return False
+    
+@admin.register(Sale)
+class SaleAdmin(admin.ModelAdmin):
+    list_display = [
+        'sale_number', 'product', 'customer', 'quantity_ordered',
+        'quantity_supplied', 'supply_status_display', 'total_amount',
+        'created_at'
+    ]
+    list_filter = ['supply_status', 'created_at', 'product__subcategory__category']
+    search_fields = [
+        'sale_number', 'product__code', 'product__name',
+        'customer__company_name', 'lpo_quotation_number', 'delivery_number'
+    ]
+    readonly_fields = ['sale_number', 'total_amount', 'created_at', 'updated_at', 'outstanding_quantity']
+    
+    fieldsets = (
+        ('Sale Information', {
+            'fields': ('sale_number', 'product', 'customer')
+        }),
+        ('Quantity & Supply', {
+            'fields': (
+                'quantity_ordered', 'quantity_supplied',
+                'outstanding_quantity', 'supply_status'
+            )
+        }),
+        ('Pricing', {
+            'fields': ('unit_price', 'total_amount')
+        }),
+        ('References', {
+            'fields': ('lpo_quotation_number', 'delivery_number'),
+            'classes': ('collapse',)
+        }),
+        ('Recording Details', {
+            'fields': ('recorded_by', 'created_at', 'updated_at'),
+            'classes': ('collapse',)
+        }),
+    )
+    
+    def supply_status_display(self, obj):
+        """Color-code supply status"""
+        colors = {
+            'Supplied': 'green',
+            'Partially Supplied': 'orange',
+            'Not Supplied': 'red'
+        }
+        color = colors.get(obj.supply_status, 'black')
+        return format_html(
+            '<span style="color: {}; font-weight: bold;">{}</span>',
+            color,
+            obj.supply_status
+        )
+    supply_status_display.short_description = 'Supply Status'

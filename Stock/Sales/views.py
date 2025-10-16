@@ -12,7 +12,7 @@ from django.contrib.auth.models import User
 from .models import (
     Category, SubCategory, Supplier, Customer, Product,
     MonthlyOpeningStock, StockEntry, Invoice, InvoiceItem,
-    Payment, LPO, AuditLog
+    Payment, LPO, AuditLog, Sale
 )
 from .serializers import (
     UserSerializer, UserDetailSerializer,
@@ -22,7 +22,7 @@ from .serializers import (
     StockEntrySerializer, MonthlyOpeningStockSerializer,
     InvoiceSerializer, InvoiceItemSerializer, InvoiceCreateSerializer,
     PaymentSerializer, LPOSerializer, AuditLogSerializer,
-    DashboardSummarySerializer
+    DashboardSummarySerializer, SaleSerializer, SaleCreateSerializer
 )
 from .permissions import IsAdminOrReadOnly, IsAdmin
 
@@ -399,6 +399,147 @@ class DashboardViewSet(viewsets.ViewSet):
                 'id': c.id,
                 'company_name': c.company_name,
                 'total_sales': c.total_sales or 0
+            }
+            for c in customers
+        ]
+        return Response(data)
+    
+class SaleViewSet(viewsets.ModelViewSet):
+    """CRUD operations for sales"""
+    queryset = Sale.objects.select_related(
+        'product__subcategory__category',
+        'customer',
+        'recorded_by'
+    ).order_by('-created_at')
+    permission_classes = [permissions.IsAuthenticated]
+    filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
+    filterset_fields = ['supply_status', 'customer', 'product', 'created_at']
+    search_fields = [
+        'sale_number', 'product__code', 'product__name',
+        'customer__company_name', 'lpo_quotation_number', 'delivery_number'
+    ]
+    ordering_fields = ['created_at', 'total_amount', 'supply_status']
+    
+    def get_serializer_class(self):
+        if self.action == 'create':
+            return SaleCreateSerializer
+        return SaleSerializer
+    
+    @action(detail=False, methods=['get'])
+    def outstanding(self, request):
+        """Get sales with outstanding supplies"""
+        sales = self.queryset.filter(
+            supply_status__in=['Not Supplied', 'Partially Supplied']
+        ).exclude(
+            quantity_supplied=F('quantity_ordered')
+        )
+        serializer = self.get_serializer(sales, many=True)
+        return Response(serializer.data)
+    
+    @action(detail=False, methods=['get'])
+    def by_customer(self, request):
+        """Get outstanding sales grouped by customer"""
+        customer_id = request.query_params.get('customer_id')
+        if not customer_id:
+            return Response(
+                {'error': 'customer_id parameter required'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        
+        sales = self.queryset.filter(
+            customer_id=customer_id,
+            supply_status__in=['Not Supplied', 'Partially Supplied']
+        )
+        serializer = self.get_serializer(sales, many=True)
+        return Response(serializer.data)
+    
+    @action(detail=True, methods=['post'])
+    def update_supply(self, request, pk=None):
+        """Update supply status and quantity for a sale"""
+        sale = self.get_object()
+        new_quantity = request.data.get('quantity_supplied', 0)
+        new_status = request.data.get('supply_status')
+        
+        if not new_status:
+            return Response(
+                {'error': 'supply_status is required'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        
+        # Calculate the difference for stock adjustment
+        old_supplied = sale.quantity_supplied
+        diff = new_quantity - old_supplied
+        
+        # Update stock
+        if diff != 0 and new_status in ['Supplied', 'Partially Supplied']:
+            if sale.product.current_stock < diff:
+                return Response(
+                    {'error': f'Insufficient stock. Available: {sale.product.current_stock}'},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+            sale.product.current_stock -= diff
+            sale.product.save()
+            
+            # Log stock entry
+            StockEntry.objects.create(
+                product=sale.product,
+                entry_type='Out',
+                quantity=diff,
+                notes=f"Supply update for Sale #{sale.sale_number}",
+                recorded_by=request.user
+            )
+        
+        # Update sale
+        sale.quantity_supplied = new_quantity if new_status == 'Partially Supplied' else (
+            sale.quantity_ordered if new_status == 'Supplied' else 0
+        )
+        sale.supply_status = new_status
+        sale.save()
+        
+        serializer = self.get_serializer(sale)
+        return Response(serializer.data)
+    
+    @action(detail=False, methods=['get'])
+    def search_products(self, request):
+        """Search products by name or code for autocomplete"""
+        query = request.query_params.get('q', '').strip()
+        if len(query) < 2:
+            return Response([])
+        
+        products = Product.objects.filter(
+            Q(name__icontains=query) | Q(code__icontains=query),
+            is_active=True
+        )[:10]
+        
+        data = [
+            {
+                'id': p.id,
+                'code': p.code,
+                'name': p.name,
+                'unit_price': str(p.unit_price),
+                'current_stock': p.current_stock
+            }
+            for p in products
+        ]
+        return Response(data)
+    
+    @action(detail=False, methods=['get'])
+    def search_customers(self, request):
+        """Search customers by name for autocomplete"""
+        query = request.query_params.get('q', '').strip()
+        if len(query) < 2:
+            return Response([])
+        
+        customers = Customer.objects.filter(
+            company_name__icontains=query,
+            is_active=True
+        )[:10]
+        
+        data = [
+            {
+                'id': c.id,
+                'company_name': c.company_name,
+                'payment_type': c.payment_type
             }
             for c in customers
         ]
