@@ -80,9 +80,9 @@ class Product(models.Model):
     code = models.CharField(max_length=50, unique=True)  # e.g., CAP320
     name = models.CharField(max_length=200)
     description = models.TextField(blank=True)
-    unit_price = models.DecimalField(max_digits=10, decimal_places=2)
-    current_stock = models.IntegerField(default=0)
-    minimum_stock = models.IntegerField(default=10)
+    unit_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    current_stock = models.IntegerField(null=True, blank=True, default=0)
+    minimum_stock = models.IntegerField(null=True, blank=True, default=10)
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

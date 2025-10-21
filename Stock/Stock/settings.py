@@ -138,7 +138,7 @@ REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
     ),
-    'EXCEPTION_HANDLER': 'stock.exceptions.custom_exception_handler',  # Optional
+    'EXCEPTION_HANDLER': 'Stock.exceptions.custom_exception_handler',  # Optional
 }
 
 # ========================
