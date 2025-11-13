@@ -37,6 +37,22 @@ class SubCategory(models.Model):
         return f"{self.category.name} - {self.name}"
 
 
+class ProductGroup(models.Model):
+    """Product groups under subcategories (e.g., Panels, Detectors, I/O Modules)"""
+    subcategory = models.ForeignKey(SubCategory, on_delete=models.CASCADE, related_name='groups')
+    name = models.CharField(max_length=100)
+    description = models.TextField(blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        verbose_name_plural = "Product Groups"
+        unique_together = ('subcategory', 'name')
+        ordering = ['name']
+    
+    def __str__(self):
+        return f"{self.subcategory.name} - {self.name}"
+
+
 class Supplier(models.Model):
     """Track suppliers/vendors"""
     company_name = models.CharField(max_length=200, unique=True)
@@ -75,9 +91,10 @@ class Customer(models.Model):
 
 
 class Product(models.Model):
-    """Products/Stock items"""
+    """Products/Stock items - Now linked to ProductGroup"""
+    group = models.ForeignKey(ProductGroup, on_delete=models.CASCADE, related_name='products', null=True, blank=True)
     subcategory = models.ForeignKey(SubCategory, on_delete=models.CASCADE, related_name='products')
-    code = models.CharField(max_length=50, unique=True)  # e.g., CAP320
+    code = models.CharField(max_length=50, unique=True)
     name = models.CharField(max_length=200)
     description = models.TextField(blank=True)
     unit_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
@@ -97,7 +114,7 @@ class Product(models.Model):
 class MonthlyOpeningStock(models.Model):
     """Track opening stock for each month"""
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='monthly_opening')
-    month = models.DateField()  # First day of month
+    month = models.DateField()
     opening_quantity = models.IntegerField()
     recorded_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     recorded_at = models.DateTimeField(auto_now_add=True)
@@ -244,8 +261,7 @@ class AuditLog(models.Model):
     
     def __str__(self):
         return f"{self.action} - {self.user} - {self.timestamp}"
-    
-# Add this to your existing models.py
+
 
 class Sale(models.Model):
     """Track individual sales with supply status"""
@@ -258,21 +274,13 @@ class Sale(models.Model):
     sale_number = models.CharField(max_length=50, unique=True, blank=True)
     product = models.ForeignKey(Product, on_delete=models.PROTECT, related_name='sales')
     customer = models.ForeignKey(Customer, on_delete=models.PROTECT, related_name='sales')
-    
-    # Quantity fields
     quantity_ordered = models.IntegerField()
     quantity_supplied = models.IntegerField(default=0)
     supply_status = models.CharField(max_length=20, choices=SUPPLY_STATUS_CHOICES)
-    
-    # Pricing
     unit_price = models.DecimalField(max_digits=10, decimal_places=2)
     total_amount = models.DecimalField(max_digits=12, decimal_places=2, default=0)
-    
-    # References
     lpo_quotation_number = models.CharField(max_length=100, blank=True)
     delivery_number = models.CharField(max_length=100, blank=True)
-    
-    # Metadata
     recorded_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -284,34 +292,26 @@ class Sale(models.Model):
         return f"Sale-{self.sale_number} - {self.product.code if self.product else 'N/A'}"
     
     def outstanding_quantity(self):
-        """Calculate outstanding quantity"""
-        # Handle None values for new unsaved instances
         ordered = self.quantity_ordered or 0
         supplied = self.quantity_supplied or 0
         return ordered - supplied
     
     def save(self, *args, **kwargs):
-        # Ensure quantities are not None
         if self.quantity_ordered is None:
             self.quantity_ordered = 0
         if self.quantity_supplied is None:
             self.quantity_supplied = 0
         
-        # Auto-generate sale number if not exists
         if not self.sale_number:
-            from django.utils import timezone
             timestamp = timezone.now().strftime('%Y%m%d%H%M%S')
             import random
             self.sale_number = f"S{timestamp}{random.randint(10, 99)}"
         
-        # Calculate total amount
         unit_price = self.unit_price or 0
         self.total_amount = self.quantity_ordered * unit_price
         
-        # Check if this is a new sale
         is_new = self.pk is None
         
-        # Update product stock if supplied
         if self.product:
             if self.supply_status == 'Supplied':
                 self.quantity_supplied = self.quantity_ordered
@@ -319,23 +319,20 @@ class Sale(models.Model):
                     self.product.current_stock -= self.quantity_supplied
                     self.product.save()
             elif self.supply_status == 'Partially Supplied' and self.quantity_supplied > 0:
-                # Only deduct what was actually supplied
-                if self.pk:  # If updating existing sale
+                if self.pk:
                     old_sale = Sale.objects.get(pk=self.pk)
                     diff = self.quantity_supplied - old_sale.quantity_supplied
                     if diff > 0:
                         self.product.current_stock -= diff
                         self.product.save()
-                else:  # New sale
+                else:
                     self.product.current_stock -= self.quantity_supplied
                     self.product.save()
             elif self.supply_status == 'Not Supplied':
                 self.quantity_supplied = 0
-            # For 'Not Supplied', don't deduct stock
         
         super().save(*args, **kwargs)
         
-        # Create stock entry log (only for new sales with supplied items)
         if is_new and self.supply_status in ['Supplied', 'Partially Supplied'] and self.quantity_supplied > 0:
             StockEntry.objects.create(
                 product=self.product,

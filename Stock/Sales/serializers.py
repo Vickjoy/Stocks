@@ -2,7 +2,7 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from .models import (
-    Category, SubCategory, Supplier, Customer, Product,
+    Category, SubCategory, ProductGroup, Supplier, Customer, Product,
     MonthlyOpeningStock, StockEntry, Invoice, InvoiceItem,
     Payment, LPO, AuditLog, Sale
 )
@@ -28,17 +28,56 @@ class UserDetailSerializer(serializers.ModelSerializer):
 
 
 # ========================
-# Category & SubCategory Serializers
+# Product Serializers (Forward Declaration)
+# ========================
+class ProductSerializer(serializers.ModelSerializer):
+    subcategory_name = serializers.CharField(source='subcategory.name', read_only=True)
+    category_name = serializers.CharField(source='subcategory.category.name', read_only=True)
+    group_name = serializers.CharField(source='group.name', read_only=True)
+    
+    class Meta:
+        model = Product
+        fields = ['id', 'code', 'name', 'description', 'subcategory', 'subcategory_name', 
+                  'category_name', 'group', 'group_name', 'unit_price', 'current_stock', 
+                  'minimum_stock', 'is_active', 'created_at', 'updated_at']
+        read_only_fields = ['id', 'created_at', 'updated_at']
+
+
+# ========================
+# ProductGroup Serializers
+# ========================
+class ProductGroupSerializer(serializers.ModelSerializer):
+    subcategory_name = serializers.CharField(source='subcategory.name', read_only=True)
+    category_name = serializers.CharField(source='subcategory.category.name', read_only=True)
+    products = ProductSerializer(many=True, read_only=True)
+    product_count = serializers.SerializerMethodField()
+    
+    class Meta:
+        model = ProductGroup
+        fields = ['id', 'name', 'description', 'subcategory', 'subcategory_name', 
+                  'category_name', 'products', 'product_count', 'created_at']
+        read_only_fields = ['id', 'created_at']
+    
+    def get_product_count(self, obj):
+        return obj.products.count()
+
+
+# ========================
+# SubCategory Serializers
 # ========================
 class SubCategorySerializer(serializers.ModelSerializer):
     category_name = serializers.CharField(source='category.name', read_only=True)
+    groups = ProductGroupSerializer(many=True, read_only=True)
     
     class Meta:
         model = SubCategory
-        fields = ['id', 'category', 'category_name', 'name', 'description', 'created_at']
+        fields = ['id', 'category', 'category_name', 'name', 'description', 'groups', 'created_at']
         read_only_fields = ['id', 'created_at']
 
 
+# ========================
+# Category Serializers
+# ========================
 class CategorySerializer(serializers.ModelSerializer):
     subcategories = SubCategorySerializer(many=True, read_only=True)
     
@@ -69,19 +108,8 @@ class CustomerSerializer(serializers.ModelSerializer):
 
 
 # ========================
-# Product Serializers
+# Product Detail Serializer
 # ========================
-class ProductSerializer(serializers.ModelSerializer):
-    subcategory_name = serializers.CharField(source='subcategory.name', read_only=True)
-    category_name = serializers.CharField(source='subcategory.category.name', read_only=True)
-    
-    class Meta:
-        model = Product
-        fields = ['id', 'code', 'name', 'description', 'subcategory', 'subcategory_name', 'category_name', 
-                  'unit_price', 'current_stock', 'minimum_stock', 'is_active', 'created_at', 'updated_at']
-        read_only_fields = ['id', 'created_at', 'updated_at']
-
-
 class ProductDetailSerializer(ProductSerializer):
     stock_entries = serializers.SerializerMethodField()
     
@@ -137,7 +165,6 @@ class InvoiceItemSerializer(serializers.ModelSerializer):
         read_only_fields = ['id']
     
     def validate(self, data):
-        # Ensure quantity and unit_price are positive
         if data.get('quantity', 0) <= 0:
             raise serializers.ValidationError("Quantity must be greater than 0")
         if data.get('unit_price', 0) <= 0:
@@ -234,7 +261,6 @@ class AuditLogSerializer(serializers.ModelSerializer):
 # Dashboard Summary Serializer
 # ========================
 class DashboardSummarySerializer(serializers.Serializer):
-    """Serializer for dashboard summary data"""
     total_products = serializers.IntegerField()
     low_stock_items = serializers.IntegerField()
     outstanding_invoices = serializers.IntegerField()
@@ -242,8 +268,10 @@ class DashboardSummarySerializer(serializers.Serializer):
     total_revenue = serializers.DecimalField(max_digits=12, decimal_places=2)
     total_outstanding = serializers.DecimalField(max_digits=12, decimal_places=2)
 
-# Add this to your existing serializers.py
 
+# ========================
+# Sale Serializers
+# ========================
 class SaleSerializer(serializers.ModelSerializer):
     product_code = serializers.CharField(source='product.code', read_only=True)
     product_name = serializers.CharField(source='product.name', read_only=True)
@@ -266,7 +294,6 @@ class SaleSerializer(serializers.ModelSerializer):
         return obj.outstanding_quantity()
     
     def validate(self, data):
-        # Validate quantity_supplied doesn't exceed quantity_ordered
         quantity_ordered = data.get('quantity_ordered', 0)
         quantity_supplied = data.get('quantity_supplied', 0)
         supply_status = data.get('supply_status')
@@ -281,7 +308,6 @@ class SaleSerializer(serializers.ModelSerializer):
                     "For partially supplied, quantity must be between 0 and ordered quantity"
                 )
         
-        # Check if product has enough stock
         product = data.get('product')
         if supply_status in ['Supplied', 'Partially Supplied']:
             if product.current_stock < quantity_supplied:
@@ -293,8 +319,6 @@ class SaleSerializer(serializers.ModelSerializer):
 
 
 class SaleCreateSerializer(serializers.ModelSerializer):
-    """Simplified serializer for creating sales"""
-    
     class Meta:
         model = Sale
         fields = [
@@ -303,7 +327,6 @@ class SaleCreateSerializer(serializers.ModelSerializer):
         ]
     
     def validate(self, data):
-        # Same validation as SaleSerializer
         quantity_ordered = data.get('quantity_ordered', 0)
         quantity_supplied = data.get('quantity_supplied', 0)
         supply_status = data.get('supply_status')
@@ -318,7 +341,6 @@ class SaleCreateSerializer(serializers.ModelSerializer):
                     "For partially supplied, quantity must be between 0 and ordered quantity"
                 )
         
-        # Check stock
         product = data.get('product')
         if supply_status in ['Supplied', 'Partially Supplied']:
             if product.current_stock < data['quantity_supplied']:
@@ -329,6 +351,5 @@ class SaleCreateSerializer(serializers.ModelSerializer):
         return data
     
     def create(self, validated_data):
-        # Set the user who recorded this sale
         validated_data['recorded_by'] = self.context['request'].user
         return super().create(validated_data)

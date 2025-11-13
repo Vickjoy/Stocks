@@ -70,11 +70,11 @@ WSGI_APPLICATION = 'Stock.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'lUDekIbzITwOMnmwIsVoutQBaCrnHYBp',
-        'HOST': 'gondola.proxy.rlwy.net',
-        'PORT': '15747',
+        'NAME': 'stockdb',
+        'USER': 'stockuser',
+        'PASSWORD': 'Edge12345',
+        'HOST': 'localhost',
+        'PORT': '5433',
     }
 }
 

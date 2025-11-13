@@ -2,17 +2,28 @@
 from django.contrib import admin
 from django.utils.html import format_html
 from .models import (
-    Category, SubCategory, Supplier, Customer, Product,
+    Category, SubCategory, ProductGroup, Supplier, Customer, Product,
     MonthlyOpeningStock, StockEntry, Invoice, InvoiceItem,
     Payment, LPO, AuditLog, Sale
 )
 
 
 class SubCategoryInline(admin.TabularInline):
-    """Inline admin for subcategories"""
     model = SubCategory
     extra = 1
     fields = ['name', 'description']
+
+
+class ProductGroupInline(admin.TabularInline):
+    model = ProductGroup
+    extra = 1
+    fields = ['name', 'description']
+
+
+class ProductInline(admin.TabularInline):
+    model = Product
+    extra = 1
+    fields = ['code', 'name', 'unit_price', 'current_stock', 'minimum_stock']
 
 
 @admin.register(Category)
@@ -28,6 +39,29 @@ class SubCategoryAdmin(admin.ModelAdmin):
     list_filter = ['category', 'created_at']
     search_fields = ['name', 'category__name']
     readonly_fields = ['created_at']
+    inlines = [ProductGroupInline]
+
+
+@admin.register(ProductGroup)
+class ProductGroupAdmin(admin.ModelAdmin):
+    list_display = ['name', 'subcategory', 'get_category', 'product_count', 'created_at']
+    list_filter = ['subcategory__category', 'subcategory', 'created_at']
+    search_fields = ['name', 'subcategory__name']
+    readonly_fields = ['created_at']
+    inlines = [ProductInline]
+    
+    def get_category(self, obj):
+        return obj.subcategory.category.name
+    get_category.short_description = 'Category'
+    
+    def product_count(self, obj):
+        count = obj.products.count()
+        return format_html(
+            '<span style="color: {};">{} products</span>',
+            'green' if count > 0 else 'gray',
+            count
+        )
+    product_count.short_description = 'Products'
 
 
 @admin.register(Supplier)
@@ -85,14 +119,17 @@ class CustomerAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['code', 'name', 'subcategory', 'unit_price', 'stock_status', 'is_active', 'created_at']
-    list_filter = ['subcategory__category', 'subcategory', 'is_active', 'created_at']
+    list_display = ['code', 'name', 'group', 'subcategory', 'unit_price', 'stock_status', 'is_active', 'created_at']
+    list_filter = ['group__subcategory__category', 'subcategory', 'group', 'is_active', 'created_at']
     search_fields = ['code', 'name']
     readonly_fields = ['created_at', 'updated_at']
     
     fieldsets = (
         ('Product Details', {
-            'fields': ('code', 'name', 'subcategory', 'description')
+            'fields': ('code', 'name', 'description')
+        }),
+        ('Organization', {
+            'fields': ('subcategory', 'group')
         }),
         ('Pricing & Stock', {
             'fields': ('unit_price', 'current_stock', 'minimum_stock')
@@ -107,7 +144,6 @@ class ProductAdmin(admin.ModelAdmin):
     )
     
     def stock_status(self, obj):
-        """Color-code stock status"""
         if obj.current_stock <= obj.minimum_stock:
             color = 'red'
             status = 'Low'
@@ -164,7 +200,6 @@ class StockEntryAdmin(admin.ModelAdmin):
 
 
 class InvoiceItemInline(admin.TabularInline):
-    """Inline admin for invoice items"""
     model = InvoiceItem
     extra = 1
     fields = ['product', 'quantity', 'unit_price', 'subtotal']
@@ -172,7 +207,6 @@ class InvoiceItemInline(admin.TabularInline):
 
 
 class PaymentInline(admin.TabularInline):
-    """Inline admin for payments"""
     model = Payment
     extra = 1
     fields = ['amount', 'payment_method', 'payment_date', 'reference_number']
@@ -262,7 +296,6 @@ class LPOAdmin(admin.ModelAdmin):
     )
     
     def delivery_progress(self, obj):
-        """Show delivery progress"""
         total = obj.ordered_quantity
         delivered = obj.delivered_quantity
         percentage = (delivered / total * 100) if total > 0 else 0
@@ -285,13 +318,12 @@ class AuditLogAdmin(admin.ModelAdmin):
     readonly_fields = ['action', 'user', 'description', 'ip_address', 'timestamp']
     
     def has_add_permission(self, request):
-        """Prevent manual audit log creation"""
         return False
     
     def has_delete_permission(self, request, obj=None):
-        """Prevent audit log deletion"""
         return False
-    
+
+
 @admin.register(Sale)
 class SaleAdmin(admin.ModelAdmin):
     list_display = [
@@ -330,7 +362,6 @@ class SaleAdmin(admin.ModelAdmin):
     )
     
     def supply_status_display(self, obj):
-        """Color-code supply status"""
         colors = {
             'Supplied': 'green',
             'Partially Supplied': 'orange',
