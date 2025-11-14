@@ -2,7 +2,7 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from .models import (
-    Category, SubCategory, ProductGroup, Supplier, Customer, Product,
+    Category, SubCategory, SubSubCategory, ProductGroup, Supplier, Customer, Product,
     MonthlyOpeningStock, StockEntry, Invoice, InvoiceItem,
     Payment, LPO, AuditLog, Sale
 )
@@ -28,50 +28,29 @@ class UserDetailSerializer(serializers.ModelSerializer):
 
 
 # ========================
-# Product Serializers (Forward Declaration)
+# SubSubCategory Serializers
 # ========================
-class ProductSerializer(serializers.ModelSerializer):
+class SubSubCategorySerializer(serializers.ModelSerializer):
     subcategory_name = serializers.CharField(source='subcategory.name', read_only=True)
     category_name = serializers.CharField(source='subcategory.category.name', read_only=True)
-    group_name = serializers.CharField(source='group.name', read_only=True)
     
     class Meta:
-        model = Product
-        fields = ['id', 'code', 'name', 'description', 'subcategory', 'subcategory_name', 
-                  'category_name', 'group', 'group_name', 'unit_price', 'current_stock', 
-                  'minimum_stock', 'is_active', 'created_at', 'updated_at']
-        read_only_fields = ['id', 'created_at', 'updated_at']
-
-
-# ========================
-# ProductGroup Serializers
-# ========================
-class ProductGroupSerializer(serializers.ModelSerializer):
-    subcategory_name = serializers.CharField(source='subcategory.name', read_only=True)
-    category_name = serializers.CharField(source='subcategory.category.name', read_only=True)
-    products = ProductSerializer(many=True, read_only=True)
-    product_count = serializers.SerializerMethodField()
-    
-    class Meta:
-        model = ProductGroup
-        fields = ['id', 'name', 'description', 'subcategory', 'subcategory_name', 
-                  'category_name', 'products', 'product_count', 'created_at']
+        model = SubSubCategory
+        fields = ['id', 'name', 'description', 'subcategory', 'subcategory_name', 'category_name', 'created_at']
         read_only_fields = ['id', 'created_at']
-    
-    def get_product_count(self, obj):
-        return obj.products.count()
 
 
 # ========================
 # SubCategory Serializers
 # ========================
 class SubCategorySerializer(serializers.ModelSerializer):
+    category = serializers.PrimaryKeyRelatedField(queryset=Category.objects.all())
     category_name = serializers.CharField(source='category.name', read_only=True)
-    groups = ProductGroupSerializer(many=True, read_only=True)
+    subsubcategories = SubSubCategorySerializer(many=True, read_only=True)
     
     class Meta:
         model = SubCategory
-        fields = ['id', 'category', 'category_name', 'name', 'description', 'groups', 'created_at']
+        fields = ['id', 'category', 'category_name', 'name', 'description', 'subsubcategories', 'created_at']
         read_only_fields = ['id', 'created_at']
 
 
@@ -84,6 +63,20 @@ class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields = ['id', 'name', 'description', 'subcategories', 'created_at']
+        read_only_fields = ['id', 'created_at']
+
+
+# ========================
+# ProductGroup Serializers (Deprecated)
+# ========================
+class ProductGroupSerializer(serializers.ModelSerializer):
+    subcategory_name = serializers.CharField(source='subcategory.name', read_only=True)
+    category_name = serializers.CharField(source='subcategory.category.name', read_only=True)
+    
+    class Meta:
+        model = ProductGroup
+        fields = ['id', 'name', 'description', 'subcategory', 'subcategory_name', 
+                  'category_name', 'created_at']
         read_only_fields = ['id', 'created_at']
 
 
@@ -108,8 +101,49 @@ class CustomerSerializer(serializers.ModelSerializer):
 
 
 # ========================
-# Product Detail Serializer
+# Product Serializers
 # ========================
+
+class ProductSerializer(serializers.ModelSerializer):
+    category_name = serializers.CharField(source='category.name', read_only=True)
+    subcategory_name = serializers.CharField(source='subcategory.name', read_only=True)
+    subsubcategory_name = serializers.CharField(source='subsubcategory.name', read_only=True)
+    
+    class Meta:
+        model = Product
+        fields = [
+            'id', 'code', 'name', 'description',
+            'category', 'category_name',
+            'subcategory', 'subcategory_name',
+            'subsubcategory', 'subsubcategory_name',
+            'unit_price', 'current_stock', 'minimum_stock',
+            'is_active', 'created_at', 'updated_at'
+        ]
+        read_only_fields = ['id', 'created_at', 'updated_at']
+    
+    def validate(self, data):
+        """Ensure category hierarchy is valid"""
+        category = data.get('category')
+        subcategory = data.get('subcategory')
+        subsubcategory = data.get('subsubcategory')
+        
+        # Validate subcategory belongs to category
+        if category and subcategory:
+            if subcategory.category != category:
+                raise serializers.ValidationError({
+                    'subcategory': 'Subcategory does not belong to the selected category.'
+                })
+        
+        # Validate subsubcategory belongs to subcategory
+        if subcategory and subsubcategory:
+            if subsubcategory.subcategory != subcategory:
+                raise serializers.ValidationError({
+                    'subsubcategory': 'Sub-subcategory does not belong to the selected subcategory.'
+                })
+        
+        return data
+
+
 class ProductDetailSerializer(ProductSerializer):
     stock_entries = serializers.SerializerMethodField()
     
@@ -119,7 +153,6 @@ class ProductDetailSerializer(ProductSerializer):
     def get_stock_entries(self, obj):
         entries = obj.stock_entries.all().order_by('-created_at')[:10]
         return StockEntrySerializer(entries, many=True).data
-
 
 # ========================
 # Stock Entry Serializers

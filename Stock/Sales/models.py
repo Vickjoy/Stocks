@@ -3,6 +3,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
 
+
 class Category(models.Model):
     """Main product categories (Fire, ICT, Solar)"""
     CATEGORY_CHOICES = [
@@ -17,6 +18,7 @@ class Category(models.Model):
     
     class Meta:
         verbose_name_plural = "Categories"
+        ordering = ['name']
     
     def __str__(self):
         return self.name
@@ -32,20 +34,38 @@ class SubCategory(models.Model):
     class Meta:
         verbose_name_plural = "SubCategories"
         unique_together = ('category', 'name')
+        ordering = ['name']
     
     def __str__(self):
         return f"{self.category.name} - {self.name}"
 
 
+class SubSubCategory(models.Model):
+    """Sub-subcategories under subcategories (e.g., Panels, Detectors, I/O Modules)"""
+    subcategory = models.ForeignKey(SubCategory, on_delete=models.CASCADE, related_name='subsubcategories')
+    name = models.CharField(max_length=100)
+    description = models.TextField(blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        verbose_name_plural = "Sub-SubCategories"
+        unique_together = ('subcategory', 'name')
+        ordering = ['name']
+    
+    def __str__(self):
+        return f"{self.subcategory.category.name} - {self.subcategory.name} - {self.name}"
+
+
+# Keep ProductGroup for backward compatibility but mark as deprecated
 class ProductGroup(models.Model):
-    """Product groups under subcategories (e.g., Panels, Detectors, I/O Modules)"""
+    """Product groups under subcategories - DEPRECATED, use SubSubCategory instead"""
     subcategory = models.ForeignKey(SubCategory, on_delete=models.CASCADE, related_name='groups')
     name = models.CharField(max_length=100)
     description = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     
     class Meta:
-        verbose_name_plural = "Product Groups"
+        verbose_name_plural = "Product Groups (Deprecated)"
         unique_together = ('subcategory', 'name')
         ordering = ['name']
     
@@ -91,9 +111,29 @@ class Customer(models.Model):
 
 
 class Product(models.Model):
-    """Products/Stock items - Now linked to ProductGroup"""
-    group = models.ForeignKey(ProductGroup, on_delete=models.CASCADE, related_name='products', null=True, blank=True)
+    """Products/Stock items - Updated with hierarchical categories"""
+    # New hierarchical structure
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products')
     subcategory = models.ForeignKey(SubCategory, on_delete=models.CASCADE, related_name='products')
+    subsubcategory = models.ForeignKey(
+        SubSubCategory, 
+        on_delete=models.SET_NULL, 
+        related_name='products', 
+        null=True, 
+        blank=True,
+        help_text="Product group - optional grouping within subcategory"
+    )
+    
+    # Deprecated - kept for backward compatibility but not used in UI
+    group = models.ForeignKey(
+        ProductGroup, 
+        on_delete=models.SET_NULL, 
+        related_name='products', 
+        null=True, 
+        blank=True,
+        help_text="DEPRECATED: Use subsubcategory instead"
+    )
+    
     code = models.CharField(max_length=50, unique=True)
     name = models.CharField(max_length=200)
     description = models.TextField(blank=True)
@@ -109,6 +149,14 @@ class Product(models.Model):
     
     def __str__(self):
         return f"{self.code} - {self.name}"
+    
+    def get_group_name(self):
+        """Returns the group name from subsubcategory (preferred) or deprecated group field"""
+        if self.subsubcategory:
+            return self.subsubcategory.name
+        elif self.group:
+            return self.group.name
+        return "Ungrouped"
 
 
 class MonthlyOpeningStock(models.Model):

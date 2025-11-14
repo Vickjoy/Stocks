@@ -10,13 +10,13 @@ from datetime import timedelta
 from django.contrib.auth.models import User
 
 from .models import (
-    Category, SubCategory, ProductGroup, Supplier, Customer, Product,
+    Category, SubCategory, SubSubCategory, ProductGroup, Supplier, Customer, Product,
     MonthlyOpeningStock, StockEntry, Invoice, InvoiceItem,
     Payment, LPO, AuditLog, Sale
 )
 from .serializers import (
     UserSerializer, UserDetailSerializer,
-    CategorySerializer, SubCategorySerializer, ProductGroupSerializer,
+    CategorySerializer, SubCategorySerializer, SubSubCategorySerializer, ProductGroupSerializer,
     SupplierSerializer, CustomerSerializer,
     ProductSerializer, ProductDetailSerializer,
     StockEntrySerializer, MonthlyOpeningStockSerializer,
@@ -48,9 +48,11 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
 # Category ViewSet
 # ========================
 class CategoryViewSet(viewsets.ModelViewSet):
-    queryset = Category.objects.prefetch_related('subcategories__groups')
+    queryset = Category.objects.prefetch_related(
+        'subcategories__subsubcategories'
+    ).all()
     serializer_class = CategorySerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     filter_backends = [SearchFilter]
     search_fields = ['name']
 
@@ -59,7 +61,7 @@ class CategoryViewSet(viewsets.ModelViewSet):
 # SubCategory ViewSet
 # ========================
 class SubCategoryViewSet(viewsets.ModelViewSet):
-    queryset = SubCategory.objects.select_related('category').prefetch_related('groups')
+    queryset = SubCategory.objects.select_related('category').prefetch_related('subsubcategories')
     serializer_class = SubCategorySerializer
     permission_classes = [permissions.IsAuthenticated]
     filter_backends = [DjangoFilterBackend, SearchFilter]
@@ -68,7 +70,21 @@ class SubCategoryViewSet(viewsets.ModelViewSet):
 
 
 # ========================
-# ProductGroup ViewSet (NEW)
+# SubSubCategory ViewSet (NEW)
+# ========================
+class SubSubCategoryViewSet(viewsets.ModelViewSet):
+    queryset = SubSubCategory.objects.select_related('subcategory__category')
+    serializer_class = SubSubCategorySerializer
+    permission_classes = [permissions.IsAuthenticated]
+    filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
+    filterset_fields = ['subcategory', 'subcategory__category']
+    search_fields = ['name', 'description']
+    ordering_fields = ['name', 'created_at']
+    ordering = ['name']
+
+
+# ========================
+# ProductGroup ViewSet (Deprecated)
 # ========================
 class ProductGroupViewSet(viewsets.ModelViewSet):
     queryset = ProductGroup.objects.select_related('subcategory__category').prefetch_related('products')
@@ -127,10 +143,15 @@ class CustomerViewSet(viewsets.ModelViewSet):
 # Product ViewSet
 # ========================
 class ProductViewSet(viewsets.ModelViewSet):
-    queryset = Product.objects.select_related('subcategory__category', 'group')
+    queryset = Product.objects.select_related(
+        'category',
+        'subcategory__category',
+        'subsubcategory__subcategory',
+        'group'
+    )
     permission_classes = [permissions.IsAuthenticated]
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
-    filterset_fields = ['subcategory', 'group', 'is_active']
+    filterset_fields = ['category', 'subcategory', 'subsubcategory', 'group', 'is_active']
     search_fields = ['code', 'name', 'description']
     ordering_fields = ['code', 'current_stock', 'unit_price', 'created_at']
     ordering = ['code']
@@ -438,6 +459,7 @@ class DashboardViewSet(viewsets.ViewSet):
 # ========================
 class SaleViewSet(viewsets.ModelViewSet):
     queryset = Sale.objects.select_related(
+        'product__category',
         'product__subcategory__category',
         'customer',
         'recorded_by'
