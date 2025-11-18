@@ -161,14 +161,24 @@ class ProductDetailSerializer(ProductSerializer):
 class StockEntrySerializer(serializers.ModelSerializer):
     product_code = serializers.CharField(source='product.code', read_only=True)
     product_name = serializers.CharField(source='product.name', read_only=True)
+    category_name = serializers.CharField(source='product.category.name', read_only=True)
+    subcategory_name = serializers.CharField(source='product.subcategory.name', read_only=True)
+    subsubcategory_name = serializers.CharField(source='product.subsubcategory.name', read_only=True)
     supplier_name = serializers.CharField(source='supplier.company_name', read_only=True)
     recorded_by_name = serializers.CharField(source='recorded_by.get_full_name', read_only=True)
     
     class Meta:
         model = StockEntry
-        fields = ['id', 'product', 'product_code', 'product_name', 'entry_type', 'quantity', 
-                  'supplier', 'supplier_name', 'notes', 'recorded_by', 'recorded_by_name', 'created_at']
+        fields = [
+            'id', 'product', 'product_code', 'product_name',
+            'category_name', 'subcategory_name', 'subsubcategory_name',
+            'entry_type', 'quantity',
+            'supplier', 'supplier_name',
+            'notes', 'recorded_by', 'recorded_by_name',
+            'created_at'
+        ]
         read_only_fields = ['id', 'created_at']
+
 
 
 # ========================
