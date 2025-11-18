@@ -1,10 +1,11 @@
 # serializers.py
 from rest_framework import serializers
+from decimal import Decimal, ROUND_HALF_UP
 from django.contrib.auth.models import User
 from .models import (
     Category, SubCategory, SubSubCategory, ProductGroup, Supplier, Customer, Product,
     MonthlyOpeningStock, StockEntry, Invoice, InvoiceItem,
-    Payment, LPO, AuditLog, Sale
+    Payment, LPO, AuditLog, Sale, SaleLineItem
 )
 
 
@@ -302,35 +303,28 @@ class DashboardSummarySerializer(serializers.Serializer):
     total_outstanding = serializers.DecimalField(max_digits=12, decimal_places=2)
 
 
-# ========================
-# Sale Serializers
-# ========================
-class SaleSerializer(serializers.ModelSerializer):
+class SaleLineItemSerializer(serializers.ModelSerializer):
     product_code = serializers.CharField(source='product.code', read_only=True)
     product_name = serializers.CharField(source='product.name', read_only=True)
-    customer_name = serializers.CharField(source='customer.company_name', read_only=True)
-    recorded_by_name = serializers.CharField(source='recorded_by.get_full_name', read_only=True)
     outstanding_quantity = serializers.SerializerMethodField()
-    
+
     class Meta:
-        model = Sale
+        model = SaleLineItem
         fields = [
-            'id', 'sale_number', 'product', 'product_code', 'product_name',
-            'customer', 'customer_name', 'quantity_ordered', 'quantity_supplied',
-            'outstanding_quantity', 'supply_status', 'unit_price', 'total_amount',
-            'lpo_quotation_number', 'delivery_number', 'recorded_by',
-            'recorded_by_name', 'created_at', 'updated_at'
+            'id', 'product', 'product_code', 'product_name',
+            'quantity_ordered', 'quantity_supplied', 'outstanding_quantity',
+            'supply_status', 'unit_price', 'subtotal'
         ]
-        read_only_fields = ['id', 'sale_number', 'total_amount', 'created_at', 'updated_at']
-    
+        read_only_fields = ['id', 'subtotal']
+
     def get_outstanding_quantity(self, obj):
         return obj.outstanding_quantity()
-    
+
     def validate(self, data):
         quantity_ordered = data.get('quantity_ordered', 0)
         quantity_supplied = data.get('quantity_supplied', 0)
         supply_status = data.get('supply_status')
-        
+
         if supply_status == 'Supplied':
             data['quantity_supplied'] = quantity_ordered
         elif supply_status == 'Not Supplied':
@@ -340,49 +334,89 @@ class SaleSerializer(serializers.ModelSerializer):
                 raise serializers.ValidationError(
                     "For partially supplied, quantity must be between 0 and ordered quantity"
                 )
-        
-        product = data.get('product')
-        if supply_status in ['Supplied', 'Partially Supplied']:
-            if product.current_stock < quantity_supplied:
-                raise serializers.ValidationError(
-                    f"Insufficient stock. Available: {product.current_stock}, Required: {quantity_supplied}"
-                )
-        
-        return data
 
-
-class SaleCreateSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Sale
-        fields = [
-            'product', 'customer', 'quantity_ordered', 'quantity_supplied',
-            'supply_status', 'unit_price', 'lpo_quotation_number', 'delivery_number'
-        ]
-    
-    def validate(self, data):
-        quantity_ordered = data.get('quantity_ordered', 0)
-        quantity_supplied = data.get('quantity_supplied', 0)
-        supply_status = data.get('supply_status')
-        
-        if supply_status == 'Supplied':
-            data['quantity_supplied'] = quantity_ordered
-        elif supply_status == 'Not Supplied':
-            data['quantity_supplied'] = 0
-        elif supply_status == 'Partially Supplied':
-            if quantity_supplied <= 0 or quantity_supplied >= quantity_ordered:
-                raise serializers.ValidationError(
-                    "For partially supplied, quantity must be between 0 and ordered quantity"
-                )
-        
         product = data.get('product')
         if supply_status in ['Supplied', 'Partially Supplied']:
             if product.current_stock < data['quantity_supplied']:
                 raise serializers.ValidationError(
-                    f"Insufficient stock. Available: {product.current_stock}, Required: {data['quantity_supplied']}"
+                    f"Insufficient stock for {product.name}. Available: {product.current_stock}, Required: {data['quantity_supplied']}"
                 )
-        
+
         return data
+
+
+class SaleSerializer(serializers.ModelSerializer):
+    customer_name = serializers.CharField(source='customer.company_name', read_only=True)
+    recorded_by_name = serializers.CharField(source='recorded_by.get_full_name', read_only=True)
+    line_items = SaleLineItemSerializer(many=True, read_only=True)
+    has_outstanding = serializers.SerializerMethodField()
+    is_fully_paid = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Sale
+        fields = [
+            'id', 'sale_number', 'customer', 'customer_name',
+            'lpo_quotation_number', 'delivery_number',
+            'mode_of_payment', 'amount_paid', 'total_amount', 'outstanding_balance',
+            'line_items', 'has_outstanding', 'is_fully_paid',
+            'recorded_by', 'recorded_by_name',
+            'created_at', 'updated_at'
+        ]
+        read_only_fields = ['id', 'sale_number', 'total_amount', 'outstanding_balance', 'created_at', 'updated_at']
+
+    def get_has_outstanding(self, obj):
+        return obj.has_outstanding_supplies()
     
+    def get_is_fully_paid(self, obj):
+        return obj.is_fully_paid()
+
+
+class SaleCreateSerializer(serializers.ModelSerializer):
+    line_items = SaleLineItemSerializer(many=True)
+
+    class Meta:
+        model = Sale
+        fields = [
+            'customer', 'lpo_quotation_number', 'delivery_number',
+            'mode_of_payment', 'amount_paid', 'line_items'
+        ]
+
+    def validate(self, data):
+        # Validate amount_paid based on mode_of_payment
+        mode_of_payment = data.get('mode_of_payment')
+        amount_paid = data.get('amount_paid', 0)
+
+        if mode_of_payment == 'Not Paid':
+            data['amount_paid'] = Decimal('0.00')
+        elif mode_of_payment in ['Cash', 'Cheque', 'Mpesa']:
+            if not amount_paid or amount_paid <= 0:
+                raise serializers.ValidationError({
+                    'amount_paid': 'Amount paid is required when payment mode is selected'
+                })
+            # Ensure Decimal precision
+            data['amount_paid'] = Decimal(str(amount_paid)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+
+        # Validate line items
+        line_items = data.get('line_items', [])
+        if not line_items:
+            raise serializers.ValidationError({
+                'line_items': 'At least one product must be added to the sale'
+            })
+
+        return data
+
     def create(self, validated_data):
+        line_items_data = validated_data.pop('line_items')
         validated_data['recorded_by'] = self.context['request'].user
-        return super().create(validated_data)
+
+        # Create sale
+        sale = Sale.objects.create(**validated_data)
+
+        # Create line items
+        for item_data in line_items_data:
+            SaleLineItem.objects.create(sale=sale, **item_data)
+
+        # Calculate total (this will also calculate outstanding_balance)
+        sale.calculate_total()
+
+        return sale

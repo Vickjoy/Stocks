@@ -12,7 +12,7 @@ from django.contrib.auth.models import User
 from .models import (
     Category, SubCategory, SubSubCategory, ProductGroup, Supplier, Customer, Product,
     MonthlyOpeningStock, StockEntry, Invoice, InvoiceItem,
-    Payment, LPO, AuditLog, Sale
+    Payment, LPO, AuditLog, Sale, SaleLineItem
 )
 from .serializers import (
     UserSerializer, UserDetailSerializer,
@@ -459,19 +459,21 @@ class DashboardViewSet(viewsets.ViewSet):
 # ========================
 class SaleViewSet(viewsets.ModelViewSet):
     queryset = Sale.objects.select_related(
-        'product__category',
-        'product__subcategory__category',
         'customer',
         'recorded_by'
+    ).prefetch_related(
+        'line_items__product__category',
+        'line_items__product__subcategory'
     ).order_by('-created_at')
     permission_classes = [permissions.IsAuthenticated]
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
-    filterset_fields = ['supply_status', 'customer', 'product', 'created_at']
+    filterset_fields = ['customer', 'mode_of_payment', 'created_at']
     search_fields = [
-        'sale_number', 'product__code', 'product__name',
-        'customer__company_name', 'lpo_quotation_number', 'delivery_number'
+        'sale_number', 'customer__company_name', 
+        'lpo_quotation_number', 'delivery_number',
+        'line_items__product__code', 'line_items__product__name'
     ]
-    ordering_fields = ['created_at', 'total_amount', 'supply_status']
+    ordering_fields = ['created_at', 'total_amount']
     
     def get_serializer_class(self):
         if self.action == 'create':
@@ -480,50 +482,88 @@ class SaleViewSet(viewsets.ModelViewSet):
     
     @action(detail=False, methods=['get'])
     def outstanding(self, request):
+        """Get all sales with outstanding supplies"""
         sales = self.queryset.filter(
-            supply_status__in=['Not Supplied', 'Partially Supplied']
-        ).exclude(
-            quantity_supplied=F('quantity_ordered')
-        )
+            line_items__supply_status__in=['Not Supplied', 'Partially Supplied']
+        ).distinct()
         serializer = self.get_serializer(sales, many=True)
         return Response(serializer.data)
     
     @action(detail=False, methods=['get'])
-    def by_customer(self, request):
-        customer_id = request.query_params.get('customer_id')
-        if not customer_id:
-            return Response(
-                {'error': 'customer_id parameter required'},
-                status=status.HTTP_400_BAD_REQUEST
-            )
+    def search_products(self, request):
+        """Search products for autocomplete"""
+        query = request.query_params.get('q', '')
+        if len(query) < 2:
+            return Response([])
         
-        sales = self.queryset.filter(
-            customer_id=customer_id,
-            supply_status__in=['Not Supplied', 'Partially Supplied']
-        )
-        serializer = self.get_serializer(sales, many=True)
-        return Response(serializer.data)
+        products = Product.objects.filter(
+            Q(code__icontains=query) | Q(name__icontains=query),
+            is_active=True
+        ).select_related('category', 'subcategory')[:10]
+        
+        data = [{
+            'id': p.id,
+            'code': p.code,
+            'name': p.name,
+            'unit_price': str(p.unit_price),
+            'current_stock': p.current_stock,
+            'category': p.category.name if p.category else '',
+            'subcategory': p.subcategory.name if p.subcategory else ''
+        } for p in products]
+        
+        return Response(data)
+    
+    @action(detail=False, methods=['get'])
+    def search_customers(self, request):
+        """Search customers for autocomplete"""
+        query = request.query_params.get('q', '')
+        if len(query) < 2:
+            return Response([])
+        
+        customers = Customer.objects.filter(
+            Q(company_name__icontains=query) | Q(email__icontains=query),
+            is_active=True
+        )[:10]
+        
+        data = [{
+            'id': c.id,
+            'company_name': c.company_name,
+            'email': c.email,
+            'phone': c.phone
+        } for c in customers]
+        
+        return Response(data)
     
     @action(detail=True, methods=['post'])
-    def update_supply(self, request, pk=None):
+    def update_line_item_supply(self, request, pk=None):
+        """Update supply status for a specific line item"""
         sale = self.get_object()
+        line_item_id = request.data.get('line_item_id')
         new_quantity = request.data.get('quantity_supplied', 0)
         new_status = request.data.get('supply_status')
         
-        if not new_status:
+        if not line_item_id or not new_status:
             return Response(
-                {'error': 'supply_status is required'},
+                {'error': 'line_item_id and supply_status are required'},
                 status=status.HTTP_400_BAD_REQUEST
             )
         
-        old_supplied = sale.quantity_supplied
+        try:
+            line_item = sale.line_items.get(id=line_item_id)
+        except SaleLineItem.DoesNotExist:
+            return Response(
+                {'error': 'Line item not found'},
+                status=status.HTTP_404_NOT_FOUND
+            )
+        
+        old_supplied = line_item.quantity_supplied
         diff = new_quantity - old_supplied
         
         if diff != 0 and new_status in ['Supplied', 'Partially Supplied']:
-            product = sale.product
+            product = line_item.product
             if product.current_stock < diff:
                 return Response(
-                    {'error': 'Insufficient stock for supply update'},
+                    {'error': f'Insufficient stock for {product.name}. Available: {product.current_stock}'},
                     status=status.HTTP_400_BAD_REQUEST
                 )
             product.current_stock -= diff
@@ -533,23 +573,22 @@ class SaleViewSet(viewsets.ModelViewSet):
                 product=product,
                 entry_type='Out',
                 quantity=diff,
-                notes=f'Supply update for sale {sale.sale_number}',
+                notes=f'Supply update for sale {sale.sale_number} - {product.code}',
                 recorded_by=request.user
             )
         
-        sale.quantity_supplied = new_quantity
-        sale.supply_status = new_status
-        sale.save()
+        line_item.quantity_supplied = new_quantity
+        line_item.supply_status = new_status
+        line_item.save()
         
         AuditLog.objects.create(
             action='Supply Update',
             user=request.user,
-            description=f'Supply updated for sale {sale.sale_number}: {new_status} ({new_quantity})',
+            description=f'Supply updated for sale {sale.sale_number}, item {line_item.product.code}: {new_status} ({new_quantity})',
             ip_address=request.META.get('REMOTE_ADDR')
         )
         
-        return Response({
-            'sale_number': sale.sale_number,
-            'supply_status': sale.supply_status,
-            'quantity_supplied': sale.quantity_supplied
-        })
+        # Refresh sale to get updated data
+        sale.refresh_from_db()
+        serializer = self.get_serializer(sale)
+        return Response(serializer.data)

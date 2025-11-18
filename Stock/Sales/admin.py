@@ -3,7 +3,7 @@ from django.contrib import admin
 from .models import (
     Category, SubCategory, SubSubCategory, ProductGroup, Supplier, Customer, Product,
     MonthlyOpeningStock, StockEntry, Invoice, InvoiceItem,
-    Payment, LPO, AuditLog, Sale
+    Payment, LPO, AuditLog, Sale, SaleLineItem
 )
 
 
@@ -179,30 +179,36 @@ class AuditLogAdmin(admin.ModelAdmin):
     readonly_fields = ['timestamp']
 
 
+class SaleLineItemInline(admin.TabularInline):
+    model = SaleLineItem
+    extra = 1
+    fields = ['product', 'quantity_ordered', 'quantity_supplied', 'supply_status', 'unit_price', 'subtotal']
+    readonly_fields = ['subtotal']
+    autocomplete_fields = ['product']
+
+
 @admin.register(Sale)
 class SaleAdmin(admin.ModelAdmin):
     list_display = [
-        'sale_number', 'product', 'customer', 'quantity_ordered',
-        'quantity_supplied', 'supply_status', 'total_amount', 'created_at'
+        'sale_number', 'customer', 'total_amount', 'mode_of_payment',
+        'amount_paid', 'created_at'
     ]
     search_fields = [
-        'sale_number', 'product__code', 'product__name',
-        'customer__company_name', 'lpo_quotation_number', 'delivery_number'
+        'sale_number', 'customer__company_name',
+        'lpo_quotation_number', 'delivery_number'
     ]
-    list_filter = ['supply_status', 'created_at']
+    list_filter = ['mode_of_payment', 'created_at']
     ordering = ['-created_at']
-    autocomplete_fields = ['product', 'customer', 'recorded_by']
+    autocomplete_fields = ['customer', 'recorded_by']
     readonly_fields = ['sale_number', 'total_amount', 'created_at', 'updated_at']
+    inlines = [SaleLineItemInline]
     
     fieldsets = (
         ('Sale Information', {
-            'fields': ('sale_number', 'product', 'customer')
+            'fields': ('sale_number', 'customer')
         }),
-        ('Quantities & Status', {
-            'fields': (
-                'quantity_ordered', 'quantity_supplied', 'supply_status',
-                'unit_price', 'total_amount'
-            )
+        ('Payment Details', {
+            'fields': ('mode_of_payment', 'amount_paid', 'total_amount')
         }),
         ('Reference Numbers', {
             'fields': ('lpo_quotation_number', 'delivery_number')
@@ -212,3 +218,18 @@ class SaleAdmin(admin.ModelAdmin):
             'classes': ('collapse',)
         }),
     )
+
+
+@admin.register(SaleLineItem)
+class SaleLineItemAdmin(admin.ModelAdmin):
+    list_display = [
+        'sale', 'product', 'quantity_ordered', 'quantity_supplied',
+        'supply_status', 'unit_price', 'subtotal'
+    ]
+    search_fields = [
+        'sale__sale_number', 'product__code', 'product__name'
+    ]
+    list_filter = ['supply_status', 'sale__created_at']
+    ordering = ['-sale__created_at']
+    autocomplete_fields = ['sale', 'product']
+    readonly_fields = ['subtotal']

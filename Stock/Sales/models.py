@@ -2,6 +2,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
+from decimal import Decimal, ROUND_HALF_UP
 
 
 class Category(models.Model):
@@ -312,80 +313,158 @@ class AuditLog(models.Model):
 
 
 class Sale(models.Model):
-    """Track individual sales with supply status"""
+    """Track sales with multiple products and payment details"""
+    PAYMENT_MODE_CHOICES = [
+        ('Cash', 'Cash'),
+        ('Cheque', 'Cheque'),
+        ('Mpesa', 'Mpesa'),
+        ('Not Paid', 'Not Paid'),
+    ]
+
+    sale_number = models.CharField(max_length=50, unique=True, blank=True)
+    customer = models.ForeignKey(Customer, on_delete=models.PROTECT, related_name='sales')
+    lpo_quotation_number = models.CharField(max_length=100, blank=True)
+    delivery_number = models.CharField(max_length=100, blank=True)
+    mode_of_payment = models.CharField(max_length=20, choices=PAYMENT_MODE_CHOICES, default='Not Paid')
+    amount_paid = models.DecimalField(max_digits=12, decimal_places=2, default=0)
+    total_amount = models.DecimalField(max_digits=12, decimal_places=2, default=0)
+    
+    # NEW: Outstanding balance field
+    outstanding_balance = models.DecimalField(max_digits=12, decimal_places=2, default=0)
+    
+    recorded_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f"Sale-{self.sale_number} - {self.customer.company_name if self.customer else 'N/A'}"
+
+    def save(self, *args, **kwargs):
+        if not self.sale_number:
+            today_str = timezone.now().strftime('%Y%m%d')
+            prefix = f"S{today_str}"
+            today_sales_count = Sale.objects.filter(sale_number__startswith=prefix).count() + 1
+            sequence = str(today_sales_count).zfill(2)
+            self.sale_number = f"{prefix}{sequence}"
+
+        # Ensure unpaid sales show 0 amount
+        if self.mode_of_payment == 'Not Paid':
+            self.amount_paid = Decimal('0.00')
+        
+        # Calculate outstanding balance using Decimal for precision
+        self.amount_paid = Decimal(str(self.amount_paid)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+        self.total_amount = Decimal(str(self.total_amount)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+        self.outstanding_balance = (self.total_amount - self.amount_paid).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+        
+        # Ensure outstanding balance is never negative
+        if self.outstanding_balance < 0:
+            self.outstanding_balance = Decimal('0.00')
+
+        super().save(*args, **kwargs)
+
+    def calculate_total(self):
+        """Calculate total from line items using Decimal precision"""
+        total = Decimal('0.00')
+        for item in self.line_items.all():
+            subtotal = Decimal(str(item.subtotal)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+            total += subtotal
+        
+        self.total_amount = total.quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+        self.save()
+        return self.total_amount
+
+    def has_outstanding_supplies(self):
+        """Check if any line items have outstanding quantities"""
+        return self.line_items.filter(
+            models.Q(supply_status='Not Supplied') |
+            models.Q(supply_status='Partially Supplied')
+        ).exists()
+    
+    def is_fully_paid(self):
+        """Check if sale is fully paid"""
+        return self.outstanding_balance == Decimal('0.00')
+
+
+class SaleLineItem(models.Model):
+    """Individual products in a sale"""
     SUPPLY_STATUS_CHOICES = [
         ('Supplied', 'Supplied'),
         ('Partially Supplied', 'Partially Supplied'),
         ('Not Supplied', 'Not Supplied'),
     ]
-    
-    sale_number = models.CharField(max_length=50, unique=True, blank=True)
-    product = models.ForeignKey(Product, on_delete=models.PROTECT, related_name='sales')
-    customer = models.ForeignKey(Customer, on_delete=models.PROTECT, related_name='sales')
+
+    sale = models.ForeignKey(Sale, on_delete=models.CASCADE, related_name='line_items')
+    product = models.ForeignKey(Product, on_delete=models.PROTECT, related_name='sale_items')
     quantity_ordered = models.IntegerField()
     quantity_supplied = models.IntegerField(default=0)
-    supply_status = models.CharField(max_length=20, choices=SUPPLY_STATUS_CHOICES)
+    supply_status = models.CharField(max_length=20, choices=SUPPLY_STATUS_CHOICES, default='Supplied')
     unit_price = models.DecimalField(max_digits=10, decimal_places=2)
-    total_amount = models.DecimalField(max_digits=12, decimal_places=2, default=0)
-    lpo_quotation_number = models.CharField(max_length=100, blank=True)
-    delivery_number = models.CharField(max_length=100, blank=True)
-    recorded_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-    
+    subtotal = models.DecimalField(max_digits=12, decimal_places=2, default=0)
+
     class Meta:
-        ordering = ['-created_at']
-    
+        ordering = ['id']
+
     def __str__(self):
-        return f"Sale-{self.sale_number} - {self.product.code if self.product else 'N/A'}"
-    
+        return f"{self.sale.sale_number} - {self.product.code if self.product else 'N/A'}"
+
     def outstanding_quantity(self):
         ordered = self.quantity_ordered or 0
         supplied = self.quantity_supplied or 0
         return ordered - supplied
-    
+
     def save(self, *args, **kwargs):
         if self.quantity_ordered is None:
             self.quantity_ordered = 0
         if self.quantity_supplied is None:
             self.quantity_supplied = 0
-        
-        if not self.sale_number:
-            timestamp = timezone.now().strftime('%Y%m%d%H%M%S')
-            import random
-            self.sale_number = f"S{timestamp}{random.randint(10, 99)}"
-        
-        unit_price = self.unit_price or 0
-        self.total_amount = self.quantity_ordered * unit_price
-        
+
+        # Calculate subtotal using Decimal for precision
+        unit_price = Decimal(str(self.unit_price or 0))
+        quantity = Decimal(str(self.quantity_ordered))
+        self.subtotal = (unit_price * quantity).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+
         is_new = self.pk is None
-        
+        old_supplied = 0
+        if not is_new:
+            try:
+                old_item = SaleLineItem.objects.get(pk=self.pk)
+                old_supplied = old_item.quantity_supplied
+            except SaleLineItem.DoesNotExist:
+                pass
+
+        # Handle supply status logic
         if self.product:
             if self.supply_status == 'Supplied':
                 self.quantity_supplied = self.quantity_ordered
                 if is_new and self.quantity_supplied > 0:
                     self.product.current_stock -= self.quantity_supplied
                     self.product.save()
-            elif self.supply_status == 'Partially Supplied' and self.quantity_supplied > 0:
+
+            elif self.supply_status == 'Partially Supplied':
                 if self.pk:
-                    old_sale = Sale.objects.get(pk=self.pk)
-                    diff = self.quantity_supplied - old_sale.quantity_supplied
+                    diff = self.quantity_supplied - old_supplied
                     if diff > 0:
                         self.product.current_stock -= diff
                         self.product.save()
                 else:
-                    self.product.current_stock -= self.quantity_supplied
-                    self.product.save()
+                    if self.quantity_supplied > 0:
+                        self.product.current_stock -= self.quantity_supplied
+                        self.product.save()
+
             elif self.supply_status == 'Not Supplied':
                 self.quantity_supplied = 0
-        
+
         super().save(*args, **kwargs)
-        
+
+        # Create stock entry for supplied items
         if is_new and self.supply_status in ['Supplied', 'Partially Supplied'] and self.quantity_supplied > 0:
             StockEntry.objects.create(
                 product=self.product,
                 entry_type='Out',
                 quantity=self.quantity_supplied,
-                notes=f"Sale #{self.sale_number} to {self.customer.company_name}",
-                recorded_by=self.recorded_by
+                notes=f"Sale #{self.sale.sale_number} to {self.sale.customer.company_name}",
+                recorded_by=self.sale.recorded_by
             )
