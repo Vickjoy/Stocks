@@ -1,4 +1,3 @@
-# admin.py
 from django.contrib import admin
 from .models import (
     Category, SubCategory, SubSubCategory, ProductGroup, Supplier, Customer, Product,
@@ -52,17 +51,17 @@ class ProductGroupAdmin(admin.ModelAdmin):
 
 @admin.register(Supplier)
 class SupplierAdmin(admin.ModelAdmin):
-    list_display = ['company_name', 'email', 'phone', 'is_active', 'created_at']
-    search_fields = ['company_name', 'email', 'phone']
+    list_display = ['company_name', 'phone', 'is_active', 'created_at']
+    search_fields = ['company_name', 'phone']
     list_filter = ['is_active', 'created_at']
     ordering = ['company_name']
 
 
 @admin.register(Customer)
 class CustomerAdmin(admin.ModelAdmin):
-    list_display = ['company_name', 'email', 'phone', 'payment_type', 'is_active', 'created_at']
-    search_fields = ['company_name', 'email', 'phone']
-    list_filter = ['payment_type', 'is_active', 'created_at']
+    list_display = ['company_name', 'phone', 'is_active', 'created_at']
+    search_fields = ['company_name', 'phone']
+    list_filter = ['is_active', 'created_at']
     ordering = ['company_name']
 
 

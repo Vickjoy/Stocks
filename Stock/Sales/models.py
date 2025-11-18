@@ -75,11 +75,9 @@ class ProductGroup(models.Model):
 
 
 class Supplier(models.Model):
-    """Track suppliers/vendors"""
+    """Track suppliers/vendors - Simplified"""
     company_name = models.CharField(max_length=200, unique=True)
-    email = models.EmailField()
-    phone = models.CharField(max_length=20)
-    address = models.TextField(blank=True)
+    phone = models.CharField(max_length=20, blank=True)
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -89,28 +87,15 @@ class Supplier(models.Model):
 
 
 class Customer(models.Model):
-    """Track customers/buyers"""
-    PAYMENT_TYPE_CHOICES = [
-        ('Cash', 'Cash'),
-        ('Cheque', 'Cheque'),
-        ('Credit', 'Credit'),
-        ('Bank Transfer', 'Bank Transfer'),
-        ('Mobile Money', 'Mobile Money'),
-    ]
-    
+    """Track customers/buyers - Simplified"""
     company_name = models.CharField(max_length=200, unique=True)
-    email = models.EmailField()
-    phone = models.CharField(max_length=20)
-    address = models.TextField(blank=True)
-    payment_type = models.CharField(max_length=20, choices=PAYMENT_TYPE_CHOICES)
+    phone = models.CharField(max_length=20, blank=True)
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
     def __str__(self):
         return self.company_name
-
-
 class Product(models.Model):
     """Products/Stock items - Updated with hierarchical categories"""
     # New hierarchical structure

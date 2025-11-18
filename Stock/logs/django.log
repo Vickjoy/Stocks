@@ -15528,3 +15528,920 @@ INFO 2025-11-18 13:21:30,489 basehttp 728 15188 "GET /api/stock-entries/ HTTP/1.
 INFO 2025-11-18 13:21:30,586 basehttp 728 6276 "GET /api/categories/ HTTP/1.1" 200 1714
 INFO 2025-11-18 13:25:50,781 autoreload 728 11756 C:\Users\user\OneDrive\Desktop\Inventory\Stock\Sales\serializers.py changed, reloading.
 INFO 2025-11-18 13:25:53,214 autoreload 12916 5924 Watching for file changes with StatReloader
+INFO 2025-11-18 13:26:14,492 basehttp 12916 1592 "GET /api/categories/ HTTP/1.1" 200 1714
+INFO 2025-11-18 13:26:14,546 basehttp 12916 15896 "GET /api/stock-entries/ HTTP/1.1" 200 3558
+INFO 2025-11-18 13:29:51,497 basehttp 12916 15896 "GET /api/sales/ HTTP/1.1" 200 3304
+INFO 2025-11-18 13:29:51,755 basehttp 12916 15896 "GET /api/sales/ HTTP/1.1" 200 3304
+INFO 2025-11-18 13:31:50,547 basehttp 12916 15896 "GET /api/categories/ HTTP/1.1" 200 1714
+INFO 2025-11-18 13:31:50,733 basehttp 12916 15896 "GET /api/stock-entries/ HTTP/1.1" 200 3558
+INFO 2025-11-18 13:31:50,873 basehttp 12916 7788 "GET /api/categories/ HTTP/1.1" 200 1714
+INFO 2025-11-18 13:31:50,935 basehttp 12916 15896 "GET /api/stock-entries/ HTTP/1.1" 200 3558
+INFO 2025-11-18 13:37:13,349 basehttp 12916 12844 "OPTIONS /api/users/me/ HTTP/1.1" 200 0
+INFO 2025-11-18 13:37:13,350 basehttp 12916 13048 "OPTIONS /api/users/me/ HTTP/1.1" 200 0
+INFO 2025-11-18 13:37:13,468 basehttp 12916 12844 "GET /api/users/me/ HTTP/1.1" 200 220
+INFO 2025-11-18 13:37:13,616 basehttp 12916 12844 "GET /api/users/me/ HTTP/1.1" 200 220
+INFO 2025-11-18 13:37:13,661 basehttp 12916 13048 "GET /api/categories/ HTTP/1.1" 200 1714
+INFO 2025-11-18 13:37:13,784 basehttp 12916 9260 "GET /api/stock-entries/ HTTP/1.1" 200 3558
+INFO 2025-11-18 13:37:13,930 basehttp 12916 13048 "GET /api/categories/ HTTP/1.1" 200 1714
+INFO 2025-11-18 13:37:14,026 basehttp 12916 9260 "GET /api/stock-entries/ HTTP/1.1" 200 3558
+INFO 2025-11-18 13:40:18,219 basehttp 12916 5536 "OPTIONS /api/stock-entries/[object%20Object] HTTP/1.1" 200 0
+INFO 2025-11-18 13:40:18,220 basehttp 12916 1888 "OPTIONS /api/stock-entries/[object%20Object] HTTP/1.1" 200 0
+INFO 2025-11-18 13:40:18,285 basehttp 12916 5536 "GET /api/stock-entries/[object%20Object] HTTP/1.1" 301 0
+INFO 2025-11-18 13:40:18,314 basehttp 12916 1888 "OPTIONS /api/stock-entries/%5Bobject%20Object%5D/ HTTP/1.1" 200 0
+INFO 2025-11-18 13:40:18,319 basehttp 12916 1888 "OPTIONS /api/stock-entries/%5Bobject%20Object%5D/ HTTP/1.1" 200 0
+INFO 2025-11-18 13:40:18,452 basehttp 12916 108 "GET /api/categories/ HTTP/1.1" 200 1714
+WARNING 2025-11-18 13:40:18,491 log 12916 1888 Not Found: /api/stock-entries/[object Object]/
+WARNING 2025-11-18 13:40:18,492 basehttp 12916 1888 "GET /api/stock-entries/%5Bobject%20Object%5D/ HTTP/1.1" 404 23
+WARNING 2025-11-18 13:40:18,677 log 12916 1888 Not Found: /api/stock-entries/[object Object]/
+WARNING 2025-11-18 13:40:18,683 basehttp 12916 1888 "GET /api/stock-entries/%5Bobject%20Object%5D/ HTTP/1.1" 404 23
+INFO 2025-11-18 13:47:24,346 basehttp 12916 17140 "GET /api/categories/ HTTP/1.1" 200 1714
+INFO 2025-11-18 13:47:51,835 basehttp 12916 17140 "GET /api/users/me/ HTTP/1.1" 200 220
+INFO 2025-11-18 13:47:51,989 basehttp 12916 17140 "GET /api/users/me/ HTTP/1.1" 200 220
+INFO 2025-11-18 13:47:52,020 basehttp 12916 11200 "GET /api/categories/ HTTP/1.1" 200 1714
+INFO 2025-11-18 13:47:52,217 basehttp 12916 11200 "GET /api/categories/ HTTP/1.1" 200 1714
+INFO 2025-11-18 13:47:57,619 basehttp 12916 17140 "GET /api/suppliers/ HTTP/1.1" 200 1205
+INFO 2025-11-18 13:47:57,633 basehttp 12916 11200 "GET /api/categories/ HTTP/1.1" 200 1714
+INFO 2025-11-18 13:47:57,788 basehttp 12916 11200 "GET /api/suppliers/ HTTP/1.1" 200 1205
+INFO 2025-11-18 13:47:57,835 basehttp 12916 17140 "GET /api/products/ HTTP/1.1" 200 2057
+INFO 2025-11-18 13:47:57,961 basehttp 12916 11200 "GET /api/categories/ HTTP/1.1" 200 1714
+INFO 2025-11-18 13:47:58,019 basehttp 12916 17140 "GET /api/products/ HTTP/1.1" 200 2057
+INFO 2025-11-18 13:48:00,880 basehttp 12916 17140 "GET /api/categories/ HTTP/1.1" 200 1714
+INFO 2025-11-18 13:48:00,991 basehttp 12916 17140 "GET /api/categories/ HTTP/1.1" 200 1714
+INFO 2025-11-18 13:55:08,228 basehttp 12916 5496 "GET /api/users/me/ HTTP/1.1" 200 220
+INFO 2025-11-18 13:55:08,359 basehttp 12916 5496 "GET /api/users/me/ HTTP/1.1" 200 220
+INFO 2025-11-18 13:57:43,227 basehttp 12916 15620 "OPTIONS /api/stock-entries/ HTTP/1.1" 200 0
+INFO 2025-11-18 13:57:43,449 basehttp 12916 13176 "GET /api/categories/ HTTP/1.1" 200 1714
+INFO 2025-11-18 13:57:43,510 basehttp 12916 15620 "GET /api/stock-entries/ HTTP/1.1" 200 3558
+WARNING 2025-11-18 14:22:20,190 log 12916 6980 Unauthorized: /api/stock-entries/
+INFO 2025-11-18 14:22:20,191 basehttp 12916 11996 "OPTIONS /api/categories/ HTTP/1.1" 200 0
+WARNING 2025-11-18 14:22:20,197 basehttp 12916 6980 "GET /api/stock-entries/ HTTP/1.1" 401 172
+WARNING 2025-11-18 14:22:20,233 log 12916 6980 Unauthorized: /api/categories/
+WARNING 2025-11-18 14:22:20,238 basehttp 12916 6980 "GET /api/categories/ HTTP/1.1" 401 172
+INFO 2025-11-18 14:22:20,252 basehttp 12916 6980 "OPTIONS /api/token/refresh/ HTTP/1.1" 200 0
+INFO 2025-11-18 14:22:20,520 basehttp 12916 11996 "POST /api/token/refresh/ HTTP/1.1" 200 489
+INFO 2025-11-18 14:22:20,524 basehttp 12916 6980 "POST /api/token/refresh/ HTTP/1.1" 200 489
+INFO 2025-11-18 14:22:20,845 basehttp 12916 6980 "GET /api/categories/ HTTP/1.1" 200 1714
+INFO 2025-11-18 14:22:21,003 basehttp 12916 11996 "GET /api/stock-entries/ HTTP/1.1" 200 3558
+INFO 2025-11-18 14:23:19,858 basehttp 12916 5220 "OPTIONS /api/sales/ HTTP/1.1" 200 0
+INFO 2025-11-18 14:23:20,024 basehttp 12916 5220 "GET /api/sales/ HTTP/1.1" 200 3304
+INFO 2025-11-18 14:23:26,404 basehttp 12916 5220 "GET /api/stock-entries/ HTTP/1.1" 200 3558
+INFO 2025-11-18 14:32:24,892 basehttp 12916 5900 "OPTIONS /api/customers/ HTTP/1.1" 200 0
+INFO 2025-11-18 14:32:24,892 basehttp 12916 5704 "OPTIONS /api/customers/ HTTP/1.1" 200 0
+INFO 2025-11-18 14:32:24,984 basehttp 12916 5704 "GET /api/customers/ HTTP/1.1" 200 547
+INFO 2025-11-18 14:32:25,075 basehttp 12916 5704 "GET /api/customers/ HTTP/1.1" 200 547
+INFO 2025-11-18 14:32:35,039 basehttp 12916 5900 "OPTIONS /api/suppliers/ HTTP/1.1" 200 0
+INFO 2025-11-18 14:32:35,040 basehttp 12916 5704 "OPTIONS /api/suppliers/ HTTP/1.1" 200 0
+INFO 2025-11-18 14:32:35,257 basehttp 12916 5900 "GET /api/suppliers/ HTTP/1.1" 200 1205
+INFO 2025-11-18 14:32:35,362 basehttp 12916 5900 "GET /api/suppliers/ HTTP/1.1" 200 1205
+INFO 2025-11-18 14:33:25,464 basehttp 12916 5900 "GET /api/categories/ HTTP/1.1" 200 1714
+INFO 2025-11-18 14:33:25,537 basehttp 12916 5704 "GET /api/stock-entries/ HTTP/1.1" 200 3558
+INFO 2025-11-18 14:33:25,611 basehttp 12916 5900 "GET /api/categories/ HTTP/1.1" 200 1714
+INFO 2025-11-18 14:33:25,702 basehttp 12916 5704 "GET /api/stock-entries/ HTTP/1.1" 200 3558
+INFO 2025-11-18 14:34:18,561 basehttp 12916 5704 "GET /api/suppliers/ HTTP/1.1" 200 1205
+INFO 2025-11-18 14:34:18,665 basehttp 12916 5704 "GET /api/suppliers/ HTTP/1.1" 200 1205
+INFO 2025-11-18 14:34:59,079 basehttp 12916 5704 "OPTIONS /api/suppliers/5/toggle_active/ HTTP/1.1" 200 0
+INFO 2025-11-18 14:34:59,225 basehttp 12916 5704 "POST /api/suppliers/5/toggle_active/ HTTP/1.1" 200 19
+INFO 2025-11-18 14:34:59,340 basehttp 12916 5704 "GET /api/suppliers/ HTTP/1.1" 200 1206
+INFO 2025-11-18 14:38:11,967 basehttp 12916 6920 "OPTIONS /api/dashboard/recent_sales/?days=30 HTTP/1.1" 200 0
+INFO 2025-11-18 14:38:11,967 basehttp 12916 8880 "OPTIONS /api/dashboard/summary/ HTTP/1.1" 200 0
+INFO 2025-11-18 14:38:11,967 basehttp 12916 7616 "OPTIONS /api/dashboard/summary/ HTTP/1.1" 200 0
+INFO 2025-11-18 14:38:11,967 basehttp 12916 7736 "OPTIONS /api/dashboard/recent_sales/?days=30 HTTP/1.1" 200 0
+INFO 2025-11-18 14:38:12,107 basehttp 12916 7616 "GET /api/dashboard/recent_sales/?days=30 HTTP/1.1" 200 2
+INFO 2025-11-18 14:38:12,124 basehttp 12916 7736 "GET /api/dashboard/summary/ HTTP/1.1" 200 132
+INFO 2025-11-18 14:38:12,222 basehttp 12916 7616 "GET /api/dashboard/recent_sales/?days=30 HTTP/1.1" 200 2
+INFO 2025-11-18 14:38:12,259 basehttp 12916 7736 "GET /api/dashboard/summary/ HTTP/1.1" 200 132
+INFO 2025-11-18 14:55:49,018 basehttp 12916 7628 "GET /api/categories/ HTTP/1.1" 200 1714
+INFO 2025-11-18 14:55:49,119 basehttp 12916 13076 "GET /api/stock-entries/ HTTP/1.1" 200 3558
+INFO 2025-11-18 14:55:49,223 basehttp 12916 7628 "GET /api/categories/ HTTP/1.1" 200 1714
+INFO 2025-11-18 14:55:50,266 basehttp 12916 13076 "GET /api/stock-entries/ HTTP/1.1" 200 3558
+INFO 2025-11-18 14:55:52,465 basehttp 12916 13076 "GET /api/sales/ HTTP/1.1" 200 3304
+INFO 2025-11-18 15:00:00,545 basehttp 12916 13076 "GET /api/stock-entries/ HTTP/1.1" 200 3558
+WARNING 2025-11-18 15:24:30,659 log 12916 9184 Unauthorized: /api/customers/
+WARNING 2025-11-18 15:24:30,667 basehttp 12916 9184 "GET /api/customers/ HTTP/1.1" 401 172
+WARNING 2025-11-18 15:24:30,675 log 12916 9184 Unauthorized: /api/customers/
+WARNING 2025-11-18 15:24:30,680 basehttp 12916 9184 "GET /api/customers/ HTTP/1.1" 401 172
+INFO 2025-11-18 15:24:30,770 basehttp 12916 9184 "POST /api/token/refresh/ HTTP/1.1" 200 489
+INFO 2025-11-18 15:24:30,871 basehttp 12916 9184 "POST /api/token/refresh/ HTTP/1.1" 200 489
+INFO 2025-11-18 15:24:31,089 basehttp 12916 9184 "GET /api/customers/ HTTP/1.1" 200 547
+INFO 2025-11-18 15:24:31,175 basehttp 12916 9184 "GET /api/customers/ HTTP/1.1" 200 547
+INFO 2025-11-18 15:24:35,467 basehttp 12916 9184 "GET /api/suppliers/ HTTP/1.1" 200 1206
+INFO 2025-11-18 15:24:35,578 basehttp 12916 9184 "GET /api/suppliers/ HTTP/1.1" 200 1206
+INFO 2025-11-18 16:10:54,407 autoreload 12916 5924 C:\Users\user\OneDrive\Desktop\Inventory\Stock\Sales\models.py changed, reloading.
+INFO 2025-11-18 16:10:57,659 autoreload 5340 4228 Watching for file changes with StatReloader
+INFO 2025-11-18 16:20:47,048 autoreload 16568 16084 Watching for file changes with StatReloader
+INFO 2025-11-18 16:20:53,303 basehttp 16568 6380 "GET /admin/ HTTP/1.1" 200 20122
+INFO 2025-11-18 16:20:55,755 basehttp 16568 6380 "GET /admin/ HTTP/1.1" 200 20122
+INFO 2025-11-18 16:21:07,453 basehttp 16568 7576 "OPTIONS /api/token/ HTTP/1.1" 200 0
+INFO 2025-11-18 16:21:09,115 basehttp 16568 7576 "POST /api/token/ HTTP/1.1" 200 489
+INFO 2025-11-18 16:21:09,122 basehttp 16568 7576 "OPTIONS /api/users/me/ HTTP/1.1" 200 0
+INFO 2025-11-18 16:21:09,225 basehttp 16568 7576 "GET /api/users/me/ HTTP/1.1" 200 220
+INFO 2025-11-18 16:21:09,435 basehttp 16568 2360 "GET /api/dashboard/recent_sales/?days=30 HTTP/1.1" 200 2
+INFO 2025-11-18 16:21:09,465 basehttp 16568 7576 "GET /api/dashboard/summary/ HTTP/1.1" 200 132
+INFO 2025-11-18 16:21:09,599 basehttp 16568 2360 "GET /api/dashboard/recent_sales/?days=30 HTTP/1.1" 200 2
+INFO 2025-11-18 16:21:09,654 basehttp 16568 7576 "GET /api/dashboard/summary/ HTTP/1.1" 200 132
+INFO 2025-11-18 16:21:12,894 basehttp 16568 7576 "GET /api/users/me/ HTTP/1.1" 200 220
+INFO 2025-11-18 16:21:13,055 basehttp 16568 7576 "GET /api/users/me/ HTTP/1.1" 200 220
+INFO 2025-11-18 16:21:13,090 basehttp 16568 2360 "GET /api/dashboard/summary/ HTTP/1.1" 200 132
+INFO 2025-11-18 16:21:13,224 basehttp 16568 7576 "GET /api/dashboard/recent_sales/?days=30 HTTP/1.1" 200 2
+INFO 2025-11-18 16:21:13,293 basehttp 16568 2360 "GET /api/dashboard/summary/ HTTP/1.1" 200 132
+INFO 2025-11-18 16:21:13,380 basehttp 16568 7576 "GET /api/dashboard/recent_sales/?days=30 HTTP/1.1" 200 2
+ERROR 2025-11-18 16:21:15,286 log 16568 7576 Internal Server Error: /api/customers/
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\generics.py", line 154, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 66, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 18, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 49, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+    ...<2 lines>...
+            fields = filterset_fields
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\filterset.py", line 82, in __new__
+    new_class.base_filters = new_class.get_filters()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\filterset.py", line 371, in get_filters
+    raise TypeError(
+    ...<2 lines>...
+    )
+TypeError: 'Meta.fields' must not contain non-model field names: payment_type
+ERROR 2025-11-18 16:21:15,301 basehttp 16568 7576 "GET /api/customers/ HTTP/1.1" 500 128678
+ERROR 2025-11-18 16:21:15,442 log 16568 2360 Internal Server Error: /api/customers/
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\generics.py", line 154, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 66, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 18, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 49, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+    ...<2 lines>...
+            fields = filterset_fields
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\filterset.py", line 82, in __new__
+    new_class.base_filters = new_class.get_filters()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\filterset.py", line 371, in get_filters
+    raise TypeError(
+    ...<2 lines>...
+    )
+TypeError: 'Meta.fields' must not contain non-model field names: payment_type
+ERROR 2025-11-18 16:21:15,454 basehttp 16568 2360 "GET /api/customers/ HTTP/1.1" 500 128678
+INFO 2025-11-18 16:21:19,703 basehttp 16568 2360 "GET /api/users/me/ HTTP/1.1" 200 220
+INFO 2025-11-18 16:21:19,872 basehttp 16568 2360 "GET /api/users/me/ HTTP/1.1" 200 220
+ERROR 2025-11-18 16:21:19,921 log 16568 7576 Internal Server Error: /api/customers/
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\generics.py", line 154, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 66, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 18, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 49, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+    ...<2 lines>...
+            fields = filterset_fields
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\filterset.py", line 82, in __new__
+    new_class.base_filters = new_class.get_filters()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\filterset.py", line 371, in get_filters
+    raise TypeError(
+    ...<2 lines>...
+    )
+TypeError: 'Meta.fields' must not contain non-model field names: payment_type
+ERROR 2025-11-18 16:21:19,935 basehttp 16568 7576 "GET /api/customers/ HTTP/1.1" 500 128678
+ERROR 2025-11-18 16:21:20,080 log 16568 2360 Internal Server Error: /api/customers/
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\generics.py", line 154, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 66, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 18, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 49, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+    ...<2 lines>...
+            fields = filterset_fields
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\filterset.py", line 82, in __new__
+    new_class.base_filters = new_class.get_filters()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\filterset.py", line 371, in get_filters
+    raise TypeError(
+    ...<2 lines>...
+    )
+TypeError: 'Meta.fields' must not contain non-model field names: payment_type
+ERROR 2025-11-18 16:21:20,089 basehttp 16568 2360 "GET /api/customers/ HTTP/1.1" 500 128678
+INFO 2025-11-18 16:21:37,623 basehttp 16568 2360 "OPTIONS /api/stock-entries/ HTTP/1.1" 200 0
+INFO 2025-11-18 16:21:37,629 basehttp 16568 7576 "OPTIONS /api/stock-entries/ HTTP/1.1" 200 0
+INFO 2025-11-18 16:21:37,804 basehttp 16568 3028 "GET /api/categories/ HTTP/1.1" 200 1714
+INFO 2025-11-18 16:21:37,873 basehttp 16568 7576 "GET /api/stock-entries/ HTTP/1.1" 200 3558
+INFO 2025-11-18 16:21:37,959 basehttp 16568 3028 "GET /api/categories/ HTTP/1.1" 200 1714
+INFO 2025-11-18 16:21:38,055 basehttp 16568 7576 "GET /api/stock-entries/ HTTP/1.1" 200 3558
+INFO 2025-11-18 16:21:41,941 basehttp 16568 7576 "GET /api/sales/ HTTP/1.1" 200 3304
+ERROR 2025-11-18 16:21:44,758 log 16568 7576 Internal Server Error: /api/customers/
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\generics.py", line 154, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 66, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 18, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 49, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+    ...<2 lines>...
+            fields = filterset_fields
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\filterset.py", line 82, in __new__
+    new_class.base_filters = new_class.get_filters()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\filterset.py", line 371, in get_filters
+    raise TypeError(
+    ...<2 lines>...
+    )
+TypeError: 'Meta.fields' must not contain non-model field names: payment_type
+ERROR 2025-11-18 16:21:44,773 basehttp 16568 7576 "GET /api/customers/ HTTP/1.1" 500 128678
+ERROR 2025-11-18 16:21:44,938 log 16568 3028 Internal Server Error: /api/customers/
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\generics.py", line 154, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 66, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 18, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 49, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+    ...<2 lines>...
+            fields = filterset_fields
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\filterset.py", line 82, in __new__
+    new_class.base_filters = new_class.get_filters()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\filterset.py", line 371, in get_filters
+    raise TypeError(
+    ...<2 lines>...
+    )
+TypeError: 'Meta.fields' must not contain non-model field names: payment_type
+ERROR 2025-11-18 16:21:44,965 basehttp 16568 3028 "GET /api/customers/ HTTP/1.1" 500 128678
+ERROR 2025-11-18 16:21:45,878 log 16568 3028 Internal Server Error: /api/suppliers/
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\mixins.py", line 43, in list
+    return self.get_paginated_response(serializer.data)
+                                       ^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\serializers.py", line 797, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\serializers.py", line 716, in to_representation
+    self.child.to_representation(item) for item in iterable
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\serializers.py", line 525, in to_representation
+    for field in fields:
+                 ^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\serializers.py", line 386, in _readable_fields
+    for field in self.fields.values():
+                 ^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\serializers.py", line 374, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\serializers.py", line 1105, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\serializers.py", line 1251, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\serializers.py", line 1369, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `email` is not valid for model `Supplier` in `Sales.serializers.SupplierSerializer`.
+ERROR 2025-11-18 16:21:45,896 basehttp 16568 3028 "GET /api/suppliers/ HTTP/1.1" 500 148741
+ERROR 2025-11-18 16:21:46,178 log 16568 7576 Internal Server Error: /api/suppliers/
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\mixins.py", line 43, in list
+    return self.get_paginated_response(serializer.data)
+                                       ^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\serializers.py", line 797, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\serializers.py", line 716, in to_representation
+    self.child.to_representation(item) for item in iterable
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\serializers.py", line 525, in to_representation
+    for field in fields:
+                 ^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\serializers.py", line 386, in _readable_fields
+    for field in self.fields.values():
+                 ^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\serializers.py", line 374, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\serializers.py", line 1105, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\serializers.py", line 1251, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\serializers.py", line 1369, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `email` is not valid for model `Supplier` in `Sales.serializers.SupplierSerializer`.
+ERROR 2025-11-18 16:21:46,209 basehttp 16568 7576 "GET /api/suppliers/ HTTP/1.1" 500 148741
+ERROR 2025-11-18 16:22:18,891 log 16568 7576 Internal Server Error: /api/customers/
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\generics.py", line 154, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 66, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 18, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 49, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+    ...<2 lines>...
+            fields = filterset_fields
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\filterset.py", line 82, in __new__
+    new_class.base_filters = new_class.get_filters()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\filterset.py", line 371, in get_filters
+    raise TypeError(
+    ...<2 lines>...
+    )
+TypeError: 'Meta.fields' must not contain non-model field names: payment_type
+ERROR 2025-11-18 16:22:18,899 basehttp 16568 7576 "GET /api/customers/ HTTP/1.1" 500 128678
+ERROR 2025-11-18 16:22:19,056 log 16568 3028 Internal Server Error: /api/customers/
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\generics.py", line 154, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 66, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 18, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 49, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+    ...<2 lines>...
+            fields = filterset_fields
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\filterset.py", line 82, in __new__
+    new_class.base_filters = new_class.get_filters()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\filterset.py", line 371, in get_filters
+    raise TypeError(
+    ...<2 lines>...
+    )
+TypeError: 'Meta.fields' must not contain non-model field names: payment_type
+ERROR 2025-11-18 16:22:19,069 basehttp 16568 3028 "GET /api/customers/ HTTP/1.1" 500 128678
+INFO 2025-11-18 16:24:26,513 autoreload 16568 16084 C:\Users\user\OneDrive\Desktop\Inventory\Stock\Sales\serializers.py changed, reloading.
+INFO 2025-11-18 16:24:28,210 autoreload 14404 7216 Watching for file changes with StatReloader
+INFO 2025-11-18 16:24:39,991 basehttp 14404 3864 "GET /api/users/me/ HTTP/1.1" 200 220
+INFO 2025-11-18 16:24:40,135 basehttp 14404 3864 "GET /api/users/me/ HTTP/1.1" 200 220
+ERROR 2025-11-18 16:24:40,234 log 14404 2224 Internal Server Error: /api/customers/
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\generics.py", line 154, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 66, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 18, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 49, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+    ...<2 lines>...
+            fields = filterset_fields
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\filterset.py", line 82, in __new__
+    new_class.base_filters = new_class.get_filters()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\filterset.py", line 371, in get_filters
+    raise TypeError(
+    ...<2 lines>...
+    )
+TypeError: 'Meta.fields' must not contain non-model field names: payment_type
+ERROR 2025-11-18 16:24:40,249 basehttp 14404 2224 "GET /api/customers/ HTTP/1.1" 500 128678
+ERROR 2025-11-18 16:24:40,381 log 14404 3864 Internal Server Error: /api/customers/
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\generics.py", line 154, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 66, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 18, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 49, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+    ...<2 lines>...
+            fields = filterset_fields
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\filterset.py", line 82, in __new__
+    new_class.base_filters = new_class.get_filters()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\filterset.py", line 371, in get_filters
+    raise TypeError(
+    ...<2 lines>...
+    )
+TypeError: 'Meta.fields' must not contain non-model field names: payment_type
+ERROR 2025-11-18 16:24:40,391 basehttp 14404 3864 "GET /api/customers/ HTTP/1.1" 500 128678
+INFO 2025-11-18 16:24:41,540 basehttp 14404 8480 "GET /admin/ HTTP/1.1" 200 20122
+INFO 2025-11-18 16:24:45,880 basehttp 14404 3864 "GET /api/users/me/ HTTP/1.1" 200 220
+INFO 2025-11-18 16:24:46,018 basehttp 14404 3864 "GET /api/users/me/ HTTP/1.1" 200 220
+ERROR 2025-11-18 16:24:46,188 log 14404 2224 Internal Server Error: /api/customers/
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\generics.py", line 154, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 66, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 18, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 49, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+    ...<2 lines>...
+            fields = filterset_fields
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\filterset.py", line 82, in __new__
+    new_class.base_filters = new_class.get_filters()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\filterset.py", line 371, in get_filters
+    raise TypeError(
+    ...<2 lines>...
+    )
+TypeError: 'Meta.fields' must not contain non-model field names: payment_type
+ERROR 2025-11-18 16:24:46,204 basehttp 14404 2224 "GET /api/customers/ HTTP/1.1" 500 128678
+ERROR 2025-11-18 16:24:46,432 log 14404 3864 Internal Server Error: /api/customers/
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\generics.py", line 154, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 66, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 18, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 49, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+    ...<2 lines>...
+            fields = filterset_fields
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\filterset.py", line 82, in __new__
+    new_class.base_filters = new_class.get_filters()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\filterset.py", line 371, in get_filters
+    raise TypeError(
+    ...<2 lines>...
+    )
+TypeError: 'Meta.fields' must not contain non-model field names: payment_type
+ERROR 2025-11-18 16:24:46,448 basehttp 14404 3864 "GET /api/customers/ HTTP/1.1" 500 128678
+INFO 2025-11-18 16:24:47,492 basehttp 14404 3864 "GET /api/suppliers/ HTTP/1.1" 200 944
+INFO 2025-11-18 16:24:47,609 basehttp 14404 3864 "GET /api/suppliers/ HTTP/1.1" 200 944
+ERROR 2025-11-18 16:24:53,147 log 14404 3864 Internal Server Error: /api/customers/
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\generics.py", line 154, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 66, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 18, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 49, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+    ...<2 lines>...
+            fields = filterset_fields
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\filterset.py", line 82, in __new__
+    new_class.base_filters = new_class.get_filters()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\filterset.py", line 371, in get_filters
+    raise TypeError(
+    ...<2 lines>...
+    )
+TypeError: 'Meta.fields' must not contain non-model field names: payment_type
+ERROR 2025-11-18 16:24:53,168 basehttp 14404 3864 "GET /api/customers/ HTTP/1.1" 500 128678
+ERROR 2025-11-18 16:24:53,324 log 14404 2224 Internal Server Error: /api/customers/
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\generics.py", line 154, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 66, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 18, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 49, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+    ...<2 lines>...
+            fields = filterset_fields
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\filterset.py", line 82, in __new__
+    new_class.base_filters = new_class.get_filters()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\filterset.py", line 371, in get_filters
+    raise TypeError(
+    ...<2 lines>...
+    )
+TypeError: 'Meta.fields' must not contain non-model field names: payment_type
+ERROR 2025-11-18 16:24:53,337 basehttp 14404 2224 "GET /api/customers/ HTTP/1.1" 500 128678
+INFO 2025-11-18 16:25:04,943 basehttp 14404 3864 "GET /api/dashboard/recent_sales/?days=30 HTTP/1.1" 200 2
+INFO 2025-11-18 16:25:05,050 basehttp 14404 2224 "GET /api/dashboard/summary/ HTTP/1.1" 200 132
+INFO 2025-11-18 16:25:05,076 basehttp 14404 3864 "GET /api/dashboard/recent_sales/?days=30 HTTP/1.1" 200 2
+INFO 2025-11-18 16:25:05,183 basehttp 14404 2224 "GET /api/dashboard/summary/ HTTP/1.1" 200 132
+ERROR 2025-11-18 16:25:07,009 log 14404 2224 Internal Server Error: /api/customers/
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\generics.py", line 154, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 66, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 18, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 49, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+    ...<2 lines>...
+            fields = filterset_fields
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\filterset.py", line 82, in __new__
+    new_class.base_filters = new_class.get_filters()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\filterset.py", line 371, in get_filters
+    raise TypeError(
+    ...<2 lines>...
+    )
+TypeError: 'Meta.fields' must not contain non-model field names: payment_type
+ERROR 2025-11-18 16:25:07,023 basehttp 14404 2224 "GET /api/customers/ HTTP/1.1" 500 128678
+ERROR 2025-11-18 16:25:07,176 log 14404 3864 Internal Server Error: /api/customers/
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\generics.py", line 154, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 66, in filter_queryset
+    filterset = self.get_filterset(request, queryset, view)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 18, in get_filterset
+    filterset_class = self.get_filterset_class(view, queryset)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\rest_framework\backends.py", line 49, in get_filterset_class
+    class AutoFilterSet(self.filterset_base):
+    ...<2 lines>...
+            fields = filterset_fields
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\filterset.py", line 82, in __new__
+    new_class.base_filters = new_class.get_filters()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django_filters\filterset.py", line 371, in get_filters
+    raise TypeError(
+    ...<2 lines>...
+    )
+TypeError: 'Meta.fields' must not contain non-model field names: payment_type
+ERROR 2025-11-18 16:25:07,194 basehttp 14404 3864 "GET /api/customers/ HTTP/1.1" 500 128678
+INFO 2025-11-18 16:28:48,218 autoreload 14404 7216 C:\Users\user\OneDrive\Desktop\Inventory\Stock\Sales\views.py changed, reloading.
+INFO 2025-11-18 16:28:49,883 autoreload 8524 4700 Watching for file changes with StatReloader

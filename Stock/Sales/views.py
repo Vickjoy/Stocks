@@ -126,8 +126,8 @@ class CustomerViewSet(viewsets.ModelViewSet):
     serializer_class = CustomerSerializer
     permission_classes = [permissions.IsAuthenticated]
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
-    filterset_fields = ['payment_type', 'is_active']
-    search_fields = ['company_name', 'email', 'phone']
+    filterset_fields = ['is_active']  # ✅ removed 'payment_type'
+    search_fields = ['company_name', 'phone']  # ✅ removed 'email'
     ordering_fields = ['company_name', 'created_at']
     ordering = ['-created_at']
     
@@ -137,7 +137,6 @@ class CustomerViewSet(viewsets.ModelViewSet):
         customer.is_active = not customer.is_active
         customer.save()
         return Response({'is_active': customer.is_active})
-
 
 # ========================
 # Product ViewSet

@@ -87,7 +87,7 @@ class ProductGroupSerializer(serializers.ModelSerializer):
 class SupplierSerializer(serializers.ModelSerializer):
     class Meta:
         model = Supplier
-        fields = ['id', 'company_name', 'email', 'phone', 'address', 'is_active', 'created_at', 'updated_at']
+        fields = ['id', 'company_name', 'phone', 'is_active', 'created_at', 'updated_at']
         read_only_fields = ['id', 'created_at', 'updated_at']
 
 
@@ -97,8 +97,9 @@ class SupplierSerializer(serializers.ModelSerializer):
 class CustomerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Customer
-        fields = ['id', 'company_name', 'email', 'phone', 'address', 'payment_type', 'is_active', 'created_at', 'updated_at']
+        fields = ['id', 'company_name', 'phone', 'is_active', 'created_at', 'updated_at']
         read_only_fields = ['id', 'created_at', 'updated_at']
+
 
 
 # ========================
