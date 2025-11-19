@@ -1,8 +1,8 @@
+# admin.py
 from django.contrib import admin
 from .models import (
     Category, SubCategory, SubSubCategory, ProductGroup, Supplier, Customer, Product,
-    MonthlyOpeningStock, StockEntry, Invoice, InvoiceItem,
-    Payment, LPO, AuditLog, Sale, SaleLineItem
+    MonthlyOpeningStock, StockEntry, AuditLog, Sale, SaleLineItem
 )
 
 
@@ -116,59 +116,6 @@ class StockEntryAdmin(admin.ModelAdmin):
     readonly_fields = ['created_at']
 
 
-@admin.register(Invoice)
-class InvoiceAdmin(admin.ModelAdmin):
-    list_display = [
-        'invoice_number', 'customer', 'total_amount', 'paid_amount',
-        'status', 'due_date', 'created_at'
-    ]
-    search_fields = ['invoice_number', 'customer__company_name']
-    list_filter = ['status', 'created_at', 'due_date']
-    ordering = ['-created_at']
-    autocomplete_fields = ['customer', 'created_by']
-    readonly_fields = ['created_at', 'updated_at']
-
-
-class InvoiceItemInline(admin.TabularInline):
-    model = InvoiceItem
-    extra = 1
-    autocomplete_fields = ['product']
-
-
-@admin.register(InvoiceItem)
-class InvoiceItemAdmin(admin.ModelAdmin):
-    list_display = ['invoice', 'product', 'quantity', 'unit_price', 'subtotal']
-    search_fields = ['invoice__invoice_number', 'product__code', 'product__name']
-    list_filter = ['invoice__created_at']
-    autocomplete_fields = ['invoice', 'product']
-
-
-@admin.register(Payment)
-class PaymentAdmin(admin.ModelAdmin):
-    list_display = [
-        'invoice', 'amount', 'payment_method', 'reference_number',
-        'payment_date', 'recorded_by', 'created_at'
-    ]
-    search_fields = ['invoice__invoice_number', 'reference_number']
-    list_filter = ['payment_method', 'payment_date', 'created_at']
-    ordering = ['-created_at']
-    autocomplete_fields = ['invoice', 'recorded_by']
-    readonly_fields = ['created_at']
-
-
-@admin.register(LPO)
-class LPOAdmin(admin.ModelAdmin):
-    list_display = [
-        'lpo_number', 'supplier', 'product', 'ordered_quantity',
-        'delivered_quantity', 'status', 'order_date'
-    ]
-    search_fields = ['lpo_number', 'supplier__company_name', 'product__code']
-    list_filter = ['status', 'order_date', 'created_at']
-    ordering = ['-created_at']
-    autocomplete_fields = ['supplier', 'product', 'created_by']
-    readonly_fields = ['created_at', 'updated_at']
-
-
 @admin.register(AuditLog)
 class AuditLogAdmin(admin.ModelAdmin):
     list_display = ['action', 'user', 'description', 'ip_address', 'timestamp']
@@ -190,7 +137,7 @@ class SaleLineItemInline(admin.TabularInline):
 class SaleAdmin(admin.ModelAdmin):
     list_display = [
         'sale_number', 'customer', 'total_amount', 'mode_of_payment',
-        'amount_paid', 'created_at'
+        'amount_paid', 'outstanding_balance', 'created_at'
     ]
     search_fields = [
         'sale_number', 'customer__company_name',
@@ -199,7 +146,7 @@ class SaleAdmin(admin.ModelAdmin):
     list_filter = ['mode_of_payment', 'created_at']
     ordering = ['-created_at']
     autocomplete_fields = ['customer', 'recorded_by']
-    readonly_fields = ['sale_number', 'total_amount', 'created_at', 'updated_at']
+    readonly_fields = ['sale_number', 'total_amount', 'outstanding_balance', 'created_at', 'updated_at']
     inlines = [SaleLineItemInline]
     
     fieldsets = (
@@ -207,7 +154,7 @@ class SaleAdmin(admin.ModelAdmin):
             'fields': ('sale_number', 'customer')
         }),
         ('Payment Details', {
-            'fields': ('mode_of_payment', 'amount_paid', 'total_amount')
+            'fields': ('mode_of_payment', 'amount_paid', 'total_amount', 'outstanding_balance')
         }),
         ('Reference Numbers', {
             'fields': ('lpo_quotation_number', 'delivery_number')

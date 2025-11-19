@@ -4,8 +4,7 @@ from decimal import Decimal, ROUND_HALF_UP
 from django.contrib.auth.models import User
 from .models import (
     Category, SubCategory, SubSubCategory, ProductGroup, Supplier, Customer, Product,
-    MonthlyOpeningStock, StockEntry, Invoice, InvoiceItem,
-    Payment, LPO, AuditLog, Sale, SaleLineItem
+    MonthlyOpeningStock, StockEntry, AuditLog, Sale, SaleLineItem
 )
 
 
@@ -101,11 +100,9 @@ class CustomerSerializer(serializers.ModelSerializer):
         read_only_fields = ['id', 'created_at', 'updated_at']
 
 
-
 # ========================
 # Product Serializers
 # ========================
-
 class ProductSerializer(serializers.ModelSerializer):
     category_name = serializers.CharField(source='category.name', read_only=True)
     subcategory_name = serializers.CharField(source='subcategory.name', read_only=True)
@@ -129,14 +126,12 @@ class ProductSerializer(serializers.ModelSerializer):
         subcategory = data.get('subcategory')
         subsubcategory = data.get('subsubcategory')
         
-        # Validate subcategory belongs to category
         if category and subcategory:
             if subcategory.category != category:
                 raise serializers.ValidationError({
                     'subcategory': 'Subcategory does not belong to the selected category.'
                 })
         
-        # Validate subsubcategory belongs to subcategory
         if subcategory and subsubcategory:
             if subsubcategory.subcategory != subcategory:
                 raise serializers.ValidationError({
@@ -155,6 +150,7 @@ class ProductDetailSerializer(ProductSerializer):
     def get_stock_entries(self, obj):
         entries = obj.stock_entries.all().order_by('-created_at')[:10]
         return StockEntrySerializer(entries, many=True).data
+
 
 # ========================
 # Stock Entry Serializers
@@ -181,7 +177,6 @@ class StockEntrySerializer(serializers.ModelSerializer):
         read_only_fields = ['id', 'created_at']
 
 
-
 # ========================
 # Monthly Opening Stock Serializer
 # ========================
@@ -195,99 +190,6 @@ class MonthlyOpeningStockSerializer(serializers.ModelSerializer):
         fields = ['id', 'product', 'product_code', 'product_name', 'month', 'opening_quantity', 
                   'recorded_by', 'recorded_by_name', 'recorded_at']
         read_only_fields = ['id', 'recorded_at']
-
-
-# ========================
-# Invoice Item Serializers
-# ========================
-class InvoiceItemSerializer(serializers.ModelSerializer):
-    product_code = serializers.CharField(source='product.code', read_only=True)
-    product_name = serializers.CharField(source='product.name', read_only=True)
-    
-    class Meta:
-        model = InvoiceItem
-        fields = ['id', 'product', 'product_code', 'product_name', 'quantity', 'unit_price', 'subtotal']
-        read_only_fields = ['id']
-    
-    def validate(self, data):
-        if data.get('quantity', 0) <= 0:
-            raise serializers.ValidationError("Quantity must be greater than 0")
-        if data.get('unit_price', 0) <= 0:
-            raise serializers.ValidationError("Unit price must be greater than 0")
-        return data
-
-
-# ========================
-# Payment Serializers
-# ========================
-class PaymentSerializer(serializers.ModelSerializer):
-    recorded_by_name = serializers.CharField(source='recorded_by.get_full_name', read_only=True)
-    
-    class Meta:
-        model = Payment
-        fields = ['id', 'invoice', 'amount', 'payment_method', 'reference_number', 'payment_date', 
-                  'notes', 'recorded_by', 'recorded_by_name', 'created_at']
-        read_only_fields = ['id', 'created_at']
-
-
-# ========================
-# Invoice Serializers
-# ========================
-class InvoiceSerializer(serializers.ModelSerializer):
-    items = InvoiceItemSerializer(many=True, read_only=True)
-    payments = PaymentSerializer(many=True, read_only=True)
-    customer_name = serializers.CharField(source='customer.company_name', read_only=True)
-    created_by_name = serializers.CharField(source='created_by.get_full_name', read_only=True)
-    remaining_balance = serializers.SerializerMethodField()
-    
-    class Meta:
-        model = Invoice
-        fields = ['id', 'invoice_number', 'customer', 'customer_name', 'total_amount', 'paid_amount', 
-                  'remaining_balance', 'status', 'due_date', 'notes', 'items', 'payments', 
-                  'created_by', 'created_by_name', 'created_at', 'updated_at']
-        read_only_fields = ['id', 'created_at', 'updated_at', 'items', 'payments']
-    
-    def get_remaining_balance(self, obj):
-        return obj.remaining_balance()
-
-
-class InvoiceCreateSerializer(serializers.ModelSerializer):
-    items_data = InvoiceItemSerializer(many=True, write_only=True)
-    
-    class Meta:
-        model = Invoice
-        fields = ['customer', 'total_amount', 'paid_amount', 'status', 'due_date', 'notes', 'items_data']
-    
-    def create(self, validated_data):
-        items_data = validated_data.pop('items_data', [])
-        invoice = Invoice.objects.create(**validated_data)
-        
-        for item_data in items_data:
-            InvoiceItem.objects.create(invoice=invoice, **item_data)
-        
-        return invoice
-
-
-# ========================
-# LPO Serializers
-# ========================
-class LPOSerializer(serializers.ModelSerializer):
-    supplier_name = serializers.CharField(source='supplier.company_name', read_only=True)
-    product_code = serializers.CharField(source='product.code', read_only=True)
-    product_name = serializers.CharField(source='product.name', read_only=True)
-    created_by_name = serializers.CharField(source='created_by.get_full_name', read_only=True)
-    pending_quantity = serializers.SerializerMethodField()
-    
-    class Meta:
-        model = LPO
-        fields = ['id', 'lpo_number', 'supplier', 'supplier_name', 'product', 'product_code', 'product_name',
-                  'ordered_quantity', 'delivered_quantity', 'pending_quantity', 'status', 'order_date', 
-                  'expected_delivery', 'actual_delivery', 'notes', 'created_by', 'created_by_name', 
-                  'created_at', 'updated_at']
-        read_only_fields = ['id', 'created_at', 'updated_at']
-    
-    def get_pending_quantity(self, obj):
-        return obj.pending_quantity()
 
 
 # ========================
@@ -308,12 +210,15 @@ class AuditLogSerializer(serializers.ModelSerializer):
 class DashboardSummarySerializer(serializers.Serializer):
     total_products = serializers.IntegerField()
     low_stock_items = serializers.IntegerField()
-    outstanding_invoices = serializers.IntegerField()
-    pending_lpos = serializers.IntegerField()
+    total_sales = serializers.IntegerField()
+    outstanding_sales = serializers.IntegerField()
     total_revenue = serializers.DecimalField(max_digits=12, decimal_places=2)
     total_outstanding = serializers.DecimalField(max_digits=12, decimal_places=2)
 
 
+# ========================
+# Sale Serializers
+# ========================
 class SaleLineItemSerializer(serializers.ModelSerializer):
     product_code = serializers.CharField(source='product.code', read_only=True)
     product_name = serializers.CharField(source='product.name', read_only=True)
@@ -393,7 +298,6 @@ class SaleCreateSerializer(serializers.ModelSerializer):
         ]
 
     def validate(self, data):
-        # Validate amount_paid based on mode_of_payment
         mode_of_payment = data.get('mode_of_payment')
         amount_paid = data.get('amount_paid', 0)
 
@@ -404,10 +308,8 @@ class SaleCreateSerializer(serializers.ModelSerializer):
                 raise serializers.ValidationError({
                     'amount_paid': 'Amount paid is required when payment mode is selected'
                 })
-            # Ensure Decimal precision
             data['amount_paid'] = Decimal(str(amount_paid)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
 
-        # Validate line items
         line_items = data.get('line_items', [])
         if not line_items:
             raise serializers.ValidationError({
@@ -420,14 +322,11 @@ class SaleCreateSerializer(serializers.ModelSerializer):
         line_items_data = validated_data.pop('line_items')
         validated_data['recorded_by'] = self.context['request'].user
 
-        # Create sale
         sale = Sale.objects.create(**validated_data)
 
-        # Create line items
         for item_data in line_items_data:
             SaleLineItem.objects.create(sale=sale, **item_data)
 
-        # Calculate total (this will also calculate outstanding_balance)
         sale.calculate_total()
 
         return sale

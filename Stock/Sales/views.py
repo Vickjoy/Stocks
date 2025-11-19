@@ -11,8 +11,7 @@ from django.contrib.auth.models import User
 
 from .models import (
     Category, SubCategory, SubSubCategory, ProductGroup, Supplier, Customer, Product,
-    MonthlyOpeningStock, StockEntry, Invoice, InvoiceItem,
-    Payment, LPO, AuditLog, Sale, SaleLineItem
+    MonthlyOpeningStock, StockEntry, AuditLog, Sale, SaleLineItem
 )
 from .serializers import (
     UserSerializer, UserDetailSerializer,
@@ -20,9 +19,7 @@ from .serializers import (
     SupplierSerializer, CustomerSerializer,
     ProductSerializer, ProductDetailSerializer,
     StockEntrySerializer, MonthlyOpeningStockSerializer,
-    InvoiceSerializer, InvoiceItemSerializer, InvoiceCreateSerializer,
-    PaymentSerializer, LPOSerializer, AuditLogSerializer,
-    DashboardSummarySerializer, SaleSerializer, SaleCreateSerializer
+    AuditLogSerializer, DashboardSummarySerializer, SaleSerializer, SaleCreateSerializer
 )
 
 
@@ -70,7 +67,7 @@ class SubCategoryViewSet(viewsets.ModelViewSet):
 
 
 # ========================
-# SubSubCategory ViewSet (NEW)
+# SubSubCategory ViewSet
 # ========================
 class SubSubCategoryViewSet(viewsets.ModelViewSet):
     queryset = SubSubCategory.objects.select_related('subcategory__category')
@@ -106,7 +103,7 @@ class SupplierViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
     filterset_fields = ['is_active']
-    search_fields = ['company_name', 'email', 'phone']
+    search_fields = ['company_name', 'phone']
     ordering_fields = ['company_name', 'created_at']
     ordering = ['-created_at']
     
@@ -126,8 +123,8 @@ class CustomerViewSet(viewsets.ModelViewSet):
     serializer_class = CustomerSerializer
     permission_classes = [permissions.IsAuthenticated]
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
-    filterset_fields = ['is_active']  # ✅ removed 'payment_type'
-    search_fields = ['company_name', 'phone']  # ✅ removed 'email'
+    filterset_fields = ['is_active']
+    search_fields = ['company_name', 'phone']
     ordering_fields = ['company_name', 'created_at']
     ordering = ['-created_at']
     
@@ -137,6 +134,7 @@ class CustomerViewSet(viewsets.ModelViewSet):
         customer.is_active = not customer.is_active
         customer.save()
         return Response({'is_active': customer.is_active})
+
 
 # ========================
 # Product ViewSet
@@ -266,117 +264,6 @@ class MonthlyOpeningStockViewSet(viewsets.ModelViewSet):
 
 
 # ========================
-# Invoice ViewSet
-# ========================
-class InvoiceViewSet(viewsets.ModelViewSet):
-    queryset = Invoice.objects.select_related('customer', 'created_by').prefetch_related('items', 'payments').order_by('-created_at')
-    permission_classes = [permissions.IsAuthenticated]
-    filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
-    filterset_fields = ['status', 'customer', 'created_at']
-    search_fields = ['invoice_number', 'customer__company_name']
-    ordering_fields = ['created_at', 'total_amount', 'status']
-    
-    def get_serializer_class(self):
-        if self.action == 'create':
-            return InvoiceCreateSerializer
-        return InvoiceSerializer
-    
-    @action(detail=False, methods=['get'])
-    def outstanding(self, request):
-        invoices = self.queryset.filter(status__in=['Outstanding', 'Partial'])
-        serializer = self.get_serializer(invoices, many=True)
-        return Response(serializer.data)
-    
-    @action(detail=True, methods=['post'])
-    def record_payment(self, request, pk=None):
-        invoice = self.get_object()
-        amount = request.data.get('amount')
-        payment_method = request.data.get('payment_method')
-        reference_number = request.data.get('reference_number', '')
-        
-        Payment.objects.create(
-            invoice=invoice,
-            amount=amount,
-            payment_method=payment_method,
-            reference_number=reference_number,
-            recorded_by=request.user
-        )
-        
-        invoice.paid_amount += amount
-        if invoice.paid_amount >= invoice.total_amount:
-            invoice.status = 'Paid'
-        else:
-            invoice.status = 'Partial'
-        invoice.save()
-        
-        return Response({'status': invoice.status, 'paid_amount': invoice.paid_amount})
-
-
-# ========================
-# Invoice Item ViewSet
-# ========================
-class InvoiceItemViewSet(viewsets.ModelViewSet):
-    queryset = InvoiceItem.objects.select_related('invoice', 'product')
-    serializer_class = InvoiceItemSerializer
-    permission_classes = [permissions.IsAuthenticated]
-    filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['invoice', 'product']
-
-
-# ========================
-# Payment ViewSet
-# ========================
-class PaymentViewSet(viewsets.ModelViewSet):
-    queryset = Payment.objects.select_related('invoice', 'recorded_by').order_by('-created_at')
-    serializer_class = PaymentSerializer
-    permission_classes = [permissions.IsAuthenticated]
-    filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
-    filterset_fields = ['invoice', 'payment_method', 'payment_date']
-    search_fields = ['invoice__invoice_number', 'reference_number']
-    ordering_fields = ['payment_date', 'amount']
-
-
-# ========================
-# LPO ViewSet
-# ========================
-class LPOViewSet(viewsets.ModelViewSet):
-    queryset = LPO.objects.select_related('supplier', 'product', 'created_by').order_by('-created_at')
-    serializer_class = LPOSerializer
-    permission_classes = [permissions.IsAuthenticated]
-    filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
-    filterset_fields = ['status', 'supplier', 'product']
-    search_fields = ['lpo_number', 'supplier__company_name', 'product__code']
-    ordering_fields = ['order_date', 'status']
-    
-    @action(detail=False, methods=['get'])
-    def pending(self, request):
-        lpos = self.queryset.filter(status__in=['Pending', 'Partial'])
-        serializer = self.get_serializer(lpos, many=True)
-        return Response(serializer.data)
-    
-    @action(detail=True, methods=['post'])
-    def update_delivery(self, request, pk=None):
-        lpo = self.get_object()
-        delivered_qty = request.data.get('delivered_quantity')
-        
-        lpo.delivered_quantity += delivered_qty
-        
-        if lpo.delivered_quantity >= lpo.ordered_quantity:
-            lpo.status = 'Completed'
-            lpo.actual_delivery = timezone.now().date()
-        else:
-            lpo.status = 'Partial'
-        
-        lpo.save()
-        
-        product = lpo.product
-        product.current_stock += delivered_qty
-        product.save()
-        
-        return Response({'status': lpo.status, 'delivered_quantity': lpo.delivered_quantity})
-
-
-# ========================
 # Audit Log ViewSet
 # ========================
 class AuditLogViewSet(viewsets.ReadOnlyModelViewSet):
@@ -400,24 +287,22 @@ class DashboardViewSet(viewsets.ViewSet):
         total_products = Product.objects.filter(is_active=True).count()
         low_stock_items = Product.objects.filter(current_stock__lte=F('minimum_stock')).count()
         
-        outstanding_invoices = Invoice.objects.filter(status__in=['Outstanding', 'Partial']).count()
-        pending_lpos = LPO.objects.filter(status__in=['Pending', 'Partial']).count()
+        total_sales = Sale.objects.count()
+        outstanding_sales = Sale.objects.filter(outstanding_balance__gt=0).count()
         
-        total_revenue = Invoice.objects.filter(status='Paid').aggregate(
+        total_revenue = Sale.objects.aggregate(
             total=Sum('total_amount', output_field=DecimalField())
         )['total'] or 0
         
-        total_outstanding = Invoice.objects.filter(
-            status__in=['Outstanding', 'Partial']
-        ).aggregate(
-            total=Sum(F('total_amount') - F('paid_amount'), output_field=DecimalField())
+        total_outstanding = Sale.objects.aggregate(
+            total=Sum('outstanding_balance', output_field=DecimalField())
         )['total'] or 0
         
         data = {
             'total_products': total_products,
             'low_stock_items': low_stock_items,
-            'outstanding_invoices': outstanding_invoices,
-            'pending_lpos': pending_lpos,
+            'total_sales': total_sales,
+            'outstanding_sales': outstanding_sales,
             'total_revenue': total_revenue,
             'total_outstanding': total_outstanding,
         }
@@ -430,8 +315,8 @@ class DashboardViewSet(viewsets.ViewSet):
         days = request.query_params.get('days', 30)
         since = timezone.now() - timedelta(days=int(days))
         
-        invoices = Invoice.objects.filter(created_at__gte=since).order_by('-created_at')[:20]
-        serializer = InvoiceSerializer(invoices, many=True)
+        sales = Sale.objects.filter(created_at__gte=since).order_by('-created_at')[:20]
+        serializer = SaleSerializer(sales, many=True)
         return Response(serializer.data)
     
     @action(detail=False, methods=['get'])
@@ -439,7 +324,7 @@ class DashboardViewSet(viewsets.ViewSet):
         limit = request.query_params.get('limit', 10)
         
         customers = Customer.objects.annotate(
-            total_sales=Sum('invoices__total_amount')
+            total_sales=Sum('sales__total_amount')
         ).order_by('-total_sales')[:int(limit)]
         
         data = [
@@ -520,14 +405,13 @@ class SaleViewSet(viewsets.ModelViewSet):
             return Response([])
         
         customers = Customer.objects.filter(
-            Q(company_name__icontains=query) | Q(email__icontains=query),
+            Q(company_name__icontains=query) | Q(phone__icontains=query),
             is_active=True
         )[:10]
         
         data = [{
             'id': c.id,
             'company_name': c.company_name,
-            'email': c.email,
             'phone': c.phone
         } for c in customers]
         
@@ -587,7 +471,6 @@ class SaleViewSet(viewsets.ModelViewSet):
             ip_address=request.META.get('REMOTE_ADDR')
         )
         
-        # Refresh sale to get updated data
         sale.refresh_from_db()
         serializer = self.get_serializer(sale)
         return Response(serializer.data)
