@@ -30,7 +30,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'django_filters',
     'rest_framework_simplejwt',
-    
+     'import_export',
     # Your app
     'Sales',  # Replace 'inventory' with your actual app name
 ]
@@ -134,7 +134,7 @@ REST_FRAMEWORK = {
         'rest_framework.filters.OrderingFilter',
     ],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 20,
+    'PAGE_SIZE':1000,
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
     ),
