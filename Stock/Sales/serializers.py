@@ -273,12 +273,13 @@ class SaleSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'sale_number', 'customer', 'customer_name',
             'lpo_quotation_number', 'delivery_number',
-            'mode_of_payment', 'amount_paid', 'total_amount', 'outstanding_balance',
+            'mode_of_payment', 'subtotal', 'vat_amount', 'total_amount', 
+            'amount_paid', 'outstanding_balance',
             'line_items', 'has_outstanding', 'is_fully_paid',
             'recorded_by', 'recorded_by_name',
             'created_at', 'updated_at'
         ]
-        read_only_fields = ['id', 'sale_number', 'total_amount', 'outstanding_balance', 'created_at', 'updated_at']
+        read_only_fields = ['id', 'sale_number', 'outstanding_balance', 'created_at', 'updated_at']
 
     def get_has_outstanding(self, obj):
         return obj.has_outstanding_supplies()
@@ -294,13 +295,18 @@ class SaleCreateSerializer(serializers.ModelSerializer):
         model = Sale
         fields = [
             'customer', 'lpo_quotation_number', 'delivery_number',
-            'mode_of_payment', 'amount_paid', 'line_items'
+            'mode_of_payment', 'subtotal', 'vat_amount', 'total_amount',
+            'amount_paid', 'line_items'
         ]
 
     def validate(self, data):
         mode_of_payment = data.get('mode_of_payment')
         amount_paid = data.get('amount_paid', 0)
+        subtotal = data.get('subtotal', 0)
+        vat_amount = data.get('vat_amount', 0)
+        total_amount = data.get('total_amount', 0)
 
+        # Validate payment mode
         if mode_of_payment == 'Not Paid':
             data['amount_paid'] = Decimal('0.00')
         elif mode_of_payment in ['Cash', 'Cheque', 'Mpesa']:
@@ -310,10 +316,30 @@ class SaleCreateSerializer(serializers.ModelSerializer):
                 })
             data['amount_paid'] = Decimal(str(amount_paid)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
 
+        # Validate line items
         line_items = data.get('line_items', [])
         if not line_items:
             raise serializers.ValidationError({
                 'line_items': 'At least one product must be added to the sale'
+            })
+
+        # Ensure financial values are properly formatted
+        data['subtotal'] = Decimal(str(subtotal)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+        data['vat_amount'] = Decimal(str(vat_amount)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+        data['total_amount'] = Decimal(str(total_amount)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+
+        # Validate VAT calculation (16% of subtotal)
+        expected_vat = (data['subtotal'] * Decimal('0.16')).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+        if abs(data['vat_amount'] - expected_vat) > Decimal('0.02'):  # Allow 2 cent tolerance for rounding
+            raise serializers.ValidationError({
+                'vat_amount': f'VAT amount should be 16% of subtotal. Expected: {expected_vat}, Got: {data["vat_amount"]}'
+            })
+
+        # Validate total amount (subtotal + VAT)
+        expected_total = (data['subtotal'] + data['vat_amount']).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+        if abs(data['total_amount'] - expected_total) > Decimal('0.02'):  # Allow 2 cent tolerance
+            raise serializers.ValidationError({
+                'total_amount': f'Total should equal subtotal + VAT. Expected: {expected_total}, Got: {data["total_amount"]}'
             })
 
         return data
@@ -322,11 +348,14 @@ class SaleCreateSerializer(serializers.ModelSerializer):
         line_items_data = validated_data.pop('line_items')
         validated_data['recorded_by'] = self.context['request'].user
 
+        # Create sale with financial fields
         sale = Sale.objects.create(**validated_data)
 
+        # Create line items
         for item_data in line_items_data:
             SaleLineItem.objects.create(sale=sale, **item_data)
 
+        # Recalculate totals from line items (this will update subtotal, VAT, and total)
         sale.calculate_total()
 
         return sale

@@ -215,9 +215,13 @@ class Sale(models.Model):
     lpo_quotation_number = models.CharField(max_length=100, blank=True)
     delivery_number = models.CharField(max_length=100, blank=True)
     mode_of_payment = models.CharField(max_length=20, choices=PAYMENT_MODE_CHOICES, default='Not Paid')
-    amount_paid = models.DecimalField(max_digits=12, decimal_places=2, default=0)
-    total_amount = models.DecimalField(max_digits=12, decimal_places=2, default=0)
-    outstanding_balance = models.DecimalField(max_digits=12, decimal_places=2, default=0)
+    
+    # Financial fields with VAT
+    subtotal = models.DecimalField(max_digits=12, decimal_places=2, default=0, help_text="Sum of all products (before VAT)")
+    vat_amount = models.DecimalField(max_digits=12, decimal_places=2, default=0, help_text="16% VAT on subtotal")
+    total_amount = models.DecimalField(max_digits=12, decimal_places=2, default=0, help_text="Subtotal + VAT")
+    amount_paid = models.DecimalField(max_digits=12, decimal_places=2, default=0, help_text="Amount paid by customer")
+    outstanding_balance = models.DecimalField(max_digits=12, decimal_places=2, default=0, help_text="Total - Amount Paid")
     
     recorded_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -230,6 +234,7 @@ class Sale(models.Model):
         return f"Sale-{self.sale_number} - {self.customer.company_name if self.customer else 'N/A'}"
 
     def save(self, *args, **kwargs):
+        # Generate sale number if not exists
         if not self.sale_number:
             today_str = timezone.now().strftime('%Y%m%d')
             prefix = f"S{today_str}"
@@ -237,11 +242,17 @@ class Sale(models.Model):
             sequence = str(today_sales_count).zfill(2)
             self.sale_number = f"{prefix}{sequence}"
 
+        # Reset amount paid if Not Paid
         if self.mode_of_payment == 'Not Paid':
             self.amount_paid = Decimal('0.00')
         
-        self.amount_paid = Decimal(str(self.amount_paid)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+        # Ensure all decimal values are properly rounded
+        self.subtotal = Decimal(str(self.subtotal)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+        self.vat_amount = Decimal(str(self.vat_amount)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
         self.total_amount = Decimal(str(self.total_amount)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+        self.amount_paid = Decimal(str(self.amount_paid)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+        
+        # Calculate outstanding balance (Total - Paid)
         self.outstanding_balance = (self.total_amount - self.amount_paid).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
         
         if self.outstanding_balance < 0:
@@ -250,13 +261,21 @@ class Sale(models.Model):
         super().save(*args, **kwargs)
 
     def calculate_total(self):
-        """Calculate total from line items using Decimal precision"""
-        total = Decimal('0.00')
+        """Calculate subtotal, VAT, and total from line items using Decimal precision"""
+        # Calculate subtotal from line items
+        subtotal = Decimal('0.00')
         for item in self.line_items.all():
-            subtotal = Decimal(str(item.subtotal)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
-            total += subtotal
+            item_subtotal = Decimal(str(item.subtotal)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+            subtotal += item_subtotal
         
-        self.total_amount = total.quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+        self.subtotal = subtotal.quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+        
+        # Calculate VAT (16% of subtotal)
+        self.vat_amount = (self.subtotal * Decimal('0.16')).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+        
+        # Calculate total (subtotal + VAT)
+        self.total_amount = (self.subtotal + self.vat_amount).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+        
         self.save()
         return self.total_amount
 
@@ -305,6 +324,7 @@ class SaleLineItem(models.Model):
         if self.quantity_supplied is None:
             self.quantity_supplied = 0
 
+        # Calculate subtotal (quantity * unit price)
         unit_price = Decimal(str(self.unit_price or 0))
         quantity = Decimal(str(self.quantity_ordered))
         self.subtotal = (unit_price * quantity).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
@@ -318,6 +338,7 @@ class SaleLineItem(models.Model):
             except SaleLineItem.DoesNotExist:
                 pass
 
+        # Handle stock adjustments based on supply status
         if self.product:
             if self.supply_status == 'Supplied':
                 self.quantity_supplied = self.quantity_ordered
@@ -341,6 +362,7 @@ class SaleLineItem(models.Model):
 
         super().save(*args, **kwargs)
 
+        # Create stock entry for supplied items
         if is_new and self.supply_status in ['Supplied', 'Partially Supplied'] and self.quantity_supplied > 0:
             StockEntry.objects.create(
                 product=self.product,
