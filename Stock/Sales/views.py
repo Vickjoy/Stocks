@@ -284,10 +284,19 @@ class DashboardViewSet(viewsets.ViewSet):
     
     @action(detail=False, methods=['get'])
     def summary(self, request):
+        """Get dashboard summary with all stats and chart data"""
+        from django.db.models import Count
+        from django.db.models.functions import TruncMonth
+        import calendar
+        
+        # Basic stats
         total_products = Product.objects.filter(is_active=True).count()
         low_stock_items = Product.objects.filter(current_stock__lte=F('minimum_stock')).count()
         
         total_sales = Sale.objects.count()
+        outstanding_invoices = Sale.objects.filter(
+            line_items__supply_status__in=['Not Supplied', 'Partially Supplied']
+        ).distinct().count()
         outstanding_sales = Sale.objects.filter(outstanding_balance__gt=0).count()
         
         total_revenue = Sale.objects.aggregate(
@@ -298,20 +307,125 @@ class DashboardViewSet(viewsets.ViewSet):
             total=Sum('outstanding_balance', output_field=DecimalField())
         )['total'] or 0
         
+        stock_entries_count = StockEntry.objects.count()
+        
+        # Monthly Sales Data (for line chart)
+        current_year = timezone.now().year
+        monthly_sales_query = Sale.objects.filter(
+            created_at__year=current_year
+        ).annotate(
+            month_num=TruncMonth('created_at')
+        ).values('month_num').annotate(
+            total=Sum('total_amount', output_field=DecimalField())
+        ).order_by('month_num')
+        
+        # Create a dictionary with all months initialized to 0
+        monthly_sales_dict = {i: 0 for i in range(1, 13)}
+        
+        # Fill in actual sales data
+        for entry in monthly_sales_query:
+            month_num = entry['month_num'].month
+            monthly_sales_dict[month_num] = float(entry['total'] or 0)
+        
+        # Format for frontend
+        monthly_sales = [
+            {
+                'month': calendar.month_abbr[month],
+                'total': monthly_sales_dict[month]
+            }
+            for month in range(1, 13)
+        ]
+        
+        # Top Selling Products (for pie chart)
+        top_products_query = SaleLineItem.objects.values(
+            'product__code'  # Use product code (short name)
+        ).annotate(
+            total_quantity=Sum('quantity_supplied')
+        ).order_by('-total_quantity')[:5]
+        
+        top_products = [
+            {
+                'name': item['product__code'],
+                'value': item['total_quantity']
+            }
+            for item in top_products_query
+        ]
+        
         data = {
             'total_products': total_products,
             'low_stock_items': low_stock_items,
             'total_sales': total_sales,
+            'outstanding_invoices': outstanding_invoices,
             'outstanding_sales': outstanding_sales,
             'total_revenue': total_revenue,
             'total_outstanding': total_outstanding,
+            'stock_entries_count': stock_entries_count,
+            'monthly_sales': monthly_sales,
+            'top_products': top_products,
         }
         
         serializer = DashboardSummarySerializer(data)
         return Response(serializer.data)
     
     @action(detail=False, methods=['get'])
+    def monthly_sales(self, request):
+        """Get monthly sales data for line chart"""
+        from django.db.models.functions import TruncMonth
+        import calendar
+        
+        current_year = timezone.now().year
+        
+        monthly_sales_query = Sale.objects.filter(
+            created_at__year=current_year
+        ).annotate(
+            month_num=TruncMonth('created_at')
+        ).values('month_num').annotate(
+            total=Sum('total_amount', output_field=DecimalField())
+        ).order_by('month_num')
+        
+        # Create a dictionary with all months initialized to 0
+        monthly_sales_dict = {i: 0 for i in range(1, 13)}
+        
+        # Fill in actual sales data
+        for entry in monthly_sales_query:
+            month_num = entry['month_num'].month
+            monthly_sales_dict[month_num] = float(entry['total'] or 0)
+        
+        # Format for frontend
+        monthly_sales = [
+            {
+                'month': calendar.month_abbr[month],
+                'total': monthly_sales_dict[month]
+            }
+            for month in range(1, 13)
+        ]
+        
+        return Response(monthly_sales)
+    
+    @action(detail=False, methods=['get'])
+    def top_products(self, request):
+        """Get top selling products for pie chart"""
+        limit = int(request.query_params.get('limit', 5))
+        
+        top_products_query = SaleLineItem.objects.values(
+            'product__code'  # Use product code (short name)
+        ).annotate(
+            total_quantity=Sum('quantity_supplied')
+        ).order_by('-total_quantity')[:limit]
+        
+        top_products = [
+            {
+                'name': item['product__code'],
+                'value': item['total_quantity']
+            }
+            for item in top_products_query
+        ]
+        
+        return Response(top_products)
+    
+    @action(detail=False, methods=['get'])
     def recent_sales(self, request):
+        """Get recent sales"""
         days = request.query_params.get('days', 30)
         since = timezone.now() - timedelta(days=int(days))
         
@@ -321,6 +435,7 @@ class DashboardViewSet(viewsets.ViewSet):
     
     @action(detail=False, methods=['get'])
     def top_customers(self, request):
+        """Get top customers by total sales"""
         limit = request.query_params.get('limit', 10)
         
         customers = Customer.objects.annotate(

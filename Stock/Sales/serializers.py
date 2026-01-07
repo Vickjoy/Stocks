@@ -211,9 +211,29 @@ class DashboardSummarySerializer(serializers.Serializer):
     total_products = serializers.IntegerField()
     low_stock_items = serializers.IntegerField()
     total_sales = serializers.IntegerField()
+    outstanding_invoices = serializers.IntegerField()
     outstanding_sales = serializers.IntegerField()
     total_revenue = serializers.DecimalField(max_digits=12, decimal_places=2)
     total_outstanding = serializers.DecimalField(max_digits=12, decimal_places=2)
+    stock_entries_count = serializers.IntegerField()
+    monthly_sales = serializers.ListField(child=serializers.DictField())
+    top_products = serializers.ListField(child=serializers.DictField())
+
+
+# ========================
+# Monthly Sales Serializer
+# ========================
+class MonthlySalesSerializer(serializers.Serializer):
+    month = serializers.CharField()
+    total = serializers.DecimalField(max_digits=12, decimal_places=2)
+
+
+# ========================
+# Top Products Serializer
+# ========================
+class TopProductSerializer(serializers.Serializer):
+    name = serializers.CharField()  # Product code (short name)
+    value = serializers.IntegerField()  # Total quantity sold
 
 
 # ========================
