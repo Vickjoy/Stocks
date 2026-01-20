@@ -2,12 +2,110 @@
 from rest_framework import serializers
 from decimal import Decimal, ROUND_HALF_UP
 from django.contrib.auth.models import User
+from django.contrib.auth.tokens import PasswordResetTokenGenerator
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.utils.encoding import force_bytes, force_str
+from django.core.mail import send_mail
+from django.conf import settings
 from .models import (
     Category, SubCategory, SubSubCategory, ProductGroup, Supplier, Customer, Product,
     MonthlyOpeningStock, StockEntry, AuditLog, Sale, SaleLineItem
 )
 
+class  PasswordResetRequestSerializer(serializers.Serializer):
+    """Serializer for requesting password reset"""
+    email = serializers.EmailField()
 
+    def validate_email(self, value):
+        """Check if user with this email exists"""
+        if not User.objects.filter(email=value).exists():
+            raise serializers.ValidationError(
+                "No user found with this email address."
+            )
+        return value
+
+    def save(self):
+        """Generate reset token and send email"""
+        email = self.validated_data['email']
+        user = User.objects.get(email=email)
+        
+        # Generate token
+        token_generator = PasswordResetTokenGenerator()
+        token = token_generator.make_token(user)
+        uid = urlsafe_base64_encode(force_bytes(user.pk))
+        
+        # Build reset URL (adjust frontend URL as needed)
+        frontend_url = getattr(settings, 'FRONTEND_URL', 'http://localhost:3000')
+        reset_url = f"{frontend_url}/reset-password/{uid}/{token}/"
+        
+        # Send email
+        subject = 'Password Reset Request - Edge Systems Inventory'
+        message = f"""
+Hello {user.username},
+
+You requested a password reset for your Edge Systems Inventory account.
+
+Click the link below to reset your password:
+{reset_url}
+
+This link will expire in 24 hours.
+
+If you did not request this reset, please ignore this email.
+
+Best regards,
+Edge Systems Team
+        """
+        
+        send_mail(
+            subject,
+            message,
+            settings.DEFAULT_FROM_EMAIL,
+            [email],
+            fail_silently=False,
+        )
+        
+        return {'message': 'Password reset email sent successfully'}
+
+
+class PasswordResetConfirmSerializer(serializers.Serializer):
+    """Serializer for confirming password reset"""
+    uid = serializers.CharField()
+    token = serializers.CharField()
+    new_password = serializers.CharField(min_length=8, write_only=True)
+    confirm_password = serializers.CharField(min_length=8, write_only=True)
+
+    def validate(self, data):
+        """Validate passwords match and token is valid"""
+        if data['new_password'] != data['confirm_password']:
+            raise serializers.ValidationError({
+                'confirm_password': 'Passwords do not match.'
+            })
+        
+        # Decode user ID
+        try:
+            uid = force_str(urlsafe_base64_decode(data['uid']))
+            user = User.objects.get(pk=uid)
+        except (TypeError, ValueError, OverflowError, User.DoesNotExist):
+            raise serializers.ValidationError({
+                'uid': 'Invalid reset link.'
+            })
+        
+        # Verify token
+        token_generator = PasswordResetTokenGenerator()
+        if not token_generator.check_token(user, data['token']):
+            raise serializers.ValidationError({
+                'token': 'Invalid or expired reset link.'
+            })
+        
+        data['user'] = user
+        return data
+
+    def save(self):
+        """Set new password"""
+        user = self.validated_data['user']
+        user.set_password(self.validated_data['new_password'])
+        user.save()
+        return {'message': 'Password reset successfully'}
 # ========================
 # User Serializers
 # ========================

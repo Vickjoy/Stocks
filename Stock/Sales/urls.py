@@ -8,7 +8,9 @@ from .views import (
     ProductViewSet, StockEntryViewSet,
     MonthlyOpeningStockViewSet,
     AuditLogViewSet, DashboardViewSet,
-    SaleViewSet
+    SaleViewSet, password_reset_request,
+    password_reset_confirm,
+    password_reset_validate
 )
 
 router = DefaultRouter()
@@ -30,4 +32,7 @@ app_name = 'inventory'
 
 urlpatterns = [
     path('', include(router.urls)),
+    path('password-reset/', password_reset_request, name='password_reset_request'),
+    path('password-reset/confirm/', password_reset_confirm, name='password_reset_confirm'),
+    path('password-reset/validate/<str:uid>/<str:token>/', password_reset_validate, name='password_reset_validate'),
 ]

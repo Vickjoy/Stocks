@@ -1,6 +1,6 @@
 # views.py
 from rest_framework import viewsets, status, permissions
-from rest_framework.decorators import action
+from rest_framework.decorators import action, api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework.filters import SearchFilter, OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
@@ -8,6 +8,7 @@ from django.db.models import Q, Sum, DecimalField, F
 from django.utils import timezone
 from datetime import timedelta
 from django.contrib.auth.models import User
+from  rest_framework.permissions import AllowAny
 
 from .models import (
     Category, SubCategory, SubSubCategory, ProductGroup, Supplier, Customer, Product,
@@ -19,7 +20,7 @@ from .serializers import (
     SupplierSerializer, CustomerSerializer,
     ProductSerializer, ProductDetailSerializer,
     StockEntrySerializer, MonthlyOpeningStockSerializer,
-    AuditLogSerializer, DashboardSummarySerializer, SaleSerializer, SaleCreateSerializer
+    AuditLogSerializer, DashboardSummarySerializer, SaleSerializer, SaleCreateSerializer, PasswordResetRequestSerializer, PasswordResetConfirmSerializer
 )
 
 
@@ -589,3 +590,78 @@ class SaleViewSet(viewsets.ModelViewSet):
         sale.refresh_from_db()
         serializer = self.get_serializer(sale)
         return Response(serializer.data)
+
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def password_reset_request(request):
+    """
+    Handle password reset request
+    POST /api/password-reset/
+    Body: {"email": "user@example.com"}
+    """
+    serializer = PasswordResetRequestSerializer(data=request.data)
+    
+    if serializer.is_valid():
+        try:
+            result = serializer.save()
+            return Response(result, status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response(
+                {'error': 'Failed to send reset email. Please try again later.'},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+    
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def password_reset_confirm(request):
+    """
+    Handle password reset confirmation
+    POST /api/password-reset/confirm/
+    Body: {
+        "uid": "...",
+        "token": "...",
+        "new_password": "...",
+        "confirm_password": "..."
+    }
+    """
+    serializer = PasswordResetConfirmSerializer(data=request.data)
+    
+    if serializer.is_valid():
+        try:
+            result = serializer.save()
+            return Response(result, status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response(
+                {'error': 'Failed to reset password. Please try again.'},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+    
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def password_reset_validate(request, uid, token):
+    """
+    Validate reset token before showing form
+    GET /api/password-reset/validate/<uid>/<token>/
+    """
+    from django.contrib.auth.tokens import PasswordResetTokenGenerator
+    from django.utils.http import urlsafe_base64_decode
+    from django.utils.encoding import force_str
+    from django.contrib.auth.models import User
+    
+    try:
+        uid_decoded = force_str(urlsafe_base64_decode(uid))
+        user = User.objects.get(pk=uid_decoded)
+        token_generator = PasswordResetTokenGenerator()
+        
+        if token_generator.check_token(user, token):
+            return Response({'valid': True}, status=status.HTTP_200_OK)
+        else:
+            return Response({'valid': False, 'error': 'Invalid or expired link'}, status=status.HTTP_400_BAD_REQUEST)
+    except (TypeError, ValueError, OverflowError, User.DoesNotExist):
+        return Response({'valid': False, 'error': 'Invalid reset link'}, status=status.HTTP_400_BAD_REQUEST)
