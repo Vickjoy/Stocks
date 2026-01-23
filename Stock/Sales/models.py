@@ -159,8 +159,68 @@ class MonthlyOpeningStock(models.Model):
         return f"{self.product.code} - {self.month.strftime('%B %Y')}"
 
 
+class StockMovement(models.Model):
+    """
+    UPDATED: Track ALL stock movements with explicit direction and reason.
+    This replaces the old StockEntry model for proper audit trail.
+    """
+    DIRECTION_CHOICES = [
+        ('IN', 'Stock In'),
+        ('OUT', 'Stock Out'),
+    ]
+    
+    REASON_CHOICES = [
+        ('RESTOCK', 'Restocking from Supplier'),
+        ('ADJUSTMENT', 'Manual Stock Adjustment'),
+        ('INITIAL', 'Initial Stock Entry'),
+        ('RETURN', 'Customer Return'),
+        ('SALE', 'Sale/Delivery'),
+        ('DAMAGE', 'Damaged/Lost Stock'),
+        ('TRANSFER', 'Stock Transfer'),
+    ]
+    
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='stock_movements')
+    direction = models.CharField(max_length=3, choices=DIRECTION_CHOICES)
+    reason = models.CharField(max_length=20, choices=REASON_CHOICES)
+    quantity = models.IntegerField()
+    
+    # Related entities
+    supplier = models.ForeignKey(Supplier, on_delete=models.SET_NULL, null=True, blank=True)
+    sale = models.ForeignKey('Sale', on_delete=models.SET_NULL, null=True, blank=True, related_name='stock_movements')
+    
+    # Metadata
+    notes = models.TextField(blank=True)
+    recorded_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        ordering = ['-created_at']
+        indexes = [
+            models.Index(fields=['direction', 'reason']),
+            models.Index(fields=['product', 'created_at']),
+        ]
+    
+    def __str__(self):
+        return f"{self.product.code} - {self.direction} ({self.reason}) - {self.quantity}"
+    
+    def save(self, *args, **kwargs):
+        """Validate direction matches reason"""
+        # IN reasons
+        if self.reason in ['RESTOCK', 'ADJUSTMENT', 'INITIAL', 'RETURN']:
+            if self.direction != 'IN':
+                raise ValueError(f"Reason {self.reason} must have direction IN")
+        
+        # OUT reasons
+        if self.reason in ['SALE', 'DAMAGE', 'TRANSFER']:
+            if self.direction != 'OUT':
+                raise ValueError(f"Reason {self.reason} must have direction OUT")
+        
+        super().save(*args, **kwargs)
+
+
+# Keep old StockEntry for backwards compatibility (read-only)
 class StockEntry(models.Model):
-    """Log all stock movements"""
+    """DEPRECATED: Legacy stock entry model - use StockMovement instead"""
     ENTRY_TYPE_CHOICES = [
         ('In', 'Stock In'),
         ('Out', 'Stock Out'),
@@ -174,6 +234,9 @@ class StockEntry(models.Model):
     notes = models.TextField(blank=True)
     recorded_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        verbose_name_plural = "Stock Entries (Legacy)"
     
     def __str__(self):
         return f"{self.product.code} - {self.entry_type} - {self.quantity}"
@@ -262,18 +325,13 @@ class Sale(models.Model):
 
     def calculate_total(self):
         """Calculate subtotal, VAT, and total from line items using Decimal precision"""
-        # Calculate subtotal from line items
         subtotal = Decimal('0.00')
         for item in self.line_items.all():
             item_subtotal = Decimal(str(item.subtotal)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
             subtotal += item_subtotal
         
         self.subtotal = subtotal.quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
-        
-        # Calculate VAT (16% of subtotal)
         self.vat_amount = (self.subtotal * Decimal('0.16')).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
-        
-        # Calculate total (subtotal + VAT)
         self.total_amount = (self.subtotal + self.vat_amount).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
         
         self.save()
@@ -324,7 +382,7 @@ class SaleLineItem(models.Model):
         if self.quantity_supplied is None:
             self.quantity_supplied = 0
 
-        # Calculate subtotal (quantity * unit price)
+        # Calculate subtotal
         unit_price = Decimal(str(self.unit_price or 0))
         quantity = Decimal(str(self.quantity_ordered))
         self.subtotal = (unit_price * quantity).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
@@ -338,7 +396,7 @@ class SaleLineItem(models.Model):
             except SaleLineItem.DoesNotExist:
                 pass
 
-        # Handle stock adjustments based on supply status
+        # Handle stock adjustments
         if self.product:
             if self.supply_status == 'Supplied':
                 self.quantity_supplied = self.quantity_ordered
@@ -362,12 +420,14 @@ class SaleLineItem(models.Model):
 
         super().save(*args, **kwargs)
 
-        # Create stock entry for supplied items
+        # UPDATED: Create StockMovement for supplied items (direction OUT, reason SALE)
         if is_new and self.supply_status in ['Supplied', 'Partially Supplied'] and self.quantity_supplied > 0:
-            StockEntry.objects.create(
+            StockMovement.objects.create(
                 product=self.product,
-                entry_type='Out',
+                direction='OUT',
+                reason='SALE',
                 quantity=self.quantity_supplied,
+                sale=self.sale,
                 notes=f"Sale #{self.sale.sale_number} to {self.sale.customer.company_name}",
                 recorded_by=self.sale.recorded_by
             )

@@ -9,7 +9,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from .models import (
     Category, SubCategory, SubSubCategory, ProductGroup, Supplier, Customer, Product,
-    MonthlyOpeningStock, StockEntry, AuditLog, Sale, SaleLineItem
+    MonthlyOpeningStock, StockEntry, AuditLog, Sale, SaleLineItem, StockMovement
 )
 
 # ========================
@@ -524,3 +524,60 @@ class PasswordResetConfirmSerializer(serializers.Serializer):
         user.save()
         
         return {'message': 'Password has been reset successfully.'}
+
+class StockMovementSerializer(serializers.ModelSerializer):
+    """
+    Serializer for the new StockMovement model with direction and reason tracking
+    """
+    product_code = serializers.CharField(source='product.code', read_only=True)
+    product_name = serializers.CharField(source='product.name', read_only=True)
+    category_name = serializers.CharField(source='product.category.name', read_only=True)
+    subcategory_name = serializers.CharField(source='product.subcategory.name', read_only=True)
+    subsubcategory_name = serializers.CharField(source='product.subsubcategory.name', read_only=True)
+    
+    supplier_name = serializers.CharField(source='supplier.company_name', read_only=True)
+    sale_number = serializers.CharField(source='sale.sale_number', read_only=True)
+    customer_name = serializers.CharField(source='sale.customer.company_name', read_only=True)
+    
+    recorded_by_name = serializers.CharField(source='recorded_by.get_full_name', read_only=True)
+    
+    # Readable labels for direction and reason
+    direction_display = serializers.CharField(source='get_direction_display', read_only=True)
+    reason_display = serializers.CharField(source='get_reason_display', read_only=True)
+    
+    class Meta:
+        model = StockMovement
+        fields = [
+            'id', 'product', 'product_code', 'product_name',
+            'category_name', 'subcategory_name', 'subsubcategory_name',
+            'direction', 'direction_display',
+            'reason', 'reason_display',
+            'quantity',
+            'supplier', 'supplier_name',
+            'sale', 'sale_number', 'customer_name',
+            'notes',
+            'recorded_by', 'recorded_by_name',
+            'created_at'
+        ]
+        read_only_fields = ['id', 'created_at']
+    
+    def validate(self, data):
+        """Validate direction matches reason"""
+        direction = data.get('direction')
+        reason = data.get('reason')
+        
+        # IN reasons
+        if reason in ['RESTOCK', 'ADJUSTMENT', 'INITIAL', 'RETURN']:
+            if direction != 'IN':
+                raise serializers.ValidationError({
+                    'direction': f'Reason {reason} must have direction IN'
+                })
+        
+        # OUT reasons
+        if reason in ['SALE', 'DAMAGE', 'TRANSFER']:
+            if direction != 'OUT':
+                raise serializers.ValidationError({
+                    'direction': f'Reason {reason} must have direction OUT'
+                })
+        
+        return data

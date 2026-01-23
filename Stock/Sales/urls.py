@@ -5,7 +5,7 @@ from .views import (
     UserViewSet,
     CategoryViewSet, SubCategoryViewSet, SubSubCategoryViewSet, ProductGroupViewSet,
     SupplierViewSet, CustomerViewSet,
-    ProductViewSet, StockEntryViewSet,
+    ProductViewSet, StockEntryViewSet, StockMovementViewSet,
     MonthlyOpeningStockViewSet,
     AuditLogViewSet, DashboardViewSet,
     SaleViewSet, password_reset_request,
@@ -27,6 +27,8 @@ router.register(r'monthly-opening-stock', MonthlyOpeningStockViewSet, basename='
 router.register(r'audit-logs', AuditLogViewSet, basename='auditlog')
 router.register(r'dashboard', DashboardViewSet, basename='dashboard')
 router.register(r'sales', SaleViewSet, basename='sale')
+router.register(r'stock-movements', StockMovementViewSet, basename='stockmovement')
+
 
 app_name = 'inventory'
 

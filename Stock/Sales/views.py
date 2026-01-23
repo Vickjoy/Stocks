@@ -8,19 +8,20 @@ from django.db.models import Q, Sum, DecimalField, F
 from django.utils import timezone
 from datetime import timedelta
 from django.contrib.auth.models import User
-from  rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny
 
 from .models import (
     Category, SubCategory, SubSubCategory, ProductGroup, Supplier, Customer, Product,
-    MonthlyOpeningStock, StockEntry, AuditLog, Sale, SaleLineItem
+    MonthlyOpeningStock, StockEntry, StockMovement, AuditLog, Sale, SaleLineItem
 )
 from .serializers import (
     UserSerializer, UserDetailSerializer,
     CategorySerializer, SubCategorySerializer, SubSubCategorySerializer, ProductGroupSerializer,
     SupplierSerializer, CustomerSerializer,
     ProductSerializer, ProductDetailSerializer,
-    StockEntrySerializer, MonthlyOpeningStockSerializer,
-    AuditLogSerializer, DashboardSummarySerializer, SaleSerializer, SaleCreateSerializer, PasswordResetRequestSerializer, PasswordResetConfirmSerializer
+    StockEntrySerializer, StockMovementSerializer, MonthlyOpeningStockSerializer,
+    AuditLogSerializer, DashboardSummarySerializer, SaleSerializer, SaleCreateSerializer,
+    PasswordResetRequestSerializer, PasswordResetConfirmSerializer
 )
 
 
@@ -167,6 +168,7 @@ class ProductViewSet(viewsets.ModelViewSet):
     
     @action(detail=True, methods=['post'])
     def adjust_stock(self, request, pk=None):
+        """UPDATED: Creates StockMovement records with proper direction and reason"""
         product = self.get_object()
         quantity = int(request.data.get('quantity', 0))
         entry_type = request.data.get('type', 'Adjustment')
@@ -189,13 +191,25 @@ class ProductViewSet(viewsets.ModelViewSet):
                     status=status.HTTP_400_BAD_REQUEST
                 )
         
+        # Map entry_type to direction and reason
+        direction = None
+        reason = None
+        
         if entry_type == 'In':
+            direction = 'IN'
+            if supplier:
+                reason = 'RESTOCK'
+            else:
+                reason = 'ADJUSTMENT'
             product.current_stock += quantity
             if not notes:
                 notes = f'Stock replenishment - {quantity} units added'
                 if supplier:
                     notes += f' from {supplier.company_name}'
+                    
         elif entry_type == 'Out':
+            direction = 'OUT'
+            reason = 'DAMAGE'  # Manual stock removal (not a sale)
             if product.current_stock < quantity:
                 return Response(
                     {'error': f'Insufficient stock. Available: {product.current_stock}'},
@@ -204,7 +218,10 @@ class ProductViewSet(viewsets.ModelViewSet):
             product.current_stock -= quantity
             if not notes:
                 notes = f'Stock removal - {quantity} units removed'
-        else:
+                
+        else:  # Adjustment
+            direction = 'IN'
+            reason = 'ADJUSTMENT'
             old_stock = product.current_stock
             product.current_stock = quantity
             if not notes:
@@ -212,10 +229,12 @@ class ProductViewSet(viewsets.ModelViewSet):
         
         product.save()
         
-        StockEntry.objects.create(
+        # Create new StockMovement record
+        StockMovement.objects.create(
             product=product,
-            entry_type=entry_type,
-            quantity=quantity,
+            direction=direction,
+            reason=reason,
+            quantity=quantity if entry_type != 'Adjustment' else abs(quantity - product.current_stock),
             supplier=supplier,
             notes=notes,
             recorded_by=request.user
@@ -239,9 +258,57 @@ class ProductViewSet(viewsets.ModelViewSet):
 
 
 # ========================
-# Stock Entry ViewSet
+# Stock Movement ViewSet (NEW)
+# ========================
+class StockMovementViewSet(viewsets.ReadOnlyModelViewSet):
+    """UPDATED: Replacement for StockEntry with proper direction/reason tracking"""
+    queryset = StockMovement.objects.select_related(
+        'product__category',
+        'product__subcategory',
+        'product__subsubcategory',
+        'supplier',
+        'sale',
+        'recorded_by'
+    ).order_by('-created_at')
+    serializer_class = StockMovementSerializer
+    permission_classes = [permissions.IsAuthenticated]
+    filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
+    filterset_fields = ['product', 'direction', 'reason', 'supplier']
+    search_fields = ['product__code', 'product__name', 'notes']
+    ordering_fields = ['created_at']
+    
+    @action(detail=False, methods=['get'])
+    def stock_in(self, request):
+        """Get only Stock IN movements (genuine inventory increases)"""
+        movements = self.queryset.filter(direction='IN')
+        
+        page = self.paginate_queryset(movements)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+        
+        serializer = self.get_serializer(movements, many=True)
+        return Response(serializer.data)
+    
+    @action(detail=False, methods=['get'])
+    def stock_out(self, request):
+        """Get only Stock OUT movements (sales, damages, etc.)"""
+        movements = self.queryset.filter(direction='OUT')
+        
+        page = self.paginate_queryset(movements)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+        
+        serializer = self.get_serializer(movements, many=True)
+        return Response(serializer.data)
+
+
+# ========================
+# Legacy Stock Entry ViewSet (Read-Only)
 # ========================
 class StockEntryViewSet(viewsets.ReadOnlyModelViewSet):
+    """DEPRECATED: Use StockMovementViewSet instead"""
     queryset = StockEntry.objects.select_related('product', 'supplier', 'recorded_by').order_by('-created_at')
     serializer_class = StockEntrySerializer
     permission_classes = [permissions.IsAuthenticated]
@@ -308,9 +375,10 @@ class DashboardViewSet(viewsets.ViewSet):
             total=Sum('outstanding_balance', output_field=DecimalField())
         )['total'] or 0
         
-        stock_entries_count = StockEntry.objects.count()
+        # UPDATED: Count StockMovements instead of StockEntries
+        stock_movements_count = StockMovement.objects.count()
         
-        # Monthly Sales Data (for line chart)
+        # Monthly Sales Data
         current_year = timezone.now().year
         monthly_sales_query = Sale.objects.filter(
             created_at__year=current_year
@@ -320,15 +388,12 @@ class DashboardViewSet(viewsets.ViewSet):
             total=Sum('total_amount', output_field=DecimalField())
         ).order_by('month_num')
         
-        # Create a dictionary with all months initialized to 0
         monthly_sales_dict = {i: 0 for i in range(1, 13)}
         
-        # Fill in actual sales data
         for entry in monthly_sales_query:
             month_num = entry['month_num'].month
             monthly_sales_dict[month_num] = float(entry['total'] or 0)
         
-        # Format for frontend
         monthly_sales = [
             {
                 'month': calendar.month_abbr[month],
@@ -337,9 +402,9 @@ class DashboardViewSet(viewsets.ViewSet):
             for month in range(1, 13)
         ]
         
-        # Top Selling Products (for pie chart)
+        # Top Selling Products
         top_products_query = SaleLineItem.objects.values(
-            'product__code'  # Use product code (short name)
+            'product__code'
         ).annotate(
             total_quantity=Sum('quantity_supplied')
         ).order_by('-total_quantity')[:5]
@@ -360,7 +425,7 @@ class DashboardViewSet(viewsets.ViewSet):
             'outstanding_sales': outstanding_sales,
             'total_revenue': total_revenue,
             'total_outstanding': total_outstanding,
-            'stock_entries_count': stock_entries_count,
+            'stock_entries_count': stock_movements_count,  # UPDATED
             'monthly_sales': monthly_sales,
             'top_products': top_products,
         }
@@ -384,15 +449,12 @@ class DashboardViewSet(viewsets.ViewSet):
             total=Sum('total_amount', output_field=DecimalField())
         ).order_by('month_num')
         
-        # Create a dictionary with all months initialized to 0
         monthly_sales_dict = {i: 0 for i in range(1, 13)}
         
-        # Fill in actual sales data
         for entry in monthly_sales_query:
             month_num = entry['month_num'].month
             monthly_sales_dict[month_num] = float(entry['total'] or 0)
         
-        # Format for frontend
         monthly_sales = [
             {
                 'month': calendar.month_abbr[month],
@@ -409,7 +471,7 @@ class DashboardViewSet(viewsets.ViewSet):
         limit = int(request.query_params.get('limit', 5))
         
         top_products_query = SaleLineItem.objects.values(
-            'product__code'  # Use product code (short name)
+            'product__code'
         ).annotate(
             total_quantity=Sum('quantity_supplied')
         ).order_by('-total_quantity')[:limit]
@@ -535,7 +597,7 @@ class SaleViewSet(viewsets.ModelViewSet):
     
     @action(detail=True, methods=['post'])
     def update_line_item_supply(self, request, pk=None):
-        """Update supply status for a specific line item"""
+        """UPDATED: Update supply status and create StockMovement"""
         sale = self.get_object()
         line_item_id = request.data.get('line_item_id')
         new_quantity = request.data.get('quantity_supplied', 0)
@@ -568,10 +630,13 @@ class SaleViewSet(viewsets.ModelViewSet):
             product.current_stock -= diff
             product.save()
             
-            StockEntry.objects.create(
+            # Create StockMovement with direction OUT and reason SALE
+            StockMovement.objects.create(
                 product=product,
-                entry_type='Out',
+                direction='OUT',
+                reason='SALE',
                 quantity=diff,
+                sale=sale,
                 notes=f'Supply update for sale {sale.sale_number} - {product.code}',
                 recorded_by=request.user
             )
@@ -591,14 +656,13 @@ class SaleViewSet(viewsets.ModelViewSet):
         serializer = self.get_serializer(sale)
         return Response(serializer.data)
 
+
+# ========================
+# Password Reset Views
+# ========================
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def password_reset_request(request):
-    """
-    Handle password reset request
-    POST /api/password-reset/
-    Body: {"email": "user@example.com"}
-    """
     serializer = PasswordResetRequestSerializer(data=request.data)
     
     if serializer.is_valid():
@@ -617,16 +681,6 @@ def password_reset_request(request):
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def password_reset_confirm(request):
-    """
-    Handle password reset confirmation
-    POST /api/password-reset/confirm/
-    Body: {
-        "uid": "...",
-        "token": "...",
-        "new_password": "...",
-        "confirm_password": "..."
-    }
-    """
     serializer = PasswordResetConfirmSerializer(data=request.data)
     
     if serializer.is_valid():
@@ -645,14 +699,9 @@ def password_reset_confirm(request):
 @api_view(['GET'])
 @permission_classes([AllowAny])
 def password_reset_validate(request, uid, token):
-    """
-    Validate reset token before showing form
-    GET /api/password-reset/validate/<uid>/<token>/
-    """
     from django.contrib.auth.tokens import PasswordResetTokenGenerator
     from django.utils.http import urlsafe_base64_decode
     from django.utils.encoding import force_str
-    from django.contrib.auth.models import User
     
     try:
         uid_decoded = force_str(urlsafe_base64_decode(uid))

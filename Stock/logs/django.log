@@ -53310,3 +53310,313 @@ INFO 2026-01-22 12:36:09,524 autoreload 564 8020 C:\Users\user\OneDrive\Desktop\
 INFO 2026-01-22 12:36:13,176 autoreload 12112 4860 Watching for file changes with StatReloader
 INFO 2026-01-22 12:36:15,327 autoreload 12112 4860 C:\Users\user\OneDrive\Desktop\Inventory\Stock\Stock\settings.py changed, reloading.
 INFO 2026-01-22 12:36:17,218 autoreload 7140 13236 Watching for file changes with StatReloader
+WARNING 2026-01-22 12:38:35,137 log 7140 3680 Unauthorized: /api/users/me/
+WARNING 2026-01-22 12:38:35,138 basehttp 7140 3680 "GET /api/users/me/ HTTP/1.1" 401 172
+WARNING 2026-01-22 12:38:35,143 log 7140 3680 Unauthorized: /api/users/me/
+WARNING 2026-01-22 12:38:35,145 basehttp 7140 3680 "GET /api/users/me/ HTTP/1.1" 401 172
+INFO 2026-01-22 12:38:35,268 basehttp 7140 3680 "POST /api/token/refresh/ HTTP/1.1" 200 489
+INFO 2026-01-22 12:38:35,399 basehttp 7140 3680 "POST /api/token/refresh/ HTTP/1.1" 200 489
+INFO 2026-01-22 12:38:35,470 basehttp 7140 6344 "GET /api/users/me/ HTTP/1.1" 200 220
+INFO 2026-01-22 12:38:35,701 basehttp 7140 6344 "GET /api/users/me/ HTTP/1.1" 200 220
+INFO 2026-01-22 12:38:35,837 basehttp 7140 9248 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-01-22 12:38:35,846 basehttp 7140 3680 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-01-22 12:38:35,970 basehttp 7140 15212 "GET /api/products/ HTTP/1.1" 200 104826
+INFO 2026-01-22 12:38:36,298 basehttp 7140 4220 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-01-22 12:38:36,403 basehttp 7140 6344 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-01-22 12:38:36,566 basehttp 7140 3680 "GET /api/products/ HTTP/1.1" 200 104826
+INFO 2026-01-22 13:03:44,412 basehttp 7140 3328 "OPTIONS /api/products/462/ HTTP/1.1" 200 0
+INFO 2026-01-22 13:03:45,121 basehttp 7140 3328 "PUT /api/products/462/ HTTP/1.1" 200 420
+INFO 2026-01-22 13:03:45,355 basehttp 7140 3328 "GET /api/products/ HTTP/1.1" 200 104826
+INFO 2026-01-22 13:05:09,504 basehttp 7140 14428 "OPTIONS /api/products/629/ HTTP/1.1" 200 0
+INFO 2026-01-22 13:05:09,674 basehttp 7140 14428 "PUT /api/products/629/ HTTP/1.1" 200 444
+INFO 2026-01-22 13:05:09,865 basehttp 7140 14428 "GET /api/products/ HTTP/1.1" 200 104825
+INFO 2026-01-22 13:06:41,230 basehttp 7140 2736 "OPTIONS /api/products/473/ HTTP/1.1" 200 0
+INFO 2026-01-22 13:06:41,405 basehttp 7140 2736 "PUT /api/products/473/ HTTP/1.1" 200 419
+INFO 2026-01-22 13:06:41,613 basehttp 7140 2736 "GET /api/products/ HTTP/1.1" 200 104825
+INFO 2026-01-22 13:07:17,749 basehttp 7140 2736 "OPTIONS /api/products/474/ HTTP/1.1" 200 0
+INFO 2026-01-22 13:07:17,957 basehttp 7140 2736 "PUT /api/products/474/ HTTP/1.1" 200 429
+INFO 2026-01-22 13:07:18,148 basehttp 7140 2736 "GET /api/products/ HTTP/1.1" 200 104825
+INFO 2026-01-22 13:08:15,650 basehttp 7140 2736 "OPTIONS /api/products/481/ HTTP/1.1" 200 0
+INFO 2026-01-22 13:08:16,165 basehttp 7140 2736 "PUT /api/products/481/ HTTP/1.1" 200 412
+INFO 2026-01-22 13:08:16,527 basehttp 7140 2736 "GET /api/products/ HTTP/1.1" 200 104825
+INFO 2026-01-22 13:08:36,047 basehttp 7140 2736 "OPTIONS /api/products/482/ HTTP/1.1" 200 0
+INFO 2026-01-22 13:08:36,234 basehttp 7140 2736 "PUT /api/products/482/ HTTP/1.1" 200 410
+INFO 2026-01-22 13:08:36,428 basehttp 7140 2736 "GET /api/products/ HTTP/1.1" 200 104825
+INFO 2026-01-22 13:12:53,093 basehttp 7140 2736 "OPTIONS /api/products/488/ HTTP/1.1" 200 0
+INFO 2026-01-22 13:12:53,327 basehttp 7140 2736 "PUT /api/products/488/ HTTP/1.1" 200 416
+INFO 2026-01-22 13:12:53,519 basehttp 7140 2736 "GET /api/products/ HTTP/1.1" 200 104825
+INFO 2026-01-22 13:14:08,985 basehttp 7140 2736 "OPTIONS /api/products/491/ HTTP/1.1" 200 0
+INFO 2026-01-22 13:14:09,156 basehttp 7140 2736 "PUT /api/products/491/ HTTP/1.1" 200 425
+INFO 2026-01-22 13:14:09,374 basehttp 7140 2736 "GET /api/products/ HTTP/1.1" 200 104825
+INFO 2026-01-22 13:14:34,649 basehttp 7140 2736 "OPTIONS /api/products/492/ HTTP/1.1" 200 0
+INFO 2026-01-22 13:14:34,925 basehttp 7140 2736 "PUT /api/products/492/ HTTP/1.1" 200 443
+INFO 2026-01-22 13:14:35,128 basehttp 7140 2736 "GET /api/products/ HTTP/1.1" 200 104825
+INFO 2026-01-22 13:23:47,345 basehttp 7140 6592 "OPTIONS /api/products/495/ HTTP/1.1" 200 0
+INFO 2026-01-22 13:23:50,222 basehttp 7140 6592 "PUT /api/products/495/ HTTP/1.1" 200 443
+INFO 2026-01-22 13:23:50,790 basehttp 7140 6592 "GET /api/products/ HTTP/1.1" 200 104825
+INFO 2026-01-22 13:24:30,753 basehttp 7140 6592 "OPTIONS /api/products/497/ HTTP/1.1" 200 0
+INFO 2026-01-22 13:24:30,927 basehttp 7140 6592 "PUT /api/products/497/ HTTP/1.1" 200 436
+INFO 2026-01-22 13:24:31,217 basehttp 7140 6592 "GET /api/products/ HTTP/1.1" 200 104825
+INFO 2026-01-22 13:26:38,662 basehttp 7140 6592 "OPTIONS /api/products/507/ HTTP/1.1" 200 0
+INFO 2026-01-22 13:26:39,101 basehttp 7140 6592 "PUT /api/products/507/ HTTP/1.1" 200 446
+INFO 2026-01-22 13:26:39,272 basehttp 7140 6592 "GET /api/products/ HTTP/1.1" 200 104825
+INFO 2026-01-22 13:26:51,400 basehttp 7140 6592 "OPTIONS /api/products/508/ HTTP/1.1" 200 0
+INFO 2026-01-22 13:26:51,683 basehttp 7140 6592 "PUT /api/products/508/ HTTP/1.1" 200 447
+INFO 2026-01-22 13:26:51,930 basehttp 7140 6592 "GET /api/products/ HTTP/1.1" 200 104825
+INFO 2026-01-22 13:37:06,846 basehttp 7140 7044 "OPTIONS /api/products/518/ HTTP/1.1" 200 0
+INFO 2026-01-22 13:37:07,037 basehttp 7140 7044 "PUT /api/products/518/ HTTP/1.1" 200 468
+INFO 2026-01-22 13:37:07,047 basehttp 7140 7044 "OPTIONS /api/products/ HTTP/1.1" 200 0
+INFO 2026-01-22 13:37:07,225 basehttp 7140 7044 "GET /api/products/ HTTP/1.1" 200 104825
+INFO 2026-01-22 13:43:15,281 basehttp 7140 8812 "OPTIONS /api/products/533/ HTTP/1.1" 200 0
+WARNING 2026-01-22 13:43:15,290 log 7140 8812 Unauthorized: /api/products/533/
+WARNING 2026-01-22 13:43:15,300 basehttp 7140 8812 "PUT /api/products/533/ HTTP/1.1" 401 172
+INFO 2026-01-22 13:43:15,310 basehttp 7140 8812 "OPTIONS /api/token/refresh/ HTTP/1.1" 200 0
+INFO 2026-01-22 13:43:15,431 basehttp 7140 8812 "POST /api/token/refresh/ HTTP/1.1" 200 489
+INFO 2026-01-22 13:43:15,607 basehttp 7140 8812 "PUT /api/products/533/ HTTP/1.1" 200 444
+INFO 2026-01-22 13:43:15,832 basehttp 7140 8812 "GET /api/products/ HTTP/1.1" 200 104825
+INFO 2026-01-22 13:47:11,427 basehttp 7140 8812 "OPTIONS /api/products/546/ HTTP/1.1" 200 0
+INFO 2026-01-22 13:47:11,609 basehttp 7140 8812 "PUT /api/products/546/ HTTP/1.1" 200 428
+INFO 2026-01-22 13:47:11,786 basehttp 7140 8812 "GET /api/products/ HTTP/1.1" 200 104825
+INFO 2026-01-22 13:48:19,454 basehttp 7140 13584 "OPTIONS /api/products/551/ HTTP/1.1" 200 0
+INFO 2026-01-22 13:48:19,596 basehttp 7140 13584 "PUT /api/products/551/ HTTP/1.1" 200 429
+INFO 2026-01-22 13:48:19,773 basehttp 7140 13584 "GET /api/products/ HTTP/1.1" 200 104825
+INFO 2026-01-22 13:54:14,804 basehttp 7140 10780 "OPTIONS /api/products/574/ HTTP/1.1" 200 0
+INFO 2026-01-22 13:54:14,968 basehttp 7140 10780 "PUT /api/products/574/ HTTP/1.1" 200 425
+INFO 2026-01-22 13:54:15,142 basehttp 7140 10780 "GET /api/products/ HTTP/1.1" 200 104825
+INFO 2026-01-22 13:54:38,515 basehttp 7140 10780 "OPTIONS /api/products/567/ HTTP/1.1" 200 0
+INFO 2026-01-22 13:54:38,697 basehttp 7140 10780 "PUT /api/products/567/ HTTP/1.1" 200 435
+INFO 2026-01-22 13:54:38,920 basehttp 7140 10780 "GET /api/products/ HTTP/1.1" 200 104825
+INFO 2026-01-22 13:55:01,127 basehttp 7140 10780 "OPTIONS /api/products/569/ HTTP/1.1" 200 0
+INFO 2026-01-22 13:55:01,304 basehttp 7140 10780 "PUT /api/products/569/ HTTP/1.1" 200 449
+INFO 2026-01-22 13:55:01,484 basehttp 7140 10780 "GET /api/products/ HTTP/1.1" 200 104825
+INFO 2026-01-22 14:04:27,022 basehttp 7140 12704 "OPTIONS /api/products/591/ HTTP/1.1" 200 0
+INFO 2026-01-22 14:04:27,196 basehttp 7140 12704 "PUT /api/products/591/ HTTP/1.1" 200 391
+INFO 2026-01-22 14:04:27,519 basehttp 7140 12704 "GET /api/products/ HTTP/1.1" 200 104825
+INFO 2026-01-22 14:06:27,312 basehttp 7140 12704 "OPTIONS /api/products/603/ HTTP/1.1" 200 0
+INFO 2026-01-22 14:06:27,606 basehttp 7140 12704 "PUT /api/products/603/ HTTP/1.1" 200 416
+INFO 2026-01-22 14:06:27,858 basehttp 7140 12704 "GET /api/products/ HTTP/1.1" 200 104825
+INFO 2026-01-22 14:06:49,226 basehttp 7140 12704 "OPTIONS /api/products/604/ HTTP/1.1" 200 0
+INFO 2026-01-22 14:06:49,473 basehttp 7140 12704 "PUT /api/products/604/ HTTP/1.1" 200 418
+INFO 2026-01-22 14:06:49,720 basehttp 7140 12704 "GET /api/products/ HTTP/1.1" 200 104825
+INFO 2026-01-22 14:07:14,159 basehttp 7140 12704 "OPTIONS /api/products/607/ HTTP/1.1" 200 0
+INFO 2026-01-22 14:07:14,458 basehttp 7140 12704 "PUT /api/products/607/ HTTP/1.1" 200 411
+INFO 2026-01-22 14:07:14,641 basehttp 7140 12704 "GET /api/products/ HTTP/1.1" 200 104825
+INFO 2026-01-22 14:36:47,839 autoreload 7140 13236 C:\Users\user\OneDrive\Desktop\Inventory\Stock\Sales\models.py changed, reloading.
+INFO 2026-01-22 14:36:51,484 autoreload 3784 14980 Watching for file changes with StatReloader
+INFO 2026-01-22 14:37:25,420 autoreload 3784 14980 C:\Users\user\OneDrive\Desktop\Inventory\Stock\Sales\views.py changed, reloading.
+INFO 2026-01-22 14:37:28,128 autoreload 14388 1920 Watching for file changes with StatReloader
+INFO 2026-01-22 14:39:43,359 autoreload 14388 1920 C:\Users\user\OneDrive\Desktop\Inventory\Stock\Sales\serializers.py changed, reloading.
+INFO 2026-01-22 14:39:45,306 autoreload 4908 8040 Watching for file changes with StatReloader
+INFO 2026-01-22 14:41:13,398 autoreload 4908 8040 C:\Users\user\OneDrive\Desktop\Inventory\Stock\Sales\serializers.py changed, reloading.
+INFO 2026-01-22 14:41:15,192 autoreload 3784 5980 Watching for file changes with StatReloader
+INFO 2026-01-22 14:45:13,517 autoreload 3784 5980 C:\Users\user\OneDrive\Desktop\Inventory\Stock\Sales\urls.py changed, reloading.
+INFO 2026-01-22 14:45:15,444 autoreload 13704 15760 Watching for file changes with StatReloader
+INFO 2026-01-22 14:46:04,307 autoreload 13704 15760 C:\Users\user\OneDrive\Desktop\Inventory\Stock\Sales\admin.py changed, reloading.
+INFO 2026-01-22 14:46:06,258 autoreload 14512 15856 Watching for file changes with StatReloader
+INFO 2026-01-22 14:47:12,083 autoreload 13576 10576 Watching for file changes with StatReloader
+INFO 2026-01-22 14:47:18,165 basehttp 13576 15712 "OPTIONS /api/dashboard/summary/ HTTP/1.1" 200 0
+WARNING 2026-01-22 14:47:18,354 log 13576 15712 Unauthorized: /api/dashboard/summary/
+WARNING 2026-01-22 14:47:18,355 basehttp 13576 15712 "GET /api/dashboard/summary/ HTTP/1.1" 401 172
+INFO 2026-01-22 14:47:18,601 basehttp 13576 15712 "POST /api/token/refresh/ HTTP/1.1" 200 489
+INFO 2026-01-22 14:47:19,274 basehttp 13576 15712 - Broken pipe from ('127.0.0.1', 57609)
+INFO 2026-01-22 14:47:20,361 basehttp 13576 6936 "OPTIONS /api/users/me/ HTTP/1.1" 200 0
+INFO 2026-01-22 14:47:20,371 basehttp 13576 6936 "OPTIONS /api/users/me/ HTTP/1.1" 200 0
+INFO 2026-01-22 14:47:20,648 basehttp 13576 6936 "GET /api/users/me/ HTTP/1.1" 200 220
+INFO 2026-01-22 14:47:20,856 basehttp 13576 6936 "GET /api/users/me/ HTTP/1.1" 200 220
+INFO 2026-01-22 14:47:21,059 basehttp 13576 14104 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-01-22 14:47:24,558 basehttp 13576 9212 "GET /admin/Sales/subcategory/24/change/ HTTP/1.1" 200 17177
+INFO 2026-01-22 14:47:24,821 basehttp 13576 9212 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-22 14:47:33,437 basehttp 13576 9212 "GET /admin/Sales/stockmovement/ HTTP/1.1" 200 15703
+INFO 2026-01-22 14:47:33,675 basehttp 13576 9212 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-22 14:47:37,894 basehttp 13576 9212 "GET /admin/Sales/stockmovement/add/ HTTP/1.1" 200 26348
+INFO 2026-01-22 14:47:38,023 basehttp 13576 9212 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-22 14:47:44,327 basehttp 13576 9212 "GET /admin/Sales/stockentry/ HTTP/1.1" 200 18868
+INFO 2026-01-22 14:47:44,470 basehttp 13576 9212 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-01-22 14:47:50,647 basehttp 13576 2496 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-01-22 14:47:51,025 basehttp 13576 2496 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-01-22 14:47:52,634 basehttp 13576 2496 "OPTIONS /api/categories/ HTTP/1.1" 200 0
+INFO 2026-01-22 14:47:52,635 basehttp 13576 14840 "OPTIONS /api/stock-movements/?direction=IN HTTP/1.1" 200 0
+INFO 2026-01-22 14:47:52,640 basehttp 13576 2496 "OPTIONS /api/stock-movements/?direction=IN HTTP/1.1" 200 0
+INFO 2026-01-22 14:47:52,640 basehttp 13576 14840 "OPTIONS /api/categories/ HTTP/1.1" 200 0
+INFO 2026-01-22 14:47:52,851 basehttp 13576 2496 "GET /api/stock-movements/?direction=IN HTTP/1.1" 200 52
+INFO 2026-01-22 14:47:52,903 basehttp 13576 14840 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-01-22 14:47:53,087 basehttp 13576 2496 "GET /api/stock-movements/?direction=IN HTTP/1.1" 200 52
+INFO 2026-01-22 14:47:53,097 basehttp 13576 14840 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-01-22 14:47:58,150 basehttp 13576 14840 "OPTIONS /api/stock-movements/?direction=OUT HTTP/1.1" 200 0
+INFO 2026-01-22 14:47:58,278 basehttp 13576 14840 "GET /api/stock-movements/?direction=OUT HTTP/1.1" 200 52
+INFO 2026-01-22 14:48:03,260 basehttp 13576 6904 "GET /api/stock-movements/?direction=IN HTTP/1.1" 200 52
+INFO 2026-01-22 14:48:11,965 basehttp 13576 6904 "GET /api/stock-movements/?direction=OUT HTTP/1.1" 200 52
+INFO 2026-01-22 14:48:17,793 basehttp 13576 6904 "GET /api/stock-movements/?direction=IN HTTP/1.1" 200 52
+INFO 2026-01-22 14:49:18,288 basehttp 13576 6904 "GET /api/stock-movements/?direction=OUT HTTP/1.1" 200 52
+INFO 2026-01-22 14:49:19,639 basehttp 13576 6904 "GET /api/stock-movements/?direction=IN HTTP/1.1" 200 52
+INFO 2026-01-22 14:50:14,305 basehttp 13576 6904 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-01-22 14:50:44,284 basehttp 13576 6904 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-01-22 14:51:14,304 basehttp 13576 6904 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-01-22 14:51:44,285 basehttp 13576 6904 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-01-22 14:52:14,267 basehttp 13576 6904 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-01-22 14:52:44,299 basehttp 13576 6904 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-01-22 14:53:14,325 basehttp 13576 6904 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-01-22 14:53:44,300 basehttp 13576 6904 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-01-22 14:54:14,313 basehttp 13576 6904 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-01-22 14:54:44,452 basehttp 13576 6904 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-01-22 14:55:14,307 basehttp 13576 6904 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-01-22 14:55:37,598 basehttp 13576 6904 "OPTIONS /api/suppliers/ HTTP/1.1" 200 0
+INFO 2026-01-22 14:55:37,764 basehttp 13576 6904 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-01-22 14:55:37,769 basehttp 13576 6904 "OPTIONS /api/suppliers/ HTTP/1.1" 200 0
+INFO 2026-01-22 14:55:38,035 basehttp 13576 6904 "GET /api/products/ HTTP/1.1" 200 104825
+INFO 2026-01-22 14:55:38,121 basehttp 13576 14600 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-01-22 14:55:38,128 basehttp 13576 11868 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-01-22 14:55:38,408 basehttp 13576 14792 "GET /api/products/ HTTP/1.1" 200 104825
+INFO 2026-01-22 14:55:38,437 basehttp 13576 14600 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-01-23 10:13:25,388 autoreload 14600 9460 Watching for file changes with StatReloader
+INFO 2026-01-23 10:13:39,737 basehttp 14600 6748 "GET /admin/ HTTP/1.1" 200 17785
+WARNING 2026-01-23 10:13:39,986 log 14600 6748 Not Found: /favicon.ico
+WARNING 2026-01-23 10:13:39,987 basehttp 14600 6748 "GET /favicon.ico HTTP/1.1" 404 3037
+INFO 2026-01-23 10:14:01,452 basehttp 14600 16352 "OPTIONS /api/users/me/ HTTP/1.1" 200 0
+INFO 2026-01-23 10:14:01,454 basehttp 14600 16352 "OPTIONS /api/users/me/ HTTP/1.1" 200 0
+WARNING 2026-01-23 10:14:01,506 log 14600 1700 Unauthorized: /api/users/me/
+WARNING 2026-01-23 10:14:01,507 basehttp 14600 1700 "GET /api/users/me/ HTTP/1.1" 401 172
+WARNING 2026-01-23 10:14:01,515 log 14600 1700 Unauthorized: /api/users/me/
+INFO 2026-01-23 10:14:01,517 basehttp 14600 16352 "OPTIONS /api/token/refresh/ HTTP/1.1" 200 0
+WARNING 2026-01-23 10:14:01,517 basehttp 14600 1700 "GET /api/users/me/ HTTP/1.1" 401 172
+WARNING 2026-01-23 10:14:01,527 log 14600 1700 Unauthorized: /api/token/refresh/
+WARNING 2026-01-23 10:14:01,529 log 14600 16352 Unauthorized: /api/token/refresh/
+WARNING 2026-01-23 10:14:01,529 basehttp 14600 1700 "POST /api/token/refresh/ HTTP/1.1" 401 54
+WARNING 2026-01-23 10:14:01,530 basehttp 14600 16352 "POST /api/token/refresh/ HTTP/1.1" 401 54
+INFO 2026-01-23 10:15:01,816 basehttp 14600 16352 "OPTIONS /api/token/ HTTP/1.1" 200 0
+INFO 2026-01-23 10:15:03,204 basehttp 14600 16352 "POST /api/token/ HTTP/1.1" 200 489
+INFO 2026-01-23 10:15:03,329 basehttp 14600 16352 "GET /api/users/me/ HTTP/1.1" 200 220
+INFO 2026-01-23 10:15:03,437 basehttp 14600 16352 "OPTIONS /api/dashboard/summary/ HTTP/1.1" 200 0
+INFO 2026-01-23 10:15:03,641 basehttp 14600 16352 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-01-23 10:15:33,733 basehttp 14600 16352 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-01-23 10:16:03,652 basehttp 14600 16352 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-01-23 10:16:33,585 basehttp 14600 16352 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-01-23 10:16:58,792 basehttp 14600 1700 "OPTIONS /api/suppliers/ HTTP/1.1" 200 0
+INFO 2026-01-23 10:16:58,792 basehttp 14600 16352 "OPTIONS /api/categories/ HTTP/1.1" 200 0
+INFO 2026-01-23 10:16:58,797 basehttp 14600 1700 "OPTIONS /api/categories/ HTTP/1.1" 200 0
+INFO 2026-01-23 10:16:58,797 basehttp 14600 16352 "OPTIONS /api/products/ HTTP/1.1" 200 0
+INFO 2026-01-23 10:16:58,800 basehttp 14600 1700 "OPTIONS /api/suppliers/ HTTP/1.1" 200 0
+INFO 2026-01-23 10:16:58,807 basehttp 14600 16352 "OPTIONS /api/products/ HTTP/1.1" 200 0
+INFO 2026-01-23 10:16:59,019 basehttp 14600 16352 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-01-23 10:16:59,084 basehttp 14600 1700 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-01-23 10:16:59,340 basehttp 14600 14024 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-01-23 10:16:59,340 basehttp 14600 16352 "GET /api/products/ HTTP/1.1" 200 104825
+INFO 2026-01-23 10:16:59,381 basehttp 14600 10520 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-01-23 10:16:59,577 basehttp 14600 14024 "GET /api/products/ HTTP/1.1" 200 104825
+INFO 2026-01-23 10:19:58,983 basehttp 14600 14024 "GET /api/users/me/ HTTP/1.1" 200 220
+INFO 2026-01-23 10:19:59,293 basehttp 14600 16352 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-01-23 10:19:59,316 basehttp 14600 14024 "GET /api/users/me/ HTTP/1.1" 200 220
+INFO 2026-01-23 10:19:59,427 basehttp 14600 10520 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-01-23 10:19:59,428 basehttp 14600 1700 "GET /api/products/ HTTP/1.1" 200 104825
+INFO 2026-01-23 10:19:59,478 basehttp 14600 16352 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-01-23 10:19:59,618 basehttp 14600 10520 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-01-23 10:19:59,700 basehttp 14600 14024 "GET /api/products/ HTTP/1.1" 200 104825
+INFO 2026-01-23 10:34:20,023 basehttp 14600 5928 "OPTIONS /api/sales/ HTTP/1.1" 200 0
+INFO 2026-01-23 10:34:20,024 basehttp 14600 15792 "OPTIONS /api/sales/ HTTP/1.1" 200 0
+INFO 2026-01-23 10:34:20,451 basehttp 14600 15792 "GET /api/sales/ HTTP/1.1" 200 3592
+INFO 2026-01-23 10:34:20,605 basehttp 14600 15792 "GET /api/sales/ HTTP/1.1" 200 3592
+INFO 2026-01-23 10:34:42,887 basehttp 14600 15792 "GET /api/products/ HTTP/1.1" 200 104825
+INFO 2026-01-23 10:56:04,087 basehttp 14600 8848 "GET /api/sales/ HTTP/1.1" 200 3592
+INFO 2026-01-23 10:56:04,123 basehttp 14600 10648 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-01-23 11:10:37,935 autoreload 11868 11856 Watching for file changes with StatReloader
+INFO 2026-01-23 11:12:03,907 basehttp 11868 13816 "GET /admin/ HTTP/1.1" 200 17785
+INFO 2026-01-23 11:12:14,708 basehttp 11868 13816 "GET /admin/ HTTP/1.1" 200 17785
+INFO 2026-01-23 11:12:14,773 basehttp 11868 7020 "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+INFO 2026-01-23 11:12:14,774 basehttp 11868 13816 "GET /static/admin/css/base.css HTTP/1.1" 200 22120
+INFO 2026-01-23 11:12:14,818 basehttp 11868 8492 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+INFO 2026-01-23 11:12:14,871 basehttp 11868 6660 "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+INFO 2026-01-23 11:12:14,871 basehttp 11868 11892 "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+INFO 2026-01-23 11:12:14,879 basehttp 11868 14984 "GET /static/admin/css/responsive.css HTTP/1.1" 200 16565
+INFO 2026-01-23 11:12:14,934 basehttp 11868 8492 "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+INFO 2026-01-23 11:12:14,936 basehttp 11868 6660 "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO 2026-01-23 11:12:14,937 basehttp 11868 11892 "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO 2026-01-23 11:12:14,949 basehttp 11868 14984 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+WARNING 2026-01-23 11:12:15,117 log 11868 14984 Not Found: /favicon.ico
+WARNING 2026-01-23 11:12:15,118 basehttp 11868 14984 "GET /favicon.ico HTTP/1.1" 404 3037
+INFO 2026-01-23 11:12:21,507 basehttp 11868 1600 "OPTIONS /api/users/me/ HTTP/1.1" 200 0
+INFO 2026-01-23 11:12:21,508 basehttp 11868 1256 "OPTIONS /api/users/me/ HTTP/1.1" 200 0
+INFO 2026-01-23 11:12:21,717 basehttp 11868 1256 "GET /api/users/me/ HTTP/1.1" 200 220
+INFO 2026-01-23 11:12:21,816 basehttp 11868 1600 "OPTIONS /api/categories/ HTTP/1.1" 200 0
+INFO 2026-01-23 11:12:21,824 basehttp 11868 14164 "OPTIONS /api/sales/ HTTP/1.1" 200 0
+INFO 2026-01-23 11:12:21,860 basehttp 11868 1256 "GET /api/users/me/ HTTP/1.1" 200 220
+INFO 2026-01-23 11:12:22,058 basehttp 11868 1600 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-01-23 11:12:22,133 basehttp 11868 14164 "GET /api/sales/ HTTP/1.1" 200 3592
+INFO 2026-01-23 11:12:22,221 basehttp 11868 1600 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-01-23 11:12:22,322 basehttp 11868 14164 "GET /api/sales/ HTTP/1.1" 200 3592
+INFO 2026-01-23 11:13:16,221 basehttp 11868 14164 "OPTIONS /api/products/ HTTP/1.1" 200 0
+INFO 2026-01-23 11:13:16,580 basehttp 11868 14164 "GET /api/products/ HTTP/1.1" 200 104825
+INFO 2026-01-23 11:14:20,705 basehttp 11868 14164 "GET /api/sales/ HTTP/1.1" 200 3592
+INFO 2026-01-23 11:14:32,070 basehttp 11868 14164 "GET /api/sales/ HTTP/1.1" 200 3592
+WARNING 2026-01-23 11:19:40,224 log 11868 5768 Unauthorized: /api/users/me/
+WARNING 2026-01-23 11:19:40,225 basehttp 11868 5768 "GET /api/users/me/ HTTP/1.1" 401 172
+WARNING 2026-01-23 11:19:40,229 log 11868 5768 Unauthorized: /api/users/me/
+WARNING 2026-01-23 11:19:40,230 basehttp 11868 5768 "GET /api/users/me/ HTTP/1.1" 401 172
+INFO 2026-01-23 11:19:40,235 basehttp 11868 5768 "OPTIONS /api/token/refresh/ HTTP/1.1" 200 0
+INFO 2026-01-23 11:19:40,241 basehttp 11868 5768 "OPTIONS /api/token/refresh/ HTTP/1.1" 200 0
+INFO 2026-01-23 11:19:40,388 basehttp 11868 5768 "POST /api/token/refresh/ HTTP/1.1" 200 489
+INFO 2026-01-23 11:19:40,495 basehttp 11868 5768 "POST /api/token/refresh/ HTTP/1.1" 200 489
+INFO 2026-01-23 11:19:40,580 basehttp 11868 12628 "GET /api/users/me/ HTTP/1.1" 200 220
+INFO 2026-01-23 11:19:40,787 basehttp 11868 12628 "GET /api/users/me/ HTTP/1.1" 200 220
+INFO 2026-01-23 11:19:40,897 basehttp 11868 5768 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-01-23 11:19:40,925 basehttp 11868 3560 "GET /api/sales/ HTTP/1.1" 200 3592
+INFO 2026-01-23 11:19:41,056 basehttp 11868 12628 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-01-23 11:19:41,111 basehttp 11868 3560 "GET /api/sales/ HTTP/1.1" 200 3592
+INFO 2026-01-23 11:19:42,388 basehttp 11868 3560 "OPTIONS /api/suppliers/ HTTP/1.1" 200 0
+INFO 2026-01-23 11:19:42,388 basehttp 11868 5768 "OPTIONS /api/suppliers/ HTTP/1.1" 200 0
+INFO 2026-01-23 11:19:42,642 basehttp 11868 12628 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-01-23 11:19:42,791 basehttp 11868 3560 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-01-23 11:19:42,792 basehttp 11868 5856 "GET /api/products/ HTTP/1.1" 200 104825
+INFO 2026-01-23 11:19:42,923 basehttp 11868 12628 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-01-23 11:19:43,082 basehttp 11868 5768 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-01-23 11:19:43,083 basehttp 11868 3560 "GET /api/products/ HTTP/1.1" 200 104825
+INFO 2026-01-23 11:20:28,937 basehttp 11868 3560 "GET /api/sales/ HTTP/1.1" 200 3592
+INFO 2026-01-23 11:20:29,157 basehttp 11868 3560 "GET /api/sales/ HTTP/1.1" 200 3592
+INFO 2026-01-23 11:25:37,165 basehttp 11868 11860 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-01-23 11:25:37,165 basehttp 11868 1164 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-01-23 11:25:37,311 basehttp 11868 12472 "GET /api/products/ HTTP/1.1" 200 104825
+INFO 2026-01-23 11:25:37,418 basehttp 11868 1164 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-01-23 11:25:37,493 basehttp 11868 11860 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-01-23 11:25:37,601 basehttp 11868 12748 "GET /api/products/ HTTP/1.1" 200 104825
+INFO 2026-01-23 11:26:09,287 basehttp 11868 12748 "GET /api/sales/ HTTP/1.1" 200 3592
+INFO 2026-01-23 11:26:09,504 basehttp 11868 12748 "GET /api/sales/ HTTP/1.1" 200 3592
+INFO 2026-01-23 11:26:12,728 basehttp 11868 12748 "OPTIONS /api/stock-movements/?direction=IN HTTP/1.1" 200 0
+INFO 2026-01-23 11:26:12,728 basehttp 11868 11860 "OPTIONS /api/stock-movements/?direction=IN HTTP/1.1" 200 0
+INFO 2026-01-23 11:26:12,935 basehttp 11868 1164 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-01-23 11:26:12,986 basehttp 11868 11860 "GET /api/stock-movements/?direction=IN HTTP/1.1" 200 52
+INFO 2026-01-23 11:26:13,117 basehttp 11868 12748 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-01-23 11:26:13,150 basehttp 11868 11860 "GET /api/stock-movements/?direction=IN HTTP/1.1" 200 52
+INFO 2026-01-23 11:28:53,654 basehttp 11868 11860 "GET /api/users/me/ HTTP/1.1" 200 220
+INFO 2026-01-23 11:28:53,892 basehttp 11868 11860 "GET /api/users/me/ HTTP/1.1" 200 220
+INFO 2026-01-23 11:28:53,904 basehttp 11868 1164 "GET /api/stock-movements/?direction=IN HTTP/1.1" 200 52
+INFO 2026-01-23 11:28:53,944 basehttp 11868 12748 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-01-23 11:28:54,067 basehttp 11868 1164 "GET /api/stock-movements/?direction=IN HTTP/1.1" 200 52
+INFO 2026-01-23 11:28:54,105 basehttp 11868 11860 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-01-23 11:28:58,085 basehttp 11868 11860 "GET /api/sales/ HTTP/1.1" 200 3592
+INFO 2026-01-23 11:28:58,301 basehttp 11868 11860 "GET /api/sales/ HTTP/1.1" 200 3592
+INFO 2026-01-23 11:29:02,496 basehttp 11868 11860 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-01-23 11:29:02,509 basehttp 11868 1164 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-01-23 11:29:02,810 basehttp 11868 12748 "GET /api/products/ HTTP/1.1" 200 104825
+INFO 2026-01-23 11:29:02,880 basehttp 11868 1164 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-01-23 11:29:02,880 basehttp 11868 12472 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-01-23 11:29:03,073 basehttp 11868 11860 "GET /api/products/ HTTP/1.1" 200 104825
+INFO 2026-01-23 11:29:03,556 basehttp 11868 11860 "GET /api/sales/ HTTP/1.1" 200 3592
+INFO 2026-01-23 11:29:03,729 basehttp 11868 11860 "GET /api/sales/ HTTP/1.1" 200 3592
+INFO 2026-01-23 11:29:05,178 basehttp 11868 11860 "OPTIONS /api/sales/outstanding/ HTTP/1.1" 200 0
+INFO 2026-01-23 11:29:05,179 basehttp 11868 12472 "OPTIONS /api/sales/outstanding/ HTTP/1.1" 200 0
+INFO 2026-01-23 11:29:05,381 basehttp 11868 11860 "GET /api/sales/outstanding/ HTTP/1.1" 200 1508
+INFO 2026-01-23 11:29:05,524 basehttp 11868 11860 "GET /api/sales/outstanding/ HTTP/1.1" 200 1508
+INFO 2026-01-23 11:29:09,205 basehttp 11868 11860 "GET /api/sales/ HTTP/1.1" 200 3592
+INFO 2026-01-23 11:29:09,441 basehttp 11868 11860 "GET /api/sales/ HTTP/1.1" 200 3592
+INFO 2026-01-23 11:29:14,579 basehttp 11868 11860 "OPTIONS /api/dashboard/summary/ HTTP/1.1" 200 0
+INFO 2026-01-23 11:29:14,799 basehttp 11868 11860 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-01-23 11:29:44,732 basehttp 11868 11860 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-01-23 11:29:48,701 basehttp 11868 11860 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-01-23 11:29:48,863 basehttp 11868 11860 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-01-23 11:29:51,695 basehttp 11868 12472 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-01-23 11:29:51,763 basehttp 11868 11860 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-01-23 11:29:51,943 basehttp 11868 1164 "GET /api/products/ HTTP/1.1" 200 104825
+INFO 2026-01-23 11:29:52,002 basehttp 11868 12472 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-01-23 11:29:52,161 basehttp 11868 11860 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-01-23 11:29:52,312 basehttp 11868 12748 "GET /api/products/ HTTP/1.1" 200 104825
+INFO 2026-01-23 11:29:52,998 basehttp 11868 12748 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-01-23 11:29:59,139 basehttp 11868 12748 "GET /api/dashboard/summary/ HTTP/1.1" 200 678

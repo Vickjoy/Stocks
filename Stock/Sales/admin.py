@@ -7,7 +7,7 @@ from .models import (
     Category, SubCategory, SubSubCategory,
     Supplier, Customer, Product,
     MonthlyOpeningStock, StockEntry, AuditLog,
-    Sale, SaleLineItem
+    Sale, SaleLineItem, StockMovement
 )
 
 # =====================================================
@@ -251,3 +251,33 @@ class SaleLineItemAdmin(admin.ModelAdmin):
     list_filter = ['supply_status']
     autocomplete_fields = ['sale', 'product']
     readonly_fields = ['subtotal']
+
+@admin.register(StockMovement)
+class StockMovementAdmin(admin.ModelAdmin):
+    list_display = [
+        'product', 'direction', 'reason', 'quantity',
+        'supplier', 'sale', 'recorded_by', 'created_at'
+    ]
+    list_filter = ['direction', 'reason', 'created_at']
+    search_fields = ['product__code', 'product__name', 'notes']
+    autocomplete_fields = ['product', 'supplier', 'sale', 'recorded_by']
+    readonly_fields = ['created_at']
+    ordering = ['-created_at']
+    
+    fieldsets = (
+        ('Movement Details', {
+            'fields': ('product', 'direction', 'reason', 'quantity')
+        }),
+        ('Related Entities', {
+            'fields': ('supplier', 'sale')
+        }),
+        ('Metadata', {
+            'fields': ('notes', 'recorded_by', 'created_at')
+        }),
+    )
+    
+    def get_readonly_fields(self, request, obj=None):
+        """Make direction and reason read-only after creation"""
+        if obj:  # Editing existing object
+            return self.readonly_fields + ('direction', 'reason', 'product', 'quantity')
+        return self.readonly_fields
