@@ -4,12 +4,19 @@ from import_export.admin import ImportExportModelAdmin
 from import_export.widgets import ForeignKeyWidget
 
 from .models import (
-    Category, SubCategory, SubSubCategory,
+    UserProfile, Category, SubCategory, SubSubCategory,
     Supplier, Customer, Product,
     MonthlyOpeningStock, StockEntry, AuditLog,
     Sale, SaleLineItem, StockMovement
 )
 
+@admin.register(UserProfile)
+class UserProfileAdmin(admin.ModelAdmin):
+    list_display = ['user', 'role']
+    search_fields = ['user__username', 'user__email']
+    list_filter = ['role']
+    autocomplete_fields = ['user']
+    
 # =====================================================
 # CUSTOM COMPOSITE WIDGET FOR SUBSUBCATEGORY (FIX)
 # =====================================================

@@ -5,120 +5,116 @@ from django.utils import timezone
 from decimal import Decimal, ROUND_HALF_UP
 
 
+class UserProfile(models.Model):
+    ROLE_CHOICES = [
+        ('admin', 'Admin'),
+        ('staff', 'Staff'),
+    ]
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
+    role = models.CharField(max_length=10, choices=ROLE_CHOICES, default='staff')
+
+    def __str__(self):
+        return f"{self.user.username} ({self.role})"
+
+
 class Category(models.Model):
-    """Main product categories (Fire, ICT, Solar)"""
     CATEGORY_CHOICES = [
         ('Fire', 'Fire'),
         ('ICT', 'ICT'),
         ('Solar', 'Solar'),
     ]
-    
     name = models.CharField(max_length=50, unique=True, choices=CATEGORY_CHOICES)
     description = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    
+
     class Meta:
         verbose_name_plural = "Categories"
         ordering = ['name']
-    
+
     def __str__(self):
         return self.name
 
 
 class SubCategory(models.Model):
-    """Subcategories under main categories"""
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='subcategories')
     name = models.CharField(max_length=100)
     description = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    
+
     class Meta:
         verbose_name_plural = "SubCategories"
         unique_together = ('category', 'name')
         ordering = ['name']
-    
+
     def __str__(self):
         return f"{self.category.name} - {self.name}"
 
 
 class SubSubCategory(models.Model):
-    """Sub-subcategories under subcategories (e.g., Panels, Detectors, I/O Modules)"""
     subcategory = models.ForeignKey(SubCategory, on_delete=models.CASCADE, related_name='subsubcategories')
     name = models.CharField(max_length=100)
     description = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    
+
     class Meta:
         verbose_name_plural = "Sub-SubCategories"
         unique_together = ('subcategory', 'name')
         ordering = ['name']
-    
+
     def __str__(self):
         return f"{self.subcategory.category.name} - {self.subcategory.name} - {self.name}"
 
 
 class ProductGroup(models.Model):
-    """Product groups under subcategories - DEPRECATED, use SubSubCategory instead"""
     subcategory = models.ForeignKey(SubCategory, on_delete=models.CASCADE, related_name='groups')
     name = models.CharField(max_length=100)
     description = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    
+
     class Meta:
         verbose_name_plural = "Product Groups (Deprecated)"
         unique_together = ('subcategory', 'name')
         ordering = ['name']
-    
+
     def __str__(self):
         return f"{self.subcategory.name} - {self.name}"
 
 
 class Supplier(models.Model):
-    """Track suppliers/vendors - Simplified"""
     company_name = models.CharField(max_length=200, unique=True)
     phone = models.CharField(max_length=20, blank=True)
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    
+
     def __str__(self):
         return self.company_name
 
 
 class Customer(models.Model):
-    """Track customers/buyers - Simplified"""
     company_name = models.CharField(max_length=200, unique=True)
     phone = models.CharField(max_length=20, blank=True)
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    
+
     def __str__(self):
         return self.company_name
 
 
 class Product(models.Model):
-    """Products/Stock items - Updated with hierarchical categories"""
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products')
     subcategory = models.ForeignKey(SubCategory, on_delete=models.CASCADE, related_name='products')
     subsubcategory = models.ForeignKey(
-        SubSubCategory, 
-        on_delete=models.SET_NULL, 
-        related_name='products', 
-        null=True, 
-        blank=True,
+        SubSubCategory, on_delete=models.SET_NULL,
+        related_name='products', null=True, blank=True,
         help_text="Product group - optional grouping within subcategory"
     )
-    
     group = models.ForeignKey(
-        ProductGroup, 
-        on_delete=models.SET_NULL, 
-        related_name='products', 
-        null=True, 
-        blank=True,
+        ProductGroup, on_delete=models.SET_NULL,
+        related_name='products', null=True, blank=True,
         help_text="DEPRECATED: Use subsubcategory instead"
     )
-    
     code = models.CharField(max_length=50, unique=True)
     name = models.CharField(max_length=200)
     description = models.TextField(blank=True)
@@ -128,15 +124,14 @@ class Product(models.Model):
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    
+
     class Meta:
         ordering = ['code']
-    
+
     def __str__(self):
         return f"{self.code} - {self.name}"
-    
+
     def get_group_name(self):
-        """Returns the group name from subsubcategory (preferred) or deprecated group field"""
         if self.subsubcategory:
             return self.subsubcategory.name
         elif self.group:
@@ -145,30 +140,24 @@ class Product(models.Model):
 
 
 class MonthlyOpeningStock(models.Model):
-    """Track opening stock for each month"""
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='monthly_opening')
     month = models.DateField()
     opening_quantity = models.IntegerField()
     recorded_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     recorded_at = models.DateTimeField(auto_now_add=True)
-    
+
     class Meta:
         unique_together = ('product', 'month')
-    
+
     def __str__(self):
         return f"{self.product.code} - {self.month.strftime('%B %Y')}"
 
 
 class StockMovement(models.Model):
-    """
-    UPDATED: Track ALL stock movements with explicit direction and reason.
-    This replaces the old StockEntry model for proper audit trail.
-    """
     DIRECTION_CHOICES = [
         ('IN', 'Stock In'),
         ('OUT', 'Stock Out'),
     ]
-    
     REASON_CHOICES = [
         ('RESTOCK', 'Restocking from Supplier'),
         ('ADJUSTMENT', 'Manual Stock Adjustment'),
@@ -178,47 +167,37 @@ class StockMovement(models.Model):
         ('DAMAGE', 'Damaged/Lost Stock'),
         ('TRANSFER', 'Stock Transfer'),
     ]
-    
+
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='stock_movements')
     direction = models.CharField(max_length=3, choices=DIRECTION_CHOICES)
     reason = models.CharField(max_length=20, choices=REASON_CHOICES)
     quantity = models.IntegerField()
-    
-    # Related entities
     supplier = models.ForeignKey(Supplier, on_delete=models.SET_NULL, null=True, blank=True)
     sale = models.ForeignKey('Sale', on_delete=models.SET_NULL, null=True, blank=True, related_name='stock_movements')
-    
-    # Metadata
     notes = models.TextField(blank=True)
     recorded_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    
+
     class Meta:
         ordering = ['-created_at']
         indexes = [
             models.Index(fields=['direction', 'reason']),
             models.Index(fields=['product', 'created_at']),
         ]
-    
+
     def __str__(self):
         return f"{self.product.code} - {self.direction} ({self.reason}) - {self.quantity}"
-    
+
     def save(self, *args, **kwargs):
-        """Validate direction matches reason"""
-        # IN reasons
         if self.reason in ['RESTOCK', 'ADJUSTMENT', 'INITIAL', 'RETURN']:
             if self.direction != 'IN':
                 raise ValueError(f"Reason {self.reason} must have direction IN")
-        
-        # OUT reasons
         if self.reason in ['SALE', 'DAMAGE', 'TRANSFER']:
             if self.direction != 'OUT':
                 raise ValueError(f"Reason {self.reason} must have direction OUT")
-        
         super().save(*args, **kwargs)
 
 
-# Keep old StockEntry for backwards compatibility (read-only)
 class StockEntry(models.Model):
     """DEPRECATED: Legacy stock entry model - use StockMovement instead"""
     ENTRY_TYPE_CHOICES = [
@@ -226,7 +205,6 @@ class StockEntry(models.Model):
         ('Out', 'Stock Out'),
         ('Adjustment', 'Adjustment'),
     ]
-    
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='stock_entries')
     entry_type = models.CharField(max_length=20, choices=ENTRY_TYPE_CHOICES)
     quantity = models.IntegerField()
@@ -234,38 +212,37 @@ class StockEntry(models.Model):
     notes = models.TextField(blank=True)
     recorded_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    
+
     class Meta:
         verbose_name_plural = "Stock Entries (Legacy)"
-    
+
     def __str__(self):
         return f"{self.product.code} - {self.entry_type} - {self.quantity}"
 
 
 class AuditLog(models.Model):
-    """Track critical actions for security/audit"""
     ACTION_CHOICES = [
         ('Stock Edit', 'Stock Edit'),
         ('Sale Created', 'Sale Created'),
         ('Sale Updated', 'Sale Updated'),
+        ('Sale Approved', 'Sale Approved'),       # NEW
+        ('Sale Rejected', 'Sale Rejected'),       # NEW
         ('Supply Update', 'Supply Update'),
     ]
-    
     action = models.CharField(max_length=50, choices=ACTION_CHOICES)
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     description = models.TextField()
     ip_address = models.GenericIPAddressField(null=True, blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)
-    
+
     class Meta:
         ordering = ['-timestamp']
-    
+
     def __str__(self):
         return f"{self.action} - {self.user} - {self.timestamp}"
 
 
 class Sale(models.Model):
-    """Track sales with multiple products and payment details"""
     PAYMENT_MODE_CHOICES = [
         ('Cash', 'Cash'),
         ('Cheque', 'Cheque'),
@@ -273,19 +250,45 @@ class Sale(models.Model):
         ('Not Paid', 'Not Paid'),
     ]
 
+    # ========================
+    # NEW: Approval status
+    # ========================
+    STATUS_CHOICES = [
+        ('pending', 'Pending Approval'),
+        ('approved', 'Approved'),
+        ('rejected', 'Rejected'),
+    ]
+
     sale_number = models.CharField(max_length=50, unique=True, blank=True)
     customer = models.ForeignKey(Customer, on_delete=models.PROTECT, related_name='sales')
     lpo_quotation_number = models.CharField(max_length=100, blank=True)
     delivery_number = models.CharField(max_length=100, blank=True)
     mode_of_payment = models.CharField(max_length=20, choices=PAYMENT_MODE_CHOICES, default='Not Paid')
-    
-    # Financial fields with VAT
-    subtotal = models.DecimalField(max_digits=12, decimal_places=2, default=0, help_text="Sum of all products (before VAT)")
-    vat_amount = models.DecimalField(max_digits=12, decimal_places=2, default=0, help_text="16% VAT on subtotal")
-    total_amount = models.DecimalField(max_digits=12, decimal_places=2, default=0, help_text="Subtotal + VAT")
-    amount_paid = models.DecimalField(max_digits=12, decimal_places=2, default=0, help_text="Amount paid by customer")
-    outstanding_balance = models.DecimalField(max_digits=12, decimal_places=2, default=0, help_text="Total - Amount Paid")
-    
+
+    # Financial fields
+    subtotal = models.DecimalField(max_digits=12, decimal_places=2, default=0)
+    vat_amount = models.DecimalField(max_digits=12, decimal_places=2, default=0)
+    total_amount = models.DecimalField(max_digits=12, decimal_places=2, default=0)
+    amount_paid = models.DecimalField(max_digits=12, decimal_places=2, default=0)
+    outstanding_balance = models.DecimalField(max_digits=12, decimal_places=2, default=0)
+
+    # ========================
+    # NEW: status and approval tracking fields
+    # ========================
+    status = models.CharField(
+        max_length=10,
+        choices=STATUS_CHOICES,
+        default='pending',
+        help_text="pending = awaiting admin approval, approved = stock deducted, rejected = sale cancelled"
+    )
+    approved_by = models.ForeignKey(
+        User, on_delete=models.SET_NULL,
+        null=True, blank=True,
+        related_name='approved_sales'
+    )
+    approved_at = models.DateTimeField(null=True, blank=True)
+    rejection_reason = models.TextField(blank=True)
+
     recorded_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -297,60 +300,66 @@ class Sale(models.Model):
         return f"Sale-{self.sale_number} - {self.customer.company_name if self.customer else 'N/A'}"
 
     def save(self, *args, **kwargs):
-        # Generate sale number if not exists
         if not self.sale_number:
             today_str = timezone.now().strftime('%Y%m%d')
             prefix = f"S{today_str}"
             today_sales_count = Sale.objects.filter(sale_number__startswith=prefix).count() + 1
-            sequence = str(today_sales_count).zfill(2)
-            self.sale_number = f"{prefix}{sequence}"
+            self.sale_number = f"{prefix}{str(today_sales_count).zfill(2)}"
 
-        # Reset amount paid if Not Paid
         if self.mode_of_payment == 'Not Paid':
             self.amount_paid = Decimal('0.00')
-        
-        # Ensure all decimal values are properly rounded
+
         self.subtotal = Decimal(str(self.subtotal)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
         self.vat_amount = Decimal(str(self.vat_amount)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
         self.total_amount = Decimal(str(self.total_amount)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
         self.amount_paid = Decimal(str(self.amount_paid)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
-        
-        # Calculate outstanding balance (Total - Paid)
         self.outstanding_balance = (self.total_amount - self.amount_paid).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
-        
+
         if self.outstanding_balance < 0:
             self.outstanding_balance = Decimal('0.00')
 
         super().save(*args, **kwargs)
 
     def calculate_total(self):
-        """Calculate subtotal, VAT, and total from line items using Decimal precision"""
         subtotal = Decimal('0.00')
         for item in self.line_items.all():
-            item_subtotal = Decimal(str(item.subtotal)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
-            subtotal += item_subtotal
-        
+            subtotal += Decimal(str(item.subtotal)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
         self.subtotal = subtotal.quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
         self.vat_amount = (self.subtotal * Decimal('0.16')).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
         self.total_amount = (self.subtotal + self.vat_amount).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
-        
         self.save()
         return self.total_amount
 
     def has_outstanding_supplies(self):
-        """Check if any line items have outstanding quantities"""
         return self.line_items.filter(
             models.Q(supply_status='Not Supplied') |
             models.Q(supply_status='Partially Supplied')
         ).exists()
-    
+
     def is_fully_paid(self):
-        """Check if sale is fully paid"""
         return self.outstanding_balance == Decimal('0.00')
+
+    # ========================
+    # NEW: Deduct stock for all line items — called only on approval
+    # ========================
+    def deduct_stock(self, approved_by_user):
+        for item in self.line_items.all():
+            if item.supply_status in ['Supplied', 'Partially Supplied'] and item.quantity_supplied > 0:
+                item.product.current_stock -= item.quantity_supplied
+                item.product.save()
+
+                StockMovement.objects.create(
+                    product=item.product,
+                    direction='OUT',
+                    reason='SALE',
+                    quantity=item.quantity_supplied,
+                    sale=self,
+                    notes=f"Approved sale #{self.sale_number} to {self.customer.company_name}",
+                    recorded_by=approved_by_user
+                )
 
 
 class SaleLineItem(models.Model):
-    """Individual products in a sale"""
     SUPPLY_STATUS_CHOICES = [
         ('Supplied', 'Supplied'),
         ('Partially Supplied', 'Partially Supplied'),
@@ -372,9 +381,7 @@ class SaleLineItem(models.Model):
         return f"{self.sale.sale_number} - {self.product.code if self.product else 'N/A'}"
 
     def outstanding_quantity(self):
-        ordered = self.quantity_ordered or 0
-        supplied = self.quantity_supplied or 0
-        return ordered - supplied
+        return (self.quantity_ordered or 0) - (self.quantity_supplied or 0)
 
     def save(self, *args, **kwargs):
         if self.quantity_ordered is None:
@@ -382,52 +389,16 @@ class SaleLineItem(models.Model):
         if self.quantity_supplied is None:
             self.quantity_supplied = 0
 
-        # Calculate subtotal
+        # Calculate subtotal only — NO stock deduction here anymore
+        # Stock is only deducted when admin approves the sale
         unit_price = Decimal(str(self.unit_price or 0))
         quantity = Decimal(str(self.quantity_ordered))
         self.subtotal = (unit_price * quantity).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
 
-        is_new = self.pk is None
-        old_supplied = 0
-        if not is_new:
-            try:
-                old_item = SaleLineItem.objects.get(pk=self.pk)
-                old_supplied = old_item.quantity_supplied
-            except SaleLineItem.DoesNotExist:
-                pass
-
-        # Handle stock adjustments
-        if self.product:
-            if self.supply_status == 'Supplied':
-                self.quantity_supplied = self.quantity_ordered
-                if is_new and self.quantity_supplied > 0:
-                    self.product.current_stock -= self.quantity_supplied
-                    self.product.save()
-
-            elif self.supply_status == 'Partially Supplied':
-                if self.pk:
-                    diff = self.quantity_supplied - old_supplied
-                    if diff > 0:
-                        self.product.current_stock -= diff
-                        self.product.save()
-                else:
-                    if self.quantity_supplied > 0:
-                        self.product.current_stock -= self.quantity_supplied
-                        self.product.save()
-
-            elif self.supply_status == 'Not Supplied':
-                self.quantity_supplied = 0
+        # Set quantity_supplied based on supply_status
+        if self.supply_status == 'Supplied':
+            self.quantity_supplied = self.quantity_ordered
+        elif self.supply_status == 'Not Supplied':
+            self.quantity_supplied = 0
 
         super().save(*args, **kwargs)
-
-        # UPDATED: Create StockMovement for supplied items (direction OUT, reason SALE)
-        if is_new and self.supply_status in ['Supplied', 'Partially Supplied'] and self.quantity_supplied > 0:
-            StockMovement.objects.create(
-                product=self.product,
-                direction='OUT',
-                reason='SALE',
-                quantity=self.quantity_supplied,
-                sale=self.sale,
-                notes=f"Sale #{self.sale.sale_number} to {self.sale.customer.company_name}",
-                recorded_by=self.sale.recorded_by
-            )

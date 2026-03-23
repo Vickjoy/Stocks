@@ -9,9 +9,11 @@ from django.utils import timezone
 from datetime import timedelta
 from django.contrib.auth.models import User
 from rest_framework.permissions import AllowAny
+from rest_framework_simplejwt.views import TokenObtainPairView
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 from .models import (
-    Category, SubCategory, SubSubCategory, ProductGroup, Supplier, Customer, Product,
+    UserProfile, Category, SubCategory, SubSubCategory, ProductGroup, Supplier, Customer, Product,
     MonthlyOpeningStock, StockEntry, StockMovement, AuditLog, Sale, SaleLineItem
 )
 from .serializers import (
@@ -21,10 +23,41 @@ from .serializers import (
     ProductSerializer, ProductDetailSerializer,
     StockEntrySerializer, StockMovementSerializer, MonthlyOpeningStockSerializer,
     AuditLogSerializer, DashboardSummarySerializer, SaleSerializer, SaleCreateSerializer,
-    PasswordResetRequestSerializer, PasswordResetConfirmSerializer
+    PasswordResetRequestSerializer, PasswordResetConfirmSerializer, SaleApprovalSerializer
 )
 
+# ========================
+# Custom JWT Login View
+# ========================
+class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
+    def validate(self, attrs):
+        data = super().validate(attrs)
+        user = self.user
 
+        # Safely get role from UserProfile
+        try:
+            role = user.profile.role
+        except UserProfile.DoesNotExist:
+            role = 'staff'
+
+        # Attach user info + role to login response
+        data['user'] = {
+            'id': user.id,
+            'username': user.username,
+            'email': user.email,
+            'first_name': user.first_name,
+            'last_name': user.last_name,
+            'role': role,
+            'is_staff': user.is_staff,
+            'is_superuser': user.is_superuser,
+        }
+
+        return data
+
+
+class CustomTokenObtainPairView(TokenObtainPairView):
+    serializer_class = CustomTokenObtainPairSerializer
+    
 # ========================
 # User ViewSet
 # ========================
@@ -519,50 +552,154 @@ class DashboardViewSet(viewsets.ViewSet):
 # ========================
 # Sale ViewSet
 # ========================
+# views.py — complete updated SaleViewSet
+
 class SaleViewSet(viewsets.ModelViewSet):
     queryset = Sale.objects.select_related(
-        'customer',
-        'recorded_by'
+        'customer', 'recorded_by', 'approved_by'
     ).prefetch_related(
         'line_items__product__category',
         'line_items__product__subcategory'
     ).order_by('-created_at')
     permission_classes = [permissions.IsAuthenticated]
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
-    filterset_fields = ['customer', 'mode_of_payment', 'created_at']
+    filterset_fields = ['customer', 'mode_of_payment', 'status', 'created_at']
     search_fields = [
-        'sale_number', 'customer__company_name', 
+        'sale_number', 'customer__company_name',
         'lpo_quotation_number', 'delivery_number',
         'line_items__product__code', 'line_items__product__name'
     ]
     ordering_fields = ['created_at', 'total_amount']
-    
+
     def get_serializer_class(self):
         if self.action == 'create':
             return SaleCreateSerializer
         return SaleSerializer
-    
+
+    # ========================
+    # NEW: List all pending sales — admin only
+    # ========================
+    @action(detail=False, methods=['get'])
+    def pending(self, request):
+        try:
+            role = request.user.profile.role
+        except UserProfile.DoesNotExist:
+            role = 'staff'
+
+        if role != 'admin':
+            return Response(
+                {'error': 'Only admins can view pending approvals.'},
+                status=status.HTTP_403_FORBIDDEN
+            )
+
+        pending_sales = self.queryset.filter(status='pending')
+        serializer = self.get_serializer(pending_sales, many=True)
+        return Response(serializer.data)
+
+    # ========================
+    # NEW: Approve or reject a sale — admin only
+    # ========================
+    @action(detail=True, methods=['post'])
+    def approve(self, request, pk=None):
+        try:
+            role = request.user.profile.role
+        except UserProfile.DoesNotExist:
+            role = 'staff'
+
+        if role != 'admin':
+            return Response(
+                {'error': 'Only admins can approve or reject sales.'},
+                status=status.HTTP_403_FORBIDDEN
+            )
+
+        sale = self.get_object()
+
+        if sale.status != 'pending':
+            return Response(
+                {'error': f'Sale is already {sale.status}. Only pending sales can be actioned.'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        serializer = SaleApprovalSerializer(data=request.data)
+        if not serializer.is_valid():
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        action_type = serializer.validated_data['action']
+
+        if action_type == 'approve':
+            # Check stock availability before approving
+            stock_errors = []
+            for item in sale.line_items.all():
+                if item.supply_status in ['Supplied', 'Partially Supplied']:
+                    if item.product.current_stock < item.quantity_supplied:
+                        stock_errors.append(
+                            f"{item.product.name}: Available {item.product.current_stock}, "
+                            f"Required {item.quantity_supplied}"
+                        )
+
+            if stock_errors:
+                return Response(
+                    {'error': 'Insufficient stock for some items.', 'details': stock_errors},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+
+            # Deduct stock and mark approved
+            sale.deduct_stock(approved_by_user=request.user)
+            sale.status = 'approved'
+            sale.approved_by = request.user
+            sale.approved_at = timezone.now()
+            sale.save()
+
+            AuditLog.objects.create(
+                action='Sale Approved',
+                user=request.user,
+                description=f'Sale {sale.sale_number} approved by {request.user.username}',
+                ip_address=request.META.get('REMOTE_ADDR')
+            )
+
+            sale.refresh_from_db()
+            return Response({
+                'message': f'Sale {sale.sale_number} approved successfully. Stock has been deducted.',
+                'sale': SaleSerializer(sale).data
+            })
+
+        elif action_type == 'reject':
+            sale.status = 'rejected'
+            sale.rejection_reason = serializer.validated_data.get('rejection_reason', '')
+            sale.save()
+
+            AuditLog.objects.create(
+                action='Sale Rejected',
+                user=request.user,
+                description=f'Sale {sale.sale_number} rejected by {request.user.username}. Reason: {sale.rejection_reason}',
+                ip_address=request.META.get('REMOTE_ADDR')
+            )
+
+            sale.refresh_from_db()
+            return Response({
+                'message': f'Sale {sale.sale_number} has been rejected.',
+                'sale': SaleSerializer(sale).data
+            })
+
     @action(detail=False, methods=['get'])
     def outstanding(self, request):
-        """Get all sales with outstanding supplies"""
         sales = self.queryset.filter(
             line_items__supply_status__in=['Not Supplied', 'Partially Supplied']
         ).distinct()
         serializer = self.get_serializer(sales, many=True)
         return Response(serializer.data)
-    
+
     @action(detail=False, methods=['get'])
     def search_products(self, request):
-        """Search products for autocomplete"""
         query = request.query_params.get('q', '')
         if len(query) < 2:
             return Response([])
-        
+
         products = Product.objects.filter(
             Q(code__icontains=query) | Q(name__icontains=query),
             is_active=True
         ).select_related('category', 'subcategory')[:10]
-        
+
         data = [{
             'id': p.id,
             'code': p.code,
@@ -572,54 +709,57 @@ class SaleViewSet(viewsets.ModelViewSet):
             'category': p.category.name if p.category else '',
             'subcategory': p.subcategory.name if p.subcategory else ''
         } for p in products]
-        
+
         return Response(data)
-    
+
     @action(detail=False, methods=['get'])
     def search_customers(self, request):
-        """Search customers for autocomplete"""
         query = request.query_params.get('q', '')
         if len(query) < 2:
             return Response([])
-        
+
         customers = Customer.objects.filter(
             Q(company_name__icontains=query) | Q(phone__icontains=query),
             is_active=True
         )[:10]
-        
+
         data = [{
             'id': c.id,
             'company_name': c.company_name,
             'phone': c.phone
         } for c in customers]
-        
+
         return Response(data)
-    
+
     @action(detail=True, methods=['post'])
     def update_line_item_supply(self, request, pk=None):
-        """UPDATED: Update supply status and create StockMovement"""
         sale = self.get_object()
+
+        # Only allow supply updates on approved sales
+        if sale.status != 'approved':
+            return Response(
+                {'error': 'Supply can only be updated on approved sales.'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
         line_item_id = request.data.get('line_item_id')
         new_quantity = request.data.get('quantity_supplied', 0)
         new_status = request.data.get('supply_status')
-        
+
         if not line_item_id or not new_status:
             return Response(
                 {'error': 'line_item_id and supply_status are required'},
                 status=status.HTTP_400_BAD_REQUEST
             )
-        
+
         try:
             line_item = sale.line_items.get(id=line_item_id)
         except SaleLineItem.DoesNotExist:
-            return Response(
-                {'error': 'Line item not found'},
-                status=status.HTTP_404_NOT_FOUND
-            )
-        
+            return Response({'error': 'Line item not found'}, status=status.HTTP_404_NOT_FOUND)
+
         old_supplied = line_item.quantity_supplied
         diff = new_quantity - old_supplied
-        
+
         if diff != 0 and new_status in ['Supplied', 'Partially Supplied']:
             product = line_item.product
             if product.current_stock < diff:
@@ -629,8 +769,7 @@ class SaleViewSet(viewsets.ModelViewSet):
                 )
             product.current_stock -= diff
             product.save()
-            
-            # Create StockMovement with direction OUT and reason SALE
+
             StockMovement.objects.create(
                 product=product,
                 direction='OUT',
@@ -640,18 +779,18 @@ class SaleViewSet(viewsets.ModelViewSet):
                 notes=f'Supply update for sale {sale.sale_number} - {product.code}',
                 recorded_by=request.user
             )
-        
+
         line_item.quantity_supplied = new_quantity
         line_item.supply_status = new_status
         line_item.save()
-        
+
         AuditLog.objects.create(
             action='Supply Update',
             user=request.user,
             description=f'Supply updated for sale {sale.sale_number}, item {line_item.product.code}: {new_status} ({new_quantity})',
             ip_address=request.META.get('REMOTE_ADDR')
         )
-        
+
         sale.refresh_from_db()
         serializer = self.get_serializer(sale)
         return Response(serializer.data)

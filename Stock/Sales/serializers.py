@@ -8,28 +8,53 @@ from django.utils.encoding import force_bytes, force_str
 from django.core.mail import send_mail
 from django.conf import settings
 from .models import (
-    Category, SubCategory, SubSubCategory, ProductGroup, Supplier, Customer, Product,
+    UserProfile, Category, SubCategory, SubSubCategory, ProductGroup, Supplier, Customer, Product,
     MonthlyOpeningStock, StockEntry, AuditLog, Sale, SaleLineItem, StockMovement
 )
 
 # ========================
 # User Serializers
 # ========================
+class UserProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserProfile
+        fields = ['role']
+
+
 class UserSerializer(serializers.ModelSerializer):
+    role = serializers.SerializerMethodField()
+
     class Meta:
         model = User
-        fields = ['id', 'username', 'email', 'first_name', 'last_name', 'is_staff', 'is_superuser']
+        fields = ['id', 'username', 'email', 'first_name', 'last_name',
+                  'role', 'is_staff', 'is_superuser']
         read_only_fields = ['id']
+
+    def get_role(self, obj):
+        try:
+            return obj.profile.role
+        except UserProfile.DoesNotExist:
+            return 'staff'
 
 
 class UserDetailSerializer(serializers.ModelSerializer):
     groups = serializers.StringRelatedField(many=True, read_only=True)
-    
+    role = serializers.SerializerMethodField()
+
     class Meta:
         model = User
-        fields = ['id', 'username', 'email', 'first_name', 'last_name', 'is_staff', 'is_superuser', 'groups', 'date_joined', 'last_login']
+        fields = [
+            'id', 'username', 'email', 'first_name', 'last_name',
+            'role', 'is_staff', 'is_superuser',
+            'groups', 'date_joined', 'last_login'
+        ]
         read_only_fields = ['id', 'date_joined', 'last_login']
 
+    def get_role(self, obj):
+        try:
+            return obj.profile.role
+        except UserProfile.DoesNotExist:
+            return 'staff'
 
 # ========================
 # SubSubCategory Serializers
@@ -243,6 +268,8 @@ class TopProductSerializer(serializers.Serializer):
 # ========================
 # Sale Serializers
 # ========================
+# serializers.py — replace your existing Sale serializer section with this
+
 class SaleLineItemSerializer(serializers.ModelSerializer):
     product_code = serializers.CharField(source='product.code', read_only=True)
     product_name = serializers.CharField(source='product.name', read_only=True)
@@ -275,19 +302,14 @@ class SaleLineItemSerializer(serializers.ModelSerializer):
                     "For partially supplied, quantity must be between 0 and ordered quantity"
                 )
 
-        product = data.get('product')
-        if supply_status in ['Supplied', 'Partially Supplied']:
-            if product.current_stock < data['quantity_supplied']:
-                raise serializers.ValidationError(
-                    f"Insufficient stock for {product.name}. Available: {product.current_stock}, Required: {data['quantity_supplied']}"
-                )
-
+        # Stock check removed — stock is only checked and deducted on approval
         return data
 
 
 class SaleSerializer(serializers.ModelSerializer):
     customer_name = serializers.CharField(source='customer.company_name', read_only=True)
     recorded_by_name = serializers.CharField(source='recorded_by.get_full_name', read_only=True)
+    approved_by_name = serializers.CharField(source='approved_by.get_full_name', read_only=True)
     line_items = SaleLineItemSerializer(many=True, read_only=True)
     has_outstanding = serializers.SerializerMethodField()
     is_fully_paid = serializers.SerializerMethodField()
@@ -297,17 +319,24 @@ class SaleSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'sale_number', 'customer', 'customer_name',
             'lpo_quotation_number', 'delivery_number',
-            'mode_of_payment', 'subtotal', 'vat_amount', 'total_amount', 
+            'mode_of_payment', 'subtotal', 'vat_amount', 'total_amount',
             'amount_paid', 'outstanding_balance',
+            # NEW status fields
+            'status', 'approved_by', 'approved_by_name',
+            'approved_at', 'rejection_reason',
             'line_items', 'has_outstanding', 'is_fully_paid',
             'recorded_by', 'recorded_by_name',
             'created_at', 'updated_at'
         ]
-        read_only_fields = ['id', 'sale_number', 'outstanding_balance', 'created_at', 'updated_at']
+        read_only_fields = [
+            'id', 'sale_number', 'outstanding_balance',
+            'approved_by', 'approved_at',
+            'created_at', 'updated_at'
+        ]
 
     def get_has_outstanding(self, obj):
         return obj.has_outstanding_supplies()
-    
+
     def get_is_fully_paid(self, obj):
         return obj.is_fully_paid()
 
@@ -330,7 +359,6 @@ class SaleCreateSerializer(serializers.ModelSerializer):
         vat_amount = data.get('vat_amount', 0)
         total_amount = data.get('total_amount', 0)
 
-        # Validate payment mode
         if mode_of_payment == 'Not Paid':
             data['amount_paid'] = Decimal('0.00')
         elif mode_of_payment in ['Cash', 'Cheque', 'Mpesa']:
@@ -340,28 +368,24 @@ class SaleCreateSerializer(serializers.ModelSerializer):
                 })
             data['amount_paid'] = Decimal(str(amount_paid)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
 
-        # Validate line items
         line_items = data.get('line_items', [])
         if not line_items:
             raise serializers.ValidationError({
                 'line_items': 'At least one product must be added to the sale'
             })
 
-        # Ensure financial values are properly formatted
         data['subtotal'] = Decimal(str(subtotal)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
         data['vat_amount'] = Decimal(str(vat_amount)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
         data['total_amount'] = Decimal(str(total_amount)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
 
-        # Validate VAT calculation (16% of subtotal)
         expected_vat = (data['subtotal'] * Decimal('0.16')).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
-        if abs(data['vat_amount'] - expected_vat) > Decimal('0.02'):  # Allow 2 cent tolerance for rounding
+        if abs(data['vat_amount'] - expected_vat) > Decimal('0.02'):
             raise serializers.ValidationError({
                 'vat_amount': f'VAT amount should be 16% of subtotal. Expected: {expected_vat}, Got: {data["vat_amount"]}'
             })
 
-        # Validate total amount (subtotal + VAT)
         expected_total = (data['subtotal'] + data['vat_amount']).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
-        if abs(data['total_amount'] - expected_total) > Decimal('0.02'):  # Allow 2 cent tolerance
+        if abs(data['total_amount'] - expected_total) > Decimal('0.02'):
             raise serializers.ValidationError({
                 'total_amount': f'Total should equal subtotal + VAT. Expected: {expected_total}, Got: {data["total_amount"]}'
             })
@@ -371,18 +395,31 @@ class SaleCreateSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         line_items_data = validated_data.pop('line_items')
         validated_data['recorded_by'] = self.context['request'].user
+        # Sale always starts as pending
+        validated_data['status'] = 'pending'
 
-        # Create sale with financial fields
         sale = Sale.objects.create(**validated_data)
 
-        # Create line items
         for item_data in line_items_data:
             SaleLineItem.objects.create(sale=sale, **item_data)
 
-        # Recalculate totals from line items (this will update subtotal, VAT, and total)
         sale.calculate_total()
-
         return sale
+
+
+# ========================
+# NEW: Sale Approval Serializer
+# ========================
+class SaleApprovalSerializer(serializers.Serializer):
+    action = serializers.ChoiceField(choices=['approve', 'reject'])
+    rejection_reason = serializers.CharField(required=False, allow_blank=True)
+
+    def validate(self, data):
+        if data['action'] == 'reject' and not data.get('rejection_reason', '').strip():
+            raise serializers.ValidationError({
+                'rejection_reason': 'A reason is required when rejecting a sale.'
+            })
+        return data
 
 class PasswordResetRequestSerializer(serializers.Serializer):
     email = serializers.EmailField()
