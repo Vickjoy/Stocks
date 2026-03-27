@@ -14,7 +14,7 @@ from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 from .models import (
     UserProfile, Category, SubCategory, SubSubCategory, ProductGroup, Supplier, Customer, Product,
-    MonthlyOpeningStock, StockEntry, StockMovement, AuditLog, Sale, SaleLineItem
+    MonthlyOpeningStock, StockEntry, StockMovement, AuditLog, Sale, SaleLineItem, DeliveryRecord, DeliveryLineItem
 )
 from .serializers import (
     UserSerializer, UserDetailSerializer,
@@ -23,7 +23,8 @@ from .serializers import (
     ProductSerializer, ProductDetailSerializer,
     StockEntrySerializer, StockMovementSerializer, MonthlyOpeningStockSerializer,
     AuditLogSerializer, DashboardSummarySerializer, SaleSerializer, SaleCreateSerializer,
-    PasswordResetRequestSerializer, PasswordResetConfirmSerializer, SaleApprovalSerializer
+    PasswordResetRequestSerializer, PasswordResetConfirmSerializer, SaleApprovalSerializer,
+    DeliveryRecordSerializer, DeliveryRecordCreateSerializer
 )
 
 # ========================
@@ -34,13 +35,11 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         data = super().validate(attrs)
         user = self.user
 
-        # Safely get role from UserProfile
         try:
             role = user.profile.role
         except UserProfile.DoesNotExist:
             role = 'staff'
 
-        # Attach user info + role to login response
         data['user'] = {
             'id': user.id,
             'username': user.username,
@@ -57,7 +56,8 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
 
 class CustomTokenObtainPairView(TokenObtainPairView):
     serializer_class = CustomTokenObtainPairSerializer
-    
+
+
 # ========================
 # User ViewSet
 # ========================
@@ -69,7 +69,7 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
     search_fields = ['username', 'email', 'first_name', 'last_name']
     ordering_fields = ['username', 'date_joined']
     ordering = ['-date_joined']
-    
+
     @action(detail=False, methods=['get'])
     def me(self, request):
         serializer = self.get_serializer(request.user)
@@ -141,7 +141,7 @@ class SupplierViewSet(viewsets.ModelViewSet):
     search_fields = ['company_name', 'phone']
     ordering_fields = ['company_name', 'created_at']
     ordering = ['-created_at']
-    
+
     @action(detail=True, methods=['post'])
     def toggle_active(self, request, pk=None):
         supplier = self.get_object()
@@ -162,7 +162,7 @@ class CustomerViewSet(viewsets.ModelViewSet):
     search_fields = ['company_name', 'phone']
     ordering_fields = ['company_name', 'created_at']
     ordering = ['-created_at']
-    
+
     @action(detail=True, methods=['post'])
     def toggle_active(self, request, pk=None):
         customer = self.get_object()
@@ -187,33 +187,32 @@ class ProductViewSet(viewsets.ModelViewSet):
     search_fields = ['code', 'name', 'description']
     ordering_fields = ['code', 'current_stock', 'unit_price', 'created_at']
     ordering = ['code']
-    
+
     def get_serializer_class(self):
         if self.action == 'retrieve':
             return ProductDetailSerializer
         return ProductSerializer
-    
+
     @action(detail=False, methods=['get'])
     def low_stock(self, request):
         products = self.queryset.filter(current_stock__lte=F('minimum_stock'))
         serializer = self.get_serializer(products, many=True)
         return Response(serializer.data)
-    
+
     @action(detail=True, methods=['post'])
     def adjust_stock(self, request, pk=None):
-        """UPDATED: Creates StockMovement records with proper direction and reason"""
         product = self.get_object()
         quantity = int(request.data.get('quantity', 0))
         entry_type = request.data.get('type', 'Adjustment')
         notes = request.data.get('notes', '')
         supplier_id = request.data.get('supplier', None)
-        
+
         if quantity <= 0:
             return Response(
                 {'error': 'Quantity must be greater than 0'},
                 status=status.HTTP_400_BAD_REQUEST
             )
-        
+
         supplier = None
         if supplier_id:
             try:
@@ -223,26 +222,22 @@ class ProductViewSet(viewsets.ModelViewSet):
                     {'error': 'Invalid supplier selected'},
                     status=status.HTTP_400_BAD_REQUEST
                 )
-        
-        # Map entry_type to direction and reason
+
         direction = None
         reason = None
-        
+
         if entry_type == 'In':
             direction = 'IN'
-            if supplier:
-                reason = 'RESTOCK'
-            else:
-                reason = 'ADJUSTMENT'
+            reason = 'RESTOCK' if supplier else 'ADJUSTMENT'
             product.current_stock += quantity
             if not notes:
                 notes = f'Stock replenishment - {quantity} units added'
                 if supplier:
                     notes += f' from {supplier.company_name}'
-                    
+
         elif entry_type == 'Out':
             direction = 'OUT'
-            reason = 'DAMAGE'  # Manual stock removal (not a sale)
+            reason = 'DAMAGE'
             if product.current_stock < quantity:
                 return Response(
                     {'error': f'Insufficient stock. Available: {product.current_stock}'},
@@ -251,7 +246,7 @@ class ProductViewSet(viewsets.ModelViewSet):
             product.current_stock -= quantity
             if not notes:
                 notes = f'Stock removal - {quantity} units removed'
-                
+
         else:  # Adjustment
             direction = 'IN'
             reason = 'ADJUSTMENT'
@@ -259,10 +254,9 @@ class ProductViewSet(viewsets.ModelViewSet):
             product.current_stock = quantity
             if not notes:
                 notes = f'Stock adjustment - changed from {old_stock} to {quantity}'
-        
+
         product.save()
-        
-        # Create new StockMovement record
+
         StockMovement.objects.create(
             product=product,
             direction=direction,
@@ -272,29 +266,28 @@ class ProductViewSet(viewsets.ModelViewSet):
             notes=notes,
             recorded_by=request.user
         )
-        
+
         AuditLog.objects.create(
             action='Stock Edit',
             user=request.user,
             description=f'Stock adjusted for {product.code}: {entry_type} - {quantity} units',
             ip_address=request.META.get('REMOTE_ADDR')
         )
-        
+
         return Response({
             'id': product.id,
             'code': product.code,
             'current_stock': product.current_stock,
             'adjustment': quantity,
             'type': entry_type,
-            'message': f'Stock adjusted successfully'
+            'message': 'Stock adjusted successfully'
         })
 
 
 # ========================
-# Stock Movement ViewSet (NEW)
+# Stock Movement ViewSet
 # ========================
 class StockMovementViewSet(viewsets.ReadOnlyModelViewSet):
-    """UPDATED: Replacement for StockEntry with proper direction/reason tracking"""
     queryset = StockMovement.objects.select_related(
         'product__category',
         'product__subcategory',
@@ -309,30 +302,24 @@ class StockMovementViewSet(viewsets.ReadOnlyModelViewSet):
     filterset_fields = ['product', 'direction', 'reason', 'supplier']
     search_fields = ['product__code', 'product__name', 'notes']
     ordering_fields = ['created_at']
-    
+
     @action(detail=False, methods=['get'])
     def stock_in(self, request):
-        """Get only Stock IN movements (genuine inventory increases)"""
         movements = self.queryset.filter(direction='IN')
-        
         page = self.paginate_queryset(movements)
         if page is not None:
             serializer = self.get_serializer(page, many=True)
             return self.get_paginated_response(serializer.data)
-        
         serializer = self.get_serializer(movements, many=True)
         return Response(serializer.data)
-    
+
     @action(detail=False, methods=['get'])
     def stock_out(self, request):
-        """Get only Stock OUT movements (sales, damages, etc.)"""
         movements = self.queryset.filter(direction='OUT')
-        
         page = self.paginate_queryset(movements)
         if page is not None:
             serializer = self.get_serializer(page, many=True)
             return self.get_paginated_response(serializer.data)
-        
         serializer = self.get_serializer(movements, many=True)
         return Response(serializer.data)
 
@@ -341,7 +328,6 @@ class StockMovementViewSet(viewsets.ReadOnlyModelViewSet):
 # Legacy Stock Entry ViewSet (Read-Only)
 # ========================
 class StockEntryViewSet(viewsets.ReadOnlyModelViewSet):
-    """DEPRECATED: Use StockMovementViewSet instead"""
     queryset = StockEntry.objects.select_related('product', 'supplier', 'recorded_by').order_by('-created_at')
     serializer_class = StockEntrySerializer
     permission_classes = [permissions.IsAuthenticated]
@@ -382,36 +368,32 @@ class AuditLogViewSet(viewsets.ReadOnlyModelViewSet):
 # ========================
 class DashboardViewSet(viewsets.ViewSet):
     permission_classes = [permissions.IsAuthenticated]
-    
+
     @action(detail=False, methods=['get'])
     def summary(self, request):
-        """Get dashboard summary with all stats and chart data"""
         from django.db.models import Count
         from django.db.models.functions import TruncMonth
         import calendar
-        
-        # Basic stats
+
         total_products = Product.objects.filter(is_active=True).count()
         low_stock_items = Product.objects.filter(current_stock__lte=F('minimum_stock')).count()
-        
+
         total_sales = Sale.objects.count()
         outstanding_invoices = Sale.objects.filter(
             line_items__supply_status__in=['Not Supplied', 'Partially Supplied']
         ).distinct().count()
         outstanding_sales = Sale.objects.filter(outstanding_balance__gt=0).count()
-        
+
         total_revenue = Sale.objects.aggregate(
             total=Sum('total_amount', output_field=DecimalField())
         )['total'] or 0
-        
+
         total_outstanding = Sale.objects.aggregate(
             total=Sum('outstanding_balance', output_field=DecimalField())
         )['total'] or 0
-        
-        # UPDATED: Count StockMovements instead of StockEntries
+
         stock_movements_count = StockMovement.objects.count()
-        
-        # Monthly Sales Data
+
         current_year = timezone.now().year
         monthly_sales_query = Sale.objects.filter(
             created_at__year=current_year
@@ -420,36 +402,28 @@ class DashboardViewSet(viewsets.ViewSet):
         ).values('month_num').annotate(
             total=Sum('total_amount', output_field=DecimalField())
         ).order_by('month_num')
-        
+
         monthly_sales_dict = {i: 0 for i in range(1, 13)}
-        
         for entry in monthly_sales_query:
             month_num = entry['month_num'].month
             monthly_sales_dict[month_num] = float(entry['total'] or 0)
-        
+
         monthly_sales = [
-            {
-                'month': calendar.month_abbr[month],
-                'total': monthly_sales_dict[month]
-            }
+            {'month': calendar.month_abbr[month], 'total': monthly_sales_dict[month]}
             for month in range(1, 13)
         ]
-        
-        # Top Selling Products
+
         top_products_query = SaleLineItem.objects.values(
             'product__code'
         ).annotate(
             total_quantity=Sum('quantity_supplied')
         ).order_by('-total_quantity')[:5]
-        
+
         top_products = [
-            {
-                'name': item['product__code'],
-                'value': item['total_quantity']
-            }
+            {'name': item['product__code'], 'value': item['total_quantity']}
             for item in top_products_query
         ]
-        
+
         data = {
             'total_products': total_products,
             'low_stock_items': low_stock_items,
@@ -458,22 +432,20 @@ class DashboardViewSet(viewsets.ViewSet):
             'outstanding_sales': outstanding_sales,
             'total_revenue': total_revenue,
             'total_outstanding': total_outstanding,
-            'stock_entries_count': stock_movements_count,  # UPDATED
+            'stock_entries_count': stock_movements_count,
             'monthly_sales': monthly_sales,
             'top_products': top_products,
         }
-        
+
         serializer = DashboardSummarySerializer(data)
         return Response(serializer.data)
-    
+
     @action(detail=False, methods=['get'])
     def monthly_sales(self, request):
-        """Get monthly sales data for line chart"""
         from django.db.models.functions import TruncMonth
         import calendar
-        
+
         current_year = timezone.now().year
-        
         monthly_sales_query = Sale.objects.filter(
             created_at__year=current_year
         ).annotate(
@@ -481,69 +453,51 @@ class DashboardViewSet(viewsets.ViewSet):
         ).values('month_num').annotate(
             total=Sum('total_amount', output_field=DecimalField())
         ).order_by('month_num')
-        
+
         monthly_sales_dict = {i: 0 for i in range(1, 13)}
-        
         for entry in monthly_sales_query:
             month_num = entry['month_num'].month
             monthly_sales_dict[month_num] = float(entry['total'] or 0)
-        
+
         monthly_sales = [
-            {
-                'month': calendar.month_abbr[month],
-                'total': monthly_sales_dict[month]
-            }
+            {'month': calendar.month_abbr[month], 'total': monthly_sales_dict[month]}
             for month in range(1, 13)
         ]
-        
+
         return Response(monthly_sales)
-    
+
     @action(detail=False, methods=['get'])
     def top_products(self, request):
-        """Get top selling products for pie chart"""
         limit = int(request.query_params.get('limit', 5))
-        
         top_products_query = SaleLineItem.objects.values(
             'product__code'
         ).annotate(
             total_quantity=Sum('quantity_supplied')
         ).order_by('-total_quantity')[:limit]
-        
+
         top_products = [
-            {
-                'name': item['product__code'],
-                'value': item['total_quantity']
-            }
+            {'name': item['product__code'], 'value': item['total_quantity']}
             for item in top_products_query
         ]
-        
         return Response(top_products)
-    
+
     @action(detail=False, methods=['get'])
     def recent_sales(self, request):
-        """Get recent sales"""
         days = request.query_params.get('days', 30)
         since = timezone.now() - timedelta(days=int(days))
-        
         sales = Sale.objects.filter(created_at__gte=since).order_by('-created_at')[:20]
         serializer = SaleSerializer(sales, many=True)
         return Response(serializer.data)
-    
+
     @action(detail=False, methods=['get'])
     def top_customers(self, request):
-        """Get top customers by total sales"""
         limit = request.query_params.get('limit', 10)
-        
         customers = Customer.objects.annotate(
             total_sales=Sum('sales__total_amount')
         ).order_by('-total_sales')[:int(limit)]
-        
+
         data = [
-            {
-                'id': c.id,
-                'company_name': c.company_name,
-                'total_sales': c.total_sales or 0
-            }
+            {'id': c.id, 'company_name': c.company_name, 'total_sales': c.total_sales or 0}
             for c in customers
         ]
         return Response(data)
@@ -552,8 +506,6 @@ class DashboardViewSet(viewsets.ViewSet):
 # ========================
 # Sale ViewSet
 # ========================
-# views.py — complete updated SaleViewSet
-
 class SaleViewSet(viewsets.ModelViewSet):
     queryset = Sale.objects.select_related(
         'customer', 'recorded_by', 'approved_by'
@@ -576,9 +528,6 @@ class SaleViewSet(viewsets.ModelViewSet):
             return SaleCreateSerializer
         return SaleSerializer
 
-    # ========================
-    # NEW: List all pending sales — admin only
-    # ========================
     @action(detail=False, methods=['get'])
     def pending(self, request):
         try:
@@ -596,9 +545,6 @@ class SaleViewSet(viewsets.ModelViewSet):
         serializer = self.get_serializer(pending_sales, many=True)
         return Response(serializer.data)
 
-    # ========================
-    # NEW: Approve or reject a sale — admin only
-    # ========================
     @action(detail=True, methods=['post'])
     def approve(self, request, pk=None):
         try:
@@ -627,7 +573,6 @@ class SaleViewSet(viewsets.ModelViewSet):
         action_type = serializer.validated_data['action']
 
         if action_type == 'approve':
-            # Check stock availability before approving
             stock_errors = []
             for item in sale.line_items.all():
                 if item.supply_status in ['Supplied', 'Partially Supplied']:
@@ -643,7 +588,6 @@ class SaleViewSet(viewsets.ModelViewSet):
                     status=status.HTTP_400_BAD_REQUEST
                 )
 
-            # Deduct stock and mark approved
             sale.deduct_stock(approved_by_user=request.user)
             sale.status = 'approved'
             sale.approved_by = request.user
@@ -684,9 +628,112 @@ class SaleViewSet(viewsets.ModelViewSet):
     @action(detail=False, methods=['get'])
     def outstanding(self, request):
         sales = self.queryset.filter(
+            status='approved',
             line_items__supply_status__in=['Not Supplied', 'Partially Supplied']
         ).distinct()
         serializer = self.get_serializer(sales, many=True)
+        return Response(serializer.data)
+
+    @action(detail=True, methods=['post'])
+    def record_delivery(self, request, pk=None):
+        sale = self.get_object()
+
+        if sale.status != 'approved':
+            return Response(
+                {'error': 'Deliveries can only be recorded for approved sales.'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        serializer = DeliveryRecordCreateSerializer(data=request.data)
+        if not serializer.is_valid():
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        delivery_date = serializer.validated_data['delivery_date']
+        notes = serializer.validated_data.get('notes', '')
+        items_data = serializer.validated_data['items']
+
+        errors = []
+        for item_data in items_data:
+            try:
+                line_item = sale.line_items.get(id=item_data['line_item_id'])
+            except SaleLineItem.DoesNotExist:
+                errors.append(f"Line item {item_data['line_item_id']} not found.")
+                continue
+
+            outstanding = line_item.quantity_ordered - line_item.quantity_supplied
+            if item_data['quantity_delivered'] != outstanding:
+                errors.append(
+                    f"{line_item.product.name}: must deliver exactly "
+                    f"{outstanding} (the full outstanding quantity)."
+                )
+
+            if line_item.product.current_stock < item_data['quantity_delivered']:
+                errors.append(
+                    f"{line_item.product.name}: insufficient stock. "
+                    f"Available: {line_item.product.current_stock}, "
+                    f"Required: {item_data['quantity_delivered']}."
+                )
+
+        if errors:
+            return Response({'errors': errors}, status=status.HTTP_400_BAD_REQUEST)
+
+        delivery = DeliveryRecord.objects.create(
+            sale=sale,
+            delivery_date=delivery_date,
+            notes=notes,
+            recorded_by=request.user
+        )
+
+        for item_data in items_data:
+            line_item = sale.line_items.get(id=item_data['line_item_id'])
+            qty = item_data['quantity_delivered']
+
+            DeliveryLineItem.objects.create(
+                delivery=delivery,
+                line_item=line_item,
+                quantity_delivered=qty
+            )
+
+            line_item.quantity_supplied += qty
+            line_item.supply_status = 'Supplied'
+            line_item.save()
+
+            line_item.product.current_stock -= qty
+            line_item.product.save()
+
+            StockMovement.objects.create(
+                product=line_item.product,
+                direction='OUT',
+                reason='SALE',
+                quantity=qty,
+                sale=sale,
+                notes=f"Delivery on {delivery_date} for sale {sale.sale_number}",
+                recorded_by=request.user
+            )
+
+        AuditLog.objects.create(
+            action='Supply Update',
+            user=request.user,
+            description=(
+                f'Delivery recorded for sale {sale.sale_number} '
+                f'on {delivery_date} by {request.user.username}'
+            ),
+            ip_address=request.META.get('REMOTE_ADDR')
+        )
+
+        sale.refresh_from_db()
+        return Response({
+            'message': f'Delivery recorded successfully for sale {sale.sale_number}.',
+            'sale': SaleSerializer(sale).data
+        })
+
+    @action(detail=True, methods=['get'])
+    def delivery_history(self, request, pk=None):
+        sale = self.get_object()
+        deliveries = sale.delivery_records.prefetch_related(
+            'delivery_items__line_item__product'
+        ).all()
+        serializer = DeliveryRecordSerializer(deliveries, many=True)
         return Response(serializer.data)
 
     @action(detail=False, methods=['get'])
@@ -735,7 +782,6 @@ class SaleViewSet(viewsets.ModelViewSet):
     def update_line_item_supply(self, request, pk=None):
         sale = self.get_object()
 
-        # Only allow supply updates on approved sales
         if sale.status != 'approved':
             return Response(
                 {'error': 'Supply can only be updated on approved sales.'},
@@ -803,7 +849,6 @@ class SaleViewSet(viewsets.ModelViewSet):
 @permission_classes([AllowAny])
 def password_reset_request(request):
     serializer = PasswordResetRequestSerializer(data=request.data)
-    
     if serializer.is_valid():
         try:
             result = serializer.save()
@@ -813,7 +858,6 @@ def password_reset_request(request):
                 {'error': 'Failed to send reset email. Please try again later.'},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
-    
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
@@ -821,7 +865,6 @@ def password_reset_request(request):
 @permission_classes([AllowAny])
 def password_reset_confirm(request):
     serializer = PasswordResetConfirmSerializer(data=request.data)
-    
     if serializer.is_valid():
         try:
             result = serializer.save()
@@ -831,7 +874,6 @@ def password_reset_confirm(request):
                 {'error': 'Failed to reset password. Please try again.'},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
-    
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
@@ -841,15 +883,21 @@ def password_reset_validate(request, uid, token):
     from django.contrib.auth.tokens import PasswordResetTokenGenerator
     from django.utils.http import urlsafe_base64_decode
     from django.utils.encoding import force_str
-    
+
     try:
         uid_decoded = force_str(urlsafe_base64_decode(uid))
         user = User.objects.get(pk=uid_decoded)
         token_generator = PasswordResetTokenGenerator()
-        
+
         if token_generator.check_token(user, token):
             return Response({'valid': True}, status=status.HTTP_200_OK)
         else:
-            return Response({'valid': False, 'error': 'Invalid or expired link'}, status=status.HTTP_400_BAD_REQUEST)
+            return Response(
+                {'valid': False, 'error': 'Invalid or expired link'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
     except (TypeError, ValueError, OverflowError, User.DoesNotExist):
-        return Response({'valid': False, 'error': 'Invalid reset link'}, status=status.HTTP_400_BAD_REQUEST)
+        return Response(
+            {'valid': False, 'error': 'Invalid reset link'},
+            status=status.HTTP_400_BAD_REQUEST
+        )

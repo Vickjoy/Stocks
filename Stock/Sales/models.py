@@ -290,6 +290,7 @@ class Sale(models.Model):
     rejection_reason = models.TextField(blank=True)
 
     recorded_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    salesperson = models.CharField(max_length=200, blank=True, default='')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -402,3 +403,33 @@ class SaleLineItem(models.Model):
             self.quantity_supplied = 0
 
         super().save(*args, **kwargs)
+
+class DeliveryRecord(models.Model):
+    sale = models.ForeignKey(
+        Sale, on_delete=models.CASCADE, related_name='delivery_records'
+    )
+    delivery_date = models.DateField()
+    notes = models.TextField(blank=True)
+    recorded_by = models.ForeignKey(
+        User, on_delete=models.SET_NULL, null=True
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-delivery_date']
+
+    def __str__(self):
+        return f"Delivery for {self.sale.sale_number} on {self.delivery_date}"
+
+
+class DeliveryLineItem(models.Model):
+    delivery = models.ForeignKey(
+        DeliveryRecord, on_delete=models.CASCADE, related_name='delivery_items'
+    )
+    line_item = models.ForeignKey(
+        SaleLineItem, on_delete=models.CASCADE, related_name='delivery_records'
+    )
+    quantity_delivered = models.IntegerField()
+
+    def __str__(self):
+        return f"{self.line_item.product.code} — {self.quantity_delivered} delivered"

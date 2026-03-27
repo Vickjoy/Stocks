@@ -9,7 +9,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from .models import (
     UserProfile, Category, SubCategory, SubSubCategory, ProductGroup, Supplier, Customer, Product,
-    MonthlyOpeningStock, StockEntry, AuditLog, Sale, SaleLineItem, StockMovement
+    MonthlyOpeningStock, StockEntry, AuditLog, Sale, SaleLineItem, StockMovement, DeliveryRecord
 )
 
 # ========================
@@ -325,7 +325,7 @@ class SaleSerializer(serializers.ModelSerializer):
             'status', 'approved_by', 'approved_by_name',
             'approved_at', 'rejection_reason',
             'line_items', 'has_outstanding', 'is_fully_paid',
-            'recorded_by', 'recorded_by_name',
+            'recorded_by', 'salesperson', 'recorded_by_name',
             'created_at', 'updated_at'
         ]
         read_only_fields = [
@@ -349,7 +349,7 @@ class SaleCreateSerializer(serializers.ModelSerializer):
         fields = [
             'customer', 'lpo_quotation_number', 'delivery_number',
             'mode_of_payment', 'subtotal', 'vat_amount', 'total_amount',
-            'amount_paid', 'line_items'
+            'amount_paid', 'line_items', 'salesperson'
         ]
 
     def validate(self, data):
@@ -420,6 +420,49 @@ class SaleApprovalSerializer(serializers.Serializer):
                 'rejection_reason': 'A reason is required when rejecting a sale.'
             })
         return data
+
+class DeliveryLineItemSerializer(serializers.Serializer):
+    line_item_id = serializers.IntegerField()
+    quantity_delivered = serializers.IntegerField(min_value=1)
+
+
+class DeliveryRecordCreateSerializer(serializers.Serializer):
+    delivery_date = serializers.DateField()
+    notes = serializers.CharField(required=False, allow_blank=True)
+    items = DeliveryLineItemSerializer(many=True)
+
+    def validate_items(self, value):
+        if not value:
+            raise serializers.ValidationError('At least one item is required.')
+        return value
+
+
+class DeliveryRecordSerializer(serializers.ModelSerializer):
+    recorded_by_name = serializers.CharField(
+        source='recorded_by.get_full_name', read_only=True
+    )
+    delivery_items = serializers.SerializerMethodField()
+
+    class Meta:
+        model = DeliveryRecord
+        fields = [
+            'id', 'sale', 'delivery_date', 'notes',
+            'recorded_by', 'recorded_by_name',
+            'delivery_items', 'created_at'
+        ]
+        read_only_fields = ['id', 'created_at']
+
+    def get_delivery_items(self, obj):
+        return [
+            {
+                'product_code': item.line_item.product.code,
+                'product_name': item.line_item.product.name,
+                'quantity_delivered': item.quantity_delivered,
+            }
+            for item in obj.delivery_items.select_related(
+                'line_item__product'
+            ).all()
+        ]
 
 class PasswordResetRequestSerializer(serializers.Serializer):
     email = serializers.EmailField()

@@ -55753,3 +55753,1251 @@ INFO 2026-03-23 11:30:34,180 basehttp 14056 13572 "OPTIONS /api/sales/pending/ H
 INFO 2026-03-23 11:30:34,180 basehttp 14056 10888 "OPTIONS /api/sales/pending/ HTTP/1.1" 200 0
 INFO 2026-03-23 11:30:34,364 basehttp 14056 10888 "GET /api/sales/pending/ HTTP/1.1" 200 3858
 INFO 2026-03-23 11:30:34,561 basehttp 14056 10888 "GET /api/sales/pending/ HTTP/1.1" 200 3858
+INFO 2026-03-23 11:33:34,724 basehttp 14056 10888 "OPTIONS /api/categories/ HTTP/1.1" 200 0
+INFO 2026-03-23 11:33:34,726 basehttp 14056 13572 "OPTIONS /api/categories/ HTTP/1.1" 200 0
+INFO 2026-03-23 11:33:35,006 basehttp 14056 13572 "GET /api/sales/ HTTP/1.1" 200 3908
+INFO 2026-03-23 11:33:35,019 basehttp 14056 10888 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-23 11:33:35,203 basehttp 14056 10888 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-23 11:33:35,281 basehttp 14056 13572 "GET /api/sales/ HTTP/1.1" 200 3908
+INFO 2026-03-23 11:33:47,258 basehttp 14056 13572 "GET /api/sales/pending/ HTTP/1.1" 200 3858
+INFO 2026-03-23 11:33:47,437 basehttp 14056 10888 "GET /api/sales/pending/ HTTP/1.1" 200 3858
+INFO 2026-03-23 11:33:50,941 basehttp 14056 10888 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-03-23 11:34:20,951 basehttp 14056 10888 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-03-23 11:34:51,053 basehttp 14056 10888 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-03-23 11:36:41,389 basehttp 14056 10888 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-03-23 14:24:59,128 basehttp 14056 2376 "OPTIONS /api/dashboard/summary/ HTTP/1.1" 200 0
+INFO 2026-03-23 14:24:59,857 basehttp 14056 17264 "OPTIONS /api/users/me/ HTTP/1.1" 200 0
+INFO 2026-03-23 14:24:59,858 basehttp 14056 2376 "OPTIONS /api/users/me/ HTTP/1.1" 200 0
+WARNING 2026-03-23 14:24:59,867 log 14056 2376 Unauthorized: /api/users/me/
+WARNING 2026-03-23 14:24:59,887 basehttp 14056 2376 "GET /api/users/me/ HTTP/1.1" 401 172
+INFO 2026-03-23 14:24:59,899 basehttp 14056 17264 "OPTIONS /api/token/refresh/ HTTP/1.1" 200 0
+WARNING 2026-03-23 14:24:59,917 log 14056 2376 Unauthorized: /api/users/me/
+WARNING 2026-03-23 14:24:59,931 basehttp 14056 2376 "GET /api/users/me/ HTTP/1.1" 401 172
+INFO 2026-03-23 14:25:00,179 basehttp 14056 2376 "POST /api/token/refresh/ HTTP/1.1" 200 489
+INFO 2026-03-23 14:25:00,180 basehttp 14056 17264 "POST /api/token/refresh/ HTTP/1.1" 200 489
+INFO 2026-03-23 14:25:00,491 basehttp 14056 17264 "GET /api/users/me/ HTTP/1.1" 200 227
+INFO 2026-03-23 14:25:00,672 basehttp 14056 17264 "GET /api/users/me/ HTTP/1.1" 200 227
+INFO 2026-03-23 14:25:00,759 basehttp 14056 2376 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-03-23 14:25:03,045 basehttp 14056 2376 "OPTIONS /api/sales/pending/ HTTP/1.1" 200 0
+INFO 2026-03-23 14:25:03,045 basehttp 14056 17264 "OPTIONS /api/sales/pending/ HTTP/1.1" 200 0
+INFO 2026-03-23 14:25:03,245 basehttp 14056 17264 "GET /api/sales/pending/ HTTP/1.1" 200 3858
+INFO 2026-03-23 14:25:03,443 basehttp 14056 17264 "GET /api/sales/pending/ HTTP/1.1" 200 3858
+INFO 2026-03-23 14:26:15,992 basehttp 14056 17264 "OPTIONS /api/sales/8/approve/ HTTP/1.1" 200 0
+INFO 2026-03-23 14:26:16,271 basehttp 14056 17264 "POST /api/sales/8/approve/ HTTP/1.1" 200 895
+INFO 2026-03-23 14:26:18,608 basehttp 14056 17264 "GET /api/sales/pending/ HTTP/1.1" 200 3037
+INFO 2026-03-23 14:26:33,284 basehttp 14056 17264 "OPTIONS /api/token/ HTTP/1.1" 200 0
+INFO 2026-03-23 14:26:34,745 basehttp 14056 17264 "POST /api/token/ HTTP/1.1" 200 489
+INFO 2026-03-23 14:26:34,838 basehttp 14056 17264 "GET /api/users/me/ HTTP/1.1" 200 235
+INFO 2026-03-23 14:26:35,100 basehttp 14056 17264 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-03-23 14:26:37,788 basehttp 14056 17264 "OPTIONS /api/sales/ HTTP/1.1" 200 0
+INFO 2026-03-23 14:26:37,788 basehttp 14056 2376 "OPTIONS /api/sales/ HTTP/1.1" 200 0
+INFO 2026-03-23 14:26:37,982 basehttp 14056 2376 "GET /api/sales/ HTTP/1.1" 200 3926
+INFO 2026-03-23 14:26:38,153 basehttp 14056 2376 "GET /api/sales/ HTTP/1.1" 200 3926
+INFO 2026-03-23 14:37:48,148 basehttp 14056 15708 "POST /api/token/ HTTP/1.1" 200 489
+INFO 2026-03-23 14:37:48,231 basehttp 14056 15708 "GET /api/users/me/ HTTP/1.1" 200 227
+INFO 2026-03-23 14:37:48,411 basehttp 14056 15708 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-03-23 14:37:50,820 basehttp 14056 15708 "GET /api/sales/pending/ HTTP/1.1" 200 3037
+INFO 2026-03-23 14:37:51,011 basehttp 14056 15708 "GET /api/sales/pending/ HTTP/1.1" 200 3037
+INFO 2026-03-23 14:38:00,263 basehttp 14056 15708 "OPTIONS /api/sales/9/approve/ HTTP/1.1" 200 0
+INFO 2026-03-23 14:38:00,583 basehttp 14056 15708 "POST /api/sales/9/approve/ HTTP/1.1" 200 1492
+INFO 2026-03-23 14:38:02,696 basehttp 14056 15708 "GET /api/sales/pending/ HTTP/1.1" 200 1691
+INFO 2026-03-23 14:38:14,903 basehttp 14056 15708 "OPTIONS /api/categories/ HTTP/1.1" 200 0
+INFO 2026-03-23 14:38:14,904 basehttp 14056 9492 "OPTIONS /api/suppliers/ HTTP/1.1" 200 0
+INFO 2026-03-23 14:38:14,910 basehttp 14056 9492 "OPTIONS /api/products/ HTTP/1.1" 200 0
+INFO 2026-03-23 14:38:14,910 basehttp 14056 15708 "OPTIONS /api/categories/ HTTP/1.1" 200 0
+INFO 2026-03-23 14:38:14,915 basehttp 14056 9492 "OPTIONS /api/products/ HTTP/1.1" 200 0
+INFO 2026-03-23 14:38:15,100 basehttp 14056 9492 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-23 14:38:15,260 basehttp 14056 15708 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-03-23 14:38:15,505 basehttp 14056 13764 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-23 14:38:15,583 basehttp 14056 12720 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-03-23 14:38:15,700 basehttp 14056 9492 "GET /api/products/ HTTP/1.1" 200 104826
+INFO 2026-03-23 14:38:16,003 basehttp 14056 12720 "GET /api/products/ HTTP/1.1" 200 104826
+INFO 2026-03-23 14:38:27,634 basehttp 14056 12720 "POST /api/token/ HTTP/1.1" 200 489
+INFO 2026-03-23 14:38:27,724 basehttp 14056 12720 "GET /api/users/me/ HTTP/1.1" 200 235
+INFO 2026-03-23 14:38:27,944 basehttp 14056 12720 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-03-23 14:38:30,612 basehttp 14056 12720 "GET /api/users/me/ HTTP/1.1" 200 235
+INFO 2026-03-23 14:38:30,719 basehttp 14056 12720 "GET /api/users/me/ HTTP/1.1" 200 235
+INFO 2026-03-23 14:38:31,809 basehttp 14056 12720 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-03-23 14:39:01,808 basehttp 14056 12720 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-03-23 14:39:20,504 basehttp 14056 12720 "GET /api/sales/ HTTP/1.1" 200 3987
+INFO 2026-03-23 14:39:20,763 basehttp 14056 9492 "GET /api/sales/ HTTP/1.1" 200 3987
+INFO 2026-03-23 14:39:32,836 basehttp 14056 11176 "GET /api/users/me/ HTTP/1.1" 200 235
+INFO 2026-03-23 14:39:33,003 basehttp 14056 11176 "GET /api/users/me/ HTTP/1.1" 200 235
+INFO 2026-03-23 14:39:33,109 basehttp 14056 18264 "GET /api/sales/ HTTP/1.1" 200 3987
+INFO 2026-03-23 14:39:33,234 basehttp 14056 11176 "GET /api/sales/ HTTP/1.1" 200 3987
+INFO 2026-03-23 14:39:46,148 basehttp 14056 11176 "POST /api/token/ HTTP/1.1" 200 489
+INFO 2026-03-23 14:39:46,346 basehttp 14056 11176 "GET /api/users/me/ HTTP/1.1" 200 227
+INFO 2026-03-23 14:39:46,532 basehttp 14056 11176 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-03-23 14:39:49,492 basehttp 14056 18264 "OPTIONS /api/stock-movements/?direction=IN HTTP/1.1" 200 0
+INFO 2026-03-23 14:39:49,492 basehttp 14056 11176 "OPTIONS /api/stock-movements/?direction=IN HTTP/1.1" 200 0
+INFO 2026-03-23 14:39:49,671 basehttp 14056 11176 "GET /api/stock-movements/?direction=IN HTTP/1.1" 200 52
+INFO 2026-03-23 14:39:49,765 basehttp 14056 17468 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-23 14:39:49,872 basehttp 14056 11176 "GET /api/stock-movements/?direction=IN HTTP/1.1" 200 52
+INFO 2026-03-23 14:39:49,920 basehttp 14056 17468 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-23 14:39:53,227 basehttp 14056 17468 "OPTIONS /api/stock-movements/?direction=OUT HTTP/1.1" 200 0
+INFO 2026-03-23 14:39:53,408 basehttp 14056 17468 "GET /api/stock-movements/?direction=OUT HTTP/1.1" 200 1803
+INFO 2026-03-23 14:40:41,944 basehttp 14056 11176 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-03-23 14:40:41,999 basehttp 14056 17468 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-23 14:40:42,149 basehttp 14056 18264 "GET /api/products/ HTTP/1.1" 200 104826
+INFO 2026-03-23 14:40:42,191 basehttp 14056 11176 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-03-23 14:40:42,330 basehttp 14056 17468 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-23 14:40:42,454 basehttp 14056 18264 "GET /api/products/ HTTP/1.1" 200 104826
+INFO 2026-03-23 14:41:03,391 basehttp 14056 18264 "GET /api/products/ HTTP/1.1" 200 104826
+INFO 2026-03-23 14:41:21,522 basehttp 14056 18264 "OPTIONS /api/products/481/ HTTP/1.1" 200 0
+INFO 2026-03-23 14:41:22,530 basehttp 14056 18264 "PUT /api/products/481/ HTTP/1.1" 200 412
+INFO 2026-03-23 14:41:22,783 basehttp 14056 18264 "GET /api/products/ HTTP/1.1" 200 104826
+INFO 2026-03-23 14:41:25,963 basehttp 14056 18264 "GET /api/users/me/ HTTP/1.1" 200 227
+INFO 2026-03-23 14:41:26,063 basehttp 14056 18264 "GET /api/users/me/ HTTP/1.1" 200 227
+INFO 2026-03-23 14:41:27,117 basehttp 14056 18264 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-23 14:41:27,118 basehttp 14056 17468 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-03-23 14:41:27,197 basehttp 14056 11176 "GET /api/products/ HTTP/1.1" 200 104826
+INFO 2026-03-23 14:41:27,710 basehttp 14056 18264 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-23 14:41:27,850 basehttp 14056 17468 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-03-23 14:41:28,228 basehttp 14056 9536 "GET /api/products/ HTTP/1.1" 200 104826
+INFO 2026-03-23 14:41:29,231 basehttp 14056 17468 "GET /api/stock-movements/?direction=IN HTTP/1.1" 200 52
+INFO 2026-03-23 14:41:29,370 basehttp 14056 9536 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-23 14:41:29,490 basehttp 14056 17468 "GET /api/stock-movements/?direction=IN HTTP/1.1" 200 52
+INFO 2026-03-23 14:41:29,561 basehttp 14056 9536 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-23 14:41:33,387 basehttp 14056 9536 "GET /api/stock-movements/?direction=OUT HTTP/1.1" 200 1803
+INFO 2026-03-23 14:41:40,837 basehttp 14056 9536 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-23 14:41:40,994 basehttp 14056 17468 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-03-23 14:41:41,023 basehttp 14056 18264 "GET /api/products/ HTTP/1.1" 200 104826
+INFO 2026-03-23 14:41:41,046 basehttp 14056 11176 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-23 14:41:53,441 basehttp 14056 17468 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-03-23 14:41:53,626 basehttp 14056 9536 "GET /api/products/ HTTP/1.1" 200 104826
+INFO 2026-03-23 14:43:44,260 basehttp 14056 9536 "GET /api/products/ HTTP/1.1" 200 104826
+INFO 2026-03-23 14:44:07,057 basehttp 14056 9536 "OPTIONS /api/products/499/adjust_stock/ HTTP/1.1" 200 0
+INFO 2026-03-23 14:44:07,559 basehttp 14056 9536 "POST /api/products/499/adjust_stock/ HTTP/1.1" 200 122
+INFO 2026-03-23 14:44:07,876 basehttp 14056 9536 "GET /api/products/ HTTP/1.1" 200 104826
+INFO 2026-03-23 14:44:10,895 basehttp 14056 9536 "GET /api/users/me/ HTTP/1.1" 200 227
+INFO 2026-03-23 14:44:10,988 basehttp 14056 9536 "GET /api/users/me/ HTTP/1.1" 200 227
+INFO 2026-03-23 14:44:12,236 basehttp 14056 17468 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-03-23 14:44:12,274 basehttp 14056 9536 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-23 14:44:12,391 basehttp 14056 11176 "GET /api/products/ HTTP/1.1" 200 104826
+INFO 2026-03-23 14:44:12,460 basehttp 14056 17468 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-03-23 14:44:12,488 basehttp 14056 9536 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-23 14:44:12,673 basehttp 14056 18264 "GET /api/products/ HTTP/1.1" 200 104826
+INFO 2026-03-23 14:44:13,908 basehttp 14056 18264 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-23 14:44:13,952 basehttp 14056 9536 "GET /api/stock-movements/?direction=IN HTTP/1.1" 200 546
+INFO 2026-03-23 14:44:14,121 basehttp 14056 17468 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-23 14:44:14,201 basehttp 14056 9536 "GET /api/stock-movements/?direction=IN HTTP/1.1" 200 546
+INFO 2026-03-23 14:46:51,580 basehttp 14056 9536 "POST /api/token/ HTTP/1.1" 200 489
+INFO 2026-03-23 14:46:51,662 basehttp 14056 9536 "GET /api/users/me/ HTTP/1.1" 200 235
+INFO 2026-03-23 14:46:51,853 basehttp 14056 9536 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-03-23 14:47:12,323 basehttp 14056 17468 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-03-23 14:47:12,403 basehttp 14056 9536 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-23 14:47:12,531 basehttp 14056 18264 "GET /api/products/ HTTP/1.1" 200 104826
+INFO 2026-03-23 14:47:12,581 basehttp 14056 17468 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-03-23 14:47:12,617 basehttp 14056 11176 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-23 14:47:12,825 basehttp 14056 9536 "GET /api/products/ HTTP/1.1" 200 104826
+INFO 2026-03-23 14:47:27,296 basehttp 14056 9536 "OPTIONS /api/products/511/ HTTP/1.1" 200 0
+INFO 2026-03-23 14:47:27,665 basehttp 14056 9536 "PUT /api/products/511/ HTTP/1.1" 200 457
+INFO 2026-03-23 14:47:27,891 basehttp 14056 9536 "GET /api/products/ HTTP/1.1" 200 104826
+INFO 2026-03-23 14:47:55,700 basehttp 14056 9536 "OPTIONS /api/products/505/adjust_stock/ HTTP/1.1" 200 0
+INFO 2026-03-23 14:47:56,074 basehttp 14056 9536 "POST /api/products/505/adjust_stock/ HTTP/1.1" 200 122
+INFO 2026-03-23 14:47:56,283 basehttp 14056 9536 "GET /api/products/ HTTP/1.1" 200 104826
+INFO 2026-03-23 14:47:59,602 basehttp 14056 9536 "GET /api/sales/ HTTP/1.1" 200 3987
+INFO 2026-03-23 14:47:59,794 basehttp 14056 9536 "GET /api/sales/ HTTP/1.1" 200 3987
+INFO 2026-03-23 14:48:04,543 basehttp 14056 9536 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-03-23 14:48:04,846 basehttp 14056 9536 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-03-23 14:48:05,659 basehttp 14056 9536 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-23 14:48:05,727 basehttp 14056 11176 "GET /api/sales/ HTTP/1.1" 200 3987
+INFO 2026-03-23 14:48:05,891 basehttp 14056 17468 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-23 14:48:06,000 basehttp 14056 9536 "GET /api/sales/ HTTP/1.1" 200 3987
+INFO 2026-03-23 14:48:29,295 basehttp 14056 9536 "GET /api/users/me/ HTTP/1.1" 200 235
+INFO 2026-03-23 14:48:29,405 basehttp 14056 9536 "GET /api/users/me/ HTTP/1.1" 200 235
+INFO 2026-03-23 14:48:29,982 basehttp 14056 9536 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-03-23 14:48:42,305 basehttp 14056 9536 "POST /api/token/ HTTP/1.1" 200 489
+INFO 2026-03-23 14:48:42,393 basehttp 14056 9536 "GET /api/users/me/ HTTP/1.1" 200 227
+INFO 2026-03-23 14:48:42,569 basehttp 14056 9536 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-03-23 14:48:47,437 basehttp 14056 9536 "GET /api/users/me/ HTTP/1.1" 200 227
+INFO 2026-03-23 14:48:47,586 basehttp 14056 9536 "GET /api/users/me/ HTTP/1.1" 200 227
+INFO 2026-03-23 14:48:48,713 basehttp 14056 17468 "GET /api/sales/ HTTP/1.1" 200 3987
+INFO 2026-03-23 14:48:48,751 basehttp 14056 9536 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-23 14:48:48,982 basehttp 14056 11176 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-23 14:48:48,985 basehttp 14056 17468 "GET /api/sales/ HTTP/1.1" 200 3987
+INFO 2026-03-23 14:48:50,389 basehttp 14056 17468 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-03-23 14:48:53,524 basehttp 14056 11176 "GET /api/stock-movements/?direction=IN HTTP/1.1" 200 1046
+INFO 2026-03-23 14:48:53,578 basehttp 14056 17468 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-23 14:48:53,753 basehttp 14056 11176 "GET /api/stock-movements/?direction=IN HTTP/1.1" 200 1046
+INFO 2026-03-23 14:48:53,810 basehttp 14056 9536 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-23 14:49:05,063 basehttp 14056 9536 "GET /api/stock-movements/?direction=OUT HTTP/1.1" 200 1803
+INFO 2026-03-23 14:49:37,987 basehttp 14056 9536 "GET /api/stock-movements/?direction=IN HTTP/1.1" 200 1046
+INFO 2026-03-23 14:50:03,054 basehttp 14056 9536 "GET /api/stock-movements/?direction=OUT HTTP/1.1" 200 1803
+INFO 2026-03-23 14:50:06,413 basehttp 14056 11176 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-03-23 14:50:06,413 basehttp 14056 9536 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-23 14:50:06,556 basehttp 14056 17468 "GET /api/products/ HTTP/1.1" 200 104826
+INFO 2026-03-23 14:50:06,621 basehttp 14056 9536 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-23 14:50:06,622 basehttp 14056 11176 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-03-23 14:50:06,875 basehttp 14056 18264 "GET /api/products/ HTTP/1.1" 200 104826
+INFO 2026-03-23 14:50:35,827 basehttp 14056 18264 "GET /api/products/ HTTP/1.1" 200 104826
+INFO 2026-03-23 14:51:10,883 basehttp 14056 18264 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-03-23 14:51:15,783 basehttp 14056 18264 "GET /api/sales/pending/ HTTP/1.1" 200 1691
+INFO 2026-03-23 14:51:15,978 basehttp 14056 18264 "GET /api/sales/pending/ HTTP/1.1" 200 1691
+INFO 2026-03-23 14:51:21,018 basehttp 14056 18264 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-23 14:51:21,048 basehttp 14056 11176 "GET /api/sales/ HTTP/1.1" 200 3987
+INFO 2026-03-23 14:51:21,194 basehttp 14056 9536 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-23 14:51:21,269 basehttp 14056 18264 "GET /api/sales/ HTTP/1.1" 200 3987
+INFO 2026-03-23 14:51:32,518 basehttp 14056 18264 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-03-23 14:51:32,665 basehttp 14056 18264 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-03-23 14:51:42,272 basehttp 14056 18264 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-23 14:51:42,272 basehttp 14056 9536 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-03-23 14:51:42,335 basehttp 14056 11176 "GET /api/products/ HTTP/1.1" 200 104826
+INFO 2026-03-23 14:51:42,442 basehttp 14056 9536 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-23 14:51:42,536 basehttp 14056 17468 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-03-23 14:51:42,715 basehttp 14056 18264 "GET /api/products/ HTTP/1.1" 200 104826
+INFO 2026-03-23 14:51:46,598 basehttp 14056 18264 "GET /api/products/ HTTP/1.1" 200 104826
+INFO 2026-03-23 14:51:55,221 basehttp 14056 18264 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-03-23 14:51:55,439 basehttp 14056 18264 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-03-23 14:52:07,888 basehttp 14056 18264 "GET /api/sales/ HTTP/1.1" 200 3987
+INFO 2026-03-23 14:52:08,168 basehttp 14056 18264 "GET /api/sales/ HTTP/1.1" 200 3987
+INFO 2026-03-23 14:52:13,556 basehttp 14056 18264 "OPTIONS /api/sales/search_customers/?q=ma HTTP/1.1" 200 0
+INFO 2026-03-23 14:52:13,717 basehttp 14056 18264 "GET /api/sales/search_customers/?q=ma HTTP/1.1" 200 636
+INFO 2026-03-23 14:52:13,908 basehttp 14056 18264 "OPTIONS /api/sales/search_customers/?q=mas HTTP/1.1" 200 0
+INFO 2026-03-23 14:52:14,012 basehttp 14056 18264 "GET /api/sales/search_customers/?q=mas HTTP/1.1" 200 135
+INFO 2026-03-23 14:52:15,848 basehttp 14056 18264 "GET /api/sales/search_customers/?q=ma HTTP/1.1" 200 636
+INFO 2026-03-23 14:52:38,788 basehttp 14056 18264 "OPTIONS /api/sales/outstanding/ HTTP/1.1" 200 0
+INFO 2026-03-23 14:52:38,788 basehttp 14056 17468 "OPTIONS /api/sales/outstanding/ HTTP/1.1" 200 0
+INFO 2026-03-23 14:52:39,079 basehttp 14056 17468 "GET /api/sales/outstanding/ HTTP/1.1" 200 1684
+INFO 2026-03-23 14:52:39,216 basehttp 14056 17468 "GET /api/sales/outstanding/ HTTP/1.1" 200 1684
+INFO 2026-03-23 14:52:49,592 basehttp 14056 17468 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-23 14:52:49,644 basehttp 14056 18264 "GET /api/sales/ HTTP/1.1" 200 3987
+INFO 2026-03-23 14:52:49,797 basehttp 14056 9536 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-23 14:52:49,913 basehttp 14056 17468 "GET /api/sales/ HTTP/1.1" 200 3987
+INFO 2026-03-24 10:28:16,928 autoreload 10260 8188 Watching for file changes with StatReloader
+INFO 2026-03-24 10:33:57,304 basehttp 10260 16320 "OPTIONS /api/users/me/ HTTP/1.1" 200 0
+INFO 2026-03-24 10:33:57,308 basehttp 10260 9368 "OPTIONS /api/users/me/ HTTP/1.1" 200 0
+WARNING 2026-03-24 10:33:57,402 log 10260 9368 Unauthorized: /api/users/me/
+WARNING 2026-03-24 10:33:57,403 basehttp 10260 9368 "GET /api/users/me/ HTTP/1.1" 401 172
+WARNING 2026-03-24 10:33:57,406 log 10260 9368 Unauthorized: /api/users/me/
+WARNING 2026-03-24 10:33:57,408 basehttp 10260 9368 "GET /api/users/me/ HTTP/1.1" 401 172
+INFO 2026-03-24 10:33:57,559 basehttp 10260 9368 "OPTIONS /api/token/refresh/ HTTP/1.1" 200 0
+INFO 2026-03-24 10:33:57,562 basehttp 10260 16320 "OPTIONS /api/token/refresh/ HTTP/1.1" 200 0
+INFO 2026-03-24 10:33:58,109 basehttp 10260 16320 "POST /api/token/refresh/ HTTP/1.1" 200 489
+INFO 2026-03-24 10:33:58,109 basehttp 10260 9368 "POST /api/token/refresh/ HTTP/1.1" 200 489
+INFO 2026-03-24 10:33:59,466 basehttp 10260 9368 "GET /api/users/me/ HTTP/1.1" 200 227
+INFO 2026-03-24 10:33:59,566 basehttp 10260 9368 "GET /api/users/me/ HTTP/1.1" 200 227
+INFO 2026-03-24 10:33:59,901 basehttp 10260 9368 "OPTIONS /api/dashboard/summary/ HTTP/1.1" 200 0
+INFO 2026-03-24 10:34:00,263 basehttp 10260 9368 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-03-24 10:34:07,136 basehttp 10260 9368 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-03-24 10:34:15,965 basehttp 10260 14876 "GET /admin/ HTTP/1.1" 200 18170
+INFO 2026-03-24 10:34:16,135 basehttp 10260 9540 "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+INFO 2026-03-24 10:34:16,165 basehttp 10260 10336 "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+INFO 2026-03-24 10:34:16,184 basehttp 10260 4952 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+INFO 2026-03-24 10:34:16,203 basehttp 10260 14876 "GET /static/admin/css/base.css HTTP/1.1" 200 22120
+INFO 2026-03-24 10:34:16,219 basehttp 10260 17424 "GET /static/admin/css/responsive.css HTTP/1.1" 200 16565
+INFO 2026-03-24 10:34:16,414 basehttp 10260 10012 "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+INFO 2026-03-24 10:34:16,414 basehttp 10260 17424 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+INFO 2026-03-24 10:34:16,716 basehttp 10260 17424 "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO 2026-03-24 10:34:16,717 basehttp 10260 10012 "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO 2026-03-24 10:34:16,725 basehttp 10260 14876 "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+INFO 2026-03-24 10:34:17,890 basehttp 10260 9368 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+WARNING 2026-03-24 10:34:19,491 log 10260 14876 Not Found: /favicon.ico
+WARNING 2026-03-24 10:34:19,493 basehttp 10260 14876 "GET /favicon.ico HTTP/1.1" 404 3037
+INFO 2026-03-24 10:34:30,053 basehttp 10260 9368 "GET /api/users/me/ HTTP/1.1" 200 227
+INFO 2026-03-24 10:34:30,273 basehttp 10260 9368 "GET /api/users/me/ HTTP/1.1" 200 227
+INFO 2026-03-24 10:34:30,514 basehttp 10260 16320 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-03-24 10:34:40,404 basehttp 10260 16320 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-03-24 10:35:00,410 basehttp 10260 16320 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-03-24 10:35:30,526 basehttp 10260 16320 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-03-24 10:36:00,433 basehttp 10260 16320 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-03-24 10:36:30,505 basehttp 10260 16320 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-03-24 10:37:00,502 basehttp 10260 16320 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-03-24 10:37:30,455 basehttp 10260 16320 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-03-24 10:38:00,480 basehttp 10260 16320 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-03-24 10:39:33,110 basehttp 10260 16320 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-03-24 10:52:01,088 basehttp 10260 2028 "GET /admin/ HTTP/1.1" 200 18170
+INFO 2026-03-24 10:52:26,945 basehttp 10260 16176 "OPTIONS /api/token/ HTTP/1.1" 200 0
+INFO 2026-03-24 10:52:28,792 basehttp 10260 16176 "POST /api/token/ HTTP/1.1" 200 489
+INFO 2026-03-24 10:52:29,353 basehttp 10260 16176 "GET /api/users/me/ HTTP/1.1" 200 227
+INFO 2026-03-24 10:52:29,714 basehttp 10260 16176 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-03-24 10:52:33,963 basehttp 10260 16176 "OPTIONS /api/sales/ HTTP/1.1" 200 0
+INFO 2026-03-24 10:52:33,963 basehttp 10260 17568 "OPTIONS /api/sales/ HTTP/1.1" 200 0
+INFO 2026-03-24 10:52:34,270 basehttp 10260 17568 "GET /api/sales/ HTTP/1.1" 200 3987
+INFO 2026-03-24 10:52:34,431 basehttp 10260 17568 "GET /api/sales/ HTTP/1.1" 200 3987
+INFO 2026-03-24 10:58:35,255 basehttp 10260 7344 "GET /api/users/me/ HTTP/1.1" 200 227
+INFO 2026-03-24 10:58:35,431 basehttp 10260 7344 "GET /api/users/me/ HTTP/1.1" 200 227
+INFO 2026-03-24 10:58:35,651 basehttp 10260 13788 "GET /api/sales/ HTTP/1.1" 200 3987
+INFO 2026-03-24 10:58:35,836 basehttp 10260 7344 "GET /api/sales/ HTTP/1.1" 200 3987
+INFO 2026-03-24 11:17:58,437 basehttp 10260 16740 "GET /api/sales/ HTTP/1.1" 200 3987
+INFO 2026-03-24 11:46:22,421 basehttp 10260 15044 "GET /api/users/me/ HTTP/1.1" 200 227
+INFO 2026-03-24 11:46:22,677 basehttp 10260 15044 "GET /api/users/me/ HTTP/1.1" 200 227
+INFO 2026-03-24 11:46:22,720 basehttp 10260 5640 "GET /api/sales/ HTTP/1.1" 200 3987
+INFO 2026-03-24 11:46:22,858 basehttp 10260 5640 "GET /api/sales/ HTTP/1.1" 200 3987
+INFO 2026-03-24 11:46:25,201 basehttp 10260 5640 "OPTIONS /api/sales/pending/ HTTP/1.1" 200 0
+INFO 2026-03-24 11:46:25,201 basehttp 10260 15044 "OPTIONS /api/sales/pending/ HTTP/1.1" 200 0
+INFO 2026-03-24 11:46:25,390 basehttp 10260 15044 "GET /api/sales/pending/ HTTP/1.1" 200 1691
+INFO 2026-03-24 11:46:25,561 basehttp 10260 15044 "GET /api/sales/pending/ HTTP/1.1" 200 1691
+INFO 2026-03-24 11:46:29,730 basehttp 10260 15044 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-03-24 11:46:41,636 basehttp 10260 15044 "POST /api/token/ HTTP/1.1" 200 489
+INFO 2026-03-24 11:46:41,737 basehttp 10260 15044 "GET /api/users/me/ HTTP/1.1" 200 235
+INFO 2026-03-24 11:46:41,914 basehttp 10260 15044 "GET /api/dashboard/summary/ HTTP/1.1" 200 678
+INFO 2026-03-24 11:46:49,981 basehttp 10260 15044 "GET /api/sales/ HTTP/1.1" 200 3987
+INFO 2026-03-24 11:46:50,408 basehttp 10260 5640 "GET /api/sales/ HTTP/1.1" 200 3987
+INFO 2026-03-24 11:46:56,005 basehttp 10260 5640 "OPTIONS /api/sales/search_customers/?q=ma HTTP/1.1" 200 0
+INFO 2026-03-24 11:46:56,124 basehttp 10260 5640 "GET /api/sales/search_customers/?q=ma HTTP/1.1" 200 636
+INFO 2026-03-24 11:46:56,196 basehttp 10260 5640 "OPTIONS /api/sales/search_customers/?q=mas HTTP/1.1" 200 0
+INFO 2026-03-24 11:46:56,388 basehttp 10260 5640 "GET /api/sales/search_customers/?q=mas HTTP/1.1" 200 135
+INFO 2026-03-24 11:46:57,531 basehttp 10260 5640 "OPTIONS /api/sales/search_customers/?q=MASTER%20POWER%20SYSTEMS%20LTD HTTP/1.1" 200 0
+INFO 2026-03-24 11:46:57,667 basehttp 10260 5640 "GET /api/sales/search_customers/?q=MASTER%20POWER%20SYSTEMS%20LTD HTTP/1.1" 200 65
+INFO 2026-03-24 11:47:10,439 basehttp 10260 5640 "OPTIONS /api/sales/search_products/?q=ca HTTP/1.1" 200 0
+INFO 2026-03-24 11:47:10,542 basehttp 10260 5640 "GET /api/sales/search_products/?q=ca HTTP/1.1" 200 1590
+INFO 2026-03-24 11:48:26,023 basehttp 10260 5640 "POST /api/sales/ HTTP/1.1" 201 482
+INFO 2026-03-24 11:48:29,723 basehttp 10260 5640 "GET /api/sales/ HTTP/1.1" 200 4852
+INFO 2026-03-24 11:48:43,557 basehttp 10260 5640 "POST /api/token/ HTTP/1.1" 200 489
+INFO 2026-03-24 11:48:43,761 basehttp 10260 5640 "GET /api/users/me/ HTTP/1.1" 200 227
+INFO 2026-03-24 11:48:43,984 basehttp 10260 5640 "GET /api/dashboard/summary/ HTTP/1.1" 200 691
+INFO 2026-03-24 11:53:34,397 basehttp 10260 5640 "GET /api/dashboard/summary/ HTTP/1.1" 200 691
+INFO 2026-03-24 11:53:36,853 basehttp 10260 5640 "GET /api/users/me/ HTTP/1.1" 200 227
+INFO 2026-03-24 11:53:36,973 basehttp 10260 5640 "GET /api/users/me/ HTTP/1.1" 200 227
+INFO 2026-03-24 11:53:37,224 basehttp 10260 5640 "GET /api/dashboard/summary/ HTTP/1.1" 200 691
+INFO 2026-03-24 11:53:49,233 basehttp 10260 5640 "GET /api/dashboard/summary/ HTTP/1.1" 200 691
+INFO 2026-03-24 11:53:58,053 basehttp 10260 5640 "POST /api/token/ HTTP/1.1" 200 489
+INFO 2026-03-24 11:53:58,157 basehttp 10260 5640 "GET /api/users/me/ HTTP/1.1" 200 235
+INFO 2026-03-24 11:53:58,363 basehttp 10260 5640 "GET /api/dashboard/summary/ HTTP/1.1" 200 691
+INFO 2026-03-24 11:54:00,731 basehttp 10260 5640 "GET /api/sales/ HTTP/1.1" 200 4852
+INFO 2026-03-24 11:54:01,032 basehttp 10260 5640 "GET /api/sales/ HTTP/1.1" 200 4852
+INFO 2026-03-24 11:54:03,246 basehttp 10260 5640 "OPTIONS /api/sales/search_customers/?q=re HTTP/1.1" 200 0
+INFO 2026-03-24 11:54:03,345 basehttp 10260 5640 "GET /api/sales/search_customers/?q=re HTTP/1.1" 200 665
+INFO 2026-03-24 11:54:08,582 basehttp 10260 5640 "OPTIONS /api/sales/search_customers/?q=Duo%20Tech%20Fire%20Service HTTP/1.1" 200 0
+INFO 2026-03-24 11:54:08,711 basehttp 10260 5640 "GET /api/sales/search_customers/?q=Duo%20Tech%20Fire%20Service HTTP/1.1" 200 62
+INFO 2026-03-24 11:54:20,724 basehttp 10260 5640 "GET /api/sales/search_products/?q=ca HTTP/1.1" 200 1590
+INFO 2026-03-24 11:55:01,379 basehttp 10260 5640 "POST /api/sales/ HTTP/1.1" 201 418
+INFO 2026-03-24 11:55:03,957 basehttp 10260 5640 "GET /api/sales/ HTTP/1.1" 200 5648
+INFO 2026-03-24 11:55:16,682 basehttp 10260 5640 "POST /api/token/ HTTP/1.1" 200 489
+INFO 2026-03-24 11:55:16,782 basehttp 10260 5640 "GET /api/users/me/ HTTP/1.1" 200 227
+INFO 2026-03-24 11:55:17,033 basehttp 10260 5640 "GET /api/dashboard/summary/ HTTP/1.1" 200 691
+INFO 2026-03-24 11:55:21,324 basehttp 10260 5640 "GET /api/users/me/ HTTP/1.1" 200 227
+INFO 2026-03-24 11:55:21,470 basehttp 10260 5640 "GET /api/users/me/ HTTP/1.1" 200 227
+INFO 2026-03-24 11:55:21,670 basehttp 10260 5640 "GET /api/dashboard/summary/ HTTP/1.1" 200 691
+INFO 2026-03-24 11:55:23,826 basehttp 10260 5640 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 11:55:24,056 basehttp 10260 5640 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 11:55:35,406 basehttp 10260 5640 "GET /api/dashboard/summary/ HTTP/1.1" 200 691
+INFO 2026-03-24 11:55:37,576 basehttp 10260 5640 "OPTIONS /api/categories/ HTTP/1.1" 200 0
+INFO 2026-03-24 11:55:37,580 basehttp 10260 5640 "OPTIONS /api/suppliers/ HTTP/1.1" 200 0
+INFO 2026-03-24 11:55:37,584 basehttp 10260 5640 "OPTIONS /api/products/ HTTP/1.1" 200 0
+INFO 2026-03-24 11:55:37,589 basehttp 10260 5640 "OPTIONS /api/suppliers/ HTTP/1.1" 200 0
+INFO 2026-03-24 11:55:37,592 basehttp 10260 5640 "OPTIONS /api/products/ HTTP/1.1" 200 0
+INFO 2026-03-24 11:55:37,808 basehttp 10260 5640 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-24 11:55:37,986 basehttp 10260 5640 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-03-24 11:55:38,043 basehttp 10260 3860 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-24 11:55:38,155 basehttp 10260 15176 "GET /api/products/ HTTP/1.1" 200 104826
+INFO 2026-03-24 11:55:38,209 basehttp 10260 11508 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-03-24 11:55:38,400 basehttp 10260 3860 "GET /api/products/ HTTP/1.1" 200 104826
+INFO 2026-03-24 11:55:40,048 basehttp 10260 3860 "OPTIONS /api/stock-movements/?direction=IN HTTP/1.1" 200 0
+INFO 2026-03-24 11:55:40,340 basehttp 10260 11508 "GET /api/stock-movements/?direction=IN HTTP/1.1" 200 1046
+INFO 2026-03-24 11:55:40,394 basehttp 10260 3860 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-24 11:55:40,622 basehttp 10260 15176 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-24 11:55:40,683 basehttp 10260 11508 "GET /api/stock-movements/?direction=IN HTTP/1.1" 200 1046
+INFO 2026-03-24 11:55:41,685 basehttp 10260 11508 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-24 11:55:41,740 basehttp 10260 15176 "GET /api/sales/ HTTP/1.1" 200 5648
+INFO 2026-03-24 11:55:41,973 basehttp 10260 3860 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-24 11:55:41,990 basehttp 10260 15176 "GET /api/sales/ HTTP/1.1" 200 5648
+INFO 2026-03-24 11:55:43,655 basehttp 10260 15176 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 11:55:43,832 basehttp 10260 15176 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 11:57:36,941 basehttp 10260 15176 "GET /api/dashboard/summary/ HTTP/1.1" 200 691
+INFO 2026-03-24 12:02:08,953 basehttp 10260 15176 "GET /api/dashboard/summary/ HTTP/1.1" 200 691
+INFO 2026-03-24 12:02:09,142 basehttp 10260 15176 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:02:39,847 basehttp 10260 15176 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:03:10,260 basehttp 10260 12020 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:03:39,836 basehttp 10260 12020 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:04:09,842 basehttp 10260 12020 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:04:39,941 basehttp 10260 12020 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:05:22,879 basehttp 10260 12020 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:06:22,975 basehttp 10260 12020 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:07:22,957 basehttp 10260 12020 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:08:22,857 basehttp 10260 12020 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:09:22,846 basehttp 10260 12020 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:10:22,962 basehttp 10260 12020 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:11:22,977 basehttp 10260 12020 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:12:22,846 basehttp 10260 12020 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:13:23,029 basehttp 10260 12020 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:14:22,891 basehttp 10260 12020 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:15:22,968 basehttp 10260 12020 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:16:22,879 basehttp 10260 12020 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:17:23,012 basehttp 10260 12020 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:18:22,877 basehttp 10260 12020 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:19:22,893 basehttp 10260 12020 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:20:22,900 basehttp 10260 12020 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:21:22,864 basehttp 10260 12020 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:22:22,887 basehttp 10260 12020 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:23:23,010 basehttp 10260 12020 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:24:22,871 basehttp 10260 12020 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:25:23,053 basehttp 10260 12020 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:26:22,997 basehttp 10260 12020 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:27:22,983 basehttp 10260 12020 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:28:22,869 basehttp 10260 12020 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:29:22,880 basehttp 10260 12020 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:30:22,836 basehttp 10260 12020 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:31:22,925 basehttp 10260 12020 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:32:22,936 basehttp 10260 12020 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:33:23,322 basehttp 10260 13936 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:34:23,036 basehttp 10260 13936 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:35:22,924 basehttp 10260 13936 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:36:23,006 basehttp 10260 13936 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:37:22,834 basehttp 10260 13936 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:38:22,859 basehttp 10260 13936 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:39:22,839 basehttp 10260 13936 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:40:22,992 basehttp 10260 13936 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:41:22,831 basehttp 10260 13936 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:42:22,884 basehttp 10260 13936 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:43:22,850 basehttp 10260 13936 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:44:23,029 basehttp 10260 13936 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:45:22,907 basehttp 10260 13936 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:46:22,911 basehttp 10260 13936 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:47:22,979 basehttp 10260 13936 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:48:23,662 basehttp 10260 13936 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:49:22,869 basehttp 10260 13936 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:50:22,860 basehttp 10260 13936 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:51:22,906 basehttp 10260 13936 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:52:22,878 basehttp 10260 13936 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:53:22,884 basehttp 10260 13936 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:54:23,023 basehttp 10260 13936 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+WARNING 2026-03-24 12:55:22,796 log 10260 13936 Unauthorized: /api/sales/pending/
+WARNING 2026-03-24 12:55:22,798 basehttp 10260 13936 "GET /api/sales/pending/ HTTP/1.1" 401 172
+INFO 2026-03-24 12:55:22,819 basehttp 10260 13936 "OPTIONS /api/token/refresh/ HTTP/1.1" 200 0
+INFO 2026-03-24 12:55:23,499 basehttp 10260 13936 "POST /api/token/refresh/ HTTP/1.1" 200 489
+INFO 2026-03-24 12:55:23,733 basehttp 10260 13936 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:56:22,909 basehttp 10260 13936 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:57:23,319 basehttp 10260 18088 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:58:22,911 basehttp 10260 18088 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 12:59:22,865 basehttp 10260 18088 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:00:22,892 basehttp 10260 18088 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:01:22,975 basehttp 10260 18088 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:02:22,892 basehttp 10260 18088 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:03:23,197 basehttp 10260 8644 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:04:22,974 basehttp 10260 8644 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:05:22,881 basehttp 10260 8644 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:06:22,877 basehttp 10260 8644 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:07:23,030 basehttp 10260 8644 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:08:22,888 basehttp 10260 8644 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:09:22,875 basehttp 10260 8644 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:10:22,868 basehttp 10260 8644 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:11:22,860 basehttp 10260 8644 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:12:22,875 basehttp 10260 8644 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:13:22,867 basehttp 10260 8644 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:14:22,967 basehttp 10260 8644 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:15:22,884 basehttp 10260 8644 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:16:22,853 basehttp 10260 8644 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:17:22,895 basehttp 10260 8644 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:18:22,881 basehttp 10260 8644 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:19:22,899 basehttp 10260 8644 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:20:22,873 basehttp 10260 8644 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:21:23,012 basehttp 10260 8644 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:22:22,881 basehttp 10260 8644 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:23:23,003 basehttp 10260 8644 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:24:22,938 basehttp 10260 8644 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:25:23,150 basehttp 10260 8644 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:26:22,883 basehttp 10260 8644 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:27:22,866 basehttp 10260 8644 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:28:22,864 basehttp 10260 8644 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:29:23,019 basehttp 10260 8644 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:30:22,994 basehttp 10260 8644 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:31:22,858 basehttp 10260 8644 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:32:22,984 basehttp 10260 8644 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:33:23,372 basehttp 10260 1608 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:34:22,885 basehttp 10260 1608 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:35:23,010 basehttp 10260 1608 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:36:22,977 basehttp 10260 1608 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:37:22,850 basehttp 10260 1608 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:38:22,890 basehttp 10260 1608 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:39:22,869 basehttp 10260 1608 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:40:22,874 basehttp 10260 1608 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:41:22,985 basehttp 10260 1608 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:42:22,871 basehttp 10260 1608 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:43:22,886 basehttp 10260 1608 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:44:22,889 basehttp 10260 1608 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:45:22,895 basehttp 10260 1608 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:46:22,915 basehttp 10260 1608 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:47:22,742 basehttp 10260 1608 "OPTIONS /api/sales/pending/ HTTP/1.1" 200 0
+INFO 2026-03-24 13:47:22,890 basehttp 10260 1608 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:48:22,855 basehttp 10260 1608 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:49:22,998 basehttp 10260 1608 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:50:23,011 basehttp 10260 1608 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:51:22,880 basehttp 10260 1608 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:52:22,900 basehttp 10260 1608 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:53:22,852 basehttp 10260 1608 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:54:22,896 basehttp 10260 1608 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+WARNING 2026-03-24 13:55:22,778 log 10260 1608 Unauthorized: /api/sales/pending/
+WARNING 2026-03-24 13:55:22,781 basehttp 10260 1608 "GET /api/sales/pending/ HTTP/1.1" 401 172
+INFO 2026-03-24 13:55:22,885 basehttp 10260 1608 "POST /api/token/refresh/ HTTP/1.1" 200 489
+INFO 2026-03-24 13:55:23,018 basehttp 10260 1608 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:56:22,857 basehttp 10260 1608 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:57:22,880 basehttp 10260 1608 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:58:23,023 basehttp 10260 1608 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 13:59:22,981 basehttp 10260 1608 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:00:22,885 basehttp 10260 1608 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:01:22,880 basehttp 10260 1608 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:02:23,481 basehttp 10260 1608 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:03:23,710 basehttp 10260 12872 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:04:22,845 basehttp 10260 12872 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:05:22,989 basehttp 10260 12872 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:06:22,900 basehttp 10260 12872 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:07:22,975 basehttp 10260 12872 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:08:23,059 basehttp 10260 12872 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:09:22,848 basehttp 10260 12872 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:10:22,881 basehttp 10260 12872 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:11:22,861 basehttp 10260 12872 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:12:22,887 basehttp 10260 12872 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:13:22,872 basehttp 10260 12872 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:14:23,013 basehttp 10260 12872 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:15:23,043 basehttp 10260 12872 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:16:23,195 basehttp 10260 12872 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:17:22,986 basehttp 10260 12872 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:18:22,879 basehttp 10260 12872 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:19:23,065 basehttp 10260 12872 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:20:22,897 basehttp 10260 12872 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:21:22,967 basehttp 10260 12872 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:22:23,087 basehttp 10260 12872 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:23:23,017 basehttp 10260 12872 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:24:23,000 basehttp 10260 12872 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:25:22,888 basehttp 10260 12872 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:26:22,896 basehttp 10260 12872 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:27:22,866 basehttp 10260 12872 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:28:22,984 basehttp 10260 12872 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:29:22,890 basehttp 10260 12872 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:30:22,891 basehttp 10260 12872 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:31:22,903 basehttp 10260 12872 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:32:22,890 basehttp 10260 12872 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:33:23,269 basehttp 10260 15880 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:34:22,929 basehttp 10260 15880 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:35:22,888 basehttp 10260 15880 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:36:22,971 basehttp 10260 15880 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:37:22,960 basehttp 10260 15880 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:38:22,981 basehttp 10260 15880 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:39:22,870 basehttp 10260 15880 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:40:22,907 basehttp 10260 15880 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:41:22,873 basehttp 10260 15880 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:42:22,861 basehttp 10260 15880 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:43:22,975 basehttp 10260 15880 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:44:22,852 basehttp 10260 15880 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:45:22,860 basehttp 10260 15880 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:46:22,889 basehttp 10260 15880 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:47:22,862 basehttp 10260 15880 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:48:22,876 basehttp 10260 15880 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:49:22,849 basehttp 10260 15880 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:50:22,868 basehttp 10260 15880 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:51:22,863 basehttp 10260 15880 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:52:23,296 basehttp 10260 15880 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:53:22,930 basehttp 10260 15880 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:54:22,961 basehttp 10260 15880 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+WARNING 2026-03-24 14:55:22,758 log 10260 15880 Unauthorized: /api/sales/pending/
+WARNING 2026-03-24 14:55:22,758 basehttp 10260 15880 "GET /api/sales/pending/ HTTP/1.1" 401 172
+INFO 2026-03-24 14:55:24,614 basehttp 10260 15880 "POST /api/token/refresh/ HTTP/1.1" 200 489
+INFO 2026-03-24 14:55:29,608 basehttp 10260 15880 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:56:23,598 basehttp 10260 15880 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:57:22,855 basehttp 10260 15880 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:58:23,024 basehttp 10260 15880 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 14:59:22,897 basehttp 10260 15880 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 15:00:22,872 basehttp 10260 15880 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 15:01:23,177 basehttp 10260 15880 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 15:02:23,119 basehttp 10260 15880 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 15:03:23,244 basehttp 10260 17172 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 15:04:23,104 basehttp 10260 17172 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 15:05:22,908 basehttp 10260 17172 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 15:06:23,050 basehttp 10260 17172 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 15:07:22,872 basehttp 10260 17172 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 15:08:22,837 basehttp 10260 17172 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 15:09:22,966 basehttp 10260 17172 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 15:10:22,863 basehttp 10260 17172 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 15:12:23,222 basehttp 10260 11800 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 15:13:22,882 basehttp 10260 11800 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 15:14:22,952 basehttp 10260 11800 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 15:15:22,924 basehttp 10260 11800 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 15:16:22,870 basehttp 10260 11800 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 15:17:22,872 basehttp 10260 11800 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 15:18:22,876 basehttp 10260 11800 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 15:19:23,006 basehttp 10260 11800 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 15:20:23,014 basehttp 10260 11800 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 15:21:22,917 basehttp 10260 11800 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 15:22:22,910 basehttp 10260 11800 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 15:23:23,077 basehttp 10260 11800 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 15:24:23,055 basehttp 10260 11800 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-24 15:25:22,888 basehttp 10260 11800 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:11:41,897 autoreload 9904 8336 Watching for file changes with StatReloader
+INFO 2026-03-25 11:22:08,195 basehttp 9904 3884 "GET /admin/ HTTP/1.1" 200 18170
+WARNING 2026-03-25 11:22:09,778 log 9904 3884 Not Found: /favicon.ico
+WARNING 2026-03-25 11:22:09,779 basehttp 9904 3884 "GET /favicon.ico HTTP/1.1" 404 3037
+INFO 2026-03-25 11:22:43,179 basehttp 9904 13848 "OPTIONS /api/users/me/ HTTP/1.1" 200 0
+INFO 2026-03-25 11:22:43,179 basehttp 9904 5956 "OPTIONS /api/users/me/ HTTP/1.1" 200 0
+WARNING 2026-03-25 11:22:43,235 log 9904 5956 Unauthorized: /api/users/me/
+WARNING 2026-03-25 11:22:43,236 basehttp 9904 5956 "GET /api/users/me/ HTTP/1.1" 401 172
+WARNING 2026-03-25 11:22:43,240 log 9904 5956 Unauthorized: /api/users/me/
+WARNING 2026-03-25 11:22:43,241 basehttp 9904 5956 "GET /api/users/me/ HTTP/1.1" 401 172
+INFO 2026-03-25 11:22:44,314 basehttp 9904 5956 "OPTIONS /api/token/refresh/ HTTP/1.1" 200 0
+INFO 2026-03-25 11:22:44,314 basehttp 9904 13848 "OPTIONS /api/token/refresh/ HTTP/1.1" 200 0
+INFO 2026-03-25 11:22:44,541 basehttp 9904 13848 "POST /api/token/refresh/ HTTP/1.1" 200 489
+INFO 2026-03-25 11:22:44,557 basehttp 9904 5956 "POST /api/token/refresh/ HTTP/1.1" 200 489
+INFO 2026-03-25 11:22:45,078 basehttp 9904 13848 "GET /api/users/me/ HTTP/1.1" 200 227
+INFO 2026-03-25 11:22:45,186 basehttp 9904 13848 "GET /api/users/me/ HTTP/1.1" 200 227
+INFO 2026-03-25 11:22:45,275 basehttp 9904 13848 "OPTIONS /api/sales/pending/ HTTP/1.1" 200 0
+INFO 2026-03-25 11:22:45,310 basehttp 9904 5956 "OPTIONS /api/dashboard/summary/ HTTP/1.1" 200 0
+INFO 2026-03-25 11:22:45,613 basehttp 9904 13848 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:22:45,630 basehttp 9904 5956 "GET /api/dashboard/summary/ HTTP/1.1" 200 691
+INFO 2026-03-25 11:22:45,794 basehttp 9904 13848 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:23:15,449 basehttp 9904 13848 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:23:15,463 basehttp 9904 5956 "GET /api/dashboard/summary/ HTTP/1.1" 200 691
+INFO 2026-03-25 11:23:45,416 basehttp 9904 5956 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:23:45,476 basehttp 9904 13848 "GET /api/dashboard/summary/ HTTP/1.1" 200 691
+INFO 2026-03-25 11:24:15,457 basehttp 9904 5956 "GET /api/dashboard/summary/ HTTP/1.1" 200 691
+INFO 2026-03-25 11:24:15,462 basehttp 9904 13848 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:24:45,453 basehttp 9904 13848 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:24:45,470 basehttp 9904 5956 "GET /api/dashboard/summary/ HTTP/1.1" 200 691
+INFO 2026-03-25 11:24:55,476 basehttp 9904 5956 "GET /api/dashboard/summary/ HTTP/1.1" 200 691
+INFO 2026-03-25 11:25:02,089 basehttp 9904 5956 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:25:02,253 basehttp 9904 5956 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:25:15,421 basehttp 9904 5956 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:25:45,537 basehttp 9904 5956 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:26:07,274 basehttp 9904 5956 "GET /api/dashboard/summary/ HTTP/1.1" 200 691
+INFO 2026-03-25 11:26:15,404 basehttp 9904 5956 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:26:37,310 basehttp 9904 5956 "GET /api/dashboard/summary/ HTTP/1.1" 200 691
+INFO 2026-03-25 11:26:45,426 basehttp 9904 5956 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:27:00,913 basehttp 9904 5956 "GET /api/dashboard/summary/ HTTP/1.1" 200 691
+INFO 2026-03-25 11:27:07,478 basehttp 9904 5956 "GET /api/dashboard/summary/ HTTP/1.1" 200 691
+INFO 2026-03-25 11:27:15,407 basehttp 9904 5956 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:27:37,328 basehttp 9904 5956 "GET /api/dashboard/summary/ HTTP/1.1" 200 691
+INFO 2026-03-25 11:27:45,413 basehttp 9904 5956 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:28:07,314 basehttp 9904 5956 "GET /api/dashboard/summary/ HTTP/1.1" 200 691
+INFO 2026-03-25 11:28:14,674 basehttp 9904 5956 "GET /api/dashboard/summary/ HTTP/1.1" 200 691
+INFO 2026-03-25 11:28:15,714 basehttp 9904 5956 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:28:46,253 basehttp 9904 5956 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:29:11,856 basehttp 9904 5956 "GET /api/dashboard/summary/ HTTP/1.1" 200 691
+INFO 2026-03-25 11:29:16,276 basehttp 9904 5956 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:29:46,456 basehttp 9904 5956 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:30:19,221 basehttp 9904 5956 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:31:19,208 basehttp 9904 5956 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:31:43,775 basehttp 9904 5956 "GET /api/dashboard/summary/ HTTP/1.1" 200 691
+INFO 2026-03-25 11:31:45,633 basehttp 9904 5956 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:32:06,340 basehttp 9904 5956 "GET /api/dashboard/summary/ HTTP/1.1" 200 691
+INFO 2026-03-25 11:32:07,281 basehttp 9904 5956 "GET /api/dashboard/summary/ HTTP/1.1" 200 691
+INFO 2026-03-25 11:32:15,427 basehttp 9904 5956 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:32:20,892 basehttp 9904 5956 "GET /api/dashboard/summary/ HTTP/1.1" 200 691
+INFO 2026-03-25 11:32:27,972 basehttp 9904 5956 "GET /api/dashboard/summary/ HTTP/1.1" 200 691
+INFO 2026-03-25 11:32:37,585 basehttp 9904 5956 "GET /api/dashboard/summary/ HTTP/1.1" 200 691
+INFO 2026-03-25 11:32:40,756 basehttp 9904 5956 "GET /api/dashboard/summary/ HTTP/1.1" 200 691
+INFO 2026-03-25 11:32:46,241 basehttp 9904 5956 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:33:16,358 basehttp 9904 5956 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:34:19,214 basehttp 9904 5956 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:34:29,896 basehttp 9904 5956 "GET /api/dashboard/summary/ HTTP/1.1" 200 691
+INFO 2026-03-25 11:34:46,223 basehttp 9904 5956 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:35:16,208 basehttp 9904 5956 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:36:09,841 basehttp 9904 13636 "GET /api/dashboard/summary/ HTTP/1.1" 200 691
+INFO 2026-03-25 11:36:09,864 basehttp 9904 2672 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:36:15,409 basehttp 9904 2672 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:36:20,252 basehttp 9904 2672 "GET /api/dashboard/summary/ HTTP/1.1" 200 691
+INFO 2026-03-25 11:36:46,315 basehttp 9904 2672 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:37:16,212 basehttp 9904 2672 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:37:49,122 basehttp 9904 2672 "GET /api/dashboard/summary/ HTTP/1.1" 200 691
+INFO 2026-03-25 11:37:49,136 basehttp 9904 13636 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:38:12,160 basehttp 9904 13636 "GET /api/dashboard/summary/ HTTP/1.1" 200 691
+INFO 2026-03-25 11:38:14,802 basehttp 9904 2672 "OPTIONS /api/sales/ HTTP/1.1" 200 0
+INFO 2026-03-25 11:38:14,802 basehttp 9904 13636 "OPTIONS /api/sales/ HTTP/1.1" 200 0
+INFO 2026-03-25 11:38:15,040 basehttp 9904 2672 "GET /api/sales/ HTTP/1.1" 200 5648
+INFO 2026-03-25 11:38:15,195 basehttp 9904 13636 "GET /api/sales/ HTTP/1.1" 200 5648
+INFO 2026-03-25 11:38:15,661 basehttp 9904 13636 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:38:45,390 basehttp 9904 13636 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:39:15,415 basehttp 9904 13636 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:39:21,997 basehttp 9904 13636 "OPTIONS /api/categories/ HTTP/1.1" 200 0
+INFO 2026-03-25 11:39:21,997 basehttp 9904 2672 "OPTIONS /api/stock-movements/?direction=IN HTTP/1.1" 200 0
+INFO 2026-03-25 11:39:22,003 basehttp 9904 13636 "OPTIONS /api/categories/ HTTP/1.1" 200 0
+INFO 2026-03-25 11:39:22,217 basehttp 9904 13636 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-25 11:39:22,271 basehttp 9904 2672 "GET /api/stock-movements/?direction=IN HTTP/1.1" 200 1046
+INFO 2026-03-25 11:39:22,384 basehttp 9904 13636 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-25 11:39:22,456 basehttp 9904 2672 "GET /api/stock-movements/?direction=IN HTTP/1.1" 200 1046
+INFO 2026-03-25 11:39:38,493 basehttp 9904 2672 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-25 11:39:38,540 basehttp 9904 13636 "GET /api/sales/ HTTP/1.1" 200 5648
+INFO 2026-03-25 11:39:38,687 basehttp 9904 15660 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-25 11:39:38,754 basehttp 9904 13636 "GET /api/sales/ HTTP/1.1" 200 5648
+INFO 2026-03-25 11:39:45,525 basehttp 9904 13636 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:39:54,515 basehttp 9904 13636 "OPTIONS /api/suppliers/ HTTP/1.1" 200 0
+INFO 2026-03-25 11:39:54,515 basehttp 9904 15660 "OPTIONS /api/products/ HTTP/1.1" 200 0
+INFO 2026-03-25 11:39:54,515 basehttp 9904 2672 "OPTIONS /api/suppliers/ HTTP/1.1" 200 0
+INFO 2026-03-25 11:39:54,516 basehttp 9904 7772 "OPTIONS /api/products/ HTTP/1.1" 200 0
+INFO 2026-03-25 11:39:54,769 basehttp 9904 13636 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-25 11:39:54,791 basehttp 9904 2672 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-03-25 11:39:54,965 basehttp 9904 7772 "GET /api/products/ HTTP/1.1" 200 104826
+INFO 2026-03-25 11:39:55,041 basehttp 9904 2672 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-03-25 11:39:55,041 basehttp 9904 13636 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-25 11:39:55,244 basehttp 9904 15660 "GET /api/products/ HTTP/1.1" 200 104826
+INFO 2026-03-25 11:40:02,890 basehttp 9904 15660 "GET /api/dashboard/summary/ HTTP/1.1" 200 691
+INFO 2026-03-25 11:40:08,244 basehttp 9904 15660 "OPTIONS /api/products/low_stock/ HTTP/1.1" 200 0
+INFO 2026-03-25 11:40:08,499 basehttp 9904 2672 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-03-25 11:40:08,544 basehttp 9904 15660 "GET /api/products/low_stock/ HTTP/1.1" 200 22066
+INFO 2026-03-25 11:40:08,552 basehttp 9904 13636 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-25 11:40:08,714 basehttp 9904 7404 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-25 11:40:08,756 basehttp 9904 7772 "GET /api/products/low_stock/ HTTP/1.1" 200 22066
+INFO 2026-03-25 11:40:08,802 basehttp 9904 2672 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-03-25 11:40:15,413 basehttp 9904 2672 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:40:46,322 basehttp 9904 2672 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:41:15,375 basehttp 9904 2672 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:41:47,102 basehttp 9904 2672 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:42:16,355 basehttp 9904 2672 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:43:19,243 basehttp 9904 2672 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:44:19,233 basehttp 9904 2672 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:44:45,409 basehttp 9904 2672 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:44:46,420 basehttp 9904 2672 "GET /api/sales/ HTTP/1.1" 200 5648
+INFO 2026-03-25 11:44:46,688 basehttp 9904 2672 "GET /api/sales/ HTTP/1.1" 200 5648
+INFO 2026-03-25 11:45:16,207 basehttp 9904 2672 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:45:46,371 basehttp 9904 2672 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:46:19,277 basehttp 9904 2672 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:47:19,227 basehttp 9904 2672 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:48:19,209 basehttp 9904 2672 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:49:19,225 basehttp 9904 2672 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:50:19,320 basehttp 9904 2672 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:51:19,337 basehttp 9904 2672 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:52:17,135 basehttp 9904 1456 "GET /admin/ HTTP/1.1" 200 18170
+INFO 2026-03-25 11:52:19,278 basehttp 9904 2672 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:53:19,209 basehttp 9904 2672 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:54:19,256 basehttp 9904 2672 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:55:19,577 basehttp 9904 2672 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:56:19,349 basehttp 9904 2672 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:57:19,213 basehttp 9904 2672 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:58:19,499 basehttp 9904 2672 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 11:58:36,747 basehttp 9904 2672 "GET /api/sales/ HTTP/1.1" 200 5648
+INFO 2026-03-25 11:59:19,274 basehttp 9904 2672 "GET /api/sales/pending/ HTTP/1.1" 200 3352
+INFO 2026-03-25 12:00:10,280 autoreload 9904 8336 C:\Users\user\OneDrive\Desktop\Inventory\Stock\Sales\models.py changed, reloading.
+INFO 2026-03-25 12:00:12,822 autoreload 1492 12716 Watching for file changes with StatReloader
+ERROR 2026-03-25 12:00:20,287 log 1492 9660 Internal Server Error: /api/sales/pending/
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column Sales_sale.salesperson does not exist
+LINE 1: ...rejection_reason", "Sales_sale"."recorded_by_id", "Sales_sal...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\Stock\Sales\views.py", line 597, in pending
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\serializers.py", line 797, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\serializers.py", line 716, in to_representation
+    self.child.to_representation(item) for item in iterable
+                                                   ^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\models\query.py", line 1949, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: column Sales_sale.salesperson does not exist
+LINE 1: ...rejection_reason", "Sales_sale"."recorded_by_id", "Sales_sal...
+                                                             ^
+
+ERROR 2026-03-25 12:00:20,332 basehttp 1492 9660 "GET /api/sales/pending/ HTTP/1.1" 500 184452
+ERROR 2026-03-25 12:01:19,340 log 1492 9660 Internal Server Error: /api/sales/pending/
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column Sales_sale.salesperson does not exist
+LINE 1: ...rejection_reason", "Sales_sale"."recorded_by_id", "Sales_sal...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\Stock\Sales\views.py", line 597, in pending
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\serializers.py", line 797, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\serializers.py", line 716, in to_representation
+    self.child.to_representation(item) for item in iterable
+                                                   ^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\models\query.py", line 1949, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: column Sales_sale.salesperson does not exist
+LINE 1: ...rejection_reason", "Sales_sale"."recorded_by_id", "Sales_sal...
+                                                             ^
+
+ERROR 2026-03-25 12:01:19,393 basehttp 1492 9660 "GET /api/sales/pending/ HTTP/1.1" 500 184452
+INFO 2026-03-25 12:01:57,043 autoreload 1492 12716 C:\Users\user\OneDrive\Desktop\Inventory\Stock\Sales\serializers.py changed, reloading.
+INFO 2026-03-25 12:01:59,026 autoreload 14112 15264 Watching for file changes with StatReloader
+ERROR 2026-03-25 12:02:19,816 log 14112 14636 Internal Server Error: /api/sales/pending/
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column Sales_sale.salesperson does not exist
+LINE 1: ...rejection_reason", "Sales_sale"."recorded_by_id", "Sales_sal...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\Stock\Sales\views.py", line 597, in pending
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\serializers.py", line 797, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\serializers.py", line 716, in to_representation
+    self.child.to_representation(item) for item in iterable
+                                                   ^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\models\query.py", line 1949, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: column Sales_sale.salesperson does not exist
+LINE 1: ...rejection_reason", "Sales_sale"."recorded_by_id", "Sales_sal...
+                                                             ^
+
+ERROR 2026-03-25 12:02:19,913 basehttp 14112 14636 "GET /api/sales/pending/ HTTP/1.1" 500 184452
+ERROR 2026-03-25 12:03:19,273 log 14112 14636 Internal Server Error: /api/sales/pending/
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column Sales_sale.salesperson does not exist
+LINE 1: ...rejection_reason", "Sales_sale"."recorded_by_id", "Sales_sal...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\Stock\Sales\views.py", line 597, in pending
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\serializers.py", line 797, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\serializers.py", line 716, in to_representation
+    self.child.to_representation(item) for item in iterable
+                                                   ^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\models\query.py", line 1949, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: column Sales_sale.salesperson does not exist
+LINE 1: ...rejection_reason", "Sales_sale"."recorded_by_id", "Sales_sal...
+                                                             ^
+
+ERROR 2026-03-25 12:03:19,296 basehttp 14112 14636 "GET /api/sales/pending/ HTTP/1.1" 500 184452
+ERROR 2026-03-25 12:04:19,372 log 14112 14636 Internal Server Error: /api/sales/pending/
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column Sales_sale.salesperson does not exist
+LINE 1: ...rejection_reason", "Sales_sale"."recorded_by_id", "Sales_sal...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\Stock\Sales\views.py", line 597, in pending
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\serializers.py", line 797, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\rest_framework\serializers.py", line 716, in to_representation
+    self.child.to_representation(item) for item in iterable
+                                                   ^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\models\query.py", line 1949, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\user\OneDrive\Desktop\Inventory\venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: column Sales_sale.salesperson does not exist
+LINE 1: ...rejection_reason", "Sales_sale"."recorded_by_id", "Sales_sal...
+                                                             ^
+
+ERROR 2026-03-25 12:04:19,390 basehttp 14112 14636 "GET /api/sales/pending/ HTTP/1.1" 500 184452
+INFO 2026-03-25 12:04:25,562 autoreload 14112 15264 C:\Users\user\OneDrive\Desktop\Inventory\Stock\Sales\serializers.py changed, reloading.
+INFO 2026-03-25 12:04:27,476 autoreload 3760 16768 Watching for file changes with StatReloader
+INFO 2026-03-25 12:05:28,052 autoreload 9332 836 Watching for file changes with StatReloader
+INFO 2026-03-25 12:06:19,723 basehttp 9332 9756 "GET /api/sales/pending/ HTTP/1.1" 200 3420
+INFO 2026-03-25 12:06:27,387 basehttp 9332 9756 "GET /api/users/me/ HTTP/1.1" 200 227
+INFO 2026-03-25 12:06:27,590 basehttp 9332 9756 "GET /api/users/me/ HTTP/1.1" 200 227
+INFO 2026-03-25 12:06:28,065 basehttp 9332 13712 "GET /api/sales/ HTTP/1.1" 200 5750
+INFO 2026-03-25 12:06:28,122 basehttp 9332 9756 "GET /api/sales/pending/ HTTP/1.1" 200 3420
+INFO 2026-03-25 12:06:28,396 basehttp 9332 3368 "GET /api/sales/ HTTP/1.1" 200 5750
+INFO 2026-03-25 12:06:28,419 basehttp 9332 9756 "GET /api/sales/pending/ HTTP/1.1" 200 3420
+INFO 2026-03-25 12:06:30,077 basehttp 9332 7216 "GET /admin/ HTTP/1.1" 200 18170
+INFO 2026-03-25 12:06:57,697 basehttp 9332 9756 "GET /api/sales/pending/ HTTP/1.1" 200 3420
+INFO 2026-03-25 12:07:27,592 basehttp 9332 9756 "GET /api/sales/pending/ HTTP/1.1" 200 3420
+INFO 2026-03-25 12:07:57,583 basehttp 9332 9756 "GET /api/sales/pending/ HTTP/1.1" 200 3420
+INFO 2026-03-25 12:08:27,598 basehttp 9332 9756 "GET /api/sales/pending/ HTTP/1.1" 200 3420
+INFO 2026-03-25 12:08:33,557 basehttp 9332 9756 "OPTIONS /api/sales/search_customers/?q=Sw HTTP/1.1" 200 0
+INFO 2026-03-25 12:08:33,649 basehttp 9332 9756 "GET /api/sales/search_customers/?q=Sw HTTP/1.1" 200 118
+INFO 2026-03-25 12:08:33,818 basehttp 9332 9756 "OPTIONS /api/sales/search_customers/?q=Swi HTTP/1.1" 200 0
+INFO 2026-03-25 12:08:33,894 basehttp 9332 9756 "GET /api/sales/search_customers/?q=Swi HTTP/1.1" 200 55
+INFO 2026-03-25 12:08:35,874 basehttp 9332 9756 "OPTIONS /api/sales/search_customers/?q=SWITCHGEAR%20LTD HTTP/1.1" 200 0
+INFO 2026-03-25 12:08:35,959 basehttp 9332 9756 "GET /api/sales/search_customers/?q=SWITCHGEAR%20LTD HTTP/1.1" 200 55
+INFO 2026-03-25 12:08:57,693 basehttp 9332 9756 "GET /api/sales/pending/ HTTP/1.1" 200 3420
+INFO 2026-03-25 12:09:02,935 basehttp 9332 9756 "OPTIONS /api/sales/search_products/?q=br HTTP/1.1" 200 0
+INFO 2026-03-25 12:09:03,039 basehttp 9332 9756 "GET /api/sales/search_products/?q=br HTTP/1.1" 200 833
+INFO 2026-03-25 12:09:03,207 basehttp 9332 9756 "OPTIONS /api/sales/search_products/?q=bre HTTP/1.1" 200 0
+INFO 2026-03-25 12:09:03,309 basehttp 9332 9756 "GET /api/sales/search_products/?q=bre HTTP/1.1" 200 684
+INFO 2026-03-25 12:09:04,293 basehttp 9332 9756 "OPTIONS /api/sales/search_products/?q=brea HTTP/1.1" 200 0
+INFO 2026-03-25 12:09:04,516 basehttp 9332 9756 "GET /api/sales/search_products/?q=brea HTTP/1.1" 200 2
+INFO 2026-03-25 12:09:05,868 basehttp 9332 9756 "GET /api/sales/search_products/?q=bre HTTP/1.1" 200 684
+INFO 2026-03-25 12:09:06,042 basehttp 9332 9756 "GET /api/sales/search_products/?q=br HTTP/1.1" 200 833
+INFO 2026-03-25 12:09:27,595 basehttp 9332 9756 "GET /api/sales/pending/ HTTP/1.1" 200 3420
+INFO 2026-03-25 12:09:36,999 basehttp 9332 9756 "POST /api/sales/ HTTP/1.1" 201 514
+INFO 2026-03-25 12:09:43,220 basehttp 9332 9756 "GET /api/sales/ HTTP/1.1" 200 6635
+INFO 2026-03-25 12:10:00,889 basehttp 9332 9756 "OPTIONS /api/token/ HTTP/1.1" 200 0
+INFO 2026-03-25 12:10:02,456 basehttp 9332 9756 "POST /api/token/ HTTP/1.1" 200 489
+INFO 2026-03-25 12:10:02,544 basehttp 9332 9756 "GET /api/users/me/ HTTP/1.1" 200 235
+INFO 2026-03-25 12:10:02,758 basehttp 9332 9756 "GET /api/dashboard/summary/ HTTP/1.1" 200 692
+INFO 2026-03-25 12:10:08,135 basehttp 9332 9756 "GET /api/sales/ HTTP/1.1" 200 6635
+INFO 2026-03-25 12:10:08,321 basehttp 9332 9756 "GET /api/sales/ HTTP/1.1" 200 6635
+INFO 2026-03-25 12:11:28,019 basehttp 9332 9756 "OPTIONS /api/sales/outstanding/ HTTP/1.1" 200 0
+INFO 2026-03-25 12:11:28,020 basehttp 9332 3368 "OPTIONS /api/sales/outstanding/ HTTP/1.1" 200 0
+INFO 2026-03-25 12:11:28,201 basehttp 9332 3368 "GET /api/sales/outstanding/ HTTP/1.1" 200 2603
+INFO 2026-03-25 12:11:28,360 basehttp 9332 3368 "GET /api/sales/outstanding/ HTTP/1.1" 200 2603
+INFO 2026-03-26 10:58:17,831 autoreload 12744 3372 Watching for file changes with StatReloader
+INFO 2026-03-26 10:59:28,760 basehttp 12744 14104 "OPTIONS /api/users/me/ HTTP/1.1" 200 0
+INFO 2026-03-26 10:59:28,760 basehttp 12744 14108 "OPTIONS /api/users/me/ HTTP/1.1" 200 0
+WARNING 2026-03-26 10:59:28,837 log 12744 14108 Unauthorized: /api/users/me/
+WARNING 2026-03-26 10:59:28,839 basehttp 12744 14108 "GET /api/users/me/ HTTP/1.1" 401 172
+WARNING 2026-03-26 10:59:28,843 log 12744 14108 Unauthorized: /api/users/me/
+WARNING 2026-03-26 10:59:28,844 basehttp 12744 14108 "GET /api/users/me/ HTTP/1.1" 401 172
+INFO 2026-03-26 10:59:28,870 basehttp 12744 14108 "OPTIONS /api/token/refresh/ HTTP/1.1" 200 0
+INFO 2026-03-26 10:59:28,870 basehttp 12744 14104 "OPTIONS /api/token/refresh/ HTTP/1.1" 200 0
+INFO 2026-03-26 10:59:29,033 basehttp 12744 14104 "POST /api/token/refresh/ HTTP/1.1" 200 489
+INFO 2026-03-26 10:59:29,033 basehttp 12744 14108 "POST /api/token/refresh/ HTTP/1.1" 200 489
+INFO 2026-03-26 10:59:29,239 basehttp 12744 14108 "GET /api/users/me/ HTTP/1.1" 200 235
+INFO 2026-03-26 10:59:29,350 basehttp 12744 14108 "GET /api/users/me/ HTTP/1.1" 200 235
+INFO 2026-03-26 10:59:29,363 basehttp 12744 14108 "OPTIONS /api/dashboard/summary/ HTTP/1.1" 200 0
+INFO 2026-03-26 10:59:29,715 basehttp 12744 14108 "GET /api/dashboard/summary/ HTTP/1.1" 200 692
+INFO 2026-03-26 10:59:51,626 basehttp 12744 13564 "GET /admin/ HTTP/1.1" 200 18170
+INFO 2026-03-26 10:59:51,678 basehttp 12744 13696 "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+INFO 2026-03-26 10:59:51,678 basehttp 12744 13564 "GET /static/admin/css/base.css HTTP/1.1" 200 22120
+INFO 2026-03-26 10:59:51,697 basehttp 12744 13660 "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+INFO 2026-03-26 10:59:51,724 basehttp 12744 13564 "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+INFO 2026-03-26 10:59:51,724 basehttp 12744 13660 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+INFO 2026-03-26 10:59:51,729 basehttp 12744 13696 "GET /static/admin/css/responsive.css HTTP/1.1" 200 16565
+INFO 2026-03-26 10:59:51,765 basehttp 12744 13660 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+INFO 2026-03-26 10:59:51,804 basehttp 12744 13564 "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+INFO 2026-03-26 10:59:51,805 basehttp 12744 13696 "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO 2026-03-26 10:59:51,805 basehttp 12744 13660 "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+WARNING 2026-03-26 10:59:52,574 log 12744 13696 Not Found: /favicon.ico
+WARNING 2026-03-26 10:59:52,575 basehttp 12744 13696 "GET /favicon.ico HTTP/1.1" 404 3037
+INFO 2026-03-26 11:01:05,315 basehttp 12744 14108 "GET /api/dashboard/summary/ HTTP/1.1" 200 692
+INFO 2026-03-26 11:01:29,632 basehttp 12744 14108 "GET /api/dashboard/summary/ HTTP/1.1" 200 692
+INFO 2026-03-26 11:01:59,469 basehttp 12744 14108 "GET /api/dashboard/summary/ HTTP/1.1" 200 692
+INFO 2026-03-26 11:02:29,467 basehttp 12744 14108 "GET /api/dashboard/summary/ HTTP/1.1" 200 692
+INFO 2026-03-26 11:02:59,478 basehttp 12744 14108 "GET /api/dashboard/summary/ HTTP/1.1" 200 692
+INFO 2026-03-26 11:03:29,509 basehttp 12744 14108 "GET /api/dashboard/summary/ HTTP/1.1" 200 692
+INFO 2026-03-26 11:03:59,468 basehttp 12744 14108 "GET /api/dashboard/summary/ HTTP/1.1" 200 692
+INFO 2026-03-26 11:04:29,508 basehttp 12744 14108 "GET /api/dashboard/summary/ HTTP/1.1" 200 692
+INFO 2026-03-26 11:04:59,467 basehttp 12744 14108 "GET /api/dashboard/summary/ HTTP/1.1" 200 692
+INFO 2026-03-26 11:05:29,613 basehttp 12744 14108 "GET /api/dashboard/summary/ HTTP/1.1" 200 692
+INFO 2026-03-26 11:05:59,476 basehttp 12744 14108 "GET /api/dashboard/summary/ HTTP/1.1" 200 692
+INFO 2026-03-26 11:58:19,306 basehttp 12744 16868 "GET /admin/ HTTP/1.1" 200 18170
+WARNING 2026-03-26 12:05:40,926 log 12744 14920 Unauthorized: /api/dashboard/summary/
+WARNING 2026-03-26 12:05:40,929 basehttp 12744 14920 "GET /api/dashboard/summary/ HTTP/1.1" 401 172
+INFO 2026-03-26 12:05:41,066 basehttp 12744 14920 "POST /api/token/refresh/ HTTP/1.1" 200 489
+INFO 2026-03-26 12:05:41,257 basehttp 12744 14920 "GET /api/dashboard/summary/ HTTP/1.1" 200 692
+INFO 2026-03-26 12:06:10,672 basehttp 12744 14920 "GET /api/dashboard/summary/ HTTP/1.1" 200 692
+INFO 2026-03-26 12:06:40,674 basehttp 12744 14920 "GET /api/dashboard/summary/ HTTP/1.1" 200 692
+INFO 2026-03-26 12:06:42,519 basehttp 12744 17052 "OPTIONS /api/categories/ HTTP/1.1" 200 0
+INFO 2026-03-26 12:06:42,520 basehttp 12744 16024 "OPTIONS /api/suppliers/ HTTP/1.1" 200 0
+INFO 2026-03-26 12:06:42,520 basehttp 12744 11460 "OPTIONS /api/categories/ HTTP/1.1" 200 0
+INFO 2026-03-26 12:06:42,520 basehttp 12744 3280 "OPTIONS /api/products/ HTTP/1.1" 200 0
+INFO 2026-03-26 12:06:42,522 basehttp 12744 16692 "OPTIONS /api/suppliers/ HTTP/1.1" 200 0
+INFO 2026-03-26 12:06:42,548 basehttp 12744 15460 "OPTIONS /api/products/ HTTP/1.1" 200 0
+INFO 2026-03-26 12:06:42,832 basehttp 12744 11460 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-03-26 12:06:42,914 basehttp 12744 16692 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-26 12:06:42,915 basehttp 12744 3280 "GET /api/products/ HTTP/1.1" 200 104826
+INFO 2026-03-26 12:06:43,010 basehttp 12744 15460 "GET /api/suppliers/ HTTP/1.1" 200 41280
+INFO 2026-03-26 12:06:43,079 basehttp 12744 16692 "GET /api/categories/ HTTP/1.1" 200 10169
+INFO 2026-03-26 12:06:43,224 basehttp 12744 11460 "GET /api/products/ HTTP/1.1" 200 104826
+INFO 2026-03-27 10:32:10,644 autoreload 7512 8524 Watching for file changes with StatReloader
+INFO 2026-03-27 10:32:41,802 basehttp 7512 8004 "GET /admin/ HTTP/1.1" 200 18170
+WARNING 2026-03-27 10:32:42,809 log 7512 8004 Not Found: /favicon.ico
+WARNING 2026-03-27 10:32:42,810 basehttp 7512 8004 "GET /favicon.ico HTTP/1.1" 404 3037
+INFO 2026-03-27 10:33:01,152 basehttp 7512 13368 "OPTIONS /api/users/me/ HTTP/1.1" 200 0
+INFO 2026-03-27 10:33:01,152 basehttp 7512 3784 "OPTIONS /api/users/me/ HTTP/1.1" 200 0
+WARNING 2026-03-27 10:33:01,215 log 7512 3784 Unauthorized: /api/users/me/
+WARNING 2026-03-27 10:33:01,218 basehttp 7512 3784 "GET /api/users/me/ HTTP/1.1" 401 172
+WARNING 2026-03-27 10:33:01,226 log 7512 3784 Unauthorized: /api/users/me/
+WARNING 2026-03-27 10:33:01,227 basehttp 7512 3784 "GET /api/users/me/ HTTP/1.1" 401 172
+INFO 2026-03-27 10:33:02,240 basehttp 7512 3784 "OPTIONS /api/token/refresh/ HTTP/1.1" 200 0
+INFO 2026-03-27 10:33:02,240 basehttp 7512 13368 "OPTIONS /api/token/refresh/ HTTP/1.1" 200 0
+WARNING 2026-03-27 10:33:02,245 log 7512 3784 Unauthorized: /api/token/refresh/
+WARNING 2026-03-27 10:33:02,250 log 7512 13368 Unauthorized: /api/token/refresh/
+WARNING 2026-03-27 10:33:02,250 basehttp 7512 3784 "POST /api/token/refresh/ HTTP/1.1" 401 54
+WARNING 2026-03-27 10:33:02,251 basehttp 7512 13368 "POST /api/token/refresh/ HTTP/1.1" 401 54
+INFO 2026-03-27 10:33:08,407 basehttp 7512 13368 "OPTIONS /api/token/ HTTP/1.1" 200 0
+INFO 2026-03-27 10:33:10,017 basehttp 7512 13368 "POST /api/token/ HTTP/1.1" 200 489
+INFO 2026-03-27 10:33:10,386 basehttp 7512 13368 "GET /api/users/me/ HTTP/1.1" 200 235
+INFO 2026-03-27 10:33:10,696 basehttp 7512 13368 "OPTIONS /api/dashboard/summary/ HTTP/1.1" 200 0
+INFO 2026-03-27 10:33:11,045 basehttp 7512 13368 "GET /api/dashboard/summary/ HTTP/1.1" 200 692
+INFO 2026-03-27 10:33:13,073 basehttp 7512 3784 "OPTIONS /api/sales/ HTTP/1.1" 200 0
+INFO 2026-03-27 10:33:13,074 basehttp 7512 13368 "OPTIONS /api/sales/ HTTP/1.1" 200 0
+INFO 2026-03-27 10:33:13,393 basehttp 7512 13368 "GET /api/sales/ HTTP/1.1" 200 6635
+INFO 2026-03-27 10:33:13,592 basehttp 7512 3784 "GET /api/sales/ HTTP/1.1" 200 6635
+INFO 2026-03-27 11:19:10,812 autoreload 7512 8524 C:\Users\user\OneDrive\Desktop\Inventory\Stock\Sales\models.py changed, reloading.
+INFO 2026-03-27 11:19:13,600 autoreload 15840 12188 Watching for file changes with StatReloader
+INFO 2026-03-27 11:21:45,533 autoreload 8988 12644 Watching for file changes with StatReloader
+INFO 2026-03-27 11:22:44,845 autoreload 8988 12644 C:\Users\user\OneDrive\Desktop\Inventory\Stock\Sales\serializers.py changed, reloading.
+INFO 2026-03-27 11:22:46,675 autoreload 4932 16096 Watching for file changes with StatReloader
+INFO 2026-03-27 11:29:55,337 autoreload 4932 16096 C:\Users\user\OneDrive\Desktop\Inventory\Stock\Sales\views.py changed, reloading.
+INFO 2026-03-27 11:29:58,472 autoreload 9812 12140 Watching for file changes with StatReloader
+INFO 2026-03-27 11:30:30,282 autoreload 9812 12140 C:\Users\user\OneDrive\Desktop\Inventory\Stock\Sales\views.py changed, reloading.
+INFO 2026-03-27 11:30:32,311 autoreload 10416 340 Watching for file changes with StatReloader
+INFO 2026-03-27 11:36:29,635 autoreload 10416 340 C:\Users\user\OneDrive\Desktop\Inventory\Stock\Sales\views.py changed, reloading.
+INFO 2026-03-27 11:36:31,620 autoreload 3552 15672 Watching for file changes with StatReloader
