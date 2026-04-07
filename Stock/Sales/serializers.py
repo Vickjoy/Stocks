@@ -136,7 +136,8 @@ class ProductSerializer(serializers.ModelSerializer):
     category_name = serializers.CharField(source='category.name', read_only=True)
     subcategory_name = serializers.CharField(source='subcategory.name', read_only=True)
     subsubcategory_name = serializers.CharField(source='subsubcategory.name', read_only=True)
-    
+    group_name = serializers.SerializerMethodField()
+
     class Meta:
         model = Product
         fields = [
@@ -144,13 +145,16 @@ class ProductSerializer(serializers.ModelSerializer):
             'category', 'category_name',
             'subcategory', 'subcategory_name',
             'subsubcategory', 'subsubcategory_name',
+            'group', 'group_name',
             'unit_price', 'current_stock', 'minimum_stock',
             'is_active', 'created_at', 'updated_at'
         ]
         read_only_fields = ['id', 'created_at', 'updated_at']
-    
+
+    def get_group_name(self, obj):
+        return obj.get_group_name()
+
     def validate(self, data):
-        """Ensure category hierarchy is valid"""
         category = data.get('category')
         subcategory = data.get('subcategory')
         subsubcategory = data.get('subsubcategory')
@@ -261,15 +265,13 @@ class MonthlySalesSerializer(serializers.Serializer):
 # Top Products Serializer
 # ========================
 class TopProductSerializer(serializers.Serializer):
-    name = serializers.CharField()  # Product code (short name)
-    value = serializers.IntegerField()  # Total quantity sold
+    name = serializers.CharField()
+    value = serializers.IntegerField()
 
 
 # ========================
 # Sale Serializers
 # ========================
-# serializers.py — replace your existing Sale serializer section with this
-
 class SaleLineItemSerializer(serializers.ModelSerializer):
     product_code = serializers.CharField(source='product.code', read_only=True)
     product_name = serializers.CharField(source='product.name', read_only=True)
@@ -318,10 +320,10 @@ class SaleSerializer(serializers.ModelSerializer):
         model = Sale
         fields = [
             'id', 'sale_number', 'customer', 'customer_name',
+            'sale_date',
             'lpo_quotation_number', 'delivery_number',
             'mode_of_payment', 'subtotal', 'vat_amount', 'total_amount',
             'amount_paid', 'outstanding_balance',
-            # NEW status fields
             'status', 'approved_by', 'approved_by_name',
             'approved_at', 'rejection_reason',
             'line_items', 'has_outstanding', 'is_fully_paid',
@@ -344,20 +346,56 @@ class SaleSerializer(serializers.ModelSerializer):
 class SaleCreateSerializer(serializers.ModelSerializer):
     line_items = SaleLineItemSerializer(many=True)
 
+    # Accept customer_name as a fallback when no FK is provided
+    customer_name = serializers.CharField(
+        write_only=True,
+        required=False,
+        allow_blank=True,
+        help_text="Provide this when the customer was typed manually and not selected from the dropdown."
+    )
+    # Accept sale_date from the modal
+    sale_date = serializers.DateField(
+        required=False,
+        allow_null=True,
+        help_text="The date the sale took place, as entered by staff."
+    )
+
     class Meta:
         model = Sale
         fields = [
-            'customer', 'lpo_quotation_number', 'delivery_number',
+            'customer',           # optional when customer_name is supplied
+            'customer_name',      # write-only fallback
+            'sale_date',          # optional explicit sale date
+            'lpo_quotation_number', 'delivery_number',
             'mode_of_payment', 'subtotal', 'vat_amount', 'total_amount',
             'amount_paid', 'line_items', 'salesperson'
         ]
+        extra_kwargs = {
+            # Make customer optional at field level; we enforce it in validate()
+            'customer': {'required': False},
+        }
 
     def validate(self, data):
+        # ── Resolve customer ─────────────────────────────────────────────────
+        customer = data.get('customer')
+        customer_name = data.pop('customer_name', None)  # remove from data; not a model field
+
+        if not customer:
+            if not customer_name or not customer_name.strip():
+                raise serializers.ValidationError(
+                    {'customer': 'A customer is required. Please select one from the list or type a valid name.'}
+                )
+            # Try to find an existing customer first; create one if not found
+            customer_obj, created = Customer.objects.get_or_create(
+                company_name__iexact=customer_name.strip(),
+                defaults={'company_name': customer_name.strip()}
+            )
+            data['customer'] = customer_obj
+        # ─────────────────────────────────────────────────────────────────────
+
+        # ── Payment validation ────────────────────────────────────────────────
         mode_of_payment = data.get('mode_of_payment')
         amount_paid = data.get('amount_paid', 0)
-        subtotal = data.get('subtotal', 0)
-        vat_amount = data.get('vat_amount', 0)
-        total_amount = data.get('total_amount', 0)
 
         if mode_of_payment == 'Not Paid':
             data['amount_paid'] = Decimal('0.00')
@@ -367,12 +405,20 @@ class SaleCreateSerializer(serializers.ModelSerializer):
                     'amount_paid': 'Amount paid is required when payment mode is selected'
                 })
             data['amount_paid'] = Decimal(str(amount_paid)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+        # ─────────────────────────────────────────────────────────────────────
 
+        # ── Line items ────────────────────────────────────────────────────────
         line_items = data.get('line_items', [])
         if not line_items:
             raise serializers.ValidationError({
                 'line_items': 'At least one product must be added to the sale'
             })
+        # ─────────────────────────────────────────────────────────────────────
+
+        # ── Financial cross-checks ────────────────────────────────────────────
+        subtotal = data.get('subtotal', 0)
+        vat_amount = data.get('vat_amount', 0)
+        total_amount = data.get('total_amount', 0)
 
         data['subtotal'] = Decimal(str(subtotal)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
         data['vat_amount'] = Decimal(str(vat_amount)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
@@ -389,13 +435,13 @@ class SaleCreateSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError({
                 'total_amount': f'Total should equal subtotal + VAT. Expected: {expected_total}, Got: {data["total_amount"]}'
             })
+        # ─────────────────────────────────────────────────────────────────────
 
         return data
 
     def create(self, validated_data):
         line_items_data = validated_data.pop('line_items')
         validated_data['recorded_by'] = self.context['request'].user
-        # Sale always starts as pending
         validated_data['status'] = 'pending'
 
         sale = Sale.objects.create(**validated_data)
@@ -408,7 +454,7 @@ class SaleCreateSerializer(serializers.ModelSerializer):
 
 
 # ========================
-# NEW: Sale Approval Serializer
+# Sale Approval Serializer
 # ========================
 class SaleApprovalSerializer(serializers.Serializer):
     action = serializers.ChoiceField(choices=['approve', 'reject'])
@@ -421,6 +467,10 @@ class SaleApprovalSerializer(serializers.Serializer):
             })
         return data
 
+
+# ========================
+# Delivery Serializers
+# ========================
 class DeliveryLineItemSerializer(serializers.Serializer):
     line_item_id = serializers.IntegerField()
     quantity_delivered = serializers.IntegerField(min_value=1)
@@ -464,6 +514,10 @@ class DeliveryRecordSerializer(serializers.ModelSerializer):
             ).all()
         ]
 
+
+# ========================
+# Password Reset Serializers
+# ========================
 class PasswordResetRequestSerializer(serializers.Serializer):
     email = serializers.EmailField()
 
@@ -605,9 +659,13 @@ class PasswordResetConfirmSerializer(serializers.Serializer):
         
         return {'message': 'Password has been reset successfully.'}
 
+
+# ========================
+# Stock Movement Serializer
+# ========================
 class StockMovementSerializer(serializers.ModelSerializer):
     """
-    Serializer for the new StockMovement model with direction and reason tracking
+    Serializer for the StockMovement model with direction and reason tracking
     """
     product_code = serializers.CharField(source='product.code', read_only=True)
     product_name = serializers.CharField(source='product.name', read_only=True)
@@ -621,7 +679,6 @@ class StockMovementSerializer(serializers.ModelSerializer):
     
     recorded_by_name = serializers.CharField(source='recorded_by.get_full_name', read_only=True)
     
-    # Readable labels for direction and reason
     direction_display = serializers.CharField(source='get_direction_display', read_only=True)
     reason_display = serializers.CharField(source='get_reason_display', read_only=True)
     
@@ -646,14 +703,12 @@ class StockMovementSerializer(serializers.ModelSerializer):
         direction = data.get('direction')
         reason = data.get('reason')
         
-        # IN reasons
         if reason in ['RESTOCK', 'ADJUSTMENT', 'INITIAL', 'RETURN']:
             if direction != 'IN':
                 raise serializers.ValidationError({
                     'direction': f'Reason {reason} must have direction IN'
                 })
         
-        # OUT reasons
         if reason in ['SALE', 'DAMAGE', 'TRANSFER']:
             if direction != 'OUT':
                 raise serializers.ValidationError({

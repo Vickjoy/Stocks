@@ -225,8 +225,8 @@ class AuditLog(models.Model):
         ('Stock Edit', 'Stock Edit'),
         ('Sale Created', 'Sale Created'),
         ('Sale Updated', 'Sale Updated'),
-        ('Sale Approved', 'Sale Approved'),       # NEW
-        ('Sale Rejected', 'Sale Rejected'),       # NEW
+        ('Sale Approved', 'Sale Approved'),
+        ('Sale Rejected', 'Sale Rejected'),
         ('Supply Update', 'Supply Update'),
     ]
     action = models.CharField(max_length=50, choices=ACTION_CHOICES)
@@ -250,9 +250,6 @@ class Sale(models.Model):
         ('Not Paid', 'Not Paid'),
     ]
 
-    # ========================
-    # NEW: Approval status
-    # ========================
     STATUS_CHOICES = [
         ('pending', 'Pending Approval'),
         ('approved', 'Approved'),
@@ -261,6 +258,14 @@ class Sale(models.Model):
 
     sale_number = models.CharField(max_length=50, unique=True, blank=True)
     customer = models.ForeignKey(Customer, on_delete=models.PROTECT, related_name='sales')
+
+    # ── NEW: explicit sale date supplied by the user from the modal ──────────
+    sale_date = models.DateField(
+        null=True, blank=True,
+        help_text="The date the sale took place (set by staff at time of recording)"
+    )
+    # ────────────────────────────────────────────────────────────────────────
+
     lpo_quotation_number = models.CharField(max_length=100, blank=True)
     delivery_number = models.CharField(max_length=100, blank=True)
     mode_of_payment = models.CharField(max_length=20, choices=PAYMENT_MODE_CHOICES, default='Not Paid')
@@ -272,9 +277,7 @@ class Sale(models.Model):
     amount_paid = models.DecimalField(max_digits=12, decimal_places=2, default=0)
     outstanding_balance = models.DecimalField(max_digits=12, decimal_places=2, default=0)
 
-    # ========================
-    # NEW: status and approval tracking fields
-    # ========================
+    # Status and approval tracking fields
     status = models.CharField(
         max_length=10,
         choices=STATUS_CHOICES,
@@ -340,9 +343,6 @@ class Sale(models.Model):
     def is_fully_paid(self):
         return self.outstanding_balance == Decimal('0.00')
 
-    # ========================
-    # NEW: Deduct stock for all line items — called only on approval
-    # ========================
     def deduct_stock(self, approved_by_user):
         for item in self.line_items.all():
             if item.supply_status in ['Supplied', 'Partially Supplied'] and item.quantity_supplied > 0:
@@ -372,7 +372,10 @@ class SaleLineItem(models.Model):
     quantity_ordered = models.IntegerField()
     quantity_supplied = models.IntegerField(default=0)
     supply_status = models.CharField(max_length=20, choices=SUPPLY_STATUS_CHOICES, default='Supplied')
-    unit_price = models.DecimalField(max_digits=10, decimal_places=2)
+    unit_price = models.DecimalField(
+        max_digits=10, decimal_places=2,
+        null=True, blank=True, default=0
+    )
     subtotal = models.DecimalField(max_digits=12, decimal_places=2, default=0)
 
     class Meta:
@@ -390,19 +393,17 @@ class SaleLineItem(models.Model):
         if self.quantity_supplied is None:
             self.quantity_supplied = 0
 
-        # Calculate subtotal only — NO stock deduction here anymore
-        # Stock is only deducted when admin approves the sale
         unit_price = Decimal(str(self.unit_price or 0))
         quantity = Decimal(str(self.quantity_ordered))
         self.subtotal = (unit_price * quantity).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
 
-        # Set quantity_supplied based on supply_status
         if self.supply_status == 'Supplied':
             self.quantity_supplied = self.quantity_ordered
         elif self.supply_status == 'Not Supplied':
             self.quantity_supplied = 0
 
         super().save(*args, **kwargs)
+
 
 class DeliveryRecord(models.Model):
     sale = models.ForeignKey(
