@@ -5,7 +5,7 @@ from import_export.widgets import ForeignKeyWidget
 
 from .models import (
     UserProfile, Category, SubCategory, SubSubCategory,
-    Supplier, Customer, Product,
+    Supplier, Customer, Product, Salesperson,
     MonthlyOpeningStock, StockEntry, AuditLog,
     Sale, SaleLineItem, StockMovement
 )
@@ -184,6 +184,20 @@ class CustomerAdmin(ImportExportModelAdmin):
     list_display = ['company_name', 'phone', 'is_active', 'created_at']
     search_fields = ['company_name', 'phone']
     ordering = ['company_name']
+
+class SalespersonResource(resources.ModelResource):
+    class Meta:
+        model = Salesperson
+        import_id_fields = ['name']
+        fields = ('name', 'phone', 'email', 'is_active')
+
+@admin.register(Salesperson)
+class SalespersonAdmin(ImportExportModelAdmin):
+    resource_class = SalespersonResource
+    list_display = ['name', 'phone', 'email', 'is_active', 'created_at']
+    search_fields = ['name', 'phone', 'email']
+    list_filter = ['is_active']
+    ordering = ['name']
 
 
 @admin.register(Product)

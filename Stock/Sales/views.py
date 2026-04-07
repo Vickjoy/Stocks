@@ -14,13 +14,13 @@ from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 from .models import (
     UserProfile, Category, SubCategory, SubSubCategory, ProductGroup, Supplier, Customer, Product,
-    MonthlyOpeningStock, StockEntry, StockMovement, AuditLog, Sale, SaleLineItem, DeliveryRecord, DeliveryLineItem
+    Salesperson, MonthlyOpeningStock, StockEntry, StockMovement, AuditLog, Sale, SaleLineItem, DeliveryRecord, DeliveryLineItem,
 )
 from .serializers import (
     UserSerializer, UserDetailSerializer,
     CategorySerializer, SubCategorySerializer, SubSubCategorySerializer, ProductGroupSerializer,
     SupplierSerializer, CustomerSerializer,
-    ProductSerializer, ProductDetailSerializer,
+    ProductSerializer, ProductDetailSerializer, SalespersonSerializer,
     StockEntrySerializer, StockMovementSerializer, MonthlyOpeningStockSerializer,
     AuditLogSerializer, DashboardSummarySerializer, SaleSerializer, SaleCreateSerializer,
     PasswordResetRequestSerializer, PasswordResetConfirmSerializer, SaleApprovalSerializer,
@@ -169,6 +169,26 @@ class CustomerViewSet(viewsets.ModelViewSet):
         customer.is_active = not customer.is_active
         customer.save()
         return Response({'is_active': customer.is_active})
+
+# ========================
+# Salesperson ViewSet
+# ========================
+class SalespersonViewSet(viewsets.ModelViewSet):
+    queryset = Salesperson.objects.all()
+    serializer_class = SalespersonSerializer
+    permission_classes = [permissions.IsAuthenticated]
+    filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
+    filterset_fields = ['is_active']
+    search_fields = ['name', 'phone', 'email']
+    ordering_fields = ['name', 'created_at']
+    ordering = ['name']
+
+    @action(detail=True, methods=['post'])
+    def toggle_active(self, request, pk=None):
+        salesperson = self.get_object()
+        salesperson.is_active = not salesperson.is_active
+        salesperson.save()
+        return Response({'is_active': salesperson.is_active})
 
 
 # ========================
@@ -841,6 +861,24 @@ class SaleViewSet(viewsets.ModelViewSet):
         serializer = self.get_serializer(sale)
         return Response(serializer.data)
 
+    @action(detail=False, methods=['get'])
+    def search_salespersons(self, request):
+        query = request.query_params.get('q', '')
+        if len(query) < 2:
+            return Response([])
+
+        salesperson = Salesperson.objects.filter(
+            Q(name__icontains=query),
+            is_active=True
+        ) [:10] 
+
+        data = [{
+            'id' : s.id,
+            'name' : s.name,
+            'phone' : s.phone,
+        } for s in salesperson]
+
+        return Response(data)
 
 # ========================
 # Password Reset Views

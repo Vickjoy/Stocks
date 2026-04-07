@@ -8,8 +8,8 @@ from django.utils.encoding import force_bytes, force_str
 from django.core.mail import send_mail
 from django.conf import settings
 from .models import (
-    UserProfile, Category, SubCategory, SubSubCategory, ProductGroup, Supplier, Customer, Product,
-    MonthlyOpeningStock, StockEntry, AuditLog, Sale, SaleLineItem, StockMovement, DeliveryRecord
+    UserProfile, Category, SubCategory, SubSubCategory, ProductGroup, Supplier, Customer, Product, 
+    Salesperson,MonthlyOpeningStock, StockEntry, AuditLog, Sale, SaleLineItem, StockMovement, DeliveryRecord
 )
 
 # ========================
@@ -716,3 +716,12 @@ class StockMovementSerializer(serializers.ModelSerializer):
                 })
         
         return data
+
+# ========================
+# Salesperson Serializer
+# ========================
+class SalespersonSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Salesperson
+        fields = ['id', 'name', 'phone', 'email', 'is_active', 'created_at', 'updated_at']
+        read_only_fields = ['id', 'created_at', 'updated_at']
