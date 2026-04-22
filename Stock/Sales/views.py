@@ -578,6 +578,19 @@ class SaleViewSet(viewsets.ModelViewSet):
 
         sale = self.get_object()
 
+        # ── Self-approval guard ──────────────────────────────────────────────
+        if sale.recorded_by == request.user:
+            return Response(
+                {
+                    'error': (
+                        'You cannot approve or reject a sale that you submitted. '
+                        'Another admin must review this submission.'
+                    )
+                },
+                status=status.HTTP_403_FORBIDDEN
+            )
+        # ────────────────────────────────────────────────────────────────────
+
         if sale.status != 'pending':
             return Response(
                 {'error': f'Sale is already {sale.status}. Only pending sales can be actioned.'},
