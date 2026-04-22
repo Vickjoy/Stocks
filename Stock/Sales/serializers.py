@@ -9,7 +9,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from .models import (
     UserProfile, Category, SubCategory, SubSubCategory, ProductGroup, Supplier, Customer, Product, 
-    Salesperson,MonthlyOpeningStock, StockEntry, AuditLog, Sale, SaleLineItem, StockMovement, DeliveryRecord
+    Salesperson, MonthlyOpeningStock, StockEntry, AuditLog, Sale, SaleLineItem, StockMovement, DeliveryRecord
 )
 
 # ========================
@@ -304,7 +304,6 @@ class SaleLineItemSerializer(serializers.ModelSerializer):
                     "For partially supplied, quantity must be between 0 and ordered quantity"
                 )
 
-        # Stock check removed — stock is only checked and deducted on approval
         return data
 
 
@@ -324,6 +323,9 @@ class SaleSerializer(serializers.ModelSerializer):
             'lpo_quotation_number', 'delivery_number',
             'mode_of_payment', 'subtotal', 'vat_amount', 'total_amount',
             'amount_paid', 'outstanding_balance',
+            # ── VAT applicability flag ────────────────────────────────────
+            'vat_applied',
+            # ─────────────────────────────────────────────────────────────
             'status', 'approved_by', 'approved_by_name',
             'approved_at', 'rejection_reason',
             'line_items', 'has_outstanding', 'is_fully_paid',
@@ -346,14 +348,12 @@ class SaleSerializer(serializers.ModelSerializer):
 class SaleCreateSerializer(serializers.ModelSerializer):
     line_items = SaleLineItemSerializer(many=True)
 
-    # Accept customer_name as a fallback when no FK is provided
     customer_name = serializers.CharField(
         write_only=True,
         required=False,
         allow_blank=True,
         help_text="Provide this when the customer was typed manually and not selected from the dropdown."
     )
-    # Accept sale_date from the modal
     sale_date = serializers.DateField(
         required=False,
         allow_null=True,
@@ -363,29 +363,27 @@ class SaleCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Sale
         fields = [
-            'customer',           # optional when customer_name is supplied
-            'customer_name',      # write-only fallback
-            'sale_date',          # optional explicit sale date
+            'customer',
+            'customer_name',
+            'sale_date',
             'lpo_quotation_number', 'delivery_number',
             'mode_of_payment', 'subtotal', 'vat_amount', 'total_amount',
             'amount_paid', 'line_items', 'salesperson'
         ]
         extra_kwargs = {
-            # Make customer optional at field level; we enforce it in validate()
             'customer': {'required': False},
         }
 
     def validate(self, data):
         # ── Resolve customer ─────────────────────────────────────────────────
         customer = data.get('customer')
-        customer_name = data.pop('customer_name', None)  # remove from data; not a model field
+        customer_name = data.pop('customer_name', None)
 
         if not customer:
             if not customer_name or not customer_name.strip():
                 raise serializers.ValidationError(
                     {'customer': 'A customer is required. Please select one from the list or type a valid name.'}
                 )
-            # Try to find an existing customer first; create one if not found
             customer_obj, created = Customer.objects.get_or_create(
                 company_name__iexact=customer_name.strip(),
                 defaults={'company_name': customer_name.strip()}
@@ -415,26 +413,11 @@ class SaleCreateSerializer(serializers.ModelSerializer):
             })
         # ─────────────────────────────────────────────────────────────────────
 
-        # ── Financial cross-checks ────────────────────────────────────────────
+        # ── Financial normalisation (no VAT validation — VAT decided at approval) ──
         subtotal = data.get('subtotal', 0)
-        vat_amount = data.get('vat_amount', 0)
-        total_amount = data.get('total_amount', 0)
-
         data['subtotal'] = Decimal(str(subtotal)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
-        data['vat_amount'] = Decimal(str(vat_amount)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
-        data['total_amount'] = Decimal(str(total_amount)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
-
-        expected_vat = (data['subtotal'] * Decimal('0.16')).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
-        if abs(data['vat_amount'] - expected_vat) > Decimal('0.02'):
-            raise serializers.ValidationError({
-                'vat_amount': f'VAT amount should be 16% of subtotal. Expected: {expected_vat}, Got: {data["vat_amount"]}'
-            })
-
-        expected_total = (data['subtotal'] + data['vat_amount']).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
-        if abs(data['total_amount'] - expected_total) > Decimal('0.02'):
-            raise serializers.ValidationError({
-                'total_amount': f'Total should equal subtotal + VAT. Expected: {expected_total}, Got: {data["total_amount"]}'
-            })
+        data['vat_amount'] = Decimal('0.00')
+        data['total_amount'] = data['subtotal']
         # ─────────────────────────────────────────────────────────────────────
 
         return data
@@ -443,6 +426,7 @@ class SaleCreateSerializer(serializers.ModelSerializer):
         line_items_data = validated_data.pop('line_items')
         validated_data['recorded_by'] = self.context['request'].user
         validated_data['status'] = 'pending'
+        validated_data['vat_applied'] = False
 
         sale = Sale.objects.create(**validated_data)
 
@@ -459,6 +443,16 @@ class SaleCreateSerializer(serializers.ModelSerializer):
 class SaleApprovalSerializer(serializers.Serializer):
     action = serializers.ChoiceField(choices=['approve', 'reject'])
     rejection_reason = serializers.CharField(required=False, allow_blank=True)
+    # ── Admin's VAT decision — only relevant when action='approve' ───────────
+    apply_vat = serializers.BooleanField(
+        required=False,
+        default=False,
+        help_text=(
+            "Set to true if VAT (16%) should be applied to this sale. "
+            "Defaults to false (VAT exempt)."
+        )
+    )
+    # ────────────────────────────────────────────────────────────────────────
 
     def validate(self, data):
         if data['action'] == 'reject' and not data.get('rejection_reason', '').strip():
@@ -522,9 +516,6 @@ class PasswordResetRequestSerializer(serializers.Serializer):
     email = serializers.EmailField()
 
     def validate_email(self, value):
-        """Check if user with this email exists"""
-        # Don't raise error - just validate format
-        # This prevents revealing which emails are registered (security)
         return value
 
     def save(self):
@@ -533,18 +524,14 @@ class PasswordResetRequestSerializer(serializers.Serializer):
         try:
             user = User.objects.get(email=email)
         except User.DoesNotExist:
-            # Return success even if user doesn't exist (security best practice)
             return {'message': 'If an account exists, a reset link has been sent.'}
         
-        # Generate password reset token
         token_generator = PasswordResetTokenGenerator()
         token = token_generator.make_token(user)
         uid = urlsafe_base64_encode(force_bytes(user.pk))
         
-        # Build reset URL
         reset_url = f"{settings.FRONTEND_URL}/reset-password/{uid}/{token}/"
         
-        # Send email with HTML formatting
         subject = 'Password Reset Request - Edge Systems Inventory'
         message = f"""
 Hello {user.username},
@@ -631,11 +618,9 @@ class PasswordResetConfirmSerializer(serializers.Serializer):
     confirm_password = serializers.CharField(min_length=8, write_only=True)
 
     def validate(self, data):
-        """Validate passwords match and token is valid"""
         if data['new_password'] != data['confirm_password']:
             raise serializers.ValidationError({"confirm_password": "Passwords do not match."})
         
-        # Validate token
         try:
             uid = force_str(urlsafe_base64_decode(data['uid']))
             user = User.objects.get(pk=uid)
@@ -652,11 +637,8 @@ class PasswordResetConfirmSerializer(serializers.Serializer):
     def save(self):
         user = self.validated_data['user']
         new_password = self.validated_data['new_password']
-        
-        # Set new password
         user.set_password(new_password)
         user.save()
-        
         return {'message': 'Password has been reset successfully.'}
 
 
@@ -664,9 +646,6 @@ class PasswordResetConfirmSerializer(serializers.Serializer):
 # Stock Movement Serializer
 # ========================
 class StockMovementSerializer(serializers.ModelSerializer):
-    """
-    Serializer for the StockMovement model with direction and reason tracking
-    """
     product_code = serializers.CharField(source='product.code', read_only=True)
     product_name = serializers.CharField(source='product.name', read_only=True)
     category_name = serializers.CharField(source='product.category.name', read_only=True)
@@ -699,7 +678,6 @@ class StockMovementSerializer(serializers.ModelSerializer):
         read_only_fields = ['id', 'created_at']
     
     def validate(self, data):
-        """Validate direction matches reason"""
         direction = data.get('direction')
         reason = data.get('reason')
         

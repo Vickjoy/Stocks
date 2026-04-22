@@ -11,6 +11,7 @@ from django.contrib.auth.models import User
 from rest_framework.permissions import AllowAny
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+from decimal import Decimal, ROUND_HALF_UP
 
 from .models import (
     UserProfile, Category, SubCategory, SubSubCategory, ProductGroup, Supplier, Customer, Product,
@@ -523,9 +524,6 @@ class DashboardViewSet(viewsets.ViewSet):
         return Response(data)
 
 
-# ========================
-# Sale ViewSet
-# ========================
 class SaleViewSet(viewsets.ModelViewSet):
     queryset = Sale.objects.select_related(
         'customer', 'recorded_by', 'approved_by'
@@ -593,6 +591,7 @@ class SaleViewSet(viewsets.ModelViewSet):
         action_type = serializer.validated_data['action']
 
         if action_type == 'approve':
+            # ── Stock check ───────────────────────────────────────────────────
             stock_errors = []
             for item in sale.line_items.all():
                 if item.supply_status in ['Supplied', 'Partially Supplied']:
@@ -607,6 +606,31 @@ class SaleViewSet(viewsets.ModelViewSet):
                     {'error': 'Insufficient stock for some items.', 'details': stock_errors},
                     status=status.HTTP_400_BAD_REQUEST
                 )
+            # ─────────────────────────────────────────────────────────────────
+
+            # ── VAT recalculation at approval time ────────────────────────────
+            apply_vat = serializer.validated_data.get('apply_vat', False)
+            sale.vat_applied = apply_vat
+
+            if apply_vat:
+                sale.vat_amount = (sale.subtotal * Decimal('0.16')).quantize(
+                    Decimal('0.01'), rounding=ROUND_HALF_UP
+                )
+                sale.total_amount = (sale.subtotal + sale.vat_amount).quantize(
+                    Decimal('0.01'), rounding=ROUND_HALF_UP
+                )
+            else:
+                sale.vat_amount = Decimal('0.00')
+                sale.total_amount = sale.subtotal.quantize(
+                    Decimal('0.01'), rounding=ROUND_HALF_UP
+                )
+
+            sale.outstanding_balance = (sale.total_amount - sale.amount_paid).quantize(
+                Decimal('0.01'), rounding=ROUND_HALF_UP
+            )
+            if sale.outstanding_balance < Decimal('0.00'):
+                sale.outstanding_balance = Decimal('0.00')
+            # ─────────────────────────────────────────────────────────────────
 
             sale.deduct_stock(approved_by_user=request.user)
             sale.status = 'approved'
@@ -617,7 +641,10 @@ class SaleViewSet(viewsets.ModelViewSet):
             AuditLog.objects.create(
                 action='Sale Approved',
                 user=request.user,
-                description=f'Sale {sale.sale_number} approved by {request.user.username}',
+                description=(
+                    f'Sale {sale.sale_number} approved by {request.user.username}'
+                    f'{" with VAT" if apply_vat else " (VAT exempt)"}'
+                ),
                 ip_address=request.META.get('REMOTE_ADDR')
             )
 
@@ -635,7 +662,10 @@ class SaleViewSet(viewsets.ModelViewSet):
             AuditLog.objects.create(
                 action='Sale Rejected',
                 user=request.user,
-                description=f'Sale {sale.sale_number} rejected by {request.user.username}. Reason: {sale.rejection_reason}',
+                description=(
+                    f'Sale {sale.sale_number} rejected by {request.user.username}. '
+                    f'Reason: {sale.rejection_reason}'
+                ),
                 ip_address=request.META.get('REMOTE_ADDR')
             )
 
@@ -853,7 +883,10 @@ class SaleViewSet(viewsets.ModelViewSet):
         AuditLog.objects.create(
             action='Supply Update',
             user=request.user,
-            description=f'Supply updated for sale {sale.sale_number}, item {line_item.product.code}: {new_status} ({new_quantity})',
+            description=(
+                f'Supply updated for sale {sale.sale_number}, '
+                f'item {line_item.product.code}: {new_status} ({new_quantity})'
+            ),
             ip_address=request.META.get('REMOTE_ADDR')
         )
 
@@ -867,16 +900,16 @@ class SaleViewSet(viewsets.ModelViewSet):
         if len(query) < 2:
             return Response([])
 
-        salesperson = Salesperson.objects.filter(
+        salespersons = Salesperson.objects.filter(
             Q(name__icontains=query),
             is_active=True
-        ) [:10] 
+        )[:10]
 
         data = [{
-            'id' : s.id,
-            'name' : s.name,
-            'phone' : s.phone,
-        } for s in salesperson]
+            'id': s.id,
+            'name': s.name,
+            'phone': s.phone,
+        } for s in salespersons]
 
         return Response(data)
 

@@ -259,12 +259,10 @@ class Sale(models.Model):
     sale_number = models.CharField(max_length=50, unique=True, blank=True)
     customer = models.ForeignKey(Customer, on_delete=models.PROTECT, related_name='sales')
 
-    # ── NEW: explicit sale date supplied by the user from the modal ──────────
     sale_date = models.DateField(
         null=True, blank=True,
         help_text="The date the sale took place (set by staff at time of recording)"
     )
-    # ────────────────────────────────────────────────────────────────────────
 
     lpo_quotation_number = models.CharField(max_length=100, blank=True)
     delivery_number = models.CharField(max_length=100, blank=True)
@@ -276,6 +274,12 @@ class Sale(models.Model):
     total_amount = models.DecimalField(max_digits=12, decimal_places=2, default=0)
     amount_paid = models.DecimalField(max_digits=12, decimal_places=2, default=0)
     outstanding_balance = models.DecimalField(max_digits=12, decimal_places=2, default=0)
+
+    # VAT applicability — set by admin at approval time
+    vat_applied = models.BooleanField(
+        default=False,
+        help_text="Whether 16% VAT was applied to this sale. Set by admin when approving."
+    )
 
     # Status and approval tracking fields
     status = models.CharField(
@@ -317,7 +321,9 @@ class Sale(models.Model):
         self.vat_amount = Decimal(str(self.vat_amount)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
         self.total_amount = Decimal(str(self.total_amount)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
         self.amount_paid = Decimal(str(self.amount_paid)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
-        self.outstanding_balance = (self.total_amount - self.amount_paid).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+        self.outstanding_balance = (self.total_amount - self.amount_paid).quantize(
+            Decimal('0.01'), rounding=ROUND_HALF_UP
+        )
 
         if self.outstanding_balance < 0:
             self.outstanding_balance = Decimal('0.00')
@@ -325,12 +331,25 @@ class Sale(models.Model):
         super().save(*args, **kwargs)
 
     def calculate_total(self):
+        """
+        Recalculates subtotal from line items.
+        VAT is only added if vat_applied is True.
+        """
         subtotal = Decimal('0.00')
         for item in self.line_items.all():
             subtotal += Decimal(str(item.subtotal)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
         self.subtotal = subtotal.quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
-        self.vat_amount = (self.subtotal * Decimal('0.16')).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
-        self.total_amount = (self.subtotal + self.vat_amount).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+
+        if self.vat_applied:
+            self.vat_amount = (self.subtotal * Decimal('0.16')).quantize(
+                Decimal('0.01'), rounding=ROUND_HALF_UP
+            )
+        else:
+            self.vat_amount = Decimal('0.00')
+
+        self.total_amount = (self.subtotal + self.vat_amount).quantize(
+            Decimal('0.01'), rounding=ROUND_HALF_UP
+        )
         self.save()
         return self.total_amount
 
@@ -434,6 +453,7 @@ class DeliveryLineItem(models.Model):
 
     def __str__(self):
         return f"{self.line_item.product.code} — {self.quantity_delivered} delivered"
+
 
 class Salesperson(models.Model):
     name = models.CharField(max_length=200)
