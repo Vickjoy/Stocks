@@ -327,8 +327,8 @@ class SaleSerializer(serializers.ModelSerializer):
             'vat_applied',
             # ─────────────────────────────────────────────────────────────
             'status', 'approved_by', 'approved_by_name',
-            'approved_at', 'rejection_reason',
-            'line_items', 'has_outstanding', 'is_fully_paid',
+            'approved_at', 'rejection_reason','payment_date',
+            'payment_note', 'line_items', 'has_outstanding', 'is_fully_paid',
             'recorded_by', 'salesperson', 'recorded_by_name',
             'created_at', 'updated_at'
         ]

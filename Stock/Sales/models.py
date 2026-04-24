@@ -274,6 +274,8 @@ class Sale(models.Model):
     total_amount = models.DecimalField(max_digits=12, decimal_places=2, default=0)
     amount_paid = models.DecimalField(max_digits=12, decimal_places=2, default=0)
     outstanding_balance = models.DecimalField(max_digits=12, decimal_places=2, default=0)
+    payment_date = models.DateField(null=True, blank=True)
+    payment_note = models.TextField(blank=True, default='')
 
     # VAT applicability — set by admin at approval time
     vat_applied = models.BooleanField(

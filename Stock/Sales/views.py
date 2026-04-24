@@ -171,6 +171,20 @@ class CustomerViewSet(viewsets.ModelViewSet):
         customer.save()
         return Response({'is_active': customer.is_active})
 
+    @action(detail=True, methods=['get'])
+    def sales(self, request, pk=None):
+        customer = self.get_object()
+        sales = Sale.objects.filter(
+            customer=customer
+        ).select_related(
+            'customer', 'recorded_by', 'approved_by'
+        ).prefetch_related(
+            'line_items__product__category',
+            'line_items__product__subcategory'
+        ).order_by('-created_at')
+        serializer = SaleSerializer(sales, many=True)
+        return Response(serializer.data)
+
 # ========================
 # Salesperson ViewSet
 # ========================
