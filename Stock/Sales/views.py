@@ -6,7 +6,8 @@ from rest_framework.filters import SearchFilter, OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
 from django.db.models import Q, Sum, DecimalField, F
 from django.utils import timezone
-from datetime import timedelta
+from datetime import timedelta, date
+from calendar import monthrange
 from django.contrib.auth.models import User
 from rest_framework.permissions import AllowAny
 from rest_framework_simplejwt.views import TokenObtainPairView
@@ -15,7 +16,8 @@ from decimal import Decimal, ROUND_HALF_UP
 
 from .models import (
     UserProfile, Category, SubCategory, SubSubCategory, ProductGroup, Supplier, Customer, Product,
-    Salesperson, MonthlyOpeningStock, StockEntry, StockMovement, AuditLog, Sale, SaleLineItem, DeliveryRecord, DeliveryLineItem,
+    Salesperson, MonthlyOpeningStock, StockEntry, StockMovement, AuditLog, Sale, SaleLineItem,
+    DeliveryRecord, DeliveryLineItem,
 )
 from .serializers import (
     UserSerializer, UserDetailSerializer,
@@ -25,7 +27,7 @@ from .serializers import (
     StockEntrySerializer, StockMovementSerializer, MonthlyOpeningStockSerializer,
     AuditLogSerializer, DashboardSummarySerializer, SaleSerializer, SaleCreateSerializer,
     PasswordResetRequestSerializer, PasswordResetConfirmSerializer, SaleApprovalSerializer,
-    DeliveryRecordSerializer, DeliveryRecordCreateSerializer
+    DeliveryRecordSerializer, DeliveryRecordCreateSerializer, StockDiscrepancySerializer,
 )
 
 # ========================
@@ -38,8 +40,10 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
 
         try:
             role = user.profile.role
+            is_director = user.profile.is_director
         except UserProfile.DoesNotExist:
             role = 'staff'
+            is_director = False
 
         data['user'] = {
             'id': user.id,
@@ -48,6 +52,7 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
             'first_name': user.first_name,
             'last_name': user.last_name,
             'role': role,
+            'is_director': is_director,
             'is_staff': user.is_staff,
             'is_superuser': user.is_superuser,
         }
@@ -184,6 +189,7 @@ class CustomerViewSet(viewsets.ModelViewSet):
         ).order_by('-created_at')
         serializer = SaleSerializer(sales, many=True)
         return Response(serializer.data)
+
 
 # ========================
 # Salesperson ViewSet
@@ -538,6 +544,9 @@ class DashboardViewSet(viewsets.ViewSet):
         return Response(data)
 
 
+# ========================
+# Sale ViewSet
+# ========================
 class SaleViewSet(viewsets.ModelViewSet):
     queryset = Sale.objects.select_related(
         'customer', 'recorded_by', 'approved_by'
@@ -592,7 +601,6 @@ class SaleViewSet(viewsets.ModelViewSet):
 
         sale = self.get_object()
 
-        # ── Self-approval guard ──────────────────────────────────────────────
         if sale.recorded_by == request.user:
             return Response(
                 {
@@ -603,7 +611,6 @@ class SaleViewSet(viewsets.ModelViewSet):
                 },
                 status=status.HTTP_403_FORBIDDEN
             )
-        # ────────────────────────────────────────────────────────────────────
 
         if sale.status != 'pending':
             return Response(
@@ -618,7 +625,6 @@ class SaleViewSet(viewsets.ModelViewSet):
         action_type = serializer.validated_data['action']
 
         if action_type == 'approve':
-            # ── Stock check ───────────────────────────────────────────────────
             stock_errors = []
             for item in sale.line_items.all():
                 if item.supply_status in ['Supplied', 'Partially Supplied']:
@@ -633,9 +639,7 @@ class SaleViewSet(viewsets.ModelViewSet):
                     {'error': 'Insufficient stock for some items.', 'details': stock_errors},
                     status=status.HTTP_400_BAD_REQUEST
                 )
-            # ─────────────────────────────────────────────────────────────────
 
-            # ── VAT recalculation at approval time ────────────────────────────
             apply_vat = serializer.validated_data.get('apply_vat', False)
             sale.vat_applied = apply_vat
 
@@ -657,7 +661,6 @@ class SaleViewSet(viewsets.ModelViewSet):
             )
             if sale.outstanding_balance < Decimal('0.00'):
                 sale.outstanding_balance = Decimal('0.00')
-            # ─────────────────────────────────────────────────────────────────
 
             sale.deduct_stock(approved_by_user=request.user)
             sale.status = 'approved'
@@ -939,6 +942,126 @@ class SaleViewSet(viewsets.ModelViewSet):
         } for s in salespersons]
 
         return Response(data)
+
+
+# ========================
+# Stock Discrepancy ViewSet (Director only)
+# ========================
+class StockDiscrepancyViewSet(viewsets.ViewSet):
+    permission_classes = [permissions.IsAuthenticated]
+
+    @action(detail=False, methods=['get'])
+    def report(self, request):
+        # Director-only gate
+        try:
+            is_director = request.user.profile.is_director
+        except UserProfile.DoesNotExist:
+            is_director = False
+
+        if not is_director:
+            return Response(
+                {'error': 'Access denied. This report is restricted to the director.'},
+                status=status.HTTP_403_FORBIDDEN
+            )
+
+        # Parse month/year params
+        try:
+            month = int(request.query_params.get('month', timezone.now().month))
+            year = int(request.query_params.get('year', timezone.now().year))
+        except (ValueError, TypeError):
+            return Response(
+                {'error': 'Invalid month or year parameter.'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        if not (1 <= month <= 12):
+            return Response(
+                {'error': 'Month must be between 1 and 12.'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        # Date range for this month
+        period_start = date(year, month, 1)
+        last_day = monthrange(year, month)[1]
+        period_end = date(year, month, last_day)
+
+        # Next month start (for finding actual closing stock)
+        if month == 12:
+            next_month_start = date(year + 1, 1, 1)
+        else:
+            next_month_start = date(year, month + 1, 1)
+
+        # Get all products that have an opening stock for this month
+        opening_stocks = MonthlyOpeningStock.objects.filter(
+            month=period_start
+        ).select_related('product__category', 'product__subcategory')
+
+        results = []
+
+        for opening_record in opening_stocks:
+            product = opening_record.product
+
+            # Total IN movements during this month
+            total_in = StockMovement.objects.filter(
+                product=product,
+                direction='IN',
+                created_at__date__gte=period_start,
+                created_at__date__lte=period_end,
+            ).aggregate(total=Sum('quantity'))['total'] or 0
+
+            # Total OUT movements during this month
+            total_out = StockMovement.objects.filter(
+                product=product,
+                direction='OUT',
+                created_at__date__gte=period_start,
+                created_at__date__lte=period_end,
+            ).aggregate(total=Sum('quantity'))['total'] or 0
+
+            expected_closing = opening_record.opening_quantity + total_in - total_out
+
+            # Actual closing: next month's opening stock if available, else current_stock
+            next_opening = MonthlyOpeningStock.objects.filter(
+                product=product,
+                month=next_month_start
+            ).first()
+
+            actual_closing = next_opening.opening_quantity if next_opening else product.current_stock
+
+            discrepancy = expected_closing - actual_closing
+
+            results.append({
+                'product_id': product.id,
+                'product_code': product.code,
+                'product_name': product.name,
+                'category': product.category.name if product.category else '',
+                'subcategory': product.subcategory.name if product.subcategory else '',
+                'opening_stock': opening_record.opening_quantity,
+                'total_in': total_in,
+                'total_out': total_out,
+                'expected_closing': expected_closing,
+                'actual_closing': actual_closing,
+                'discrepancy': discrepancy,
+            })
+
+        # Sort by biggest absolute discrepancy first
+        results.sort(key=lambda x: abs(x['discrepancy']), reverse=True)
+
+        # Summary stats
+        total_checked = len(results)
+        with_discrepancies = sum(1 for r in results if r['discrepancy'] != 0)
+        total_missing_units = sum(r['discrepancy'] for r in results if r['discrepancy'] > 0)
+
+        return Response({
+            'month': month,
+            'year': year,
+            'summary': {
+                'total_products_checked': total_checked,
+                'products_with_discrepancies': with_discrepancies,
+                'total_missing_units': total_missing_units,
+            },
+            'results': results,
+        })
+
 
 # ========================
 # Password Reset Views

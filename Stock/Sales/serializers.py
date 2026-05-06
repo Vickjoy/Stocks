@@ -8,7 +8,7 @@ from django.utils.encoding import force_bytes, force_str
 from django.core.mail import send_mail
 from django.conf import settings
 from .models import (
-    UserProfile, Category, SubCategory, SubSubCategory, ProductGroup, Supplier, Customer, Product, 
+    UserProfile, Category, SubCategory, SubSubCategory, ProductGroup, Supplier, Customer, Product,
     Salesperson, MonthlyOpeningStock, StockEntry, AuditLog, Sale, SaleLineItem, StockMovement, DeliveryRecord
 )
 
@@ -18,16 +18,17 @@ from .models import (
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserProfile
-        fields = ['role']
+        fields = ['role', 'is_director']
 
 
 class UserSerializer(serializers.ModelSerializer):
     role = serializers.SerializerMethodField()
+    is_director = serializers.SerializerMethodField()
 
     class Meta:
         model = User
         fields = ['id', 'username', 'email', 'first_name', 'last_name',
-                  'role', 'is_staff', 'is_superuser']
+                  'role', 'is_director', 'is_staff', 'is_superuser']
         read_only_fields = ['id']
 
     def get_role(self, obj):
@@ -36,16 +37,23 @@ class UserSerializer(serializers.ModelSerializer):
         except UserProfile.DoesNotExist:
             return 'staff'
 
+    def get_is_director(self, obj):
+        try:
+            return obj.profile.is_director
+        except UserProfile.DoesNotExist:
+            return False
+
 
 class UserDetailSerializer(serializers.ModelSerializer):
     groups = serializers.StringRelatedField(many=True, read_only=True)
     role = serializers.SerializerMethodField()
+    is_director = serializers.SerializerMethodField()
 
     class Meta:
         model = User
         fields = [
             'id', 'username', 'email', 'first_name', 'last_name',
-            'role', 'is_staff', 'is_superuser',
+            'role', 'is_director', 'is_staff', 'is_superuser',
             'groups', 'date_joined', 'last_login'
         ]
         read_only_fields = ['id', 'date_joined', 'last_login']
@@ -56,13 +64,19 @@ class UserDetailSerializer(serializers.ModelSerializer):
         except UserProfile.DoesNotExist:
             return 'staff'
 
+    def get_is_director(self, obj):
+        try:
+            return obj.profile.is_director
+        except UserProfile.DoesNotExist:
+            return False
+
 # ========================
 # SubSubCategory Serializers
 # ========================
 class SubSubCategorySerializer(serializers.ModelSerializer):
     subcategory_name = serializers.CharField(source='subcategory.name', read_only=True)
     category_name = serializers.CharField(source='subcategory.category.name', read_only=True)
-    
+
     class Meta:
         model = SubSubCategory
         fields = ['id', 'name', 'description', 'subcategory', 'subcategory_name', 'category_name', 'created_at']
@@ -76,7 +90,7 @@ class SubCategorySerializer(serializers.ModelSerializer):
     category = serializers.PrimaryKeyRelatedField(queryset=Category.objects.all())
     category_name = serializers.CharField(source='category.name', read_only=True)
     subsubcategories = SubSubCategorySerializer(many=True, read_only=True)
-    
+
     class Meta:
         model = SubCategory
         fields = ['id', 'category', 'category_name', 'name', 'description', 'subsubcategories', 'created_at']
@@ -88,7 +102,7 @@ class SubCategorySerializer(serializers.ModelSerializer):
 # ========================
 class CategorySerializer(serializers.ModelSerializer):
     subcategories = SubCategorySerializer(many=True, read_only=True)
-    
+
     class Meta:
         model = Category
         fields = ['id', 'name', 'description', 'subcategories', 'created_at']
@@ -101,10 +115,10 @@ class CategorySerializer(serializers.ModelSerializer):
 class ProductGroupSerializer(serializers.ModelSerializer):
     subcategory_name = serializers.CharField(source='subcategory.name', read_only=True)
     category_name = serializers.CharField(source='subcategory.category.name', read_only=True)
-    
+
     class Meta:
         model = ProductGroup
-        fields = ['id', 'name', 'description', 'subcategory', 'subcategory_name', 
+        fields = ['id', 'name', 'description', 'subcategory', 'subcategory_name',
                   'category_name', 'created_at']
         read_only_fields = ['id', 'created_at']
 
@@ -158,28 +172,28 @@ class ProductSerializer(serializers.ModelSerializer):
         category = data.get('category')
         subcategory = data.get('subcategory')
         subsubcategory = data.get('subsubcategory')
-        
+
         if category and subcategory:
             if subcategory.category != category:
                 raise serializers.ValidationError({
                     'subcategory': 'Subcategory does not belong to the selected category.'
                 })
-        
+
         if subcategory and subsubcategory:
             if subsubcategory.subcategory != subcategory:
                 raise serializers.ValidationError({
                     'subsubcategory': 'Sub-subcategory does not belong to the selected subcategory.'
                 })
-        
+
         return data
 
 
 class ProductDetailSerializer(ProductSerializer):
     stock_entries = serializers.SerializerMethodField()
-    
+
     class Meta(ProductSerializer.Meta):
         fields = ProductSerializer.Meta.fields + ['stock_entries']
-    
+
     def get_stock_entries(self, obj):
         entries = obj.stock_entries.all().order_by('-created_at')[:10]
         return StockEntrySerializer(entries, many=True).data
@@ -196,7 +210,7 @@ class StockEntrySerializer(serializers.ModelSerializer):
     subsubcategory_name = serializers.CharField(source='product.subsubcategory.name', read_only=True)
     supplier_name = serializers.CharField(source='supplier.company_name', read_only=True)
     recorded_by_name = serializers.CharField(source='recorded_by.get_full_name', read_only=True)
-    
+
     class Meta:
         model = StockEntry
         fields = [
@@ -217,10 +231,10 @@ class MonthlyOpeningStockSerializer(serializers.ModelSerializer):
     product_code = serializers.CharField(source='product.code', read_only=True)
     product_name = serializers.CharField(source='product.name', read_only=True)
     recorded_by_name = serializers.CharField(source='recorded_by.get_full_name', read_only=True)
-    
+
     class Meta:
         model = MonthlyOpeningStock
-        fields = ['id', 'product', 'product_code', 'product_name', 'month', 'opening_quantity', 
+        fields = ['id', 'product', 'product_code', 'product_name', 'month', 'opening_quantity',
                   'recorded_by', 'recorded_by_name', 'recorded_at']
         read_only_fields = ['id', 'recorded_at']
 
@@ -230,7 +244,7 @@ class MonthlyOpeningStockSerializer(serializers.ModelSerializer):
 # ========================
 class AuditLogSerializer(serializers.ModelSerializer):
     user_name = serializers.CharField(source='user.get_full_name', read_only=True)
-    
+
     class Meta:
         model = AuditLog
         fields = ['id', 'action', 'user', 'user_name', 'description', 'ip_address', 'timestamp']
@@ -323,11 +337,9 @@ class SaleSerializer(serializers.ModelSerializer):
             'lpo_quotation_number', 'delivery_number',
             'mode_of_payment', 'subtotal', 'vat_amount', 'total_amount',
             'amount_paid', 'outstanding_balance',
-            # ── VAT applicability flag ────────────────────────────────────
             'vat_applied',
-            # ─────────────────────────────────────────────────────────────
             'status', 'approved_by', 'approved_by_name',
-            'approved_at', 'rejection_reason','payment_date',
+            'approved_at', 'rejection_reason', 'payment_date',
             'payment_note', 'line_items', 'has_outstanding', 'is_fully_paid',
             'recorded_by', 'salesperson', 'recorded_by_name',
             'created_at', 'updated_at'
@@ -375,7 +387,6 @@ class SaleCreateSerializer(serializers.ModelSerializer):
         }
 
     def validate(self, data):
-        # ── Resolve customer ─────────────────────────────────────────────────
         customer = data.get('customer')
         customer_name = data.pop('customer_name', None)
 
@@ -389,9 +400,7 @@ class SaleCreateSerializer(serializers.ModelSerializer):
                 defaults={'company_name': customer_name.strip()}
             )
             data['customer'] = customer_obj
-        # ─────────────────────────────────────────────────────────────────────
 
-        # ── Payment validation ────────────────────────────────────────────────
         mode_of_payment = data.get('mode_of_payment')
         amount_paid = data.get('amount_paid', 0)
 
@@ -403,22 +412,17 @@ class SaleCreateSerializer(serializers.ModelSerializer):
                     'amount_paid': 'Amount paid is required when payment mode is selected'
                 })
             data['amount_paid'] = Decimal(str(amount_paid)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
-        # ─────────────────────────────────────────────────────────────────────
 
-        # ── Line items ────────────────────────────────────────────────────────
         line_items = data.get('line_items', [])
         if not line_items:
             raise serializers.ValidationError({
                 'line_items': 'At least one product must be added to the sale'
             })
-        # ─────────────────────────────────────────────────────────────────────
 
-        # ── Financial normalisation (no VAT validation — VAT decided at approval) ──
         subtotal = data.get('subtotal', 0)
         data['subtotal'] = Decimal(str(subtotal)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
         data['vat_amount'] = Decimal('0.00')
         data['total_amount'] = data['subtotal']
-        # ─────────────────────────────────────────────────────────────────────
 
         return data
 
@@ -443,7 +447,6 @@ class SaleCreateSerializer(serializers.ModelSerializer):
 class SaleApprovalSerializer(serializers.Serializer):
     action = serializers.ChoiceField(choices=['approve', 'reject'])
     rejection_reason = serializers.CharField(required=False, allow_blank=True)
-    # ── Admin's VAT decision — only relevant when action='approve' ───────────
     apply_vat = serializers.BooleanField(
         required=False,
         default=False,
@@ -452,7 +455,6 @@ class SaleApprovalSerializer(serializers.Serializer):
             "Defaults to false (VAT exempt)."
         )
     )
-    # ────────────────────────────────────────────────────────────────────────
 
     def validate(self, data):
         if data['action'] == 'reject' and not data.get('rejection_reason', '').strip():
@@ -520,18 +522,18 @@ class PasswordResetRequestSerializer(serializers.Serializer):
 
     def save(self):
         email = self.validated_data['email']
-        
+
         try:
             user = User.objects.get(email=email)
         except User.DoesNotExist:
             return {'message': 'If an account exists, a reset link has been sent.'}
-        
+
         token_generator = PasswordResetTokenGenerator()
         token = token_generator.make_token(user)
         uid = urlsafe_base64_encode(force_bytes(user.pk))
-        
+
         reset_url = f"{settings.FRONTEND_URL}/reset-password/{uid}/{token}/"
-        
+
         subject = 'Password Reset Request - Edge Systems Inventory'
         message = f"""
 Hello {user.username},
@@ -549,7 +551,7 @@ If you did not request this password reset, please ignore this email.
 Edge Systems
 Inventory Management System
         """
-        
+
         html_message = f"""
 <!DOCTYPE html>
 <html>
@@ -567,7 +569,7 @@ Inventory Management System
 <body>
     <div class="container">
         <div class="header">
-            <h2>🔐 Edge Systems Inventory</h2>
+            <h2>Edge Systems Inventory</h2>
         </div>
         <div class="content">
             <h3>Password Reset Request</h3>
@@ -580,10 +582,10 @@ Inventory Management System
                 Or copy this link: <br>{reset_url}
             </p>
             <div class="warning">
-                <strong>⏰ Important:</strong> This link will expire in 24 hours.
+                <strong>Important:</strong> This link will expire in 24 hours.
             </div>
             <p style="font-size: 13px; color: #666;">
-                If you did not request this password reset, please ignore this email. Your password will remain unchanged.
+                If you did not request this password reset, please ignore this email.
             </p>
         </div>
         <div class="footer">
@@ -594,7 +596,7 @@ Inventory Management System
 </body>
 </html>
         """
-        
+
         try:
             send_mail(
                 subject=subject,
@@ -607,7 +609,7 @@ Inventory Management System
         except Exception as e:
             print(f"Failed to send email: {str(e)}")
             raise serializers.ValidationError("Failed to send reset email. Please try again later.")
-        
+
         return {'message': 'Password reset link has been sent to your email.'}
 
 
@@ -620,17 +622,17 @@ class PasswordResetConfirmSerializer(serializers.Serializer):
     def validate(self, data):
         if data['new_password'] != data['confirm_password']:
             raise serializers.ValidationError({"confirm_password": "Passwords do not match."})
-        
+
         try:
             uid = force_str(urlsafe_base64_decode(data['uid']))
             user = User.objects.get(pk=uid)
         except (TypeError, ValueError, OverflowError, User.DoesNotExist):
             raise serializers.ValidationError({"token": "Invalid reset link."})
-        
+
         token_generator = PasswordResetTokenGenerator()
         if not token_generator.check_token(user, data['token']):
             raise serializers.ValidationError({"token": "Invalid or expired reset link."})
-        
+
         data['user'] = user
         return data
 
@@ -651,16 +653,16 @@ class StockMovementSerializer(serializers.ModelSerializer):
     category_name = serializers.CharField(source='product.category.name', read_only=True)
     subcategory_name = serializers.CharField(source='product.subcategory.name', read_only=True)
     subsubcategory_name = serializers.CharField(source='product.subsubcategory.name', read_only=True)
-    
+
     supplier_name = serializers.CharField(source='supplier.company_name', read_only=True)
     sale_number = serializers.CharField(source='sale.sale_number', read_only=True)
     customer_name = serializers.CharField(source='sale.customer.company_name', read_only=True)
-    
+
     recorded_by_name = serializers.CharField(source='recorded_by.get_full_name', read_only=True)
-    
+
     direction_display = serializers.CharField(source='get_direction_display', read_only=True)
     reason_display = serializers.CharField(source='get_reason_display', read_only=True)
-    
+
     class Meta:
         model = StockMovement
         fields = [
@@ -676,23 +678,23 @@ class StockMovementSerializer(serializers.ModelSerializer):
             'created_at'
         ]
         read_only_fields = ['id', 'created_at']
-    
+
     def validate(self, data):
         direction = data.get('direction')
         reason = data.get('reason')
-        
+
         if reason in ['RESTOCK', 'ADJUSTMENT', 'INITIAL', 'RETURN']:
             if direction != 'IN':
                 raise serializers.ValidationError({
                     'direction': f'Reason {reason} must have direction IN'
                 })
-        
+
         if reason in ['SALE', 'DAMAGE', 'TRANSFER']:
             if direction != 'OUT':
                 raise serializers.ValidationError({
                     'direction': f'Reason {reason} must have direction OUT'
                 })
-        
+
         return data
 
 # ========================
@@ -703,3 +705,20 @@ class SalespersonSerializer(serializers.ModelSerializer):
         model = Salesperson
         fields = ['id', 'name', 'phone', 'email', 'is_active', 'created_at', 'updated_at']
         read_only_fields = ['id', 'created_at', 'updated_at']
+
+
+# ========================
+# Stock Discrepancy Serializer
+# ========================
+class StockDiscrepancySerializer(serializers.Serializer):
+    product_id = serializers.IntegerField()
+    product_code = serializers.CharField()
+    product_name = serializers.CharField()
+    category = serializers.CharField()
+    subcategory = serializers.CharField()
+    opening_stock = serializers.IntegerField()
+    total_in = serializers.IntegerField()
+    total_out = serializers.IntegerField()
+    expected_closing = serializers.IntegerField()
+    actual_closing = serializers.IntegerField()
+    discrepancy = serializers.IntegerField()

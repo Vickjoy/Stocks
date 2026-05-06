@@ -9,9 +9,10 @@ from .views import (
     ProductViewSet, StockEntryViewSet, StockMovementViewSet,
     MonthlyOpeningStockViewSet,
     AuditLogViewSet, DashboardViewSet,
-    SaleViewSet, password_reset_request,
+    SaleViewSet, StockDiscrepancyViewSet,
+    password_reset_request,
     password_reset_confirm,
-    password_reset_validate
+    password_reset_validate,
 )
 
 router = DefaultRouter()
@@ -29,7 +30,7 @@ router.register(r'audit-logs', AuditLogViewSet, basename='auditlog')
 router.register(r'dashboard', DashboardViewSet, basename='dashboard')
 router.register(r'sales', SaleViewSet, basename='sale')
 router.register(r'stock-movements', StockMovementViewSet, basename='stockmovement')
-
+router.register(r'reports/stock-discrepancy', StockDiscrepancyViewSet, basename='stockdiscrepancy')
 
 app_name = 'inventory'
 
