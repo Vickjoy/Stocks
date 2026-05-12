@@ -16,7 +16,7 @@ SECRET_KEY = 'django-insecure-h$b4(&p9%$tyb_yci^)7zrx8*mv(0x&ozp(r0o%-yd#y$6x+0j
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']  # TODO: Change to specific hosts in production
+ALLOWED_HOSTS = ['192.168.100.120', 'localhost', '127.0.0.1'] 
 
 
 # Application definition
@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
      'import_export',
     # Your app
-    'Sales',  # Replace 'inventory' with your actual app name
+    'Sales',  
 ]
 
 MIDDLEWARE = [
@@ -76,7 +76,7 @@ DATABASES = {
         'NAME': 'stockdb',
         'USER': 'stockuser',
         'PASSWORD': 'Edge12345',
-        'HOST': 'localhost',
+        'HOST': '127.0.0.1',
         'PORT': '5432',
     }
 }
@@ -126,7 +126,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
@@ -164,11 +163,8 @@ SIMPLE_JWT = {
 # ========================
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
-    'http://localhost:8000',
     'http://127.0.0.1:3000',
-    'http://127.0.0.1:8000',
-    # Add your production domains here
-    # 'https://yourdomain.com',
+    'http://192.168.100.120:3000', 
 ]
 
 CORS_ALLOW_CREDENTIALS = True
@@ -246,14 +242,10 @@ LOGGING = {
 # Security Settings (for production)
 # ========================
 if not DEBUG:
-    SECURE_SSL_REDIRECT = True
-    SESSION_COOKIE_SECURE = True
-    CSRF_COOKIE_SECURE = True
+    SECURE_SSL_REDIRECT = False
+    SESSION_COOKIE_SECURE = False
+    CSRF_COOKIE_SECURE = False
     SECURE_BROWSER_XSS_FILTER = True
-    SECURE_CONTENT_SECURITY_POLICY = {
-        'default-src': ("'self'",),
-        'script-src': ("'self'", "'unsafe-inline'"),
-    }
 
 # ========================
 # Custom Settings
@@ -271,4 +263,3 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'edgesystemsltd08@gmail.com'
 EMAIL_HOST_PASSWORD = 'qscg kzop mklq crca'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-
