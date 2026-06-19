@@ -9,7 +9,8 @@ from django.core.mail import send_mail
 from django.conf import settings
 from .models import (
     UserProfile, Category, SubCategory, SubSubCategory, ProductGroup, Supplier, Customer, Product,
-    Salesperson, MonthlyOpeningStock, StockEntry, AuditLog, Sale, SaleLineItem, StockMovement, DeliveryRecord
+    Salesperson, MonthlyOpeningStock, StockEntry, AuditLog, Sale, SaleLineItem, StockMovement, DeliveryRecord,
+    ReturnTransaction, ReturnItem
 )
 
 # ========================
@@ -359,51 +360,58 @@ class SaleSerializer(serializers.ModelSerializer):
 
 class SaleCreateSerializer(serializers.ModelSerializer):
     line_items = SaleLineItemSerializer(many=True)
-
+ 
     customer_name = serializers.CharField(
         write_only=True,
         required=False,
         allow_blank=True,
-        help_text="Provide this when the customer was typed manually and not selected from the dropdown."
+        help_text="Provide this when the customer was typed manually and not selected from the dropdown.",
     )
     sale_date = serializers.DateField(
         required=False,
         allow_null=True,
-        help_text="The date the sale took place, as entered by staff."
+        help_text="The date the sale took place, as entered by staff.",
     )
-
+ 
     class Meta:
         model = Sale
         fields = [
             'customer',
             'customer_name',
             'sale_date',
-            'lpo_quotation_number', 'delivery_number',
-            'mode_of_payment', 'subtotal', 'vat_amount', 'total_amount',
-            'amount_paid', 'line_items', 'salesperson'
+            'lpo_quotation_number',
+            'delivery_number',
+            'mode_of_payment',
+            'subtotal',
+            'vat_amount',
+            'total_amount',
+            'amount_paid',
+            'line_items',
+            'salesperson',
         ]
         extra_kwargs = {
             'customer': {'required': False},
         }
-
+ 
+    # ── shared validation (used for both create and update) ──────────────────
     def validate(self, data):
         customer = data.get('customer')
         customer_name = data.pop('customer_name', None)
-
+ 
         if not customer:
             if not customer_name or not customer_name.strip():
                 raise serializers.ValidationError(
                     {'customer': 'A customer is required. Please select one from the list or type a valid name.'}
                 )
-            customer_obj, created = Customer.objects.get_or_create(
+            customer_obj, _ = Customer.objects.get_or_create(
                 company_name__iexact=customer_name.strip(),
-                defaults={'company_name': customer_name.strip()}
+                defaults={'company_name': customer_name.strip()},
             )
             data['customer'] = customer_obj
-
+ 
         mode_of_payment = data.get('mode_of_payment')
         amount_paid = data.get('amount_paid', 0)
-
+ 
         if mode_of_payment == 'Not Paid':
             data['amount_paid'] = Decimal('0.00')
         elif mode_of_payment in ['Cash', 'Cheque', 'Mpesa']:
@@ -411,34 +419,82 @@ class SaleCreateSerializer(serializers.ModelSerializer):
                 raise serializers.ValidationError({
                     'amount_paid': 'Amount paid is required when payment mode is selected'
                 })
-            data['amount_paid'] = Decimal(str(amount_paid)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
-
+            data['amount_paid'] = Decimal(str(amount_paid)).quantize(
+                Decimal('0.01'), rounding=ROUND_HALF_UP
+            )
+ 
         line_items = data.get('line_items', [])
         if not line_items:
             raise serializers.ValidationError({
                 'line_items': 'At least one product must be added to the sale'
             })
-
+ 
         subtotal = data.get('subtotal', 0)
         data['subtotal'] = Decimal(str(subtotal)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
         data['vat_amount'] = Decimal('0.00')
         data['total_amount'] = data['subtotal']
-
+ 
         return data
-
+ 
+    # ── CREATE (unchanged from original) ────────────────────────────────────
     def create(self, validated_data):
         line_items_data = validated_data.pop('line_items')
         validated_data['recorded_by'] = self.context['request'].user
         validated_data['status'] = 'pending'
         validated_data['vat_applied'] = False
-
+ 
         sale = Sale.objects.create(**validated_data)
-
+ 
         for item_data in line_items_data:
             SaleLineItem.objects.create(sale=sale, **item_data)
-
+ 
         sale.calculate_total()
         return sale
+ 
+    # ── UPDATE (new — syncs line items properly) ─────────────────────────────
+    def update(self, instance, validated_data):
+        line_items_data = validated_data.pop('line_items', [])
+ 
+        # Only pending sales may be edited
+        if instance.status != 'pending':
+            raise serializers.ValidationError(
+                'Only pending sales can be edited.'
+            )
+ 
+        # ── Update scalar fields on the Sale ────────────────────────────────
+        for attr, value in validated_data.items():
+            setattr(instance, attr, value)
+        instance.save()
+ 
+        # ── Sync line items ───────────────────────────────────────────────────
+        # Build a map of existing line item ids so we can update / delete them.
+        existing_ids = {item.id: item for item in instance.line_items.all()}
+        submitted_ids = set()
+ 
+        for item_data in line_items_data:
+            item_id = item_data.pop('id', None)
+ 
+            if item_id and item_id in existing_ids:
+                # UPDATE existing line item
+                line_item = existing_ids[item_id]
+                for attr, value in item_data.items():
+                    setattr(line_item, attr, value)
+                line_item.save()
+                submitted_ids.add(item_id)
+            else:
+                # CREATE new line item
+                new_item = SaleLineItem.objects.create(sale=instance, **item_data)
+                submitted_ids.add(new_item.id)
+ 
+        # DELETE line items that were removed by the user
+        for existing_id, line_item in existing_ids.items():
+            if existing_id not in submitted_ids:
+                line_item.delete()
+ 
+        # Recalculate totals from the updated line items
+        instance.calculate_total()
+        instance.refresh_from_db()
+        return instance
 
 
 # ========================
@@ -722,3 +778,80 @@ class StockDiscrepancySerializer(serializers.Serializer):
     expected_closing = serializers.IntegerField()
     actual_closing = serializers.IntegerField()
     discrepancy = serializers.IntegerField()
+
+
+class ReturnItemSerializer(serializers.ModelSerializer):
+    product_code = serializers.CharField(source='product.code', read_only=True)
+    product_name = serializers.CharField(source='product.name', read_only=True)
+ 
+    class Meta:
+        model = ReturnItem
+        fields = ['id', 'product', 'product_code', 'product_name', 'quantity']
+        read_only_fields = ['id']
+ 
+ 
+class ReturnTransactionSerializer(serializers.ModelSerializer):
+    items = ReturnItemSerializer(many=True)
+    customer_name = serializers.CharField(source='customer.company_name', read_only=True)
+    returned_by_name = serializers.CharField(source='returned_by.get_full_name', read_only=True)
+ 
+    class Meta:
+        model = ReturnTransaction
+        fields = [
+            'id', 'customer', 'customer_name',
+            'reason', 'return_date',
+            'returned_by', 'returned_by_name',
+            'items', 'created_at',
+        ]
+        read_only_fields = ['id', 'returned_by', 'created_at']
+ 
+    def validate_items(self, value):
+        if not value:
+            raise serializers.ValidationError('At least one product must be included in a return.')
+        return value
+ 
+    def create(self, validated_data):
+        items_data = validated_data.pop('items')
+        validated_data['returned_by'] = self.context['request'].user
+ 
+        return_tx = ReturnTransaction.objects.create(**validated_data)
+ 
+        for item_data in items_data:
+            product = item_data['product']
+            qty = item_data['quantity']
+ 
+            ReturnItem.objects.create(
+                return_transaction=return_tx,
+                product=product,
+                quantity=qty,
+            )
+ 
+            # Immediately increase stock — no approval needed
+            product.current_stock += qty
+            product.save()
+ 
+            # Record the movement for full audit trail
+            StockMovement.objects.create(
+                product=product,
+                direction='IN',
+                reason='RETURN',
+                quantity=qty,
+                notes=(
+                    f"Customer return from {return_tx.customer.company_name} "
+                    f"on {return_tx.return_date}. Reason: {return_tx.reason}"
+                ),
+                recorded_by=self.context['request'].user,
+            )
+ 
+        # Audit log
+        from .models import AuditLog
+        AuditLog.objects.create(
+            action='Stock Edit',
+            user=self.context['request'].user,
+            description=(
+                f"Return processed for {return_tx.customer.company_name}: "
+                f"{len(items_data)} product(s) returned. Reason: {return_tx.reason}"
+            ),
+        )
+ 
+        return return_tx

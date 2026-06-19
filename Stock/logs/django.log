@@ -69127,3 +69127,1577 @@ INFO 2026-05-12 01:38:01,012 wasyncore 8736 8740 Serving on http://0.0.0.0:8000
 INFO 2026-05-12 01:48:35,154 wasyncore 7492 7856 Serving on http://0.0.0.0:8000
 WARNING 2026-05-12 02:23:26,646 log 7492 8380 Unauthorized: /api/sales/pending/
 WARNING 2026-05-12 02:34:58,164 log 7492 8380 Unauthorized: /api/users/me/
+INFO 2026-05-12 02:57:46,258 wasyncore 5496 7424 Serving on http://0.0.0.0:8000
+INFO 2026-05-12 03:00:04,535 wasyncore 8624 8628 Serving on http://0.0.0.0:8000
+WARNING 2026-05-12 03:23:26,320 log 8624 8852 Unauthorized: /api/sales/pending/
+WARNING 2026-05-12 03:35:09,620 log 8624 8860 Unauthorized: /api/dashboard/summary/
+WARNING 2026-05-12 04:23:26,305 log 8624 8848 Unauthorized: /api/sales/pending/
+WARNING 2026-05-12 04:35:16,795 log 8624 8852 Unauthorized: /api/sales/search_products/
+WARNING 2026-05-12 05:23:26,305 log 8624 8856 Unauthorized: /api/sales/pending/
+WARNING 2026-05-12 05:47:09,828 log 8624 8860 Unauthorized: /api/users/me/
+WARNING 2026-05-12 05:47:09,846 log 8624 8852 Unauthorized: /api/token/refresh/
+WARNING 2026-05-12 06:13:20,970 task 8624 8628 Task queue depth is 1
+WARNING 2026-05-12 06:13:20,971 task 8624 8628 Task queue depth is 2
+WARNING 2026-05-12 06:13:20,981 log 8624 8848 Not Found: /static/admin/css/base.css
+WARNING 2026-05-12 06:13:20,984 log 8624 8856 Not Found: /static/admin/css/dashboard.css
+WARNING 2026-05-12 06:13:20,988 log 8624 8860 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-05-12 06:13:20,992 log 8624 8852 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-05-12 06:13:20,998 log 8624 8848 Not Found: /static/admin/css/responsive.css
+WARNING 2026-05-12 06:13:21,003 log 8624 8856 Not Found: /static/admin/js/theme.js
+WARNING 2026-05-12 06:13:21,040 log 8624 8860 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-05-12 06:13:21,056 log 8624 8856 Not Found: /static/admin/css/responsive.css
+WARNING 2026-05-12 06:13:21,060 log 8624 8848 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-05-12 06:13:21,064 log 8624 8852 Not Found: /static/admin/css/dashboard.css
+WARNING 2026-05-12 06:13:21,236 log 8624 8860 Not Found: /favicon.ico
+WARNING 2026-05-12 06:13:31,350 log 8624 8848 Not Found: /static/admin/css/base.css
+WARNING 2026-05-12 06:13:31,359 log 8624 8860 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-05-12 06:13:31,367 log 8624 8856 Not Found: /static/admin/js/theme.js
+WARNING 2026-05-12 06:13:31,363 task 8624 8628 Task queue depth is 1
+WARNING 2026-05-12 06:13:31,362 log 8624 8852 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-05-12 06:13:31,375 log 8624 8848 Not Found: /static/admin/css/changelists.css
+WARNING 2026-05-12 06:13:31,379 log 8624 8856 Not Found: /static/admin/css/responsive.css
+WARNING 2026-05-12 06:13:31,385 log 8624 8860 Not Found: /static/admin/js/vendor/jquery/jquery.js
+WARNING 2026-05-12 06:13:31,391 log 8624 8856 Not Found: /static/admin/js/jquery.init.js
+WARNING 2026-05-12 06:13:31,395 log 8624 8848 Not Found: /static/admin/js/core.js
+WARNING 2026-05-12 06:13:31,401 log 8624 8860 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-05-12 06:13:31,407 log 8624 8856 Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2026-05-12 06:13:31,415 log 8624 8848 Not Found: /static/admin/js/actions.js
+WARNING 2026-05-12 06:13:31,420 log 8624 8860 Not Found: /static/admin/js/urlify.js
+WARNING 2026-05-12 06:13:31,424 log 8624 8856 Not Found: /static/admin/js/prepopulate.js
+WARNING 2026-05-12 06:13:31,424 task 8624 8628 Task queue depth is 1
+WARNING 2026-05-12 06:13:31,430 log 8624 8848 Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+WARNING 2026-05-12 06:13:31,435 log 8624 8860 Not Found: /static/admin/img/search.svg
+WARNING 2026-05-12 06:13:31,452 log 8624 8856 Not Found: /static/admin/img/icon-yes.svg
+WARNING 2026-05-12 06:13:31,477 log 8624 8848 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-05-12 06:13:31,496 log 8624 8860 Not Found: /static/admin/js/filters.js
+WARNING 2026-05-12 06:13:31,594 log 8624 8856 Not Found: /static/admin/css/responsive.css
+WARNING 2026-05-12 06:13:31,599 log 8624 8848 Not Found: /static/admin/img/icon-yes.svg
+WARNING 2026-05-12 06:14:22,029 log 8624 8852 Unauthorized: /api/token/
+WARNING 2026-05-12 06:23:26,294 log 8624 8856 Unauthorized: /api/sales/pending/
+INFO 2026-05-13 00:05:18,594 wasyncore 8924 8928 Serving on http://0.0.0.0:8000
+INFO 2026-05-13 00:35:00,619 wasyncore 8128 2200 Serving on http://0.0.0.0:8000
+INFO 2026-05-13 00:39:11,945 wasyncore 4628 4572 Serving on http://0.0.0.0:8000
+WARNING 2026-05-13 01:40:40,257 log 4628 8460 Unauthorized: /api/dashboard/summary/
+INFO 2026-05-13 22:56:22,144 wasyncore 8860 8864 Serving on http://0.0.0.0:8000
+INFO 2026-05-14 23:22:20,182 wasyncore 9680 9684 Serving on http://0.0.0.0:8000
+INFO 2026-05-19 22:23:09,374 wasyncore 10168 10172 Serving on http://0.0.0.0:8000
+WARNING 2026-05-19 23:56:58,524 log 10168 10968 Unauthorized: /api/users/me/
+WARNING 2026-05-19 23:56:58,568 log 10168 10976 Unauthorized: /api/token/refresh/
+INFO 2026-05-20 00:28:37,987 wasyncore 8540 8476 Serving on http://0.0.0.0:8000
+INFO 2026-05-20 22:59:36,884 wasyncore 9828 5984 Serving on http://0.0.0.0:8000
+WARNING 2026-05-20 23:11:34,928 log 9828 5896 Unauthorized: /api/users/me/
+WARNING 2026-05-21 03:49:25,902 log 9828 5380 Unauthorized: /api/sales/search_customers/
+WARNING 2026-05-21 03:49:25,919 log 9828 1248 Unauthorized: /api/sales/search_customers/
+WARNING 2026-05-21 03:49:25,943 log 9828 5380 Unauthorized: /api/token/refresh/
+WARNING 2026-05-21 03:49:25,948 log 9828 1248 Unauthorized: /api/token/refresh/
+WARNING 2026-05-21 05:31:44,002 log 9828 5380 Unauthorized: /api/sales/search_customers/
+WARNING 2026-05-21 05:31:44,015 log 9828 1248 Unauthorized: /api/sales/search_customers/
+WARNING 2026-05-21 05:32:57,999 task 9828 5984 Task queue depth is 1
+INFO 2026-05-21 21:32:56,645 wasyncore 9812 9816 Serving on http://0.0.0.0:8000
+WARNING 2026-05-21 23:43:50,413 log 9812 9892 Unauthorized: /api/users/me/
+INFO 2026-05-22 23:19:09,732 wasyncore 9984 9988 Serving on http://0.0.0.0:8000
+INFO 2026-05-24 22:19:55,990 wasyncore 9572 9576 Serving on http://0.0.0.0:8000
+WARNING 2026-05-25 06:58:12,464 log 9572 6852 Unauthorized: /api/users/me/
+WARNING 2026-05-25 06:58:12,486 log 9572 4392 Unauthorized: /api/token/refresh/
+INFO 2026-05-25 21:34:27,971 wasyncore 10028 10032 Serving on http://0.0.0.0:8000
+WARNING 2026-05-26 06:25:55,554 log 10028 9756 Unauthorized: /api/users/me/
+WARNING 2026-05-26 06:27:43,886 log 10028 9752 Unauthorized: /api/token/
+WARNING 2026-05-26 06:27:52,149 log 10028 9764 Unauthorized: /api/token/
+INFO 2026-05-27 21:35:46,964 wasyncore 10180 10184 Serving on http://0.0.0.0:8000
+WARNING 2026-05-27 21:44:25,259 log 10180 11112 Unauthorized: /api/users/me/
+WARNING 2026-05-27 21:44:25,274 log 10180 11120 Unauthorized: /api/token/refresh/
+WARNING 2026-05-27 22:12:55,262 task 10180 10184 Task queue depth is 1
+WARNING 2026-05-27 22:12:55,292 task 10180 10184 Task queue depth is 1
+WARNING 2026-05-27 22:12:55,322 task 10180 10184 Task queue depth is 1
+WARNING 2026-05-27 22:12:55,353 task 10180 10184 Task queue depth is 1
+WARNING 2026-05-27 23:43:27,015 log 10180 11112 Unauthorized: /api/sales/search_products/
+WARNING 2026-05-27 23:43:27,347 log 10180 11112 Unauthorized: /api/sales/search_products/
+WARNING 2026-05-27 23:49:08,057 log 10180 11116 Unauthorized: /api/users/me/
+WARNING 2026-05-27 23:49:08,102 log 10180 11120 Unauthorized: /api/token/refresh/
+WARNING 2026-05-28 00:04:36,763 log 10180 11120 Bad Request: /api/sales/66/approve/
+WARNING 2026-05-28 00:44:35,537 log 10180 11112 Unauthorized: /api/sales/search_customers/
+WARNING 2026-05-28 00:44:35,550 log 10180 11120 Unauthorized: /api/sales/search_customers/
+WARNING 2026-05-28 00:50:10,296 log 10180 11112 Unauthorized: /api/sales/pending/
+WARNING 2026-05-28 01:04:08,285 log 10180 11116 Bad Request: /api/sales/64/approve/
+WARNING 2026-05-28 01:04:14,235 log 10180 11108 Bad Request: /api/sales/64/approve/
+WARNING 2026-05-28 01:05:00,051 log 10180 11112 Bad Request: /api/sales/63/approve/
+WARNING 2026-05-28 01:05:09,617 log 10180 11108 Bad Request: /api/sales/62/approve/
+WARNING 2026-05-28 01:05:46,587 log 10180 11108 Bad Request: /api/sales/62/approve/
+WARNING 2026-05-28 01:07:30,318 log 10180 11116 Bad Request: /api/sales/64/approve/
+WARNING 2026-05-28 01:09:20,271 log 10180 11112 Bad Request: /api/sales/62/approve/
+WARNING 2026-05-28 01:13:38,945 log 10180 11120 Bad Request: /api/sales/64/approve/
+WARNING 2026-05-28 01:14:26,548 log 10180 11108 Bad Request: /api/sales/64/approve/
+WARNING 2026-05-28 01:21:05,155 log 10180 11108 Bad Request: /api/sales/63/approve/
+WARNING 2026-05-28 01:21:27,117 log 10180 11116 Bad Request: /api/sales/63/approve/
+WARNING 2026-05-28 01:47:35,765 log 10180 11116 Unauthorized: /api/sales/76/delivery_history/
+WARNING 2026-05-28 01:48:13,988 log 10180 11108 Bad Request: /api/sales/62/approve/
+WARNING 2026-05-28 01:50:15,292 log 10180 11112 Unauthorized: /api/sales/pending/
+WARNING 2026-05-28 02:51:10,265 log 10180 11116 Unauthorized: /api/sales/pending/
+WARNING 2026-05-28 03:15:57,511 log 10180 11120 Unauthorized: /api/sales/
+WARNING 2026-05-28 03:51:10,252 log 10180 11112 Unauthorized: /api/sales/pending/
+WARNING 2026-05-28 04:51:10,251 log 10180 11112 Unauthorized: /api/sales/pending/
+WARNING 2026-05-28 05:51:10,261 log 10180 11120 Unauthorized: /api/sales/pending/
+WARNING 2026-05-28 06:51:10,249 log 10180 11112 Unauthorized: /api/sales/pending/
+WARNING 2026-05-28 06:59:03,189 log 10180 11120 Unauthorized: /api/users/me/
+INFO 2026-05-28 21:39:10,753 wasyncore 9920 9924 Serving on http://0.0.0.0:8000
+WARNING 2026-05-28 23:39:12,414 log 9920 8532 Unauthorized: /api/users/me/
+WARNING 2026-05-28 23:39:12,563 log 9920 9720 Unauthorized: /api/token/refresh/
+WARNING 2026-05-29 01:14:58,493 log 9920 3100 Unauthorized: /api/sales/
+WARNING 2026-05-29 01:58:34,817 log 9920 9720 Unauthorized: /api/users/me/
+WARNING 2026-05-29 01:58:34,865 log 9920 8532 Unauthorized: /api/token/refresh/
+WARNING 2026-05-29 02:37:21,436 log 9920 8532 Unauthorized: /api/sales/search_customers/
+WARNING 2026-05-29 02:37:21,449 log 9920 9720 Unauthorized: /api/sales/search_customers/
+WARNING 2026-05-29 02:58:40,006 log 9920 3100 Unauthorized: /api/sales/pending/
+WARNING 2026-05-29 03:59:08,961 log 9920 9720 Unauthorized: /api/sales/pending/
+WARNING 2026-05-29 05:00:08,815 log 9920 9720 Unauthorized: /api/sales/pending/
+WARNING 2026-05-29 06:00:08,819 log 9920 8664 Unauthorized: /api/sales/pending/
+WARNING 2026-05-29 07:00:08,799 log 9920 3100 Unauthorized: /api/sales/pending/
+WARNING 2026-05-29 07:01:15,153 log 9920 3100 Unauthorized: /api/users/me/
+WARNING 2026-05-29 07:01:46,972 task 9920 9924 Task queue depth is 1
+INFO 2026-05-29 23:34:16,761 wasyncore 9504 9508 Serving on http://0.0.0.0:8000
+INFO 2026-06-01 21:36:31,050 wasyncore 10092 10096 Serving on http://0.0.0.0:8000
+WARNING 2026-06-01 22:30:34,202 log 10092 9192 Unauthorized: /api/users/me/
+WARNING 2026-06-01 22:30:34,219 log 10092 2476 Unauthorized: /api/token/refresh/
+WARNING 2026-06-01 22:52:06,117 log 10092 2156 Unauthorized: /api/users/me/
+WARNING 2026-06-01 22:52:06,171 log 10092 2460 Unauthorized: /api/token/refresh/
+WARNING 2026-06-01 23:31:44,617 log 10092 2156 Unauthorized: /api/users/me/
+WARNING 2026-06-01 23:31:44,643 log 10092 2460 Unauthorized: /api/token/refresh/
+WARNING 2026-06-02 00:02:44,355 log 10092 2460 Unauthorized: /api/sales/pending/
+WARNING 2026-06-02 00:32:03,278 log 10092 2476 Unauthorized: /api/sales/pending/
+WARNING 2026-06-02 01:02:44,404 log 10092 2476 Unauthorized: /api/sales/pending/
+WARNING 2026-06-02 01:12:52,726 log 10092 9192 Unauthorized: /api/sales/search_customers/
+WARNING 2026-06-02 01:12:52,739 log 10092 2460 Unauthorized: /api/sales/search_customers/
+WARNING 2026-06-02 01:13:46,454 task 10092 10096 Task queue depth is 1
+WARNING 2026-06-02 01:13:46,473 task 10092 10096 Task queue depth is 1
+WARNING 2026-06-02 01:13:46,481 task 10092 10096 Task queue depth is 2
+WARNING 2026-06-02 01:13:46,522 task 10092 10096 Task queue depth is 1
+WARNING 2026-06-02 01:13:46,532 task 10092 10096 Task queue depth is 2
+WARNING 2026-06-02 01:13:46,590 task 10092 10096 Task queue depth is 1
+WARNING 2026-06-02 01:13:46,601 task 10092 10096 Task queue depth is 1
+WARNING 2026-06-02 01:13:46,604 task 10092 10096 Task queue depth is 2
+WARNING 2026-06-02 01:13:46,644 task 10092 10096 Task queue depth is 2
+WARNING 2026-06-02 01:13:46,657 task 10092 10096 Task queue depth is 1
+WARNING 2026-06-02 01:13:46,684 task 10092 10096 Task queue depth is 2
+WARNING 2026-06-02 01:13:46,701 task 10092 10096 Task queue depth is 1
+WARNING 2026-06-02 01:13:46,728 task 10092 10096 Task queue depth is 1
+WARNING 2026-06-02 01:13:46,732 task 10092 10096 Task queue depth is 1
+WARNING 2026-06-02 01:13:46,738 task 10092 10096 Task queue depth is 2
+WARNING 2026-06-02 01:13:46,753 task 10092 10096 Task queue depth is 2
+WARNING 2026-06-02 01:13:46,775 task 10092 10096 Task queue depth is 2
+WARNING 2026-06-02 01:13:46,783 task 10092 10096 Task queue depth is 1
+WARNING 2026-06-02 01:13:46,798 task 10092 10096 Task queue depth is 1
+WARNING 2026-06-02 01:13:46,808 task 10092 10096 Task queue depth is 1
+WARNING 2026-06-02 01:13:46,827 task 10092 10096 Task queue depth is 1
+WARNING 2026-06-02 01:13:46,840 task 10092 10096 Task queue depth is 1
+WARNING 2026-06-02 01:13:46,845 task 10092 10096 Task queue depth is 2
+WARNING 2026-06-02 01:13:46,871 task 10092 10096 Task queue depth is 1
+WARNING 2026-06-02 01:13:46,877 task 10092 10096 Task queue depth is 1
+WARNING 2026-06-02 01:13:46,885 task 10092 10096 Task queue depth is 2
+WARNING 2026-06-02 01:13:46,942 task 10092 10096 Task queue depth is 2
+WARNING 2026-06-02 01:13:46,953 task 10092 10096 Task queue depth is 2
+WARNING 2026-06-02 01:13:46,963 task 10092 10096 Task queue depth is 1
+WARNING 2026-06-02 01:13:46,969 task 10092 10096 Task queue depth is 2
+WARNING 2026-06-02 01:13:47,009 task 10092 10096 Task queue depth is 2
+WARNING 2026-06-02 01:13:47,036 task 10092 10096 Task queue depth is 2
+WARNING 2026-06-02 01:13:47,054 task 10092 10096 Task queue depth is 2
+WARNING 2026-06-02 01:32:24,268 log 10092 2460 Unauthorized: /api/sales/pending/
+WARNING 2026-06-02 02:02:44,455 log 10092 9192 Unauthorized: /api/sales/pending/
+WARNING 2026-06-02 02:33:03,250 log 10092 2476 Unauthorized: /api/sales/pending/
+WARNING 2026-06-02 03:02:44,493 log 10092 9192 Unauthorized: /api/sales/pending/
+WARNING 2026-06-02 03:15:59,259 log 10092 2156 Unauthorized: /api/categories/
+WARNING 2026-06-02 03:15:59,261 log 10092 2476 Unauthorized: /api/suppliers/
+WARNING 2026-06-02 03:15:59,263 log 10092 2156 Unauthorized: /api/products/
+WARNING 2026-06-02 03:33:03,252 log 10092 2156 Unauthorized: /api/sales/pending/
+WARNING 2026-06-02 04:33:03,234 log 10092 2476 Unauthorized: /api/sales/pending/
+WARNING 2026-06-02 04:34:43,934 log 10092 2476 Unauthorized: /api/products/
+WARNING 2026-06-02 05:31:13,855 log 10092 2156 Unauthorized: /api/sales/
+WARNING 2026-06-02 05:33:03,258 log 10092 2460 Unauthorized: /api/sales/pending/
+WARNING 2026-06-02 06:07:16,966 log 10092 2156 Unauthorized: /api/categories/
+WARNING 2026-06-02 06:07:16,969 log 10092 9192 Unauthorized: /api/suppliers/
+WARNING 2026-06-02 06:07:16,970 log 10092 2460 Unauthorized: /api/products/
+INFO 2026-06-02 06:22:25,200 wasyncore 9620 9624 Serving on http://0.0.0.0:8000
+INFO 2026-06-02 06:28:06,440 wasyncore 8444 8524 Serving on http://0.0.0.0:8000
+WARNING 2026-06-02 06:33:03,218 log 8444 8908 Unauthorized: /api/sales/pending/
+WARNING 2026-06-02 06:38:24,059 log 8444 8912 Not Found: /static/admin/css/base.css
+WARNING 2026-06-02 06:38:24,063 log 8444 9532 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-02 06:38:24,068 log 8444 9504 Not Found: /static/admin/css/login.css
+WARNING 2026-06-02 06:38:24,074 log 8444 8908 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-02 06:38:24,092 log 8444 8912 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-02 06:38:24,101 log 8444 9504 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-02 06:38:24,116 log 8444 9532 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-02 06:38:24,130 log 8444 8908 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-02 06:38:24,137 log 8444 8912 Not Found: /static/admin/css/login.css
+WARNING 2026-06-02 06:38:24,141 log 8444 9504 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-02 06:38:24,696 log 8444 9532 Not Found: /favicon.ico
+WARNING 2026-06-02 06:38:28,709 log 8444 8912 Not Found: /static/admin/css/base.css
+WARNING 2026-06-02 06:38:28,721 log 8444 9532 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-02 06:38:28,721 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:38:28,727 log 8444 8912 Not Found: /static/admin/css/login.css
+WARNING 2026-06-02 06:38:28,734 log 8444 8908 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-02 06:38:28,739 log 8444 9504 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-02 06:38:28,747 log 8444 9532 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-02 06:38:28,761 log 8444 9504 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-02 06:38:28,769 log 8444 8908 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-02 06:38:28,770 log 8444 8912 Not Found: /static/admin/css/login.css
+WARNING 2026-06-02 06:38:52,870 log 8444 9504 Not Found: /static/admin/css/base.css
+WARNING 2026-06-02 06:38:52,872 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:38:52,880 task 8444 8524 Task queue depth is 2
+WARNING 2026-06-02 06:38:52,887 log 8444 8908 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-02 06:38:52,900 log 8444 8912 Not Found: /static/admin/css/login.css
+WARNING 2026-06-02 06:38:52,908 log 8444 9532 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-02 06:38:52,916 log 8444 9504 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-02 06:38:52,918 log 8444 8912 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-02 06:38:52,941 log 8444 8912 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-02 06:38:52,947 log 8444 8908 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-02 06:38:52,953 log 8444 9504 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-02 06:38:52,950 log 8444 9532 Not Found: /static/admin/css/login.css
+WARNING 2026-06-02 06:40:05,684 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:40:05,685 task 8444 8524 Task queue depth is 2
+WARNING 2026-06-02 06:40:05,698 log 8444 9504 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-02 06:40:05,703 log 8444 8908 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-02 06:40:05,706 log 8444 8912 Not Found: /static/admin/css/base.css
+WARNING 2026-06-02 06:40:05,711 log 8444 9532 Not Found: /static/admin/css/dashboard.css
+WARNING 2026-06-02 06:40:05,717 log 8444 9504 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-02 06:40:05,723 log 8444 8912 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-02 06:40:05,752 log 8444 8908 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-02 06:40:05,757 log 8444 9532 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-02 06:40:24,560 log 8444 8912 Not Found: /static/admin/css/base.css
+WARNING 2026-06-02 06:40:24,560 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:40:24,564 log 8444 8908 Not Found: /static/admin/css/changelists.css
+WARNING 2026-06-02 06:40:24,566 task 8444 8524 Task queue depth is 2
+WARNING 2026-06-02 06:40:24,571 log 8444 9504 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-02 06:40:24,577 log 8444 9532 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-02 06:40:24,578 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:40:24,585 log 8444 8908 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-02 06:40:24,590 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:40:24,590 log 8444 9532 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-02 06:40:24,596 task 8444 8524 Task queue depth is 2
+WARNING 2026-06-02 06:40:24,595 log 8444 9504 Not Found: /static/admin/js/vendor/jquery/jquery.js
+WARNING 2026-06-02 06:40:24,604 log 8444 9532 Not Found: /static/admin/js/core.js
+WARNING 2026-06-02 06:40:24,604 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:40:24,610 log 8444 8908 Not Found: /static/admin/js/jquery.init.js
+WARNING 2026-06-02 06:40:24,611 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:40:24,617 log 8444 9504 Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2026-06-02 06:40:24,622 log 8444 9532 Not Found: /static/admin/js/actions.js
+WARNING 2026-06-02 06:40:24,622 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:40:24,627 log 8444 8908 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-02 06:40:24,629 task 8444 8524 Task queue depth is 2
+WARNING 2026-06-02 06:40:24,635 log 8444 9532 Not Found: /static/admin/js/urlify.js
+WARNING 2026-06-02 06:40:24,641 log 8444 9504 Not Found: /static/admin/css/changelists.css
+WARNING 2026-06-02 06:40:24,648 log 8444 9532 Not Found: /static/admin/js/prepopulate.js
+WARNING 2026-06-02 06:40:24,654 log 8444 9504 Not Found: /static/admin/img/search.svg
+WARNING 2026-06-02 06:40:24,659 log 8444 8908 Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+WARNING 2026-06-02 06:40:24,679 log 8444 9532 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-02 06:40:24,695 log 8444 9504 Not Found: /static/admin/js/filters.js
+WARNING 2026-06-02 06:40:24,714 log 8444 8908 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-02 06:40:29,332 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:40:29,335 log 8444 8912 Not Found: /static/admin/css/base.css
+WARNING 2026-06-02 06:40:29,342 task 8444 8524 Task queue depth is 2
+WARNING 2026-06-02 06:40:29,341 log 8444 9504 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-02 06:40:29,345 log 8444 8908 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-02 06:40:29,352 log 8444 9532 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-02 06:40:29,357 log 8444 9504 Not Found: /static/admin/css/changelists.css
+WARNING 2026-06-02 06:40:29,357 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:40:29,359 task 8444 8524 Task queue depth is 2
+WARNING 2026-06-02 06:40:29,364 log 8444 9532 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-02 06:40:29,369 log 8444 8908 Not Found: /static/admin/js/vendor/jquery/jquery.js
+WARNING 2026-06-02 06:40:29,370 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:40:29,375 log 8444 9504 Not Found: /static/admin/js/jquery.init.js
+WARNING 2026-06-02 06:40:29,376 task 8444 8524 Task queue depth is 2
+WARNING 2026-06-02 06:40:29,383 log 8444 9532 Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2026-06-02 06:40:29,387 log 8444 8908 Not Found: /static/admin/js/core.js
+WARNING 2026-06-02 06:40:29,387 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:40:29,392 log 8444 9504 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-02 06:40:29,393 task 8444 8524 Task queue depth is 2
+WARNING 2026-06-02 06:40:29,399 log 8444 9532 Not Found: /static/admin/js/urlify.js
+WARNING 2026-06-02 06:40:29,404 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:40:29,409 log 8444 9504 Not Found: /static/admin/js/prepopulate.js
+WARNING 2026-06-02 06:40:29,403 log 8444 8908 Not Found: /static/admin/js/actions.js
+WARNING 2026-06-02 06:40:29,414 log 8444 9532 Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+WARNING 2026-06-02 06:40:29,421 log 8444 9504 Not Found: /static/admin/img/search.svg
+WARNING 2026-06-02 06:40:29,438 log 8444 8908 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-02 06:40:29,444 log 8444 9504 Not Found: /static/admin/js/filters.js
+WARNING 2026-06-02 06:40:29,449 log 8444 9532 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-02 06:40:45,556 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:40:45,562 log 8444 8908 Not Found: /static/admin/css/base.css
+WARNING 2026-06-02 06:40:45,563 task 8444 8524 Task queue depth is 2
+WARNING 2026-06-02 06:40:45,570 log 8444 9504 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-02 06:40:45,577 log 8444 8912 Not Found: /static/admin/css/changelists.css
+WARNING 2026-06-02 06:40:45,578 task 8444 8524 Task queue depth is 2
+WARNING 2026-06-02 06:40:45,584 log 8444 9532 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-02 06:40:45,590 log 8444 8908 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-02 06:40:45,601 log 8444 8912 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-02 06:40:45,602 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:40:45,611 log 8444 9532 Not Found: /static/admin/js/vendor/jquery/jquery.js
+WARNING 2026-06-02 06:40:45,616 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:40:45,615 log 8444 8908 Not Found: /static/admin/js/jquery.init.js
+WARNING 2026-06-02 06:40:45,620 log 8444 8912 Not Found: /static/admin/js/core.js
+WARNING 2026-06-02 06:40:45,621 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:40:45,628 log 8444 9532 Not Found: /static/admin/css/changelists.css
+WARNING 2026-06-02 06:40:45,632 log 8444 8908 Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2026-06-02 06:40:45,637 log 8444 8912 Not Found: /static/admin/js/actions.js
+WARNING 2026-06-02 06:40:45,643 log 8444 9532 Not Found: /static/admin/js/urlify.js
+WARNING 2026-06-02 06:40:45,648 log 8444 8908 Not Found: /static/admin/js/prepopulate.js
+WARNING 2026-06-02 06:40:45,652 log 8444 8912 Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+WARNING 2026-06-02 06:40:45,648 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:40:45,659 log 8444 9532 Not Found: /static/admin/img/search.svg
+WARNING 2026-06-02 06:40:45,673 log 8444 8912 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-02 06:40:45,687 log 8444 8908 Not Found: /static/admin/js/filters.js
+WARNING 2026-06-02 06:40:45,796 log 8444 9532 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-02 06:41:23,608 log 8444 9504 Not Found: /static/admin/css/base.css
+WARNING 2026-06-02 06:41:23,609 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:41:23,621 log 8444 9532 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-02 06:41:23,622 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:41:23,632 log 8444 8908 Not Found: /static/admin/js/jquery.init.js
+WARNING 2026-06-02 06:41:23,634 task 8444 8524 Task queue depth is 2
+WARNING 2026-06-02 06:41:23,641 log 8444 8912 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-02 06:41:23,650 log 8444 9504 Not Found: /static/admin/js/vendor/jquery/jquery.js
+WARNING 2026-06-02 06:41:23,652 task 8444 8524 Task queue depth is 2
+WARNING 2026-06-02 06:41:23,663 log 8444 9532 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-02 06:41:23,672 log 8444 8912 Not Found: /static/admin/js/core.js
+WARNING 2026-06-02 06:41:23,673 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:41:23,680 log 8444 9532 Not Found: /static/admin/js/actions.js
+WARNING 2026-06-02 06:41:23,683 log 8444 8908 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-02 06:41:23,684 task 8444 8524 Task queue depth is 2
+WARNING 2026-06-02 06:41:23,690 log 8444 9504 Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2026-06-02 06:41:23,696 log 8444 8908 Not Found: /static/admin/js/urlify.js
+WARNING 2026-06-02 06:41:23,700 log 8444 9532 Not Found: /static/admin/js/prepopulate.js
+WARNING 2026-06-02 06:41:23,703 log 8444 8912 Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+WARNING 2026-06-02 06:41:23,720 log 8444 9504 Not Found: /static/admin/js/cancel.js
+WARNING 2026-06-02 06:41:23,724 log 8444 9532 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-02 06:41:23,729 log 8444 8908 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-02 06:41:35,413 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:41:35,428 log 8444 9504 Not Found: /static/admin/css/base.css
+WARNING 2026-06-02 06:41:35,433 log 8444 8912 Not Found: /static/admin/css/changelists.css
+WARNING 2026-06-02 06:41:35,428 task 8444 8524 Task queue depth is 2
+WARNING 2026-06-02 06:41:35,437 log 8444 8908 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-02 06:41:35,443 log 8444 9532 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-02 06:41:35,443 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:41:35,448 log 8444 9504 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-02 06:41:35,449 task 8444 8524 Task queue depth is 2
+WARNING 2026-06-02 06:41:35,456 log 8444 9532 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-02 06:41:35,460 log 8444 8908 Not Found: /static/admin/js/vendor/jquery/jquery.js
+WARNING 2026-06-02 06:41:35,461 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:41:35,467 log 8444 9532 Not Found: /static/admin/js/jquery.init.js
+WARNING 2026-06-02 06:41:35,473 log 8444 9504 Not Found: /static/admin/js/core.js
+WARNING 2026-06-02 06:41:35,473 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:41:35,479 log 8444 8908 Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2026-06-02 06:41:35,484 log 8444 9532 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-02 06:41:35,485 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:41:35,491 task 8444 8524 Task queue depth is 2
+WARNING 2026-06-02 06:41:35,490 log 8444 9504 Not Found: /static/admin/css/changelists.css
+WARNING 2026-06-02 06:41:35,496 log 8444 8908 Not Found: /static/admin/js/actions.js
+WARNING 2026-06-02 06:41:35,503 log 8444 9504 Not Found: /static/admin/js/urlify.js
+WARNING 2026-06-02 06:41:35,507 log 8444 9532 Not Found: /static/admin/js/prepopulate.js
+WARNING 2026-06-02 06:41:35,508 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:41:35,513 log 8444 8908 Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+WARNING 2026-06-02 06:41:35,520 log 8444 9532 Not Found: /static/admin/img/search.svg
+WARNING 2026-06-02 06:41:35,525 log 8444 9504 Not Found: /static/admin/img/icon-yes.svg
+WARNING 2026-06-02 06:41:35,543 log 8444 8908 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-02 06:41:35,549 log 8444 8912 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-02 06:41:35,554 log 8444 9532 Not Found: /static/admin/img/icon-no.svg
+WARNING 2026-06-02 06:41:35,558 log 8444 8908 Not Found: /static/admin/js/filters.js
+WARNING 2026-06-02 06:41:35,563 log 8444 9504 Not Found: /static/admin/img/icon-yes.svg
+WARNING 2026-06-02 06:42:02,599 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:42:02,608 log 8444 8912 Not Found: /static/admin/css/changelists.css
+WARNING 2026-06-02 06:42:02,616 log 8444 8908 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-02 06:42:02,610 log 8444 9532 Not Found: /static/admin/css/base.css
+WARNING 2026-06-02 06:42:02,618 task 8444 8524 Task queue depth is 2
+WARNING 2026-06-02 06:42:02,623 log 8444 9504 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-02 06:42:02,630 log 8444 8908 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-02 06:42:02,631 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:42:02,637 log 8444 8912 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-02 06:42:02,637 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:42:02,646 log 8444 9504 Not Found: /static/admin/js/jquery.init.js
+WARNING 2026-06-02 06:42:02,641 log 8444 8908 Not Found: /static/admin/js/vendor/jquery/jquery.js
+WARNING 2026-06-02 06:42:02,653 log 8444 8912 Not Found: /static/admin/js/core.js
+WARNING 2026-06-02 06:42:02,658 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:42:02,657 log 8444 9504 Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2026-06-02 06:42:02,662 log 8444 8908 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-02 06:42:02,663 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:42:02,669 log 8444 8912 Not Found: /static/admin/css/changelists.css
+WARNING 2026-06-02 06:42:02,675 log 8444 8908 Not Found: /static/admin/js/actions.js
+WARNING 2026-06-02 06:42:02,679 log 8444 9504 Not Found: /static/admin/js/urlify.js
+WARNING 2026-06-02 06:42:02,680 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:42:02,686 log 8444 8908 Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+WARNING 2026-06-02 06:42:02,690 log 8444 9504 Not Found: /static/admin/img/search.svg
+WARNING 2026-06-02 06:42:02,695 log 8444 8912 Not Found: /static/admin/js/prepopulate.js
+WARNING 2026-06-02 06:42:02,700 log 8444 9504 Not Found: /static/admin/img/icon-yes.svg
+WARNING 2026-06-02 06:42:02,716 log 8444 8908 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-02 06:42:02,732 log 8444 8912 Not Found: /static/admin/js/filters.js
+WARNING 2026-06-02 06:42:02,812 log 8444 9504 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-02 06:42:02,817 log 8444 8908 Not Found: /static/admin/img/icon-yes.svg
+WARNING 2026-06-02 06:42:30,903 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:42:30,908 task 8444 8524 Task queue depth is 2
+WARNING 2026-06-02 06:42:30,919 log 8444 8908 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-02 06:42:30,930 log 8444 9504 Not Found: /static/admin/css/base.css
+WARNING 2026-06-02 06:42:30,943 log 8444 9532 Not Found: /static/admin/js/vendor/jquery/jquery.js
+WARNING 2026-06-02 06:42:30,943 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:42:30,950 log 8444 8912 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-02 06:42:30,956 log 8444 8908 Not Found: /static/admin/js/jquery.init.js
+WARNING 2026-06-02 06:42:30,960 log 8444 9504 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-02 06:42:30,961 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:42:30,966 log 8444 9532 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-02 06:42:30,973 log 8444 8912 Not Found: /static/admin/js/core.js
+WARNING 2026-06-02 06:42:30,977 log 8444 8908 Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2026-06-02 06:42:30,983 log 8444 9504 Not Found: /static/admin/js/actions.js
+WARNING 2026-06-02 06:42:30,984 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:42:30,990 log 8444 8912 Not Found: /static/admin/js/urlify.js
+WARNING 2026-06-02 06:42:30,994 log 8444 9532 Not Found: /static/admin/js/prepopulate.js
+WARNING 2026-06-02 06:42:30,999 log 8444 8908 Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+WARNING 2026-06-02 06:42:31,020 log 8444 9504 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-02 06:42:31,026 log 8444 8912 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-02 06:42:31,030 log 8444 9532 Not Found: /static/admin/js/cancel.js
+WARNING 2026-06-02 06:42:35,927 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:42:35,936 log 8444 9532 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-02 06:42:35,942 log 8444 8908 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-02 06:42:35,949 log 8444 9504 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-02 06:42:35,945 task 8444 8524 Task queue depth is 2
+WARNING 2026-06-02 06:42:35,945 log 8444 8912 Not Found: /static/admin/css/base.css
+WARNING 2026-06-02 06:42:35,952 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:42:35,957 log 8444 8908 Not Found: /static/admin/css/changelists.css
+WARNING 2026-06-02 06:42:35,964 log 8444 9504 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-02 06:42:35,969 log 8444 8912 Not Found: /static/admin/js/vendor/jquery/jquery.js
+WARNING 2026-06-02 06:42:35,970 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:42:35,975 log 8444 9504 Not Found: /static/admin/js/jquery.init.js
+WARNING 2026-06-02 06:42:35,980 log 8444 8912 Not Found: /static/admin/js/core.js
+WARNING 2026-06-02 06:42:35,986 log 8444 8908 Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2026-06-02 06:42:35,981 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:42:35,990 log 8444 9504 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-02 06:42:35,996 log 8444 8912 Not Found: /static/admin/css/changelists.css
+WARNING 2026-06-02 06:42:35,991 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:42:35,997 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:42:36,003 log 8444 8908 Not Found: /static/admin/js/actions.js
+WARNING 2026-06-02 06:42:36,003 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:42:36,008 log 8444 8912 Not Found: /static/admin/js/urlify.js
+WARNING 2026-06-02 06:42:36,013 log 8444 9504 Not Found: /static/admin/js/prepopulate.js
+WARNING 2026-06-02 06:42:36,008 task 8444 8524 Task queue depth is 2
+WARNING 2026-06-02 06:42:36,019 log 8444 8908 Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+WARNING 2026-06-02 06:42:36,024 log 8444 8912 Not Found: /static/admin/img/search.svg
+WARNING 2026-06-02 06:42:36,028 log 8444 9504 Not Found: /static/admin/img/icon-yes.svg
+WARNING 2026-06-02 06:42:36,045 log 8444 8908 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-02 06:42:36,062 log 8444 8912 Not Found: /static/admin/js/filters.js
+WARNING 2026-06-02 06:42:36,132 log 8444 9504 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-02 06:42:36,138 log 8444 8908 Not Found: /static/admin/img/icon-yes.svg
+WARNING 2026-06-02 06:42:44,639 log 8444 9532 Not Found: /static/admin/css/base.css
+WARNING 2026-06-02 06:42:44,648 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:42:44,652 log 8444 8908 Not Found: /static/admin/css/autocomplete.css
+WARNING 2026-06-02 06:42:44,656 log 8444 8912 Not Found: /static/admin/css/vendor/select2/select2.css
+WARNING 2026-06-02 06:42:44,662 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:42:44,661 log 8444 9504 Not Found: /static/admin/css/forms.css
+WARNING 2026-06-02 06:42:44,668 log 8444 9532 Not Found: /static/admin/js/vendor/select2/select2.full.js
+WARNING 2026-06-02 06:42:44,672 log 8444 8908 Not Found: /static/admin/js/vendor/select2/i18n/en.js
+WARNING 2026-06-02 06:42:44,676 log 8444 8912 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-02 06:42:44,684 log 8444 8908 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-02 06:42:44,691 log 8444 9504 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-02 06:42:44,698 log 8444 9532 Not Found: /static/admin/js/autocomplete.js
+WARNING 2026-06-02 06:42:44,703 log 8444 8912 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-02 06:42:44,711 log 8444 9504 Not Found: /static/admin/js/vendor/jquery/jquery.js
+WARNING 2026-06-02 06:42:44,718 log 8444 8912 Not Found: /static/admin/js/core.js
+WARNING 2026-06-02 06:42:44,723 log 8444 9504 Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2026-06-02 06:42:44,728 log 8444 9532 Not Found: /static/admin/js/jquery.init.js
+WARNING 2026-06-02 06:42:44,734 log 8444 8912 Not Found: /static/admin/js/actions.js
+WARNING 2026-06-02 06:42:44,739 log 8444 9504 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-02 06:42:44,744 log 8444 9532 Not Found: /static/admin/css/forms.css
+WARNING 2026-06-02 06:42:44,752 log 8444 8912 Not Found: /static/admin/js/urlify.js
+WARNING 2026-06-02 06:42:44,759 log 8444 9504 Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+WARNING 2026-06-02 06:42:44,763 log 8444 9532 Not Found: /static/admin/js/prepopulate.js
+WARNING 2026-06-02 06:42:44,769 log 8444 8912 Not Found: /static/admin/js/prepopulate_init.js
+WARNING 2026-06-02 06:42:44,807 log 8444 9532 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-02 06:42:44,810 log 8444 8912 Not Found: /static/admin/css/vendor/select2/select2.css
+WARNING 2026-06-02 06:42:44,815 log 8444 9504 Not Found: /static/admin/css/autocomplete.css
+WARNING 2026-06-02 06:42:44,833 log 8444 8908 Not Found: /static/admin/img/icon-changelink.svg
+WARNING 2026-06-02 06:42:44,838 log 8444 8912 Not Found: /static/admin/img/icon-addlink.svg
+WARNING 2026-06-02 06:42:44,839 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:42:44,845 log 8444 8908 Not Found: /static/admin/img/icon-viewlink.svg
+WARNING 2026-06-02 06:42:44,849 log 8444 9532 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-02 06:42:44,855 log 8444 9504 Not Found: /static/admin/js/change_form.js
+WARNING 2026-06-02 06:42:44,858 log 8444 8912 Not Found: /static/admin/img/icon-deletelink.svg
+WARNING 2026-06-02 06:42:59,123 log 8444 9504 Not Found: /static/admin/css/base.css
+WARNING 2026-06-02 06:42:59,124 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:42:59,127 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:42:59,132 log 8444 8912 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-02 06:42:59,139 log 8444 9504 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-02 06:42:59,141 task 8444 8524 Task queue depth is 2
+WARNING 2026-06-02 06:42:59,146 log 8444 9532 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-02 06:42:59,153 log 8444 8912 Not Found: /static/admin/css/changelists.css
+WARNING 2026-06-02 06:42:59,159 log 8444 9504 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-02 06:42:59,159 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:42:59,165 log 8444 9504 Not Found: /static/admin/js/vendor/jquery/jquery.js
+WARNING 2026-06-02 06:42:59,170 log 8444 8912 Not Found: /static/admin/js/jquery.init.js
+WARNING 2026-06-02 06:42:59,176 log 8444 8912 Not Found: /static/admin/js/core.js
+WARNING 2026-06-02 06:42:59,183 log 8444 9532 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-02 06:42:59,187 log 8444 9504 Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2026-06-02 06:42:59,193 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:42:59,193 log 8444 8912 Not Found: /static/admin/js/actions.js
+WARNING 2026-06-02 06:42:59,199 log 8444 9532 Not Found: /static/admin/js/prepopulate.js
+WARNING 2026-06-02 06:42:59,203 log 8444 9504 Not Found: /static/admin/js/urlify.js
+WARNING 2026-06-02 06:42:59,210 log 8444 8912 Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+WARNING 2026-06-02 06:42:59,216 log 8444 9532 Not Found: /static/admin/img/search.svg
+WARNING 2026-06-02 06:42:59,221 log 8444 9504 Not Found: /static/admin/img/icon-yes.svg
+WARNING 2026-06-02 06:42:59,246 log 8444 9532 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-02 06:42:59,250 log 8444 8912 Not Found: /static/admin/js/filters.js
+WARNING 2026-06-02 06:42:59,256 log 8444 9532 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-02 06:42:59,262 log 8444 8908 Not Found: /static/admin/img/icon-yes.svg
+WARNING 2026-06-02 06:43:01,661 log 8444 9504 Not Found: /static/admin/css/base.css
+WARNING 2026-06-02 06:43:01,675 log 8444 9532 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-02 06:43:01,681 log 8444 8908 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-02 06:43:01,681 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:43:01,687 log 8444 8912 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-02 06:43:01,691 log 8444 9504 Not Found: /static/admin/css/changelists.css
+WARNING 2026-06-02 06:43:01,700 log 8444 8908 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-02 06:43:01,704 log 8444 8912 Not Found: /static/admin/js/vendor/jquery/jquery.js
+WARNING 2026-06-02 06:43:01,711 log 8444 9504 Not Found: /static/admin/js/jquery.init.js
+WARNING 2026-06-02 06:43:01,717 log 8444 8912 Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2026-06-02 06:43:01,720 log 8444 8908 Not Found: /static/admin/js/core.js
+WARNING 2026-06-02 06:43:01,729 log 8444 8912 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-02 06:43:01,732 log 8444 9504 Not Found: /static/admin/css/changelists.css
+WARNING 2026-06-02 06:43:01,733 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:43:01,735 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:43:01,739 log 8444 8908 Not Found: /static/admin/js/actions.js
+WARNING 2026-06-02 06:43:01,744 log 8444 8912 Not Found: /static/admin/js/prepopulate.js
+WARNING 2026-06-02 06:43:01,744 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:43:01,749 log 8444 9504 Not Found: /static/admin/js/urlify.js
+WARNING 2026-06-02 06:43:01,761 log 8444 8912 Not Found: /static/admin/img/icon-yes.svg
+WARNING 2026-06-02 06:43:01,766 log 8444 9504 Not Found: /static/admin/img/search.svg
+WARNING 2026-06-02 06:43:01,762 log 8444 8908 Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+WARNING 2026-06-02 06:43:01,798 log 8444 8912 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-02 06:43:01,806 log 8444 8908 Not Found: /static/admin/js/filters.js
+WARNING 2026-06-02 06:43:01,808 log 8444 9504 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-02 06:43:01,813 log 8444 9532 Not Found: /static/admin/img/icon-yes.svg
+WARNING 2026-06-02 06:43:42,443 log 8444 9532 Not Found: /static/admin/css/base.css
+WARNING 2026-06-02 06:43:42,444 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:43:42,449 log 8444 8912 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-02 06:43:42,451 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:43:42,455 log 8444 8908 Not Found: /static/admin/css/changelists.css
+WARNING 2026-06-02 06:43:42,461 log 8444 9532 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-02 06:43:42,465 log 8444 9504 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-02 06:43:42,466 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:43:42,469 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:43:42,474 log 8444 8908 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-02 06:43:42,479 log 8444 9532 Not Found: /static/admin/js/vendor/jquery/jquery.js
+WARNING 2026-06-02 06:43:42,480 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:43:42,484 log 8444 9504 Not Found: /static/admin/js/jquery.init.js
+WARNING 2026-06-02 06:43:42,493 log 8444 9504 Not Found: /static/admin/js/core.js
+WARNING 2026-06-02 06:43:42,496 log 8444 8908 Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2026-06-02 06:43:42,496 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:43:42,502 log 8444 9532 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-02 06:43:42,505 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:43:42,509 log 8444 8908 Not Found: /static/admin/css/changelists.css
+WARNING 2026-06-02 06:43:42,511 log 8444 9504 Not Found: /static/admin/js/actions.js
+WARNING 2026-06-02 06:43:42,513 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:43:42,518 log 8444 9532 Not Found: /static/admin/js/urlify.js
+WARNING 2026-06-02 06:43:42,525 log 8444 9504 Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+WARNING 2026-06-02 06:43:42,529 log 8444 8908 Not Found: /static/admin/js/prepopulate.js
+WARNING 2026-06-02 06:43:42,531 task 8444 8524 Task queue depth is 1
+WARNING 2026-06-02 06:43:42,537 log 8444 9532 Not Found: /static/admin/img/search.svg
+WARNING 2026-06-02 06:43:42,542 log 8444 8908 Not Found: /static/admin/img/icon-yes.svg
+WARNING 2026-06-02 06:43:42,565 log 8444 9504 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-02 06:43:42,571 log 8444 9532 Not Found: /static/admin/js/filters.js
+WARNING 2026-06-02 06:43:42,576 log 8444 8908 Not Found: /static/admin/css/responsive.css
+INFO 2026-06-02 06:49:28,733 wasyncore 6080 8012 Serving on http://0.0.0.0:8000
+WARNING 2026-06-02 06:49:42,486 log 8444 8908 Unauthorized: /api/users/me/
+WARNING 2026-06-02 06:49:42,513 log 8444 9504 Unauthorized: /api/token/refresh/
+INFO 2026-06-02 21:36:18,036 wasyncore 9168 9172 Serving on http://0.0.0.0:8000
+WARNING 2026-06-02 21:45:24,051 log 9168 10160 Unauthorized: /api/users/me/
+WARNING 2026-06-02 22:47:15,719 log 9168 10160 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-02 22:47:15,723 log 9168 10044 Not Found: /static/admin/css/base.css
+WARNING 2026-06-02 22:47:15,729 log 9168 8400 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-02 22:47:15,770 log 9168 10204 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-02 22:47:15,790 log 9168 10160 Not Found: /static/admin/css/login.css
+WARNING 2026-06-02 22:47:15,795 log 9168 10044 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-02 22:47:15,844 log 9168 8400 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-02 22:47:15,965 log 9168 10204 Not Found: /favicon.ico
+WARNING 2026-06-03 00:40:59,476 log 9168 10044 Unauthorized: /api/users/me/
+WARNING 2026-06-03 00:40:59,489 log 9168 10204 Unauthorized: /api/token/refresh/
+WARNING 2026-06-03 02:07:30,454 log 9168 10044 Unauthorized: /api/categories/
+WARNING 2026-06-03 02:07:30,456 log 9168 10160 Unauthorized: /api/products/
+WARNING 2026-06-03 02:07:30,464 log 9168 10204 Unauthorized: /api/suppliers/
+WARNING 2026-06-03 04:54:53,435 log 9168 10204 Unauthorized: /api/users/me/
+WARNING 2026-06-03 04:54:53,461 log 9168 10044 Unauthorized: /api/token/refresh/
+WARNING 2026-06-03 05:55:06,471 log 9168 10044 Unauthorized: /api/sales/pending/
+WARNING 2026-06-03 06:56:01,309 log 9168 8400 Unauthorized: /api/sales/pending/
+INFO 2026-06-03 21:35:35,629 wasyncore 9516 9520 Serving on http://0.0.0.0:8000
+WARNING 2026-06-03 22:15:23,001 log 9516 7456 Unauthorized: /api/users/me/
+WARNING 2026-06-03 23:06:30,319 log 9516 4104 Unauthorized: /api/users/me/
+WARNING 2026-06-03 23:25:07,819 log 9516 7800 Not Found: /favicon.ico
+WARNING 2026-06-04 00:03:49,138 log 9516 7456 Unauthorized: /api/sales/
+WARNING 2026-06-04 00:07:00,722 log 9516 7800 Unauthorized: /api/sales/pending/
+WARNING 2026-06-04 01:07:00,732 log 9516 7800 Unauthorized: /api/sales/pending/
+WARNING 2026-06-04 01:08:50,234 log 9516 7800 Unauthorized: /api/categories/
+WARNING 2026-06-04 01:08:50,236 log 9516 7456 Unauthorized: /api/suppliers/
+WARNING 2026-06-04 01:08:50,235 log 9516 4104 Unauthorized: /api/products/
+WARNING 2026-06-04 01:08:50,465 log 9516 4104 Unauthorized: /api/token/refresh/
+WARNING 2026-06-04 01:08:50,469 log 9516 7800 Unauthorized: /api/token/refresh/
+WARNING 2026-06-04 01:08:50,472 log 9516 7456 Unauthorized: /api/token/refresh/
+WARNING 2026-06-04 02:07:00,712 log 9516 7408 Unauthorized: /api/sales/pending/
+WARNING 2026-06-04 03:01:27,793 log 9516 7456 Unauthorized: /api/sales/
+WARNING 2026-06-04 03:07:00,700 log 9516 7408 Unauthorized: /api/sales/pending/
+INFO 2026-06-04 21:31:55,870 wasyncore 9568 9572 Serving on http://0.0.0.0:8000
+WARNING 2026-06-04 23:20:30,836 log 9568 10012 Unauthorized: /api/users/me/
+WARNING 2026-06-04 23:20:30,920 log 9568 9984 Unauthorized: /api/token/refresh/
+WARNING 2026-06-04 23:20:36,736 log 9568 10012 Unauthorized: /api/users/me/
+WARNING 2026-06-05 00:20:58,977 log 9568 9984 Unauthorized: /api/sales/pending/
+WARNING 2026-06-05 01:08:24,334 log 9568 10012 Unauthorized: /api/users/me/
+WARNING 2026-06-05 01:08:24,374 log 9568 9992 Unauthorized: /api/token/refresh/
+WARNING 2026-06-05 01:21:58,966 log 9568 9992 Unauthorized: /api/sales/pending/
+WARNING 2026-06-05 02:22:58,946 log 9568 9992 Unauthorized: /api/sales/pending/
+WARNING 2026-06-05 04:11:58,970 log 9568 10008 Unauthorized: /api/sales/pending/
+WARNING 2026-06-05 04:25:19,750 log 9568 9984 Unauthorized: /api/sales/
+WARNING 2026-06-05 04:25:19,897 log 9568 10008 Unauthorized: /api/token/refresh/
+WARNING 2026-06-05 05:40:38,074 log 9568 10008 Unauthorized: /api/sales/search_customers/
+WARNING 2026-06-05 05:40:38,110 log 9568 10012 Unauthorized: /api/sales/search_customers/
+INFO 2026-06-05 23:22:53,512 wasyncore 10096 10100 Serving on http://0.0.0.0:8000
+INFO 2026-06-07 23:06:56,593 wasyncore 9212 8932 Serving on http://0.0.0.0:8000
+WARNING 2026-06-08 02:30:51,309 log 9212 9276 Unauthorized: /api/users/me/
+WARNING 2026-06-08 02:30:51,332 log 9212 9396 Unauthorized: /api/token/refresh/
+INFO 2026-06-08 03:40:13,871 wasyncore 9040 9044 Serving on http://0.0.0.0:8000
+INFO 2026-06-08 04:59:42,209 wasyncore 9028 9032 Serving on http://0.0.0.0:8000
+WARNING 2026-06-08 05:24:15,942 log 9028 9332 Unauthorized: /api/categories/
+WARNING 2026-06-08 05:24:16,030 log 9028 9336 Unauthorized: /api/suppliers/
+WARNING 2026-06-08 05:24:16,033 log 9028 9340 Unauthorized: /api/products/
+WARNING 2026-06-08 07:31:36,025 log 9028 9344 Unauthorized: /api/users/me/
+WARNING 2026-06-08 07:31:36,047 log 9028 9332 Unauthorized: /api/token/refresh/
+INFO 2026-06-08 22:40:19,338 wasyncore 9088 9092 Serving on http://0.0.0.0:8000
+WARNING 2026-06-08 23:07:12,946 log 9088 10212 Unauthorized: /api/users/me/
+WARNING 2026-06-09 00:07:51,178 log 9088 10212 Unauthorized: /api/sales/pending/
+WARNING 2026-06-09 00:42:28,746 log 9088 10216 Unauthorized: /api/users/me/
+WARNING 2026-06-09 01:07:37,749 task 9088 9092 Task queue depth is 1
+WARNING 2026-06-09 01:07:37,751 task 9088 9092 Task queue depth is 2
+WARNING 2026-06-09 01:07:37,773 log 9088 10212 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-09 01:07:37,775 log 9088 10216 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-09 01:07:37,778 log 9088 10208 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-09 01:07:37,781 log 9088 10220 Not Found: /static/admin/css/base.css
+WARNING 2026-06-09 01:07:37,788 log 9088 10212 Not Found: /static/admin/css/dashboard.css
+WARNING 2026-06-09 01:07:37,793 log 9088 10216 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-09 01:07:37,827 log 9088 10208 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-09 01:07:37,834 log 9088 10212 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-09 01:07:37,837 log 9088 10220 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-09 01:07:38,844 log 9088 10216 Not Found: /favicon.ico
+WARNING 2026-06-09 01:07:51,166 log 9088 10212 Unauthorized: /api/sales/pending/
+WARNING 2026-06-09 01:07:52,383 log 9088 10220 Not Found: /static/admin/css/base.css
+WARNING 2026-06-09 01:07:52,384 task 9088 9092 Task queue depth is 1
+WARNING 2026-06-09 01:07:52,385 task 9088 9092 Task queue depth is 2
+WARNING 2026-06-09 01:07:52,390 log 9088 10208 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-09 01:07:52,394 log 9088 10216 Not Found: /static/admin/css/changelists.css
+WARNING 2026-06-09 01:07:52,401 log 9088 10220 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-09 01:07:52,401 task 9088 9092 Task queue depth is 1
+WARNING 2026-06-09 01:07:52,406 log 9088 10208 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-09 01:07:52,414 log 9088 10220 Not Found: /static/admin/js/vendor/jquery/jquery.js
+WARNING 2026-06-09 01:07:52,417 log 9088 10216 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-09 01:07:52,429 log 9088 10208 Not Found: /static/admin/js/core.js
+WARNING 2026-06-09 01:07:52,430 log 9088 10220 Not Found: /static/admin/js/jquery.init.js
+WARNING 2026-06-09 01:07:52,431 task 9088 9092 Task queue depth is 1
+WARNING 2026-06-09 01:07:52,435 log 9088 10216 Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2026-06-09 01:07:52,830 task 9088 9092 Task queue depth is 1
+WARNING 2026-06-09 01:07:52,838 log 9088 10208 Not Found: /static/admin/js/actions.js
+WARNING 2026-06-09 01:07:52,840 task 9088 9092 Task queue depth is 2
+WARNING 2026-06-09 01:07:52,846 log 9088 10220 Not Found: /static/admin/js/urlify.js
+WARNING 2026-06-09 01:07:52,850 log 9088 10212 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-09 01:07:52,855 log 9088 10216 Not Found: /static/admin/css/changelists.css
+WARNING 2026-06-09 01:07:52,860 log 9088 10208 Not Found: /static/admin/js/prepopulate.js
+WARNING 2026-06-09 01:07:52,866 log 9088 10220 Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+WARNING 2026-06-09 01:07:52,870 log 9088 10212 Not Found: /static/admin/img/search.svg
+WARNING 2026-06-09 01:07:52,877 log 9088 10216 Not Found: /static/admin/img/icon-yes.svg
+WARNING 2026-06-09 01:07:52,901 log 9088 10208 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-09 01:07:52,908 log 9088 10212 Not Found: /static/admin/js/filters.js
+WARNING 2026-06-09 01:07:52,911 log 9088 10220 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-09 01:08:01,615 log 9088 10208 Not Found: /static/admin/css/base.css
+WARNING 2026-06-09 01:08:01,616 task 9088 9092 Task queue depth is 1
+WARNING 2026-06-09 01:08:01,622 task 9088 9092 Task queue depth is 1
+WARNING 2026-06-09 01:08:01,628 log 9088 10212 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-09 01:08:01,632 log 9088 10220 Not Found: /static/admin/css/forms.css
+WARNING 2026-06-09 01:08:01,637 task 9088 9092 Task queue depth is 2
+WARNING 2026-06-09 01:08:01,640 log 9088 10208 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-09 01:08:01,641 log 9088 10216 Not Found: /static/admin/js/calendar.js
+WARNING 2026-06-09 01:08:01,648 log 9088 10212 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-09 01:08:01,655 log 9088 10220 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-09 01:08:01,661 log 9088 10216 Not Found: /static/admin/js/vendor/jquery/jquery.js
+WARNING 2026-06-09 01:08:01,668 log 9088 10212 Not Found: /static/admin/js/admin/DateTimeShortcuts.js
+WARNING 2026-06-09 01:08:01,675 log 9088 10220 Not Found: /static/admin/js/jquery.init.js
+WARNING 2026-06-09 01:08:01,679 log 9088 10216 Not Found: /static/admin/js/core.js
+WARNING 2026-06-09 01:08:01,686 log 9088 10220 Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2026-06-09 01:08:01,689 log 9088 10212 Not Found: /static/admin/js/SelectBox.js
+WARNING 2026-06-09 01:08:01,697 log 9088 10216 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-09 01:08:01,703 log 9088 10212 Not Found: /static/admin/css/forms.css
+WARNING 2026-06-09 01:08:01,707 log 9088 10220 Not Found: /static/admin/js/actions.js
+WARNING 2026-06-09 01:08:01,713 log 9088 10216 Not Found: /static/admin/js/SelectFilter2.js
+WARNING 2026-06-09 01:08:01,719 log 9088 10212 Not Found: /static/admin/js/urlify.js
+WARNING 2026-06-09 01:08:01,724 log 9088 10220 Not Found: /static/admin/js/prepopulate.js
+WARNING 2026-06-09 01:08:01,734 log 9088 10212 Not Found: /static/admin/js/prepopulate_init.js
+WARNING 2026-06-09 01:08:01,735 log 9088 10216 Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+WARNING 2026-06-09 01:08:01,758 log 9088 10220 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-09 01:08:01,765 log 9088 10220 Not Found: /static/admin/img/icon-addlink.svg
+WARNING 2026-06-09 01:08:01,773 log 9088 10208 Not Found: /static/admin/js/change_form.js
+WARNING 2026-06-09 01:08:01,769 log 9088 10212 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-09 01:08:19,815 log 9088 10220 Not Found: /static/admin/css/base.css
+WARNING 2026-06-09 01:08:19,816 task 9088 9092 Task queue depth is 1
+WARNING 2026-06-09 01:08:19,823 log 9088 10208 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-09 01:08:19,837 task 9088 9092 Task queue depth is 1
+WARNING 2026-06-09 01:08:19,849 log 9088 10216 Not Found: /static/admin/css/forms.css
+WARNING 2026-06-09 01:08:19,851 log 9088 10220 Not Found: /static/admin/css/unusable_password_field.css
+WARNING 2026-06-09 01:08:19,857 log 9088 10212 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-09 01:08:20,192 task 9088 9092 Task queue depth is 1
+WARNING 2026-06-09 01:08:20,200 log 9088 10208 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-09 01:08:20,209 log 9088 10216 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-09 01:08:20,227 log 9088 10220 Not Found: /static/admin/css/forms.css
+WARNING 2026-06-09 01:08:20,231 log 9088 10212 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-09 01:09:14,410 log 9088 10212 Not Found: /static/admin/css/base.css
+WARNING 2026-06-09 01:09:14,411 task 9088 9092 Task queue depth is 1
+WARNING 2026-06-09 01:09:14,415 log 9088 10220 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-09 01:09:14,418 task 9088 9092 Task queue depth is 2
+WARNING 2026-06-09 01:09:14,421 log 9088 10216 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-09 01:09:14,426 log 9088 10208 Not Found: /static/admin/css/unusable_password_field.css
+WARNING 2026-06-09 01:09:14,427 task 9088 9092 Task queue depth is 1
+WARNING 2026-06-09 01:09:14,431 log 9088 10220 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-09 01:09:14,436 log 9088 10212 Not Found: /static/admin/css/forms.css
+WARNING 2026-06-09 01:09:14,441 log 9088 10216 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-09 01:09:14,455 log 9088 10208 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-09 01:09:56,590 log 9088 10208 Not Found: /static/admin/css/base.css
+WARNING 2026-06-09 01:09:56,591 task 9088 9092 Task queue depth is 1
+WARNING 2026-06-09 01:09:56,598 log 9088 10220 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-09 01:09:56,599 task 9088 9092 Task queue depth is 2
+WARNING 2026-06-09 01:09:56,605 log 9088 10216 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-09 01:09:56,609 log 9088 10212 Not Found: /static/admin/css/forms.css
+WARNING 2026-06-09 01:09:56,610 task 9088 9092 Task queue depth is 1
+WARNING 2026-06-09 01:09:56,616 log 9088 10208 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-09 01:09:56,617 task 9088 9092 Task queue depth is 1
+WARNING 2026-06-09 01:09:56,622 log 9088 10216 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-09 01:09:56,628 log 9088 10208 Not Found: /static/admin/js/calendar.js
+WARNING 2026-06-09 01:09:56,632 log 9088 10212 Not Found: /static/admin/js/vendor/jquery/jquery.js
+WARNING 2026-06-09 01:09:56,638 log 9088 10216 Not Found: /static/admin/js/jquery.init.js
+WARNING 2026-06-09 01:09:56,643 log 9088 10208 Not Found: /static/admin/css/forms.css
+WARNING 2026-06-09 01:09:56,648 log 9088 10212 Not Found: /static/admin/js/admin/DateTimeShortcuts.js
+WARNING 2026-06-09 01:09:56,653 log 9088 10216 Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2026-06-09 01:09:56,657 log 9088 10208 Not Found: /static/admin/js/core.js
+WARNING 2026-06-09 01:09:56,663 log 9088 10212 Not Found: /static/admin/js/SelectBox.js
+WARNING 2026-06-09 01:09:56,668 log 9088 10212 Not Found: /static/admin/js/actions.js
+WARNING 2026-06-09 01:09:56,673 task 9088 9092 Task queue depth is 1
+WARNING 2026-06-09 01:09:56,672 log 9088 10216 Not Found: /static/admin/js/SelectFilter2.js
+WARNING 2026-06-09 01:09:56,679 log 9088 10212 Not Found: /static/admin/js/prepopulate.js
+WARNING 2026-06-09 01:09:56,683 log 9088 10208 Not Found: /static/admin/js/urlify.js
+WARNING 2026-06-09 01:09:56,688 log 9088 10216 Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+WARNING 2026-06-09 01:09:56,694 log 9088 10212 Not Found: /static/admin/js/prepopulate_init.js
+WARNING 2026-06-09 01:09:56,713 log 9088 10208 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-09 01:09:56,730 log 9088 10216 Not Found: /static/admin/img/icon-addlink.svg
+WARNING 2026-06-09 01:09:56,748 log 9088 10212 Not Found: /static/admin/js/change_form.js
+WARNING 2026-06-09 01:09:56,793 log 9088 10208 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-09 01:09:59,307 log 9088 10212 Not Found: /static/admin/css/base.css
+WARNING 2026-06-09 01:09:59,313 task 9088 9092 Task queue depth is 1
+WARNING 2026-06-09 01:09:59,326 log 9088 10220 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-09 01:09:59,340 log 9088 10208 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-09 01:09:59,350 log 9088 10216 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-09 01:09:59,500 task 9088 9092 Task queue depth is 2
+WARNING 2026-06-09 01:09:59,509 log 9088 10212 Not Found: /static/admin/css/forms.css
+WARNING 2026-06-09 01:09:59,518 log 9088 10208 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-09 01:09:59,522 log 9088 10216 Not Found: /static/admin/js/vendor/jquery/jquery.js
+WARNING 2026-06-09 01:09:59,531 log 9088 10208 Not Found: /static/admin/js/jquery.init.js
+WARNING 2026-06-09 01:09:59,535 log 9088 10212 Not Found: /static/admin/js/calendar.js
+WARNING 2026-06-09 01:09:59,539 log 9088 10216 Not Found: /static/admin/js/admin/DateTimeShortcuts.js
+WARNING 2026-06-09 01:09:59,546 log 9088 10216 Not Found: /static/admin/js/core.js
+WARNING 2026-06-09 01:09:59,550 log 9088 10208 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-09 01:09:59,555 log 9088 10212 Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2026-06-09 01:09:59,562 log 9088 10216 Not Found: /static/admin/js/SelectBox.js
+WARNING 2026-06-09 01:09:59,565 log 9088 10208 Not Found: /static/admin/js/actions.js
+WARNING 2026-06-09 01:09:59,571 log 9088 10212 Not Found: /static/admin/js/SelectFilter2.js
+WARNING 2026-06-09 01:09:59,577 log 9088 10216 Not Found: /static/admin/js/urlify.js
+WARNING 2026-06-09 01:09:59,583 log 9088 10208 Not Found: /static/admin/js/prepopulate.js
+WARNING 2026-06-09 01:09:59,592 log 9088 10212 Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+WARNING 2026-06-09 01:09:59,593 log 9088 10216 Not Found: /static/admin/js/prepopulate_init.js
+WARNING 2026-06-09 01:09:59,617 log 9088 10208 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-09 01:09:59,623 log 9088 10212 Not Found: /static/admin/img/icon-addlink.svg
+WARNING 2026-06-09 01:09:59,628 log 9088 10220 Not Found: /static/admin/js/change_form.js
+WARNING 2026-06-09 01:09:59,632 log 9088 10216 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-09 01:16:59,430 log 9088 10208 Not Found: /static/admin/css/base.css
+WARNING 2026-06-09 01:16:59,441 log 9088 10212 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-09 01:16:59,446 log 9088 10216 Not Found: /static/admin/css/changelists.css
+WARNING 2026-06-09 01:16:59,447 task 9088 9092 Task queue depth is 1
+WARNING 2026-06-09 01:16:59,452 log 9088 10220 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-09 01:16:59,458 log 9088 10208 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-09 01:16:59,853 log 9088 10220 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-09 01:16:59,871 log 9088 10216 Not Found: /static/admin/js/vendor/jquery/jquery.js
+WARNING 2026-06-09 01:16:59,879 log 9088 10208 Not Found: /static/admin/js/jquery.init.js
+WARNING 2026-06-09 01:16:59,888 log 9088 10216 Not Found: /static/admin/js/core.js
+WARNING 2026-06-09 01:16:59,888 task 9088 9092 Task queue depth is 1
+WARNING 2026-06-09 01:16:59,891 task 9088 9092 Task queue depth is 2
+WARNING 2026-06-09 01:16:59,890 log 9088 10220 Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2026-06-09 01:16:59,897 log 9088 10208 Not Found: /static/admin/js/actions.js
+WARNING 2026-06-09 01:16:59,903 log 9088 10216 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-09 01:16:59,910 log 9088 10220 Not Found: /static/admin/css/changelists.css
+WARNING 2026-06-09 01:16:59,918 log 9088 10208 Not Found: /static/admin/js/urlify.js
+WARNING 2026-06-09 01:16:59,924 log 9088 10216 Not Found: /static/admin/js/prepopulate.js
+WARNING 2026-06-09 01:16:59,931 log 9088 10220 Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+WARNING 2026-06-09 01:16:59,937 log 9088 10208 Not Found: /static/admin/img/search.svg
+WARNING 2026-06-09 01:16:59,969 log 9088 10212 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-09 01:16:59,973 log 9088 10216 Not Found: /static/admin/js/filters.js
+WARNING 2026-06-09 01:16:59,978 log 9088 10220 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-09 01:17:41,908 log 9088 10216 Not Found: /static/admin/css/base.css
+WARNING 2026-06-09 01:17:41,909 task 9088 9092 Task queue depth is 1
+WARNING 2026-06-09 01:17:42,263 task 9088 9092 Task queue depth is 1
+WARNING 2026-06-09 01:17:42,273 log 9088 10220 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-09 01:17:42,273 task 9088 9092 Task queue depth is 2
+WARNING 2026-06-09 01:17:42,277 log 9088 10208 Not Found: /static/admin/css/changelists.css
+WARNING 2026-06-09 01:17:42,282 log 9088 10216 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-09 01:17:42,288 log 9088 10220 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-09 01:17:42,289 task 9088 9092 Task queue depth is 1
+WARNING 2026-06-09 01:17:42,294 log 9088 10208 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-09 01:17:42,300 log 9088 10216 Not Found: /static/admin/js/vendor/jquery/jquery.js
+WARNING 2026-06-09 01:17:42,306 log 9088 10220 Not Found: /static/admin/js/jquery.init.js
+WARNING 2026-06-09 01:17:42,312 log 9088 10208 Not Found: /static/admin/js/core.js
+WARNING 2026-06-09 01:17:42,319 log 9088 10216 Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2026-06-09 01:17:42,323 task 9088 9092 Task queue depth is 1
+WARNING 2026-06-09 01:17:42,323 log 9088 10208 Not Found: /static/admin/css/changelists.css
+WARNING 2026-06-09 01:17:42,329 task 9088 9092 Task queue depth is 1
+WARNING 2026-06-09 01:17:42,328 log 9088 10220 Not Found: /static/admin/js/actions.js
+WARNING 2026-06-09 01:17:42,340 log 9088 10216 Not Found: /static/admin/js/urlify.js
+WARNING 2026-06-09 01:17:42,336 log 9088 10208 Not Found: /static/admin/js/prepopulate.js
+WARNING 2026-06-09 01:17:42,341 task 9088 9092 Task queue depth is 1
+WARNING 2026-06-09 01:17:42,343 task 9088 9092 Task queue depth is 2
+WARNING 2026-06-09 01:17:42,349 log 9088 10220 Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+WARNING 2026-06-09 01:17:42,353 log 9088 10208 Not Found: /static/admin/img/search.svg
+WARNING 2026-06-09 01:17:42,377 log 9088 10216 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-09 01:17:42,383 log 9088 10220 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-09 01:17:42,387 log 9088 10216 Not Found: /static/admin/js/filters.js
+WARNING 2026-06-09 01:18:26,008 log 9088 10220 Not Found: /static/admin/css/base.css
+WARNING 2026-06-09 01:18:26,017 log 9088 10216 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-09 01:18:26,021 log 9088 10212 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-09 01:18:26,029 log 9088 10208 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-09 01:18:26,037 task 9088 9092 Task queue depth is 1
+WARNING 2026-06-09 01:18:26,042 log 9088 10212 Not Found: /static/admin/css/changelists.css
+WARNING 2026-06-09 01:18:26,042 task 9088 9092 Task queue depth is 2
+WARNING 2026-06-09 01:18:26,036 log 9088 10220 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-09 01:18:26,049 log 9088 10212 Not Found: /static/admin/js/vendor/jquery/jquery.js
+WARNING 2026-06-09 01:18:26,053 log 9088 10208 Not Found: /static/admin/js/jquery.init.js
+WARNING 2026-06-09 01:18:26,059 log 9088 10220 Not Found: /static/admin/js/core.js
+WARNING 2026-06-09 01:18:26,065 log 9088 10220 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-09 01:18:26,070 log 9088 10208 Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2026-06-09 01:18:26,077 log 9088 10212 Not Found: /static/admin/js/actions.js
+WARNING 2026-06-09 01:18:26,081 task 9088 9092 Task queue depth is 1
+WARNING 2026-06-09 01:18:26,081 log 9088 10220 Not Found: /static/admin/js/urlify.js
+WARNING 2026-06-09 01:18:26,087 log 9088 10208 Not Found: /static/admin/js/prepopulate.js
+WARNING 2026-06-09 01:18:26,093 log 9088 10212 Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+WARNING 2026-06-09 01:18:26,099 log 9088 10220 Not Found: /static/admin/img/search.svg
+WARNING 2026-06-09 01:18:26,119 log 9088 10208 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-09 01:18:26,125 log 9088 10212 Not Found: /static/admin/js/filters.js
+WARNING 2026-06-09 01:18:26,129 log 9088 10220 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-09 01:18:39,614 log 9088 10220 Not Found: /static/admin/css/base.css
+WARNING 2026-06-09 01:18:39,615 task 9088 9092 Task queue depth is 1
+WARNING 2026-06-09 01:18:39,755 task 9088 9092 Task queue depth is 1
+WARNING 2026-06-09 01:18:39,760 log 9088 10208 Not Found: /static/admin/css/changelists.css
+WARNING 2026-06-09 01:18:39,763 log 9088 10212 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-09 01:18:39,766 log 9088 10216 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-09 01:18:39,766 task 9088 9092 Task queue depth is 2
+WARNING 2026-06-09 01:18:39,770 log 9088 10220 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-09 01:18:39,782 log 9088 10212 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-09 01:18:39,790 log 9088 10212 Not Found: /static/admin/js/vendor/jquery/jquery.js
+WARNING 2026-06-09 01:18:39,798 log 9088 10220 Not Found: /static/admin/js/jquery.init.js
+WARNING 2026-06-09 01:18:39,799 task 9088 9092 Task queue depth is 1
+WARNING 2026-06-09 01:18:39,794 log 9088 10216 Not Found: /static/admin/js/core.js
+WARNING 2026-06-09 01:18:39,805 log 9088 10212 Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2026-06-09 01:18:39,810 log 9088 10220 Not Found: /static/admin/js/actions.js
+WARNING 2026-06-09 01:18:39,817 log 9088 10216 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-09 01:18:39,823 log 9088 10212 Not Found: /static/admin/css/changelists.css
+WARNING 2026-06-09 01:18:39,828 task 9088 9092 Task queue depth is 1
+WARNING 2026-06-09 01:18:39,827 log 9088 10220 Not Found: /static/admin/js/urlify.js
+WARNING 2026-06-09 01:18:39,835 log 9088 10216 Not Found: /static/admin/js/prepopulate.js
+WARNING 2026-06-09 01:18:39,841 log 9088 10212 Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+WARNING 2026-06-09 01:18:39,846 log 9088 10220 Not Found: /static/admin/img/search.svg
+WARNING 2026-06-09 01:18:39,870 log 9088 10212 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-09 01:18:39,873 log 9088 10216 Not Found: /static/admin/js/filters.js
+WARNING 2026-06-09 01:18:39,879 log 9088 10220 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-09 01:18:42,692 log 9088 10212 Not Found: /static/admin/css/base.css
+WARNING 2026-06-09 01:18:42,699 log 9088 10220 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-09 01:18:42,700 task 9088 9092 Task queue depth is 1
+WARNING 2026-06-09 01:18:42,703 log 9088 10216 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-09 01:18:42,707 log 9088 10208 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-09 01:18:42,715 task 9088 9092 Task queue depth is 1
+WARNING 2026-06-09 01:18:42,720 log 9088 10212 Not Found: /static/admin/css/changelists.css
+WARNING 2026-06-09 01:18:42,840 log 9088 10220 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-09 01:18:42,847 log 9088 10216 Not Found: /static/admin/js/jquery.init.js
+WARNING 2026-06-09 01:18:42,848 task 9088 9092 Task queue depth is 1
+WARNING 2026-06-09 01:18:42,853 log 9088 10208 Not Found: /static/admin/js/vendor/jquery/jquery.js
+WARNING 2026-06-09 01:18:42,855 task 9088 9092 Task queue depth is 1
+WARNING 2026-06-09 01:18:42,861 log 9088 10220 Not Found: /static/admin/js/core.js
+WARNING 2026-06-09 01:18:42,870 log 9088 10216 Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2026-06-09 01:18:42,876 task 9088 9092 Task queue depth is 1
+WARNING 2026-06-09 01:18:42,881 log 9088 10220 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-09 01:18:42,882 log 9088 10212 Not Found: /static/admin/js/actions.js
+WARNING 2026-06-09 01:18:42,888 log 9088 10208 Not Found: /static/admin/js/urlify.js
+WARNING 2026-06-09 01:18:42,889 task 9088 9092 Task queue depth is 1
+WARNING 2026-06-09 01:18:42,896 log 9088 10216 Not Found: /static/admin/js/prepopulate.js
+WARNING 2026-06-09 01:18:42,904 log 9088 10212 Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+WARNING 2026-06-09 01:18:42,910 log 9088 10216 Not Found: /static/admin/img/search.svg
+WARNING 2026-06-09 01:18:42,933 log 9088 10208 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-09 01:18:42,939 log 9088 10212 Not Found: /static/admin/js/filters.js
+WARNING 2026-06-09 01:18:42,946 log 9088 10220 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-09 02:07:51,150 log 9088 10220 Unauthorized: /api/sales/pending/
+WARNING 2026-06-09 02:43:20,142 log 9088 10216 Unauthorized: /api/sales/pending/
+WARNING 2026-06-09 03:07:51,150 log 9088 10216 Unauthorized: /api/sales/pending/
+WARNING 2026-06-09 03:43:20,192 log 9088 10212 Unauthorized: /api/sales/pending/
+WARNING 2026-06-09 04:34:38,789 log 9088 10216 Unauthorized: /api/sales/pending/
+WARNING 2026-06-09 04:34:38,802 log 9088 10212 Unauthorized: /api/sales/pending/
+WARNING 2026-06-09 05:34:51,137 log 9088 10208 Unauthorized: /api/sales/pending/
+WARNING 2026-06-09 06:34:51,133 log 9088 10212 Unauthorized: /api/sales/pending/
+INFO 2026-06-09 21:39:19,317 wasyncore 7324 8936 Serving on http://0.0.0.0:8000
+WARNING 2026-06-09 21:50:12,365 log 7324 10024 Unauthorized: /api/users/me/
+WARNING 2026-06-09 21:50:12,377 log 7324 10032 Unauthorized: /api/token/refresh/
+WARNING 2026-06-09 23:11:56,925 log 7324 10020 Unauthorized: /api/sales/search_customers/
+WARNING 2026-06-09 23:11:56,932 log 7324 10032 Unauthorized: /api/sales/search_customers/
+WARNING 2026-06-10 00:36:56,399 log 7324 10024 Unauthorized: /api/users/me/
+WARNING 2026-06-10 00:36:56,428 log 7324 10028 Unauthorized: /api/token/refresh/
+WARNING 2026-06-10 01:37:49,486 log 7324 10024 Unauthorized: /api/sales/pending/
+WARNING 2026-06-10 01:41:06,268 log 7324 10032 Unauthorized: /api/categories/
+WARNING 2026-06-10 01:41:06,269 log 7324 10028 Unauthorized: /api/suppliers/
+WARNING 2026-06-10 01:41:06,271 log 7324 10020 Unauthorized: /api/products/
+WARNING 2026-06-10 02:37:49,497 log 7324 10032 Unauthorized: /api/sales/pending/
+WARNING 2026-06-10 02:53:38,256 log 7324 10032 Unauthorized: /api/users/me/
+WARNING 2026-06-10 02:58:20,725 log 7324 10024 Unauthorized: /api/users/me/
+WARNING 2026-06-10 03:37:49,466 log 7324 10028 Unauthorized: /api/sales/pending/
+WARNING 2026-06-10 04:37:49,467 log 7324 10028 Unauthorized: /api/sales/pending/
+WARNING 2026-06-10 05:37:49,447 log 7324 10024 Unauthorized: /api/sales/pending/
+WARNING 2026-06-10 06:37:49,441 log 7324 10032 Unauthorized: /api/sales/pending/
+INFO 2026-06-10 21:34:21,319 wasyncore 5728 5716 Serving on http://0.0.0.0:8000
+WARNING 2026-06-10 23:14:36,837 log 5728 9128 Unauthorized: /api/users/me/
+WARNING 2026-06-11 00:14:48,166 log 5728 9612 Unauthorized: /api/sales/pending/
+WARNING 2026-06-11 00:46:21,875 log 5728 8820 Unauthorized: /api/users/me/
+WARNING 2026-06-11 00:46:21,900 log 5728 9128 Unauthorized: /api/token/refresh/
+WARNING 2026-06-11 01:14:48,172 log 5728 8580 Unauthorized: /api/sales/pending/
+WARNING 2026-06-11 01:14:48,199 log 5728 9612 Unauthorized: /api/token/refresh/
+WARNING 2026-06-11 04:56:59,616 log 5728 8580 Unauthorized: /api/users/me/
+WARNING 2026-06-11 04:56:59,657 log 5728 9612 Unauthorized: /api/token/refresh/
+INFO 2026-06-11 21:33:15,975 wasyncore 5896 5628 Serving on http://0.0.0.0:8000
+WARNING 2026-06-12 00:05:47,147 log 5896 9580 Unauthorized: /api/sales/pending/
+WARNING 2026-06-12 01:05:47,151 log 5896 9588 Unauthorized: /api/sales/pending/
+WARNING 2026-06-12 02:05:47,125 log 5896 9580 Unauthorized: /api/sales/pending/
+WARNING 2026-06-12 05:28:00,835 log 5896 9608 Unauthorized: /api/users/me/
+WARNING 2026-06-12 06:28:45,543 log 5896 9588 Unauthorized: /api/sales/pending/
+WARNING 2026-06-12 06:33:49,770 log 5896 9608 Unauthorized: /api/users/me/
+WARNING 2026-06-12 06:33:49,803 log 5896 9580 Unauthorized: /api/token/refresh/
+WARNING 2026-06-12 07:28:45,558 log 5896 9588 Unauthorized: /api/sales/pending/
+WARNING 2026-06-12 08:28:45,528 log 5896 9580 Unauthorized: /api/sales/pending/
+WARNING 2026-06-12 09:28:45,518 log 5896 9576 Unauthorized: /api/sales/pending/
+INFO 2026-06-12 21:47:05,679 wasyncore 9820 9824 Serving on http://0.0.0.0:8000
+INFO 2026-06-14 02:41:15,936 wasyncore 9460 9464 Serving on http://0.0.0.0:8000
+INFO 2026-06-14 21:39:48,649 wasyncore 4144 3768 Serving on http://0.0.0.0:8000
+WARNING 2026-06-14 21:56:32,591 log 4144 10156 Unauthorized: /api/users/me/
+WARNING 2026-06-14 21:56:32,607 log 4144 10164 Unauthorized: /api/token/refresh/
+WARNING 2026-06-15 00:46:18,921 log 4144 10156 Unauthorized: /api/users/me/
+WARNING 2026-06-15 00:46:18,982 log 4144 10152 Unauthorized: /api/token/refresh/
+WARNING 2026-06-15 01:46:42,350 log 4144 10152 Unauthorized: /api/sales/pending/
+WARNING 2026-06-15 01:48:53,763 log 4144 10156 Unauthorized: /api/users/me/
+WARNING 2026-06-15 02:46:42,361 log 4144 10156 Unauthorized: /api/sales/pending/
+WARNING 2026-06-15 03:46:42,359 log 4144 10152 Unauthorized: /api/sales/pending/
+WARNING 2026-06-15 04:22:14,382 log 4144 10164 Unauthorized: /api/users/me/
+WARNING 2026-06-15 04:46:42,325 log 4144 10156 Unauthorized: /api/sales/pending/
+INFO 2026-06-15 21:35:15,148 wasyncore 9060 9064 Serving on http://0.0.0.0:8000
+WARNING 2026-06-15 21:59:36,152 log 9060 8708 Unauthorized: /api/users/me/
+WARNING 2026-06-15 21:59:36,170 log 9060 8864 Unauthorized: /api/token/refresh/
+WARNING 2026-06-15 23:00:37,096 log 9060 8864 Unauthorized: /api/users/me/
+WARNING 2026-06-15 23:01:15,855 log 9060 9000 Unauthorized: /api/sales/search_products/
+WARNING 2026-06-16 00:00:41,576 log 9060 9000 Unauthorized: /api/sales/pending/
+WARNING 2026-06-16 00:06:18,962 log 9060 8864 Unauthorized: /api/sales/
+WARNING 2026-06-16 00:09:29,920 task 9060 9064 Task queue depth is 1
+WARNING 2026-06-16 00:09:29,974 task 9060 9064 Task queue depth is 1
+WARNING 2026-06-16 00:09:30,346 task 9060 9064 Task queue depth is 1
+WARNING 2026-06-16 00:09:30,379 task 9060 9064 Task queue depth is 1
+WARNING 2026-06-16 00:09:30,409 task 9060 9064 Task queue depth is 2
+WARNING 2026-06-16 00:09:30,444 task 9060 9064 Task queue depth is 1
+WARNING 2026-06-16 00:09:30,494 task 9060 9064 Task queue depth is 1
+WARNING 2026-06-16 00:43:08,447 log 9060 8772 Unauthorized: /api/users/me/
+WARNING 2026-06-16 00:43:08,538 log 9060 9000 Unauthorized: /api/token/refresh/
+WARNING 2026-06-16 01:00:41,576 log 9060 8772 Unauthorized: /api/sales/pending/
+WARNING 2026-06-16 01:00:41,615 log 9060 8708 Unauthorized: /api/token/refresh/
+WARNING 2026-06-16 01:10:10,776 log 9060 8708 Unauthorized: /api/categories/
+WARNING 2026-06-16 01:10:10,778 log 9060 8864 Unauthorized: /api/products/
+WARNING 2026-06-16 01:10:10,779 log 9060 9000 Unauthorized: /api/suppliers/
+WARNING 2026-06-16 02:26:32,693 log 9060 9000 Unauthorized: /api/categories/
+WARNING 2026-06-16 02:26:32,695 log 9060 8708 Unauthorized: /api/suppliers/
+WARNING 2026-06-16 02:26:32,696 log 9060 8864 Unauthorized: /api/products/
+WARNING 2026-06-16 02:33:41,578 log 9060 8708 Unauthorized: /api/sales/pending/
+WARNING 2026-06-16 03:33:41,575 log 9060 8772 Unauthorized: /api/sales/pending/
+WARNING 2026-06-16 04:33:41,591 log 9060 8772 Unauthorized: /api/sales/pending/
+WARNING 2026-06-16 05:33:41,599 log 9060 8864 Unauthorized: /api/sales/pending/
+WARNING 2026-06-16 06:33:41,591 log 9060 8708 Unauthorized: /api/sales/pending/
+INFO 2026-06-16 21:39:50,475 wasyncore 9616 9620 Serving on http://0.0.0.0:8000
+WARNING 2026-06-16 23:10:13,233 log 9616 4820 Unauthorized: /api/users/me/
+WARNING 2026-06-16 23:10:13,246 log 9616 4824 Unauthorized: /api/token/refresh/
+WARNING 2026-06-16 23:14:05,521 log 9616 4820 Unauthorized: /api/users/me/
+WARNING 2026-06-17 00:14:39,633 log 9616 4820 Unauthorized: /api/sales/pending/
+WARNING 2026-06-17 00:15:29,987 log 9616 4820 Unauthorized: /api/users/me/
+WARNING 2026-06-17 00:15:30,046 log 9616 4292 Unauthorized: /api/token/refresh/
+WARNING 2026-06-17 01:14:39,639 log 9616 4292 Unauthorized: /api/sales/pending/
+WARNING 2026-06-17 02:14:39,614 log 9616 4824 Unauthorized: /api/sales/pending/
+WARNING 2026-06-17 02:14:39,640 log 9616 4292 Unauthorized: /api/token/refresh/
+WARNING 2026-06-17 02:24:15,024 log 9616 4720 Unauthorized: /api/sales/pending/
+WARNING 2026-06-17 03:01:02,006 log 9616 4824 Unauthorized: /api/sales/
+WARNING 2026-06-17 03:24:15,033 log 9616 4292 Unauthorized: /api/sales/pending/
+WARNING 2026-06-17 04:24:15,004 log 9616 4820 Unauthorized: /api/sales/pending/
+WARNING 2026-06-17 05:25:14,990 log 9616 4820 Unauthorized: /api/sales/pending/
+WARNING 2026-06-17 06:26:14,967 log 9616 4820 Unauthorized: /api/sales/pending/
+WARNING 2026-06-17 06:55:49,317 log 9616 4820 Unauthorized: /api/sales/search_customers/
+WARNING 2026-06-17 06:55:49,342 log 9616 4292 Unauthorized: /api/sales/search_customers/
+INFO 2026-06-17 21:35:29,648 wasyncore 7756 8236 Serving on http://0.0.0.0:8000
+WARNING 2026-06-17 23:38:37,646 log 7756 468 Unauthorized: /api/users/me/
+WARNING 2026-06-17 23:40:59,335 log 7756 512 Unauthorized: /api/users/me/
+WARNING 2026-06-18 00:41:15,392 log 7756 656 Unauthorized: /api/sales/pending/
+WARNING 2026-06-18 01:41:15,385 log 7756 468 Unauthorized: /api/sales/pending/
+WARNING 2026-06-18 02:41:15,332 log 7756 512 Unauthorized: /api/sales/pending/
+WARNING 2026-06-18 03:32:03,259 log 7756 468 Unauthorized: /api/users/me/
+WARNING 2026-06-18 03:32:03,302 log 7756 656 Unauthorized: /api/token/refresh/
+WARNING 2026-06-18 03:42:10,314 log 7756 468 Unauthorized: /api/sales/pending/
+WARNING 2026-06-18 04:25:51,477 log 7756 512 Unauthorized: /api/users/me/
+WARNING 2026-06-18 04:25:51,495 log 7756 656 Unauthorized: /api/token/refresh/
+WARNING 2026-06-18 04:42:15,258 log 7756 496 Unauthorized: /api/sales/pending/
+WARNING 2026-06-18 05:03:39,116 task 7756 8236 Task queue depth is 1
+WARNING 2026-06-18 05:03:39,142 task 7756 8236 Task queue depth is 1
+WARNING 2026-06-18 05:03:39,386 task 7756 8236 Task queue depth is 1
+WARNING 2026-06-18 05:03:39,418 task 7756 8236 Task queue depth is 1
+WARNING 2026-06-18 05:03:39,778 task 7756 8236 Task queue depth is 1
+WARNING 2026-06-18 05:05:31,570 task 7756 8236 Task queue depth is 1
+WARNING 2026-06-18 05:05:31,599 task 7756 8236 Task queue depth is 1
+WARNING 2026-06-18 05:05:32,382 task 7756 8236 Task queue depth is 1
+WARNING 2026-06-18 05:08:08,838 task 7756 8236 Task queue depth is 1
+WARNING 2026-06-18 05:08:08,924 task 7756 8236 Task queue depth is 1
+WARNING 2026-06-18 05:08:09,257 task 7756 8236 Task queue depth is 1
+WARNING 2026-06-18 05:08:09,294 task 7756 8236 Task queue depth is 1
+WARNING 2026-06-18 05:08:09,298 task 7756 8236 Task queue depth is 1
+WARNING 2026-06-18 05:09:40,429 task 7756 8236 Task queue depth is 1
+WARNING 2026-06-18 05:09:40,455 task 7756 8236 Task queue depth is 2
+WARNING 2026-06-18 05:09:40,477 task 7756 8236 Task queue depth is 2
+WARNING 2026-06-18 05:09:40,486 task 7756 8236 Task queue depth is 1
+WARNING 2026-06-18 05:09:40,503 task 7756 8236 Task queue depth is 1
+WARNING 2026-06-18 05:09:40,519 task 7756 8236 Task queue depth is 1
+WARNING 2026-06-18 05:09:40,520 task 7756 8236 Task queue depth is 2
+WARNING 2026-06-18 05:09:40,570 task 7756 8236 Task queue depth is 1
+WARNING 2026-06-18 05:09:40,573 task 7756 8236 Task queue depth is 1
+WARNING 2026-06-18 05:09:40,580 task 7756 8236 Task queue depth is 1
+WARNING 2026-06-18 05:09:40,588 task 7756 8236 Task queue depth is 1
+WARNING 2026-06-18 05:09:40,594 task 7756 8236 Task queue depth is 1
+WARNING 2026-06-18 05:09:40,602 task 7756 8236 Task queue depth is 1
+WARNING 2026-06-18 05:09:40,610 task 7756 8236 Task queue depth is 2
+WARNING 2026-06-18 05:09:40,665 task 7756 8236 Task queue depth is 1
+WARNING 2026-06-18 05:09:40,686 task 7756 8236 Task queue depth is 1
+WARNING 2026-06-18 05:09:40,690 task 7756 8236 Task queue depth is 2
+WARNING 2026-06-18 05:09:40,702 task 7756 8236 Task queue depth is 2
+WARNING 2026-06-18 05:09:40,750 task 7756 8236 Task queue depth is 1
+WARNING 2026-06-18 05:09:40,768 task 7756 8236 Task queue depth is 1
+WARNING 2026-06-18 05:42:15,235 log 7756 468 Unauthorized: /api/sales/pending/
+WARNING 2026-06-18 06:17:09,663 log 7756 468 Unauthorized: /api/sales/search_customers/
+WARNING 2026-06-18 06:17:09,673 log 7756 496 Unauthorized: /api/sales/search_customers/
+WARNING 2026-06-18 06:42:15,191 log 7756 656 Unauthorized: /api/sales/pending/
+WARNING 2026-06-18 07:42:15,156 log 7756 512 Unauthorized: /api/sales/pending/
+WARNING 2026-06-18 07:42:15,185 log 7756 496 Unauthorized: /api/token/refresh/
+INFO 2026-06-18 21:37:25,482 wasyncore 9124 9128 Serving on http://0.0.0.0:8000
+WARNING 2026-06-18 22:09:43,777 log 9124 9868 Unauthorized: /api/users/me/
+INFO 2026-06-18 23:02:31,256 wasyncore 4784 3528 Serving on http://0.0.0.0:8000
+WARNING 2026-06-18 23:16:06,769 log 4784 9520 Unauthorized: /api/categories/
+WARNING 2026-06-18 23:16:06,769 log 4784 9516 Unauthorized: /api/suppliers/
+WARNING 2026-06-18 23:16:06,769 log 4784 9512 Unauthorized: /api/products/
+INFO 2026-06-18 23:48:37,019 autoreload 4560 6276 Watching for file changes with StatReloader
+INFO 2026-06-18 23:48:56,792 log 4560 3004 "GET /admin HTTP/1.1" 301 0
+INFO 2026-06-18 23:48:56,853 log 4560 3004 "GET /admin/ HTTP/1.1" 302 0
+INFO 2026-06-18 23:48:57,033 log 4560 3004 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4084
+INFO 2026-06-18 23:48:57,210 log 4560 10648 "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 3538
+INFO 2026-06-18 23:48:57,272 log 4560 3004 "GET /static/admin/css/base.css HTTP/1.1" 200 23100
+INFO 2026-06-18 23:48:57,272 log 4560 9192 "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+INFO 2026-06-18 23:48:57,277 log 4560 5516 "GET /static/admin/css/login.css HTTP/1.1" 200 951
+INFO 2026-06-18 23:48:57,288 log 4560 11084 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+INFO 2026-06-18 23:48:57,301 log 4560 2640 "GET /static/admin/css/responsive.css HTTP/1.1" 200 16273
+INFO 2026-06-18 23:48:57,327 log 4560 5516 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+WARNING 2026-06-18 23:48:57,406 log 4560 5516 Not Found: /favicon.ico
+WARNING 2026-06-18 23:48:57,413 log 4560 5516 "GET /favicon.ico HTTP/1.1" 404 3037
+INFO 2026-06-18 23:49:02,426 log 4560 5516 "POST /admin/login/?next=/admin/ HTTP/1.1" 200 4271
+INFO 2026-06-18 23:50:27,241 log 4560 5516 "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2026-06-18 23:50:27,372 log 4560 5516 "GET /admin/ HTTP/1.1" 200 18937
+INFO 2026-06-18 23:50:27,403 log 4560 5516 "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+INFO 2026-06-18 23:50:27,425 log 4560 2640 "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 978
+INFO 2026-06-18 23:50:27,425 log 4560 11084 "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 689
+INFO 2026-06-18 23:50:27,426 log 4560 5516 "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 593
+INFO 2026-06-18 23:50:31,390 log 4560 11084 "GET /admin/ HTTP/1.1" 200 18937
+INFO 2026-06-19 02:15:57,088 autoreload 4560 6276 C:\Users\tr\Desktop\backend\Stocks\Stock\Sales\models.py changed, reloading.
+INFO 2026-06-19 02:15:58,645 autoreload 5684 7372 Watching for file changes with StatReloader
+INFO 2026-06-19 02:36:42,819 autoreload 13280 6964 Watching for file changes with StatReloader
+INFO 2026-06-19 02:37:28,178 autoreload 13280 6964 C:\Users\tr\Desktop\backend\Stocks\Stock\Sales\views.py changed, reloading.
+INFO 2026-06-19 02:37:29,308 autoreload 9948 10856 Watching for file changes with StatReloader
+INFO 2026-06-19 02:46:28,453 wasyncore 4784 4980 Serving on http://0.0.0.0:8000
+INFO 2026-06-19 02:47:00,942 wasyncore 12316 7888 Serving on http://0.0.0.0:8000
+WARNING 2026-06-19 02:47:12,878 log 12316 9644 Unauthorized: /api/sales/pending/
+ERROR 2026-06-19 02:47:13,367 log 12316 12908 Internal Server Error: /api/sales/pending/
+Traceback (most recent call last):
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\Stock\Sales\views.py", line 607, in pending
+    serializer = self.get_serializer(pending_sales, many=True)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\generics.py", line 114, in get_serializer
+    return serializer_class(*args, **kwargs)
+TypeError: 'NoneType' object is not callable
+ERROR 2026-06-19 02:48:12,840 log 12316 9644 Internal Server Error: /api/sales/pending/
+Traceback (most recent call last):
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\Stock\Sales\views.py", line 607, in pending
+    serializer = self.get_serializer(pending_sales, many=True)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\generics.py", line 114, in get_serializer
+    return serializer_class(*args, **kwargs)
+TypeError: 'NoneType' object is not callable
+WARNING 2026-06-19 02:48:31,655 log 12316 9416 Unauthorized: /api/users/me/
+WARNING 2026-06-19 02:48:31,694 log 12316 9644 Unauthorized: /api/token/refresh/
+ERROR 2026-06-19 02:49:12,840 log 12316 11216 Internal Server Error: /api/sales/pending/
+Traceback (most recent call last):
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\Stock\Sales\views.py", line 607, in pending
+    serializer = self.get_serializer(pending_sales, many=True)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\generics.py", line 114, in get_serializer
+    return serializer_class(*args, **kwargs)
+TypeError: 'NoneType' object is not callable
+ERROR 2026-06-19 02:50:12,853 log 12316 9416 Internal Server Error: /api/sales/pending/
+Traceback (most recent call last):
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\Stock\Sales\views.py", line 607, in pending
+    serializer = self.get_serializer(pending_sales, many=True)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\generics.py", line 114, in get_serializer
+    return serializer_class(*args, **kwargs)
+TypeError: 'NoneType' object is not callable
+WARNING 2026-06-19 02:50:44,398 log 12316 12908 Unauthorized: /api/users/me/
+ERROR 2026-06-19 02:51:12,841 log 12316 9416 Internal Server Error: /api/sales/pending/
+Traceback (most recent call last):
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\Stock\Sales\views.py", line 607, in pending
+    serializer = self.get_serializer(pending_sales, many=True)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\generics.py", line 114, in get_serializer
+    return serializer_class(*args, **kwargs)
+TypeError: 'NoneType' object is not callable
+ERROR 2026-06-19 02:52:12,974 log 12316 12908 Internal Server Error: /api/sales/pending/
+Traceback (most recent call last):
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\Stock\Sales\views.py", line 607, in pending
+    serializer = self.get_serializer(pending_sales, many=True)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\generics.py", line 114, in get_serializer
+    return serializer_class(*args, **kwargs)
+TypeError: 'NoneType' object is not callable
+ERROR 2026-06-19 02:52:29,811 log 12316 9416 Internal Server Error: /api/sales/
+Traceback (most recent call last):
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\mixins.py", line 42, in list
+    serializer = self.get_serializer(page, many=True)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\generics.py", line 114, in get_serializer
+    return serializer_class(*args, **kwargs)
+TypeError: 'NoneType' object is not callable
+ERROR 2026-06-19 02:53:12,831 log 12316 12908 Internal Server Error: /api/sales/pending/
+Traceback (most recent call last):
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\Stock\Sales\views.py", line 607, in pending
+    serializer = self.get_serializer(pending_sales, many=True)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\generics.py", line 114, in get_serializer
+    return serializer_class(*args, **kwargs)
+TypeError: 'NoneType' object is not callable
+ERROR 2026-06-19 02:53:34,189 log 12316 9644 Internal Server Error: /api/sales/
+Traceback (most recent call last):
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\mixins.py", line 42, in list
+    serializer = self.get_serializer(page, many=True)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\generics.py", line 114, in get_serializer
+    return serializer_class(*args, **kwargs)
+TypeError: 'NoneType' object is not callable
+ERROR 2026-06-19 02:53:43,261 log 12316 9416 Internal Server Error: /api/sales/
+Traceback (most recent call last):
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\mixins.py", line 42, in list
+    serializer = self.get_serializer(page, many=True)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\generics.py", line 114, in get_serializer
+    return serializer_class(*args, **kwargs)
+TypeError: 'NoneType' object is not callable
+ERROR 2026-06-19 02:53:55,096 log 12316 9416 Internal Server Error: /api/sales/
+Traceback (most recent call last):
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\mixins.py", line 42, in list
+    serializer = self.get_serializer(page, many=True)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\generics.py", line 114, in get_serializer
+    return serializer_class(*args, **kwargs)
+TypeError: 'NoneType' object is not callable
+ERROR 2026-06-19 02:53:57,998 log 12316 12908 Internal Server Error: /api/sales/
+Traceback (most recent call last):
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\mixins.py", line 42, in list
+    serializer = self.get_serializer(page, many=True)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\generics.py", line 114, in get_serializer
+    return serializer_class(*args, **kwargs)
+TypeError: 'NoneType' object is not callable
+ERROR 2026-06-19 02:54:12,823 log 12316 11216 Internal Server Error: /api/sales/pending/
+Traceback (most recent call last):
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\Stock\Sales\views.py", line 607, in pending
+    serializer = self.get_serializer(pending_sales, many=True)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\generics.py", line 114, in get_serializer
+    return serializer_class(*args, **kwargs)
+TypeError: 'NoneType' object is not callable
+ERROR 2026-06-19 02:55:12,962 log 12316 9416 Internal Server Error: /api/sales/pending/
+Traceback (most recent call last):
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\Stock\Sales\views.py", line 607, in pending
+    serializer = self.get_serializer(pending_sales, many=True)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\generics.py", line 114, in get_serializer
+    return serializer_class(*args, **kwargs)
+TypeError: 'NoneType' object is not callable
+ERROR 2026-06-19 02:56:12,832 log 12316 9644 Internal Server Error: /api/sales/pending/
+Traceback (most recent call last):
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\Stock\Sales\views.py", line 607, in pending
+    serializer = self.get_serializer(pending_sales, many=True)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\generics.py", line 114, in get_serializer
+    return serializer_class(*args, **kwargs)
+TypeError: 'NoneType' object is not callable
+ERROR 2026-06-19 02:57:12,973 log 12316 12908 Internal Server Error: /api/sales/pending/
+Traceback (most recent call last):
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\Stock\Sales\views.py", line 607, in pending
+    serializer = self.get_serializer(pending_sales, many=True)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\generics.py", line 114, in get_serializer
+    return serializer_class(*args, **kwargs)
+TypeError: 'NoneType' object is not callable
+ERROR 2026-06-19 02:58:12,840 log 12316 11216 Internal Server Error: /api/sales/pending/
+Traceback (most recent call last):
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\Stock\Sales\views.py", line 607, in pending
+    serializer = self.get_serializer(pending_sales, many=True)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\generics.py", line 114, in get_serializer
+    return serializer_class(*args, **kwargs)
+TypeError: 'NoneType' object is not callable
+ERROR 2026-06-19 02:59:12,831 log 12316 9416 Internal Server Error: /api/sales/pending/
+Traceback (most recent call last):
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\Stock\Sales\views.py", line 607, in pending
+    serializer = self.get_serializer(pending_sales, many=True)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\generics.py", line 114, in get_serializer
+    return serializer_class(*args, **kwargs)
+TypeError: 'NoneType' object is not callable
+ERROR 2026-06-19 03:00:12,820 log 12316 9644 Internal Server Error: /api/sales/pending/
+Traceback (most recent call last):
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\tr\Desktop\backend\Stocks\Stock\Sales\views.py", line 607, in pending
+    serializer = self.get_serializer(pending_sales, many=True)
+  File "C:\Users\tr\Desktop\backend\Stocks\venv\Lib\site-packages\rest_framework\generics.py", line 114, in get_serializer
+    return serializer_class(*args, **kwargs)
+TypeError: 'NoneType' object is not callable
+INFO 2026-06-19 03:00:39,883 wasyncore 10912 11568 Serving on http://0.0.0.0:8000

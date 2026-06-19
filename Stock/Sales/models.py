@@ -471,3 +471,47 @@ class Salesperson(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class ReturnTransaction(models.Model):
+    """
+    Tracks a customer return event. One transaction can hold multiple products.
+    Stock is increased immediately on save — no approval workflow.
+    Records are never deleted (permanent audit trail).
+    """
+    customer = models.ForeignKey(
+        Customer, on_delete=models.PROTECT, related_name='returns'
+    )
+    reason = models.TextField(
+        help_text="Why the customer is returning (damaged, wrong item, etc.)"
+    )
+    return_date = models.DateField()
+    returned_by = models.ForeignKey(
+        User, on_delete=models.SET_NULL, null=True, related_name='processed_returns'
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+ 
+    class Meta:
+        ordering = ['-created_at']
+ 
+    def __str__(self):
+        return f"Return #{self.pk} — {self.customer.company_name} on {self.return_date}"
+ 
+ 
+class ReturnItem(models.Model):
+    """
+    Individual product line inside a ReturnTransaction.
+    """
+    return_transaction = models.ForeignKey(
+        ReturnTransaction, on_delete=models.CASCADE, related_name='items'
+    )
+    product = models.ForeignKey(
+        Product, on_delete=models.PROTECT, related_name='return_items'
+    )
+    quantity = models.PositiveIntegerField()
+ 
+    class Meta:
+        ordering = ['id']
+ 
+    def __str__(self):
+        return f"{self.product.code} x {self.quantity}"

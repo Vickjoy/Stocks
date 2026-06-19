@@ -17,7 +17,7 @@ from decimal import Decimal, ROUND_HALF_UP
 from .models import (
     UserProfile, Category, SubCategory, SubSubCategory, ProductGroup, Supplier, Customer, Product,
     Salesperson, MonthlyOpeningStock, StockEntry, StockMovement, AuditLog, Sale, SaleLineItem,
-    DeliveryRecord, DeliveryLineItem,
+    DeliveryRecord, DeliveryLineItem, ReturnTransaction, ReturnItem
 )
 from .serializers import (
     UserSerializer, UserDetailSerializer,
@@ -28,6 +28,7 @@ from .serializers import (
     AuditLogSerializer, DashboardSummarySerializer, SaleSerializer, SaleCreateSerializer,
     PasswordResetRequestSerializer, PasswordResetConfirmSerializer, SaleApprovalSerializer,
     DeliveryRecordSerializer, DeliveryRecordCreateSerializer, StockDiscrepancySerializer,
+    ReturnTransactionSerializer
 )
 
 # ========================
@@ -565,9 +566,29 @@ class SaleViewSet(viewsets.ModelViewSet):
     ordering_fields = ['created_at', 'total_amount']
 
     def get_serializer_class(self):
-        if self.action == 'create':
+        if self.action in ('create', 'update', 'partial_update'):
             return SaleCreateSerializer
         return SaleSerializer
+    
+    def update(self, request, *args, **kwargs):
+        sale = self.get_object()
+ 
+        if sale.status != 'pending':
+            return Response(
+                {'error': 'Only pending sales can be edited.'},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+ 
+        # partial_update (PATCH) support
+        partial = kwargs.pop('partial', False)
+        serializer = SaleCreateSerializer(
+            sale, data=request.data, partial=partial, context={'request': request}
+        )
+        serializer.is_valid(raise_exception=True)
+        updated_sale = serializer.save()
+ 
+        # Return the full read serializer so the frontend sees all computed fields
+        return Response(SaleSerializer(updated_sale).data)
 
     @action(detail=False, methods=['get'])
     def pending(self, request):
@@ -1121,4 +1142,31 @@ def password_reset_validate(request, uid, token):
         return Response(
             {'valid': False, 'error': 'Invalid reset link'},
             status=status.HTTP_400_BAD_REQUEST
+        )
+
+
+class ReturnTransactionViewSet(viewsets.ModelViewSet):
+    """
+    Handles customer returns.  Stock is updated immediately; no approval needed.
+    Records are never deleted — permanent audit trail.
+    """
+    queryset = ReturnTransaction.objects.select_related(
+        'customer', 'returned_by'
+    ).prefetch_related(
+        'items__product__category',
+        'items__product__subcategory',
+    ).order_by('-created_at')
+ 
+    serializer_class = ReturnTransactionSerializer
+    permission_classes = [permissions.IsAuthenticated]
+    filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
+    filterset_fields = ['customer']
+    search_fields = ['customer__company_name', 'reason']
+    ordering_fields = ['created_at', 'return_date']
+ 
+    # Disable DELETE — records must be permanent
+    def destroy(self, request, *args, **kwargs):
+        return Response(
+            {'error': 'Return records cannot be deleted. They form a permanent audit trail.'},
+            status=status.HTTP_405_METHOD_NOT_ALLOWED,
         )
