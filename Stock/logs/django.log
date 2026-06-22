@@ -70701,3 +70701,670 @@ Traceback (most recent call last):
     return serializer_class(*args, **kwargs)
 TypeError: 'NoneType' object is not callable
 INFO 2026-06-19 03:00:39,883 wasyncore 10912 11568 Serving on http://0.0.0.0:8000
+INFO 2026-06-19 03:48:50,630 wasyncore 12188 7060 Serving on http://0.0.0.0:8000
+WARNING 2026-06-19 03:49:00,122 log 12188 12260 Unauthorized: /api/users/me/
+INFO 2026-06-19 04:34:40,929 wasyncore 8560 8656 Serving on http://0.0.0.0:8000
+WARNING 2026-06-19 04:34:53,958 log 8560 9960 Unauthorized: /api/users/me/
+WARNING 2026-06-19 04:34:54,013 log 8560 9968 Unauthorized: /api/token/refresh/
+INFO 2026-06-19 04:55:12,631 wasyncore 8920 8896 Serving on http://0.0.0.0:8000
+WARNING 2026-06-19 05:48:31,177 log 8920 9732 Unauthorized: /api/users/me/
+WARNING 2026-06-19 05:48:31,270 log 8920 9740 Unauthorized: /api/token/refresh/
+WARNING 2026-06-19 06:14:39,158 log 8920 9740 Bad Request: /api/sales/
+WARNING 2026-06-19 06:21:15,995 log 8920 9728 Bad Request: /api/sales/
+WARNING 2026-06-19 06:48:57,993 log 8920 9740 Unauthorized: /api/sales/search_salespersons/
+WARNING 2026-06-19 06:48:58,009 log 8920 9736 Unauthorized: /api/sales/search_salespersons/
+WARNING 2026-06-19 06:49:04,062 task 8920 8896 Task queue depth is 1
+WARNING 2026-06-19 06:49:04,154 task 8920 8896 Task queue depth is 1
+WARNING 2026-06-19 06:49:04,181 task 8920 8896 Task queue depth is 1
+WARNING 2026-06-19 06:49:04,216 task 8920 8896 Task queue depth is 1
+WARNING 2026-06-19 06:49:04,239 task 8920 8896 Task queue depth is 1
+WARNING 2026-06-19 06:49:04,251 task 8920 8896 Task queue depth is 1
+WARNING 2026-06-19 07:05:11,103 log 8920 9728 Unauthorized: /api/users/me/
+INFO 2026-06-19 23:28:46,929 wasyncore 8460 8464 Serving on http://0.0.0.0:8000
+INFO 2026-06-21 21:39:10,254 wasyncore 9636 9640 Serving on http://0.0.0.0:8000
+WARNING 2026-06-21 22:11:46,996 log 9636 9264 Unauthorized: /api/users/me/
+WARNING 2026-06-21 22:11:47,014 log 9636 4472 Unauthorized: /api/token/refresh/
+WARNING 2026-06-21 23:59:36,062 log 9636 9264 Unauthorized: /api/users/me/
+WARNING 2026-06-21 23:59:36,103 log 9636 9300 Unauthorized: /api/token/refresh/
+WARNING 2026-06-22 00:18:35,945 log 9636 9300 Unauthorized: /api/sales/search_customers/
+WARNING 2026-06-22 00:18:35,957 log 9636 9264 Unauthorized: /api/sales/search_customers/
+WARNING 2026-06-22 00:19:48,052 log 9636 4472 Bad Request: /api/sales/
+WARNING 2026-06-22 01:00:08,978 log 9636 5948 Unauthorized: /api/sales/pending/
+WARNING 2026-06-22 02:01:08,936 log 9636 5948 Unauthorized: /api/sales/pending/
+WARNING 2026-06-22 03:01:08,909 log 9636 4472 Unauthorized: /api/sales/pending/
+WARNING 2026-06-22 05:10:37,026 log 9636 5948 Unauthorized: /api/sales/search_customers/
+WARNING 2026-06-22 05:10:37,037 log 9636 9300 Unauthorized: /api/sales/search_customers/
+WARNING 2026-06-22 05:26:10,117 log 9636 5948 Unauthorized: /api/users/me/
+WARNING 2026-06-22 05:26:10,206 log 9636 9264 Unauthorized: /api/token/refresh/
+WARNING 2026-06-22 05:47:50,516 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:47:50,517 task 9636 9640 Task queue depth is 2
+WARNING 2026-06-22 05:47:50,530 log 9636 9300 Not Found: /static/admin/css/dashboard.css
+WARNING 2026-06-22 05:47:50,534 log 9636 4472 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-22 05:47:50,537 log 9636 5948 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 05:47:50,542 log 9636 9264 Not Found: /static/admin/css/base.css
+WARNING 2026-06-22 05:47:50,548 log 9636 9300 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-22 05:47:50,553 log 9636 4472 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 05:47:50,579 log 9636 5948 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-22 05:47:50,584 log 9636 9300 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 05:47:50,590 log 9636 9264 Not Found: /static/admin/css/dashboard.css
+WARNING 2026-06-22 05:47:50,595 log 9636 9300 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 05:47:51,335 log 9636 5948 Not Found: /favicon.ico
+WARNING 2026-06-22 05:48:31,934 log 9636 9264 Not Found: /static/admin/css/base.css
+WARNING 2026-06-22 05:48:31,937 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:48:31,941 log 9636 4472 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-22 05:48:31,945 log 9636 9300 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-22 05:48:31,949 log 9636 5948 Not Found: /static/admin/css/changelists.css
+WARNING 2026-06-22 05:48:31,962 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:48:31,972 log 9636 4472 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 05:48:31,978 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:48:31,977 log 9636 9300 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 05:48:31,985 log 9636 4472 Not Found: /static/admin/js/jquery.init.js
+WARNING 2026-06-22 05:48:31,985 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:48:31,991 log 9636 5948 Not Found: /static/admin/js/vendor/jquery/jquery.js
+WARNING 2026-06-22 05:48:31,991 task 9636 9640 Task queue depth is 2
+WARNING 2026-06-22 05:48:31,993 task 9636 9640 Task queue depth is 2
+WARNING 2026-06-22 05:48:31,998 log 9636 9300 Not Found: /static/admin/js/core.js
+WARNING 2026-06-22 05:48:32,004 log 9636 4472 Not Found: /static/admin/js/actions.js
+WARNING 2026-06-22 05:48:32,009 log 9636 5948 Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2026-06-22 05:48:32,010 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:48:32,015 log 9636 9300 Not Found: /static/admin/js/urlify.js
+WARNING 2026-06-22 05:48:32,016 task 9636 9640 Task queue depth is 2
+WARNING 2026-06-22 05:48:32,025 log 9636 9300 Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+WARNING 2026-06-22 05:48:32,027 log 9636 4472 Not Found: /static/admin/js/prepopulate.js
+WARNING 2026-06-22 05:48:32,034 log 9636 5948 Not Found: /static/admin/img/search.svg
+WARNING 2026-06-22 05:48:32,040 log 9636 9300 Not Found: /static/admin/img/icon-yes.svg
+WARNING 2026-06-22 05:48:32,061 log 9636 4472 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-22 05:48:32,080 log 9636 5948 Not Found: /static/admin/js/filters.js
+WARNING 2026-06-22 05:48:32,124 log 9636 9300 Not Found: /static/admin/img/icon-no.svg
+WARNING 2026-06-22 05:48:32,133 log 9636 4472 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 05:48:32,144 log 9636 5948 Not Found: /static/admin/img/icon-yes.svg
+WARNING 2026-06-22 05:48:37,338 log 9636 9300 Not Found: /static/admin/css/base.css
+WARNING 2026-06-22 05:48:37,340 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:48:37,344 log 9636 9300 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-22 05:48:37,448 log 9636 9264 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 05:48:37,456 log 9636 9300 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-22 05:48:37,459 log 9636 5948 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 05:48:37,451 log 9636 4472 Not Found: /static/admin/css/dashboard.css
+WARNING 2026-06-22 05:48:37,477 log 9636 9264 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-22 05:48:42,863 log 9636 5948 Not Found: /static/admin/css/base.css
+WARNING 2026-06-22 05:48:42,870 log 9636 4472 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-22 05:48:42,876 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:48:42,876 log 9636 9264 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-22 05:48:42,881 log 9636 9300 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 05:48:42,882 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:48:42,888 log 9636 5948 Not Found: /static/admin/css/changelists.css
+WARNING 2026-06-22 05:48:42,889 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:48:42,894 log 9636 9264 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 05:48:42,901 log 9636 5948 Not Found: /static/admin/js/jquery.init.js
+WARNING 2026-06-22 05:48:42,905 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:48:42,905 log 9636 9300 Not Found: /static/admin/js/vendor/jquery/jquery.js
+WARNING 2026-06-22 05:48:42,908 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:48:42,913 log 9636 9264 Not Found: /static/admin/js/core.js
+WARNING 2026-06-22 05:48:42,917 log 9636 5948 Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2026-06-22 05:48:42,923 log 9636 9300 Not Found: /static/admin/js/actions.js
+WARNING 2026-06-22 05:48:42,930 log 9636 9264 Not Found: /static/admin/js/urlify.js
+WARNING 2026-06-22 05:48:42,934 log 9636 9300 Not Found: /static/admin/js/prepopulate.js
+WARNING 2026-06-22 05:48:42,940 log 9636 5948 Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+WARNING 2026-06-22 05:48:42,945 log 9636 9264 Not Found: /static/admin/img/search.svg
+WARNING 2026-06-22 05:48:42,961 log 9636 9300 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-22 05:48:42,969 log 9636 5948 Not Found: /static/admin/js/filters.js
+WARNING 2026-06-22 05:48:42,974 log 9636 9264 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 05:48:47,792 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:48:47,797 task 9636 9640 Task queue depth is 2
+WARNING 2026-06-22 05:48:47,805 log 9636 9300 Not Found: /static/admin/css/base.css
+WARNING 2026-06-22 05:48:47,813 log 9636 5948 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-22 05:48:47,988 log 9636 9264 Not Found: /static/admin/css/forms.css
+WARNING 2026-06-22 05:48:47,993 log 9636 9300 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 05:48:47,998 log 9636 5948 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-22 05:48:48,050 log 9636 5948 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 05:48:48,053 log 9636 9264 Not Found: /static/admin/css/autocomplete.css
+WARNING 2026-06-22 05:48:48,057 log 9636 9300 Not Found: /static/admin/css/vendor/select2/select2.css
+WARNING 2026-06-22 05:48:48,051 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:48:48,065 log 9636 5948 Not Found: /static/admin/js/vendor/jquery/jquery.js
+WARNING 2026-06-22 05:48:48,069 log 9636 9264 Not Found: /static/admin/js/vendor/select2/i18n/en.js
+WARNING 2026-06-22 05:48:48,074 log 9636 4472 Not Found: /static/admin/js/vendor/select2/select2.full.js
+WARNING 2026-06-22 05:48:48,078 log 9636 9300 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 05:48:48,079 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:48:48,088 log 9636 5948 Not Found: /static/admin/js/jquery.init.js
+WARNING 2026-06-22 05:48:48,092 log 9636 4472 Not Found: /static/admin/js/core.js
+WARNING 2026-06-22 05:48:48,093 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:48:48,098 log 9636 9264 Not Found: /static/admin/css/forms.css
+WARNING 2026-06-22 05:48:48,103 log 9636 9300 Not Found: /static/admin/js/autocomplete.js
+WARNING 2026-06-22 05:48:48,103 task 9636 9640 Task queue depth is 2
+WARNING 2026-06-22 05:48:48,107 log 9636 5948 Not Found: /static/admin/js/actions.js
+WARNING 2026-06-22 05:48:48,109 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:48:48,113 log 9636 9264 Not Found: /static/admin/js/urlify.js
+WARNING 2026-06-22 05:48:48,117 log 9636 4472 Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2026-06-22 05:48:48,123 log 9636 9300 Not Found: /static/admin/js/prepopulate.js
+WARNING 2026-06-22 05:48:48,118 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:48:48,129 log 9636 5948 Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+WARNING 2026-06-22 05:48:48,135 log 9636 9264 Not Found: /static/admin/css/vendor/select2/select2.css
+WARNING 2026-06-22 05:48:48,140 log 9636 4472 Not Found: /static/admin/css/autocomplete.css
+WARNING 2026-06-22 05:48:48,144 log 9636 9264 Not Found: /static/admin/js/prepopulate_init.js
+WARNING 2026-06-22 05:48:48,161 log 9636 5948 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-22 05:48:48,162 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:48:48,167 log 9636 9300 Not Found: /static/admin/img/icon-changelink.svg
+WARNING 2026-06-22 05:48:48,172 log 9636 4472 Not Found: /static/admin/img/icon-viewlink.svg
+WARNING 2026-06-22 05:48:48,173 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:48:48,178 log 9636 9264 Not Found: /static/admin/js/change_form.js
+WARNING 2026-06-22 05:48:48,182 log 9636 5948 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 05:48:48,186 log 9636 9300 Not Found: /static/admin/img/icon-addlink.svg
+WARNING 2026-06-22 05:49:08,997 log 9636 9264 Not Found: /static/admin/css/base.css
+WARNING 2026-06-22 05:49:08,999 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:49:09,007 log 9636 5948 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-22 05:49:09,233 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:49:09,234 task 9636 9640 Task queue depth is 2
+WARNING 2026-06-22 05:49:09,249 log 9636 9300 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 05:49:09,252 log 9636 4472 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-22 05:49:09,255 log 9636 9264 Not Found: /static/admin/js/vendor/jquery/jquery.js
+WARNING 2026-06-22 05:49:09,261 log 9636 5948 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 05:49:09,256 task 9636 9640 Task queue depth is 2
+WARNING 2026-06-22 05:49:09,268 log 9636 9300 Not Found: /static/admin/js/jquery.init.js
+WARNING 2026-06-22 05:49:09,273 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:49:09,273 log 9636 5948 Not Found: /static/admin/js/core.js
+WARNING 2026-06-22 05:49:09,274 task 9636 9640 Task queue depth is 2
+WARNING 2026-06-22 05:49:09,279 log 9636 4472 Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2026-06-22 05:49:09,285 log 9636 9264 Not Found: /static/admin/js/prepopulate.js
+WARNING 2026-06-22 05:49:09,290 log 9636 9300 Not Found: /static/admin/js/actions.js
+WARNING 2026-06-22 05:49:09,294 log 9636 5948 Not Found: /static/admin/js/urlify.js
+WARNING 2026-06-22 05:49:09,294 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:49:09,301 log 9636 4472 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 05:49:09,305 log 9636 9264 Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+WARNING 2026-06-22 05:49:09,317 log 9636 5948 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-22 05:49:09,323 log 9636 9300 Not Found: /static/admin/js/cancel.js
+WARNING 2026-06-22 05:49:09,327 log 9636 4472 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 05:49:17,099 log 9636 9300 Not Found: /static/admin/css/base.css
+WARNING 2026-06-22 05:49:17,100 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:49:17,107 log 9636 5948 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-22 05:49:17,115 log 9636 9300 Not Found: /static/admin/css/changelists.css
+WARNING 2026-06-22 05:49:17,111 log 9636 4472 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-22 05:49:17,119 log 9636 9264 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 05:49:17,107 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:49:17,128 log 9636 9300 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 05:49:17,130 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:49:17,135 log 9636 9264 Not Found: /static/admin/js/vendor/jquery/jquery.js
+WARNING 2026-06-22 05:49:17,136 task 9636 9640 Task queue depth is 2
+WARNING 2026-06-22 05:49:17,141 log 9636 4472 Not Found: /static/admin/js/jquery.init.js
+WARNING 2026-06-22 05:49:17,141 task 9636 9640 Task queue depth is 2
+WARNING 2026-06-22 05:49:17,146 log 9636 9300 Not Found: /static/admin/js/core.js
+WARNING 2026-06-22 05:49:17,147 task 9636 9640 Task queue depth is 2
+WARNING 2026-06-22 05:49:17,157 log 9636 4472 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 05:49:17,159 log 9636 9264 Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2026-06-22 05:49:17,159 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:49:17,164 log 9636 9300 Not Found: /static/admin/css/changelists.css
+WARNING 2026-06-22 05:49:17,165 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:49:17,170 log 9636 4472 Not Found: /static/admin/js/actions.js
+WARNING 2026-06-22 05:49:17,176 log 9636 9264 Not Found: /static/admin/js/urlify.js
+WARNING 2026-06-22 05:49:17,180 log 9636 4472 Not Found: /static/admin/js/prepopulate.js
+WARNING 2026-06-22 05:49:17,181 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:49:17,187 log 9636 9264 Not Found: /static/admin/img/search.svg
+WARNING 2026-06-22 05:49:17,193 log 9636 9300 Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+WARNING 2026-06-22 05:49:17,216 log 9636 4472 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-22 05:49:17,222 log 9636 9264 Not Found: /static/admin/js/filters.js
+WARNING 2026-06-22 05:49:17,226 log 9636 9300 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 05:49:23,391 log 9636 4472 Not Found: /static/admin/css/base.css
+WARNING 2026-06-22 05:49:23,392 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:49:23,397 log 9636 9264 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-22 05:49:23,526 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:49:23,533 log 9636 9300 Not Found: /static/admin/css/changelists.css
+WARNING 2026-06-22 05:49:23,538 log 9636 5948 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-22 05:49:23,543 log 9636 9264 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 05:49:23,543 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:49:23,544 task 9636 9640 Task queue depth is 2
+WARNING 2026-06-22 05:49:23,551 log 9636 9300 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 05:49:23,555 log 9636 5948 Not Found: /static/admin/js/vendor/jquery/jquery.js
+WARNING 2026-06-22 05:49:23,560 log 9636 9264 Not Found: /static/admin/js/jquery.init.js
+WARNING 2026-06-22 05:49:23,566 log 9636 9300 Not Found: /static/admin/js/core.js
+WARNING 2026-06-22 05:49:23,571 log 9636 5948 Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2026-06-22 05:49:23,576 log 9636 9264 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 05:49:23,578 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:49:23,584 log 9636 5948 Not Found: /static/admin/js/actions.js
+WARNING 2026-06-22 05:49:23,589 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:49:23,594 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:49:23,588 log 9636 9300 Not Found: /static/admin/css/changelists.css
+WARNING 2026-06-22 05:49:23,593 log 9636 9264 Not Found: /static/admin/js/urlify.js
+WARNING 2026-06-22 05:49:23,600 log 9636 5948 Not Found: /static/admin/js/prepopulate.js
+WARNING 2026-06-22 05:49:23,601 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:49:23,605 log 9636 9300 Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+WARNING 2026-06-22 05:49:23,613 log 9636 9264 Not Found: /static/admin/img/search.svg
+WARNING 2026-06-22 05:49:23,627 log 9636 5948 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-22 05:49:23,633 log 9636 9300 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 05:49:23,637 log 9636 4472 Not Found: /static/admin/js/filters.js
+WARNING 2026-06-22 05:49:27,580 log 9636 5948 Not Found: /static/admin/css/base.css
+WARNING 2026-06-22 05:49:27,588 log 9636 9300 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-22 05:49:27,588 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:49:27,592 log 9636 9264 Not Found: /static/admin/css/changelists.css
+WARNING 2026-06-22 05:49:27,595 log 9636 4472 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 05:49:27,598 log 9636 5948 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-22 05:49:27,697 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:49:27,709 log 9636 9264 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 05:49:27,715 log 9636 4472 Not Found: /static/admin/js/vendor/jquery/jquery.js
+WARNING 2026-06-22 05:49:27,727 log 9636 5948 Not Found: /static/admin/js/core.js
+WARNING 2026-06-22 05:49:27,732 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:49:27,731 log 9636 9264 Not Found: /static/admin/js/jquery.init.js
+WARNING 2026-06-22 05:49:27,737 log 9636 4472 Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2026-06-22 05:49:27,737 task 9636 9640 Task queue depth is 2
+WARNING 2026-06-22 05:49:27,746 log 9636 5948 Not Found: /static/admin/js/actions.js
+WARNING 2026-06-22 05:49:27,750 log 9636 9264 Not Found: /static/admin/js/urlify.js
+WARNING 2026-06-22 05:49:27,756 log 9636 4472 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 05:49:27,763 log 9636 9264 Not Found: /static/admin/js/prepopulate.js
+WARNING 2026-06-22 05:49:27,767 log 9636 5948 Not Found: /static/admin/css/changelists.css
+WARNING 2026-06-22 05:49:27,773 log 9636 4472 Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+WARNING 2026-06-22 05:49:27,779 log 9636 9264 Not Found: /static/admin/img/search.svg
+WARNING 2026-06-22 05:49:27,805 log 9636 5948 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-22 05:49:27,810 log 9636 4472 Not Found: /static/admin/js/filters.js
+WARNING 2026-06-22 05:49:27,816 log 9636 9264 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 05:50:01,563 log 9636 5948 Not Found: /static/admin/css/base.css
+WARNING 2026-06-22 05:50:01,569 log 9636 9264 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-22 05:50:01,574 log 9636 5948 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 05:50:01,579 log 9636 9300 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-22 05:50:01,574 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:50:01,586 log 9636 9264 Not Found: /static/admin/css/forms.css
+WARNING 2026-06-22 05:50:01,587 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:50:01,590 task 9636 9640 Task queue depth is 2
+WARNING 2026-06-22 05:50:01,598 log 9636 9300 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 05:50:01,594 log 9636 5948 Not Found: /static/admin/css/vendor/select2/select2.css
+WARNING 2026-06-22 05:50:01,600 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:50:01,608 log 9636 9264 Not Found: /static/admin/css/autocomplete.css
+WARNING 2026-06-22 05:50:01,610 log 9636 9300 Not Found: /static/admin/js/vendor/jquery/jquery.js
+WARNING 2026-06-22 05:50:01,614 log 9636 5948 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 05:50:01,615 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:50:01,621 log 9636 5948 Not Found: /static/admin/js/vendor/select2/select2.full.js
+WARNING 2026-06-22 05:50:01,626 log 9636 9264 Not Found: /static/admin/js/vendor/select2/i18n/en.js
+WARNING 2026-06-22 05:50:01,632 log 9636 5948 Not Found: /static/admin/js/jquery.init.js
+WARNING 2026-06-22 05:50:01,636 log 9636 9300 Not Found: /static/admin/js/core.js
+WARNING 2026-06-22 05:50:01,637 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:50:01,643 log 9636 9264 Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2026-06-22 05:50:01,647 log 9636 5948 Not Found: /static/admin/js/actions.js
+WARNING 2026-06-22 05:50:01,655 log 9636 9300 Not Found: /static/admin/js/autocomplete.js
+WARNING 2026-06-22 05:50:01,659 log 9636 5948 Not Found: /static/admin/js/urlify.js
+WARNING 2026-06-22 05:50:01,665 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:50:01,664 log 9636 9264 Not Found: /static/admin/js/prepopulate.js
+WARNING 2026-06-22 05:50:01,671 log 9636 9300 Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+WARNING 2026-06-22 05:50:01,677 log 9636 5948 Not Found: /static/admin/js/prepopulate_init.js
+WARNING 2026-06-22 05:50:01,688 log 9636 4472 Not Found: /static/admin/css/vendor/select2/select2.css
+WARNING 2026-06-22 05:50:01,692 log 9636 9264 Not Found: /static/admin/css/autocomplete.css
+WARNING 2026-06-22 05:50:01,709 log 9636 9300 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-22 05:50:01,714 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:50:01,716 log 9636 5948 Not Found: /static/admin/img/icon-changelink.svg
+WARNING 2026-06-22 05:50:01,721 log 9636 9264 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 05:50:01,726 log 9636 4472 Not Found: /static/admin/img/icon-addlink.svg
+WARNING 2026-06-22 05:50:01,733 log 9636 9300 Not Found: /static/admin/img/icon-viewlink.svg
+WARNING 2026-06-22 05:50:01,735 log 9636 5948 Not Found: /static/admin/js/change_form.js
+WARNING 2026-06-22 05:50:26,513 log 9636 4472 Not Found: /static/admin/css/base.css
+WARNING 2026-06-22 05:50:26,521 log 9636 9300 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-22 05:50:26,524 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:50:26,523 log 9636 5948 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-22 05:50:26,529 log 9636 9264 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 05:50:26,531 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:50:26,536 log 9636 9300 Not Found: /static/admin/css/forms.css
+WARNING 2026-06-22 05:50:26,542 log 9636 9264 Not Found: /static/admin/css/vendor/select2/select2.css
+WARNING 2026-06-22 05:50:26,548 log 9636 5948 Not Found: /static/admin/css/autocomplete.css
+WARNING 2026-06-22 05:50:26,543 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:50:26,553 log 9636 9300 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 05:50:26,559 log 9636 5948 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 05:50:26,564 log 9636 9264 Not Found: /static/admin/js/vendor/jquery/jquery.js
+WARNING 2026-06-22 05:50:26,564 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:50:26,570 log 9636 9300 Not Found: /static/admin/js/vendor/select2/select2.full.js
+WARNING 2026-06-22 05:50:26,571 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:50:26,576 log 9636 9264 Not Found: /static/admin/js/vendor/select2/i18n/en.js
+WARNING 2026-06-22 05:50:26,576 task 9636 9640 Task queue depth is 2
+WARNING 2026-06-22 05:50:26,582 task 9636 9640 Task queue depth is 2
+WARNING 2026-06-22 05:50:26,581 log 9636 5948 Not Found: /static/admin/js/jquery.init.js
+WARNING 2026-06-22 05:50:26,591 log 9636 9264 Not Found: /static/admin/js/autocomplete.js
+WARNING 2026-06-22 05:50:26,592 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:50:26,586 log 9636 9300 Not Found: /static/admin/js/core.js
+WARNING 2026-06-22 05:50:26,596 log 9636 5948 Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2026-06-22 05:50:26,597 task 9636 9640 Task queue depth is 2
+WARNING 2026-06-22 05:50:26,605 log 9636 9264 Not Found: /static/admin/js/actions.js
+WARNING 2026-06-22 05:50:26,609 log 9636 9300 Not Found: /static/admin/js/urlify.js
+WARNING 2026-06-22 05:50:26,618 log 9636 5948 Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+WARNING 2026-06-22 05:50:26,623 log 9636 9264 Not Found: /static/admin/js/prepopulate.js
+WARNING 2026-06-22 05:50:26,628 log 9636 9300 Not Found: /static/admin/js/prepopulate_init.js
+WARNING 2026-06-22 05:50:26,654 log 9636 5948 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-22 05:50:26,676 log 9636 9264 Not Found: /static/admin/img/icon-changelink.svg
+WARNING 2026-06-22 05:50:26,700 log 9636 9300 Not Found: /static/admin/img/icon-addlink.svg
+WARNING 2026-06-22 05:50:26,711 log 9636 5948 Not Found: /static/admin/img/icon-viewlink.svg
+WARNING 2026-06-22 05:50:26,718 log 9636 9264 Not Found: /static/admin/css/vendor/select2/select2.css
+WARNING 2026-06-22 05:50:26,721 log 9636 4472 Not Found: /static/admin/css/autocomplete.css
+WARNING 2026-06-22 05:50:26,743 log 9636 9300 Not Found: /static/admin/js/change_form.js
+WARNING 2026-06-22 05:50:26,749 log 9636 5948 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 05:54:00,252 log 9636 9264 Not Found: /
+WARNING 2026-06-22 05:55:31,575 log 9636 4472 Not Found: /static/admin/css/base.css
+WARNING 2026-06-22 05:55:31,581 log 9636 9264 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-22 05:55:31,589 log 9636 9300 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 05:55:31,595 log 9636 5948 Not Found: /static/admin/css/dashboard.css
+WARNING 2026-06-22 05:55:31,600 log 9636 4472 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-22 05:55:31,604 log 9636 9264 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 05:55:31,626 log 9636 9300 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-22 05:55:31,630 log 9636 9264 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 05:55:31,634 log 9636 5948 Not Found: /static/admin/css/dashboard.css
+WARNING 2026-06-22 05:55:31,638 log 9636 4472 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 05:55:38,105 log 9636 9264 Not Found: /static/admin/css/base.css
+WARNING 2026-06-22 05:55:38,107 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:55:38,113 log 9636 5948 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-22 05:55:38,119 log 9636 4472 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-22 05:55:38,113 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:55:38,126 log 9636 9264 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 05:55:38,129 log 9636 9300 Not Found: /static/admin/css/forms.css
+WARNING 2026-06-22 05:55:38,131 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:55:38,141 log 9636 9300 Not Found: /static/admin/css/vendor/select2/select2.css
+WARNING 2026-06-22 05:55:38,144 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:55:38,143 log 9636 4472 Not Found: /static/admin/css/autocomplete.css
+WARNING 2026-06-22 05:55:38,145 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:55:38,150 log 9636 9300 Not Found: /static/admin/js/vendor/jquery/jquery.js
+WARNING 2026-06-22 05:55:38,156 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:55:38,155 log 9636 9264 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 05:55:38,163 log 9636 9300 Not Found: /static/admin/js/vendor/select2/i18n/en.js
+WARNING 2026-06-22 05:55:38,163 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:55:38,166 log 9636 4472 Not Found: /static/admin/js/vendor/select2/select2.full.js
+WARNING 2026-06-22 05:55:38,174 log 9636 9300 Not Found: /static/admin/js/jquery.init.js
+WARNING 2026-06-22 05:55:38,179 log 9636 9264 Not Found: /static/admin/js/core.js
+WARNING 2026-06-22 05:55:38,185 log 9636 9300 Not Found: /static/admin/js/autocomplete.js
+WARNING 2026-06-22 05:55:38,185 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:55:38,191 log 9636 4472 Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2026-06-22 05:55:38,196 log 9636 9300 Not Found: /static/admin/js/actions.js
+WARNING 2026-06-22 05:55:38,199 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:55:38,201 log 9636 9264 Not Found: /static/admin/js/urlify.js
+WARNING 2026-06-22 05:55:38,206 log 9636 9300 Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+WARNING 2026-06-22 05:55:38,210 log 9636 4472 Not Found: /static/admin/js/prepopulate.js
+WARNING 2026-06-22 05:55:38,229 log 9636 9264 Not Found: /static/admin/js/prepopulate_init.js
+WARNING 2026-06-22 05:55:38,255 log 9636 9300 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-22 05:55:38,281 log 9636 4472 Not Found: /static/admin/img/icon-changelink.svg
+WARNING 2026-06-22 05:55:38,302 log 9636 9264 Not Found: /static/admin/img/icon-addlink.svg
+WARNING 2026-06-22 05:55:38,325 log 9636 9300 Not Found: /static/admin/img/icon-viewlink.svg
+WARNING 2026-06-22 05:55:38,332 log 9636 4472 Not Found: /static/admin/js/change_form.js
+WARNING 2026-06-22 05:55:38,338 log 9636 9264 Not Found: /static/admin/css/vendor/select2/select2.css
+WARNING 2026-06-22 05:55:38,342 log 9636 4472 Not Found: /static/admin/css/autocomplete.css
+WARNING 2026-06-22 05:55:38,372 log 9636 9300 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 05:55:59,832 log 9636 4472 Not Found: /static/admin/css/base.css
+WARNING 2026-06-22 05:55:59,838 log 9636 9264 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-22 05:55:59,838 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:56:00,235 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:56:00,238 task 9636 9640 Task queue depth is 2
+WARNING 2026-06-22 05:56:00,247 log 9636 4472 Not Found: /static/admin/css/forms.css
+WARNING 2026-06-22 05:56:00,250 log 9636 5948 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 05:56:00,243 log 9636 9300 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-22 05:56:00,257 log 9636 4472 Not Found: /static/admin/css/vendor/select2/select2.css
+WARNING 2026-06-22 05:56:00,262 log 9636 5948 Not Found: /static/admin/css/autocomplete.css
+WARNING 2026-06-22 05:56:00,285 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:56:00,292 log 9636 4472 Not Found: /static/admin/js/vendor/select2/select2.full.js
+WARNING 2026-06-22 05:56:00,289 log 9636 9300 Not Found: /static/admin/js/vendor/jquery/jquery.js
+WARNING 2026-06-22 05:56:00,294 task 9636 9640 Task queue depth is 2
+WARNING 2026-06-22 05:56:00,297 log 9636 5948 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 05:56:00,305 log 9636 4472 Not Found: /static/admin/js/vendor/select2/i18n/en.js
+WARNING 2026-06-22 05:56:00,309 log 9636 9300 Not Found: /static/admin/js/jquery.init.js
+WARNING 2026-06-22 05:56:00,310 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:56:00,315 log 9636 5948 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 05:56:00,317 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:56:00,323 log 9636 4472 Not Found: /static/admin/js/core.js
+WARNING 2026-06-22 05:56:00,327 log 9636 9300 Not Found: /static/admin/js/autocomplete.js
+WARNING 2026-06-22 05:56:00,328 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:56:00,334 log 9636 5948 Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2026-06-22 05:56:00,339 log 9636 4472 Not Found: /static/admin/js/actions.js
+WARNING 2026-06-22 05:56:00,343 log 9636 9264 Not Found: /static/admin/js/prepopulate.js
+WARNING 2026-06-22 05:56:00,350 log 9636 5948 Not Found: /static/admin/css/autocomplete.css
+WARNING 2026-06-22 05:56:00,350 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:56:00,359 log 9636 4472 Not Found: /static/admin/css/vendor/select2/select2.css
+WARNING 2026-06-22 05:56:00,354 log 9636 9300 Not Found: /static/admin/js/urlify.js
+WARNING 2026-06-22 05:56:00,364 log 9636 9264 Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+WARNING 2026-06-22 05:56:00,377 log 9636 5948 Not Found: /static/admin/js/prepopulate_init.js
+WARNING 2026-06-22 05:56:00,383 log 9636 4472 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 05:56:00,384 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:56:00,389 log 9636 9300 Not Found: /static/admin/img/icon-viewlink.svg
+WARNING 2026-06-22 05:56:00,391 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:56:00,396 log 9636 9264 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-22 05:56:00,401 log 9636 4472 Not Found: /static/admin/img/icon-addlink.svg
+WARNING 2026-06-22 05:56:00,404 log 9636 9300 Not Found: /static/admin/js/change_form.js
+WARNING 2026-06-22 05:56:00,408 log 9636 5948 Not Found: /static/admin/img/icon-changelink.svg
+WARNING 2026-06-22 05:56:40,994 log 9636 4472 Not Found: /static/admin/css/base.css
+WARNING 2026-06-22 05:56:40,999 log 9636 9300 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-22 05:56:41,000 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:56:41,005 log 9636 5948 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-22 05:56:41,009 log 9636 9264 Not Found: /static/admin/css/forms.css
+WARNING 2026-06-22 05:56:41,471 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:56:41,480 log 9636 9300 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 05:56:41,486 log 9636 5948 Not Found: /static/admin/css/vendor/select2/select2.css
+WARNING 2026-06-22 05:56:41,486 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:56:41,492 log 9636 9264 Not Found: /static/admin/css/autocomplete.css
+WARNING 2026-06-22 05:56:41,498 log 9636 9300 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 05:56:41,499 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:56:41,503 log 9636 9264 Not Found: /static/admin/js/vendor/jquery/jquery.js
+WARNING 2026-06-22 05:56:41,505 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:56:41,510 log 9636 9300 Not Found: /static/admin/js/vendor/select2/select2.full.js
+WARNING 2026-06-22 05:56:41,515 log 9636 5948 Not Found: /static/admin/css/forms.css
+WARNING 2026-06-22 05:56:41,515 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:56:41,520 log 9636 9300 Not Found: /static/admin/js/core.js
+WARNING 2026-06-22 05:56:41,525 log 9636 9264 Not Found: /static/admin/js/vendor/select2/i18n/en.js
+WARNING 2026-06-22 05:56:41,530 log 9636 5948 Not Found: /static/admin/js/jquery.init.js
+WARNING 2026-06-22 05:56:41,537 log 9636 9300 Not Found: /static/admin/js/autocomplete.js
+WARNING 2026-06-22 05:56:41,543 log 9636 9264 Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2026-06-22 05:56:41,544 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:56:41,549 log 9636 5948 Not Found: /static/admin/js/actions.js
+WARNING 2026-06-22 05:56:41,555 log 9636 9264 Not Found: /static/admin/js/urlify.js
+WARNING 2026-06-22 05:56:41,561 log 9636 9300 Not Found: /static/admin/js/prepopulate.js
+WARNING 2026-06-22 05:56:41,567 log 9636 5948 Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+WARNING 2026-06-22 05:56:41,571 log 9636 4472 Not Found: /static/admin/js/prepopulate_init.js
+WARNING 2026-06-22 05:56:41,577 log 9636 4472 Not Found: /static/admin/css/autocomplete.css
+WARNING 2026-06-22 05:56:41,582 log 9636 9300 Not Found: /static/admin/css/vendor/select2/select2.css
+WARNING 2026-06-22 05:56:41,592 log 9636 5948 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-22 05:56:41,599 log 9636 9264 Not Found: /static/admin/img/icon-changelink.svg
+WARNING 2026-06-22 05:56:41,600 task 9636 9640 Task queue depth is 1
+WARNING 2026-06-22 05:56:41,607 log 9636 9300 Not Found: /static/admin/js/change_form.js
+WARNING 2026-06-22 05:56:41,611 log 9636 4472 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 05:56:41,614 log 9636 5948 Not Found: /static/admin/img/icon-viewlink.svg
+WARNING 2026-06-22 05:56:41,619 log 9636 9264 Not Found: /static/admin/img/icon-addlink.svg
+INFO 2026-06-22 06:05:31,212 wasyncore 9640 9644 Serving on http://0.0.0.0:8000
+INFO 2026-06-22 06:17:10,486 wasyncore 6944 8352 Serving on http://0.0.0.0:8000
+WARNING 2026-06-22 06:18:10,352 task 9640 9644 Task queue depth is 1
+WARNING 2026-06-22 06:18:10,356 task 9640 9644 Task queue depth is 2
+WARNING 2026-06-22 06:18:10,361 log 9640 10476 Not Found: /static/admin/css/base.css
+WARNING 2026-06-22 06:18:10,362 log 9640 10472 Not Found: /static/admin/css/dashboard.css
+WARNING 2026-06-22 06:18:10,362 log 9640 10480 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 06:18:10,361 log 9640 10484 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-22 06:18:10,369 log 9640 10476 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-22 06:18:10,372 log 9640 10472 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 06:18:10,394 log 9640 10480 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-22 06:18:10,400 log 9640 10484 Not Found: /static/admin/css/dashboard.css
+WARNING 2026-06-22 06:18:10,404 log 9640 10476 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 06:18:13,040 log 9640 10480 Not Found: /static/admin/css/base.css
+WARNING 2026-06-22 06:18:13,046 log 9640 10480 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 06:18:13,051 log 9640 10476 Not Found: /static/admin/css/dashboard.css
+WARNING 2026-06-22 06:18:13,052 task 9640 9644 Task queue depth is 1
+WARNING 2026-06-22 06:18:13,056 log 9640 10484 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-22 06:18:13,060 log 9640 10472 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-22 06:18:13,066 log 9640 10480 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 06:18:13,081 log 9640 10476 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-22 06:18:13,090 log 9640 10484 Not Found: /static/admin/css/dashboard.css
+WARNING 2026-06-22 06:18:13,097 log 9640 10472 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 06:18:13,098 log 9640 10480 Not Found: /static/admin/css/nav_sidebar.css
+INFO 2026-06-22 06:28:25,162 wasyncore 3660 644 Serving on http://0.0.0.0:8000
+WARNING 2026-06-22 06:28:30,155 log 9640 10484 Not Found: /static/admin/css/base.css
+WARNING 2026-06-22 06:28:30,171 log 9640 10472 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-22 06:28:30,175 log 9640 10480 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 06:28:30,181 log 9640 10476 Not Found: /static/admin/css/dashboard.css
+WARNING 2026-06-22 06:28:30,187 log 9640 10472 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-22 06:28:30,190 log 9640 10484 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 06:28:30,217 log 9640 10480 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-22 06:28:30,224 log 9640 10472 Not Found: /static/admin/css/dashboard.css
+WARNING 2026-06-22 06:28:30,229 log 9640 10484 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 06:28:30,232 log 9640 10476 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 06:28:49,278 log 9640 10472 Not Found: /static/admin/css/base.css
+WARNING 2026-06-22 06:28:49,281 task 9640 9644 Task queue depth is 1
+WARNING 2026-06-22 06:28:49,294 log 9640 10484 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-22 06:28:49,299 task 9640 9644 Task queue depth is 1
+WARNING 2026-06-22 06:28:49,309 log 9640 10476 Not Found: /static/admin/css/dashboard.css
+WARNING 2026-06-22 06:28:49,315 log 9640 10472 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-22 06:28:49,320 log 9640 10480 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 06:28:49,325 log 9640 10484 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 06:28:49,340 log 9640 10476 Not Found: /static/admin/css/dashboard.css
+WARNING 2026-06-22 06:28:49,344 log 9640 10472 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-22 06:30:21,423 log 9640 10480 Not Found: /static/admin/css/base.css
+WARNING 2026-06-22 06:30:21,995 log 9640 10484 Not Found: /favicon.ico
+INFO 2026-06-22 06:33:48,988 wasyncore 5216 8136 Serving on http://0.0.0.0:8000
+WARNING 2026-06-22 06:33:54,812 log 9640 10472 Not Found: /static/admin/css/base.css
+WARNING 2026-06-22 06:33:54,818 log 9640 10480 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-22 06:33:54,820 task 9640 9644 Task queue depth is 1
+WARNING 2026-06-22 06:33:54,824 log 9640 10484 Not Found: /static/admin/css/dashboard.css
+WARNING 2026-06-22 06:33:54,834 log 9640 10472 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 06:33:54,830 log 9640 10476 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 06:33:54,838 log 9640 10480 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-22 06:33:54,853 log 9640 10484 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-22 06:33:54,859 log 9640 10476 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 06:33:54,864 log 9640 10472 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 06:33:54,868 log 9640 10480 Not Found: /static/admin/css/dashboard.css
+WARNING 2026-06-22 06:34:08,243 log 9640 10472 Not Found: /static/admin/css/base.css
+WARNING 2026-06-22 06:34:08,252 log 9640 10480 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-22 06:34:08,256 log 9640 10472 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-22 06:34:08,262 log 9640 10484 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 06:34:08,267 log 9640 10476 Not Found: /static/admin/css/dashboard.css
+WARNING 2026-06-22 06:34:08,272 log 9640 10480 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 06:34:08,295 log 9640 10472 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-22 06:34:08,300 log 9640 10472 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 06:34:08,307 log 9640 10480 Not Found: /static/admin/css/dashboard.css
+WARNING 2026-06-22 06:34:08,311 log 9640 10476 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 06:36:14,351 log 9640 10484 Not Found: /static/admin/css/base.css
+INFO 2026-06-22 06:39:34,282 wasyncore 1940 492 Serving on http://0.0.0.0:8000
+WARNING 2026-06-22 06:39:42,780 log 9640 10472 Not Found: /static/admin/css/base.css
+WARNING 2026-06-22 06:40:15,853 log 9640 10484 Unauthorized: /api/sales/search_customers/
+WARNING 2026-06-22 06:40:15,868 log 9640 10472 Unauthorized: /api/sales/search_customers/
+INFO 2026-06-22 06:41:38,998 wasyncore 5468 9512 Serving on http://0.0.0.0:8000
+WARNING 2026-06-22 06:42:08,562 log 9640 10484 Not Found: /static/admin/css/base.css
+WARNING 2026-06-22 06:42:09,698 log 9640 10472 Not Found: /static/admin/css/base.css
+WARNING 2026-06-22 06:42:22,922 log 9640 10480 Not Found: /static/admin/css/base.css
+WARNING 2026-06-22 06:42:23,026 log 9640 10476 Not Found: /favicon.ico
+WARNING 2026-06-22 06:43:10,822 log 9640 10484 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-22 06:43:10,829 task 9640 9644 Task queue depth is 1
+WARNING 2026-06-22 06:43:10,827 log 9640 10476 Not Found: /static/admin/css/base.css
+WARNING 2026-06-22 06:43:10,831 task 9640 9644 Task queue depth is 2
+WARNING 2026-06-22 06:43:10,835 log 9640 10480 Not Found: /static/admin/css/login.css
+WARNING 2026-06-22 06:43:10,839 log 9640 10472 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 06:43:10,846 log 9640 10476 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-22 06:43:10,851 log 9640 10484 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 06:43:10,861 log 9640 10472 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 06:43:10,865 log 9640 10480 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-22 06:43:10,871 log 9640 10476 Not Found: /static/admin/css/login.css
+WARNING 2026-06-22 06:43:17,369 task 9640 9644 Task queue depth is 1
+WARNING 2026-06-22 06:43:17,375 log 9640 10476 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-22 06:43:17,377 task 9640 9644 Task queue depth is 2
+WARNING 2026-06-22 06:43:17,390 log 9640 10472 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-22 06:43:17,391 log 9640 10480 Not Found: /static/admin/css/base.css
+WARNING 2026-06-22 06:43:17,384 log 9640 10484 Not Found: /static/admin/css/dashboard.css
+WARNING 2026-06-22 06:43:17,397 log 9640 10472 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 06:43:17,404 log 9640 10476 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 06:43:17,411 log 9640 10484 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-22 06:43:23,463 log 9640 10480 Not Found: /static/admin/css/base.css
+WARNING 2026-06-22 06:43:23,465 task 9640 9644 Task queue depth is 1
+WARNING 2026-06-22 06:43:23,466 task 9640 9644 Task queue depth is 2
+WARNING 2026-06-22 06:43:23,471 log 9640 10484 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-22 06:43:23,473 task 9640 9644 Task queue depth is 2
+WARNING 2026-06-22 06:43:23,481 log 9640 10476 Not Found: /static/admin/css/changelists.css
+WARNING 2026-06-22 06:43:23,482 task 9640 9644 Task queue depth is 3
+WARNING 2026-06-22 06:43:23,486 log 9640 10472 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 06:43:23,488 task 9640 9644 Task queue depth is 2
+WARNING 2026-06-22 06:43:23,495 log 9640 10476 Not Found: /static/admin/js/vendor/jquery/jquery.js
+WARNING 2026-06-22 06:43:23,500 log 9640 10472 Not Found: /static/admin/js/jquery.init.js
+WARNING 2026-06-22 06:43:23,500 task 9640 9644 Task queue depth is 2
+WARNING 2026-06-22 06:43:23,503 log 9640 10484 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 06:43:23,505 task 9640 9644 Task queue depth is 2
+WARNING 2026-06-22 06:43:23,510 log 9640 10472 Not Found: /static/admin/js/core.js
+WARNING 2026-06-22 06:43:23,513 task 9640 9644 Task queue depth is 1
+WARNING 2026-06-22 06:43:23,519 task 9640 9644 Task queue depth is 2
+WARNING 2026-06-22 06:43:23,517 log 9640 10476 Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2026-06-22 06:43:23,523 log 9640 10484 Not Found: /static/admin/js/actions.js
+WARNING 2026-06-22 06:43:23,524 task 9640 9644 Task queue depth is 2
+WARNING 2026-06-22 06:43:23,532 log 9640 10472 Not Found: /static/admin/js/urlify.js
+WARNING 2026-06-22 06:43:23,534 task 9640 9644 Task queue depth is 1
+WARNING 2026-06-22 06:43:23,543 log 9640 10484 Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+WARNING 2026-06-22 06:43:23,539 log 9640 10476 Not Found: /static/admin/js/prepopulate.js
+WARNING 2026-06-22 06:43:23,544 task 9640 9644 Task queue depth is 1
+WARNING 2026-06-22 06:43:23,549 log 9640 10472 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-22 06:43:23,556 log 9640 10484 Not Found: /static/admin/img/search.svg
+WARNING 2026-06-22 06:43:23,566 log 9640 10476 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 06:43:23,570 log 9640 10472 Not Found: /static/admin/css/changelists.css
+WARNING 2026-06-22 06:43:23,578 log 9640 10484 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-22 06:43:23,587 log 9640 10472 Not Found: /static/admin/js/filters.js
+WARNING 2026-06-22 06:43:23,602 log 9640 10476 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 06:43:32,304 log 9640 10472 Not Found: /static/admin/css/base.css
+WARNING 2026-06-22 06:43:32,306 task 9640 9644 Task queue depth is 1
+WARNING 2026-06-22 06:43:32,312 log 9640 10476 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 06:43:32,313 task 9640 9644 Task queue depth is 2
+WARNING 2026-06-22 06:43:32,319 log 9640 10484 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-22 06:43:32,324 log 9640 10480 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-22 06:43:32,325 task 9640 9644 Task queue depth is 2
+WARNING 2026-06-22 06:43:32,331 log 9640 10472 Not Found: /static/admin/css/changelists.css
+WARNING 2026-06-22 06:43:32,334 task 9640 9644 Task queue depth is 1
+WARNING 2026-06-22 06:43:32,339 log 9640 10484 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 06:43:32,340 task 9640 9644 Task queue depth is 2
+WARNING 2026-06-22 06:43:32,345 log 9640 10480 Not Found: /static/admin/js/vendor/jquery/jquery.js
+WARNING 2026-06-22 06:43:32,347 task 9640 9644 Task queue depth is 1
+WARNING 2026-06-22 06:43:32,353 log 9640 10472 Not Found: /static/admin/js/core.js
+WARNING 2026-06-22 06:43:32,357 log 9640 10480 Not Found: /static/admin/js/jquery.init.js
+WARNING 2026-06-22 06:43:32,358 task 9640 9644 Task queue depth is 1
+WARNING 2026-06-22 06:43:32,364 task 9640 9644 Task queue depth is 1
+WARNING 2026-06-22 06:43:32,363 log 9640 10484 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 06:43:32,370 log 9640 10472 Not Found: /static/admin/js/actions.js
+WARNING 2026-06-22 06:43:32,371 task 9640 9644 Task queue depth is 1
+WARNING 2026-06-22 06:43:32,372 task 9640 9644 Task queue depth is 1
+WARNING 2026-06-22 06:43:32,379 log 9640 10480 Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2026-06-22 06:43:32,380 task 9640 9644 Task queue depth is 1
+WARNING 2026-06-22 06:43:32,385 log 9640 10484 Not Found: /static/admin/js/urlify.js
+WARNING 2026-06-22 06:43:32,389 log 9640 10472 Not Found: /static/admin/js/prepopulate.js
+WARNING 2026-06-22 06:43:32,389 task 9640 9644 Task queue depth is 2
+WARNING 2026-06-22 06:43:32,400 log 9640 10480 Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+WARNING 2026-06-22 06:43:32,406 log 9640 10484 Not Found: /static/admin/img/search.svg
+WARNING 2026-06-22 06:43:32,420 log 9640 10472 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-22 06:43:32,429 log 9640 10480 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 06:43:32,431 log 9640 10484 Not Found: /static/admin/js/filters.js
+WARNING 2026-06-22 06:43:49,867 log 9640 10472 Not Found: /static/admin/css/base.css
+WARNING 2026-06-22 06:43:49,872 task 9640 9644 Task queue depth is 1
+WARNING 2026-06-22 06:43:49,878 log 9640 10484 Not Found: /static/admin/css/forms.css
+WARNING 2026-06-22 06:43:49,883 log 9640 10476 Not Found: /static/admin/css/vendor/select2/select2.css
+WARNING 2026-06-22 06:43:49,886 task 9640 9644 Task queue depth is 2
+WARNING 2026-06-22 06:43:49,892 log 9640 10472 Not Found: /static/admin/js/vendor/select2/i18n/en.js
+WARNING 2026-06-22 06:43:49,896 task 9640 9644 Task queue depth is 1
+WARNING 2026-06-22 06:43:49,896 log 9640 10480 Not Found: /static/admin/js/vendor/select2/select2.full.js
+WARNING 2026-06-22 06:43:49,901 log 9640 10476 Not Found: /static/admin/css/dark_mode.css
+WARNING 2026-06-22 06:43:49,903 task 9640 9644 Task queue depth is 1
+WARNING 2026-06-22 06:43:49,907 log 9640 10484 Not Found: /static/admin/css/autocomplete.css
+WARNING 2026-06-22 06:43:49,908 task 9640 9644 Task queue depth is 2
+WARNING 2026-06-22 06:43:49,909 task 9640 9644 Task queue depth is 3
+WARNING 2026-06-22 06:43:49,914 log 9640 10472 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 06:43:49,916 task 9640 9644 Task queue depth is 1
+WARNING 2026-06-22 06:43:49,930 log 9640 10484 Not Found: /static/admin/js/theme.js
+WARNING 2026-06-22 06:43:49,921 log 9640 10480 Not Found: /static/admin/js/autocomplete.js
+WARNING 2026-06-22 06:43:49,927 log 9640 10476 Not Found: /static/admin/css/responsive.css
+WARNING 2026-06-22 06:43:49,932 task 9640 9644 Task queue depth is 1
+WARNING 2026-06-22 06:43:49,933 task 9640 9644 Task queue depth is 2
+WARNING 2026-06-22 06:43:49,934 task 9640 9644 Task queue depth is 3
+WARNING 2026-06-22 06:43:49,935 task 9640 9644 Task queue depth is 4
+WARNING 2026-06-22 06:43:49,944 log 9640 10484 Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2026-06-22 06:43:49,945 task 9640 9644 Task queue depth is 2
+WARNING 2026-06-22 06:43:49,949 log 9640 10480 Not Found: /static/admin/js/jquery.init.js
+WARNING 2026-06-22 06:43:49,952 task 9640 9644 Task queue depth is 2
+WARNING 2026-06-22 06:43:49,952 task 9640 9644 Task queue depth is 3
+WARNING 2026-06-22 06:43:49,958 log 9640 10476 Not Found: /static/admin/js/vendor/jquery/jquery.js
+WARNING 2026-06-22 06:43:49,963 log 9640 10484 Not Found: /static/admin/js/core.js
+WARNING 2026-06-22 06:43:49,969 log 9640 10480 Not Found: /static/admin/js/actions.js
+WARNING 2026-06-22 06:43:49,970 task 9640 9644 Task queue depth is 2
+WARNING 2026-06-22 06:43:49,975 log 9640 10476 Not Found: /static/admin/css/forms.css
+WARNING 2026-06-22 06:43:49,976 task 9640 9644 Task queue depth is 2
+WARNING 2026-06-22 06:43:49,978 task 9640 9644 Task queue depth is 2
+WARNING 2026-06-22 06:43:49,983 log 9640 10484 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2026-06-22 06:43:49,994 log 9640 10476 Not Found: /static/admin/js/prepopulate.js
+WARNING 2026-06-22 06:43:49,990 log 9640 10480 Not Found: /static/admin/js/urlify.js
+WARNING 2026-06-22 06:43:49,994 task 9640 9644 Task queue depth is 2
+WARNING 2026-06-22 06:43:50,003 log 9640 10484 Not Found: /static/admin/js/vendor/xregexp/xregexp.js
+WARNING 2026-06-22 06:43:50,010 log 9640 10476 Not Found: /static/admin/js/prepopulate_init.js
+WARNING 2026-06-22 06:43:50,023 log 9640 10480 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2026-06-22 06:43:50,029 log 9640 10484 Not Found: /static/admin/img/icon-changelink.svg
+WARNING 2026-06-22 06:43:50,034 log 9640 10476 Not Found: /static/admin/css/vendor/select2/select2.css
+WARNING 2026-06-22 06:43:50,038 log 9640 10472 Not Found: /static/admin/css/autocomplete.css
+WARNING 2026-06-22 06:43:50,049 log 9640 10476 Not Found: /static/admin/img/icon-viewlink.svg
+WARNING 2026-06-22 06:43:50,053 log 9640 10472 Not Found: /static/admin/img/icon-addlink.svg
+WARNING 2026-06-22 06:43:50,057 log 9640 10484 Not Found: /static/admin/js/change_form.js
+WARNING 2026-06-22 06:43:50,062 log 9640 10480 Not Found: /static/admin/css/responsive.css
+INFO 2026-06-22 06:48:11,955 wasyncore 9668 9672 Serving on http://0.0.0.0:8000
+INFO 2026-06-22 06:53:44,053 wasyncore 11188 8004 Serving on http://0.0.0.0:8000
+WARNING 2026-06-22 06:54:11,802 task 9668 9672 Task queue depth is 1
+WARNING 2026-06-22 06:54:12,004 log 9668 4528 Not Found: /favicon.ico
