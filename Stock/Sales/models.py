@@ -9,6 +9,7 @@ class UserProfile(models.Model):
     ROLE_CHOICES = [
         ('admin', 'Admin'),
         ('staff', 'Staff'),
+        ('technical', 'Technical'),  # display label only — same permissions as staff
     ]
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     role = models.CharField(max_length=10, choices=ROLE_CHOICES, default='staff')
@@ -229,6 +230,11 @@ class AuditLog(models.Model):
         ('Sale Approved', 'Sale Approved'),
         ('Sale Rejected', 'Sale Rejected'),
         ('Supply Update', 'Supply Update'),
+        ('Leave Submitted', 'Leave Submitted'),
+        ('Leave Approved', 'Leave Approved'),
+        ('Leave Rejected', 'Leave Rejected'),
+        ('Leave Cancelled', 'Leave Cancelled'),
+        ('Leave Early Return', 'Leave Early Return'),
     ]
     action = models.CharField(max_length=50, choices=ACTION_CHOICES)
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
@@ -269,7 +275,6 @@ class Sale(models.Model):
     delivery_number = models.CharField(max_length=100, blank=True)
     mode_of_payment = models.CharField(max_length=20, choices=PAYMENT_MODE_CHOICES, default='Not Paid')
 
-    # Financial fields
     subtotal = models.DecimalField(max_digits=12, decimal_places=2, default=0)
     vat_amount = models.DecimalField(max_digits=12, decimal_places=2, default=0)
     total_amount = models.DecimalField(max_digits=12, decimal_places=2, default=0)
@@ -278,13 +283,11 @@ class Sale(models.Model):
     payment_date = models.DateField(null=True, blank=True)
     payment_note = models.TextField(blank=True, default='')
 
-    # VAT applicability — set by admin at approval time
     vat_applied = models.BooleanField(
         default=False,
         help_text="Whether 16% VAT was applied to this sale. Set by admin when approving."
     )
 
-    # Status and approval tracking fields
     status = models.CharField(
         max_length=10,
         choices=STATUS_CHOICES,
@@ -334,10 +337,6 @@ class Sale(models.Model):
         super().save(*args, **kwargs)
 
     def calculate_total(self):
-        """
-        Recalculates subtotal from line items.
-        VAT is only added if vat_applied is True.
-        """
         subtotal = Decimal('0.00')
         for item in self.line_items.all():
             subtotal += Decimal(str(item.subtotal)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
@@ -474,11 +473,6 @@ class Salesperson(models.Model):
 
 
 class ReturnTransaction(models.Model):
-    """
-    Tracks a customer return event. One transaction can hold multiple products.
-    Stock is increased immediately on save — no approval workflow.
-    Records are never deleted (permanent audit trail).
-    """
     customer = models.ForeignKey(
         Customer, on_delete=models.PROTECT, related_name='returns'
     )
@@ -490,18 +484,15 @@ class ReturnTransaction(models.Model):
         User, on_delete=models.SET_NULL, null=True, related_name='processed_returns'
     )
     created_at = models.DateTimeField(auto_now_add=True)
- 
+
     class Meta:
         ordering = ['-created_at']
- 
+
     def __str__(self):
         return f"Return #{self.pk} — {self.customer.company_name} on {self.return_date}"
- 
- 
+
+
 class ReturnItem(models.Model):
-    """
-    Individual product line inside a ReturnTransaction.
-    """
     return_transaction = models.ForeignKey(
         ReturnTransaction, on_delete=models.CASCADE, related_name='items'
     )
@@ -509,9 +500,103 @@ class ReturnItem(models.Model):
         Product, on_delete=models.PROTECT, related_name='return_items'
     )
     quantity = models.PositiveIntegerField()
- 
+
     class Meta:
         ordering = ['id']
- 
+
     def __str__(self):
         return f"{self.product.code} x {self.quantity}"
+
+
+# =====================================================
+# LEAVE MANAGEMENT MODULE
+# =====================================================
+
+class LeaveApplication(models.Model):
+    LEAVE_TYPE_CHOICES = [
+        ('Annual', 'Annual Leave'),
+        ('Sick', 'Sick Leave'),
+        ('Compassionate', 'Compassionate Leave'),
+        ('Study', 'Study Leave'),
+    ]
+
+    STATUS_CHOICES = [
+        ('pending', 'Pending Approval'),
+        ('approved', 'Approved'),
+        ('rejected', 'Rejected'),
+        ('cancelled', 'Cancelled'),
+    ]
+
+    employee = models.ForeignKey(User, on_delete=models.CASCADE, related_name='leave_applications')
+    leave_type = models.CharField(max_length=20, choices=LEAVE_TYPE_CHOICES)
+    start_date = models.DateField()
+    end_date = models.DateField()
+    total_days = models.PositiveIntegerField()
+    remarks = models.TextField(blank=True)
+    attachment = models.FileField(upload_to='leave_attachments/', null=True, blank=True)
+
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='pending')
+
+    # Approval
+    approved_by = models.ForeignKey(
+        User, on_delete=models.SET_NULL, null=True, blank=True,
+        related_name='approved_leaves'
+    )
+    approved_at = models.DateTimeField(null=True, blank=True)
+    approval_comments = models.TextField(blank=True)
+
+    # Rejection
+    rejection_reason = models.TextField(blank=True)
+
+    # Cancellation (pre-start-date, full reversal)
+    cancelled_by = models.ForeignKey(
+        User, on_delete=models.SET_NULL, null=True, blank=True,
+        related_name='cancelled_leaves'
+    )
+    cancelled_at = models.DateTimeField(null=True, blank=True)
+    cancellation_reason = models.TextField(blank=True)
+
+    # Early return (post-start-date, partial reversal)
+    actual_return_date = models.DateField(null=True, blank=True)
+    days_restored = models.IntegerField(null=True, blank=True)
+    adjusted_by = models.ForeignKey(
+        User, on_delete=models.SET_NULL, null=True, blank=True,
+        related_name='adjusted_leaves'
+    )
+    adjusted_at = models.DateTimeField(null=True, blank=True)
+
+    submitted_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-submitted_at']
+
+    def __str__(self):
+        return f"{self.employee.get_full_name() or self.employee.username} - {self.leave_type} ({self.start_date} to {self.end_date})"
+
+    def is_cancellable(self):
+        return self.status == 'approved' and self.start_date > timezone.localdate()
+
+    def is_early_returnable(self):
+        return (
+            self.status == 'approved'
+            and self.start_date <= timezone.localdate()
+            and self.actual_return_date is None
+        )
+
+
+class LeaveBalance(models.Model):
+    employee = models.ForeignKey(User, on_delete=models.CASCADE, related_name='leave_balances')
+    year = models.PositiveIntegerField()
+    allocated_days = models.PositiveIntegerField(default=21)
+    used_days = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        unique_together = ('employee', 'year')
+        ordering = ['-year']
+
+    def __str__(self):
+        return f"{self.employee.username} - {self.year} ({self.remaining_days}/{self.allocated_days} remaining)"
+
+    @property
+    def remaining_days(self):
+        return max(self.allocated_days - self.used_days, 0)

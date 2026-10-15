@@ -10,7 +10,7 @@ from django.conf import settings
 from .models import (
     UserProfile, Category, SubCategory, SubSubCategory, ProductGroup, Supplier, Customer, Product,
     Salesperson, MonthlyOpeningStock, StockEntry, AuditLog, Sale, SaleLineItem, StockMovement, DeliveryRecord,
-    ReturnTransaction, ReturnItem
+    ReturnTransaction, ReturnItem, LeaveApplication, LeaveBalance
 )
 
 # ========================
@@ -266,6 +266,9 @@ class DashboardSummarySerializer(serializers.Serializer):
     stock_entries_count = serializers.IntegerField()
     monthly_sales = serializers.ListField(child=serializers.DictField())
     top_products = serializers.ListField(child=serializers.DictField())
+    pending_leave_count = serializers.IntegerField()
+    employees_on_leave = serializers.IntegerField()
+    leave_applications_this_month = serializers.IntegerField()
 
 
 # ========================
@@ -292,6 +295,21 @@ class SaleLineItemSerializer(serializers.ModelSerializer):
     product_name = serializers.CharField(source='product.name', read_only=True)
     outstanding_quantity = serializers.SerializerMethodField()
 
+    # ── FIX ────────────────────────────────────────────────────────────────
+    # DRF's ModelSerializer auto-marks the primary key field as read_only by
+    # default whenever it's listed in Meta.fields, REGARDLESS of whether it's
+    # also listed in read_only_fields. That meant the `id` sent by the
+    # frontend on every line item during a Sale edit was being silently
+    # stripped out during validation, so SaleCreateSerializer.update() could
+    # never match submitted items back to existing SaleLineItem rows by id —
+    # every edit was deleting all old line items and recreating new ones
+    # instead of updating in place.
+    #
+    # Declaring `id` explicitly as a writable, optional IntegerField overrides
+    # that default behavior so edits correctly update existing rows.
+    id = serializers.IntegerField(required=False)
+    # ──────────────────────────────────────────────────────────────────────
+
     class Meta:
         model = SaleLineItem
         fields = [
@@ -299,7 +317,8 @@ class SaleLineItemSerializer(serializers.ModelSerializer):
             'quantity_ordered', 'quantity_supplied', 'outstanding_quantity',
             'supply_status', 'unit_price', 'subtotal'
         ]
-        read_only_fields = ['id', 'subtotal']
+        # NOTE: 'id' intentionally removed from read_only_fields — see above.
+        read_only_fields = ['subtotal']
 
     def get_outstanding_quantity(self, obj):
         return obj.outstanding_quantity()
@@ -446,6 +465,9 @@ class SaleCreateSerializer(serializers.ModelSerializer):
         sale = Sale.objects.create(**validated_data)
  
         for item_data in line_items_data:
+            # 'id' should never be present on create, but strip defensively
+            # in case a stray value slips through from a copy/paste payload.
+            item_data.pop('id', None)
             SaleLineItem.objects.create(sale=sale, **item_data)
  
         sale.calculate_total()
@@ -468,6 +490,10 @@ class SaleCreateSerializer(serializers.ModelSerializer):
  
         # ── Sync line items ───────────────────────────────────────────────────
         # Build a map of existing line item ids so we can update / delete them.
+        # With the `id` fix on SaleLineItemSerializer above, item_data now
+        # actually carries the submitted id through validation, so existing
+        # rows are correctly matched and updated in place instead of being
+        # deleted and recreated on every edit.
         existing_ids = {item.id: item for item in instance.line_items.all()}
         submitted_ids = set()
  
@@ -855,3 +881,117 @@ class ReturnTransactionSerializer(serializers.ModelSerializer):
         )
  
         return return_tx
+
+# ========================
+# Leave Management Serializers
+# ========================
+
+REMARKS_REQUIRED_LEAVE_TYPES = ('Sick', 'Compassionate', 'Study')
+
+
+class LeaveBalanceSerializer(serializers.ModelSerializer):
+    employee_name = serializers.CharField(source='employee.get_full_name', read_only=True)
+    remaining_days = serializers.IntegerField(read_only=True)
+
+    class Meta:
+        model = LeaveBalance
+        fields = ['id', 'employee', 'employee_name', 'year', 'allocated_days', 'used_days', 'remaining_days']
+        read_only_fields = ['id', 'allocated_days', 'used_days']
+
+
+class LeaveApplicationSerializer(serializers.ModelSerializer):
+    """Read serializer — full detail, including audit trail fields."""
+    employee_name = serializers.CharField(source='employee.get_full_name', read_only=True)
+    leave_type_display = serializers.CharField(source='get_leave_type_display', read_only=True)
+    status_display = serializers.CharField(source='get_status_display', read_only=True)
+    approved_by_name = serializers.CharField(source='approved_by.get_full_name', read_only=True)
+    cancelled_by_name = serializers.CharField(source='cancelled_by.get_full_name', read_only=True)
+    adjusted_by_name = serializers.CharField(source='adjusted_by.get_full_name', read_only=True)
+    is_cancellable = serializers.SerializerMethodField()
+    is_early_returnable = serializers.SerializerMethodField()
+
+    class Meta:
+        model = LeaveApplication
+        fields = [
+            'id', 'employee', 'employee_name', 'leave_type', 'leave_type_display',
+            'start_date', 'end_date', 'total_days', 'remarks', 'attachment',
+            'status', 'status_display',
+            'approved_by', 'approved_by_name', 'approved_at', 'approval_comments',
+            'rejection_reason',
+            'cancelled_by', 'cancelled_by_name', 'cancelled_at', 'cancellation_reason',
+            'actual_return_date', 'days_restored', 'adjusted_by', 'adjusted_by_name', 'adjusted_at',
+            'is_cancellable', 'is_early_returnable',
+            'submitted_at',
+        ]
+        read_only_fields = fields
+
+    def get_is_cancellable(self, obj):
+        return obj.is_cancellable()
+
+    def get_is_early_returnable(self, obj):
+        return obj.is_early_returnable()
+
+
+class LeaveApplicationCreateSerializer(serializers.ModelSerializer):
+    """Write serializer — employee is always pulled from request.user in the view, never from payload."""
+
+    class Meta:
+        model = LeaveApplication
+        fields = ['id', 'leave_type', 'start_date', 'end_date', 'total_days', 'remarks', 'attachment']
+        read_only_fields = ['id']
+
+    def validate(self, data):
+        start_date = data.get('start_date', getattr(self.instance, 'start_date', None))
+        end_date = data.get('end_date', getattr(self.instance, 'end_date', None))
+        leave_type = data.get('leave_type', getattr(self.instance, 'leave_type', None))
+        remarks = data.get('remarks', getattr(self.instance, 'remarks', ''))
+
+        if start_date and end_date and end_date < start_date:
+            raise serializers.ValidationError({'end_date': 'End date cannot be before start date.'})
+
+        if leave_type in REMARKS_REQUIRED_LEAVE_TYPES and not (remarks and remarks.strip()):
+            raise serializers.ValidationError({
+                'remarks': f'Remarks are required for {leave_type} leave.'
+            })
+
+        # Auto-compute total_days if not explicitly supplied (inclusive of both ends)
+        if 'total_days' not in data and start_date and end_date:
+            data['total_days'] = (end_date - start_date).days + 1
+
+        return data
+
+
+class LeaveApprovalSerializer(serializers.Serializer):
+    action = serializers.ChoiceField(choices=['approve', 'reject'])
+    approval_comments = serializers.CharField(required=False, allow_blank=True)
+    rejection_reason = serializers.CharField(required=False, allow_blank=True)
+
+    def validate(self, data):
+        if data['action'] == 'reject' and not data.get('rejection_reason', '').strip():
+            raise serializers.ValidationError({
+                'rejection_reason': 'A reason is required when rejecting a leave application.'
+            })
+        return data
+
+
+class LeaveCancellationSerializer(serializers.Serializer):
+    cancellation_reason = serializers.CharField(required=True, allow_blank=False)
+
+    def validate_cancellation_reason(self, value):
+        if not value.strip():
+            raise serializers.ValidationError('A cancellation reason is required.')
+        return value
+
+
+class LeaveEarlyReturnSerializer(serializers.Serializer):
+    actual_return_date = serializers.DateField(required=True)
+
+    def validate_actual_return_date(self, value):
+        leave = self.context.get('leave')
+        if leave is None:
+            return value
+        if value < leave.start_date:
+            raise serializers.ValidationError('Actual return date cannot be before the leave start date.')
+        if value >= leave.end_date:
+            raise serializers.ValidationError('Actual return date must be strictly before the leave end date.')
+        return value

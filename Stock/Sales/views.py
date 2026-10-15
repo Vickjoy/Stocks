@@ -17,7 +17,8 @@ from decimal import Decimal, ROUND_HALF_UP
 from .models import (
     UserProfile, Category, SubCategory, SubSubCategory, ProductGroup, Supplier, Customer, Product,
     Salesperson, MonthlyOpeningStock, StockEntry, StockMovement, AuditLog, Sale, SaleLineItem,
-    DeliveryRecord, DeliveryLineItem, ReturnTransaction, ReturnItem
+    DeliveryRecord, DeliveryLineItem, ReturnTransaction, ReturnItem,
+    LeaveApplication, LeaveBalance
 )
 from .serializers import (
     UserSerializer, UserDetailSerializer,
@@ -28,8 +29,13 @@ from .serializers import (
     AuditLogSerializer, DashboardSummarySerializer, SaleSerializer, SaleCreateSerializer,
     PasswordResetRequestSerializer, PasswordResetConfirmSerializer, SaleApprovalSerializer,
     DeliveryRecordSerializer, DeliveryRecordCreateSerializer, StockDiscrepancySerializer,
-    ReturnTransactionSerializer
+    ReturnTransactionSerializer,
+    LeaveApplicationSerializer, LeaveApplicationCreateSerializer,
+    LeaveApprovalSerializer, LeaveCancellationSerializer, LeaveEarlyReturnSerializer,
+    LeaveBalanceSerializer,
 )
+
+from .permissions import IsDirectorOrSuperuser
 
 # ========================
 # Custom JWT Login View
@@ -465,6 +471,22 @@ class DashboardViewSet(viewsets.ViewSet):
             {'name': item['product__code'], 'value': item['total_quantity']}
             for item in top_products_query
         ]
+        today = timezone.localdate()
+        pending_leave_count = LeaveApplication.objects.filter(status='pending').count()
+
+        employees_on_leave = LeaveApplication.objects.filter(
+            status='approved',
+            start_date__lte=today,
+        ).filter(
+            Q(actual_return_date__isnull=True, end_date__gte=today)
+            | Q(actual_return_date__isnull=False, actual_return_date__gt=today)
+        ).count()
+
+        leave_applications_this_month = LeaveApplication.objects.filter(
+            submitted_at__year=today.year,
+            submitted_at__month=today.month,
+        ).count()
+
 
         data = {
             'total_products': total_products,
@@ -477,6 +499,10 @@ class DashboardViewSet(viewsets.ViewSet):
             'stock_entries_count': stock_movements_count,
             'monthly_sales': monthly_sales,
             'top_products': top_products,
+            'pending_leave_count': pending_leave_count,
+            'employees_on_leave': employees_on_leave,
+            'leave_applications_this_month': leave_applications_this_month,
+        
         }
 
         serializer = DashboardSummarySerializer(data)
@@ -1170,3 +1196,260 @@ class ReturnTransactionViewSet(viewsets.ModelViewSet):
             {'error': 'Return records cannot be deleted. They form a permanent audit trail.'},
             status=status.HTTP_405_METHOD_NOT_ALLOWED,
         )
+
+# ========================
+# Leave Application ViewSet
+# ========================
+class LeaveApplicationViewSet(viewsets.ModelViewSet):
+    queryset = LeaveApplication.objects.select_related(
+        'employee', 'approved_by', 'cancelled_by', 'adjusted_by'
+    ).order_by('-submitted_at')
+    permission_classes = [permissions.IsAuthenticated]
+    filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
+    filterset_fields = ['status', 'leave_type', 'employee']
+    search_fields = ['employee__username', 'employee__first_name', 'employee__last_name', 'remarks']
+    ordering_fields = ['submitted_at', 'start_date']
+
+    def _is_director(self, user):
+        return bool(
+            user.is_superuser or getattr(getattr(user, 'profile', None), 'is_director', False)
+        )
+
+    def get_queryset(self):
+        user = self.request.user
+        qs = super().get_queryset()
+        if self._is_director(user):
+            return qs
+        return qs.filter(employee=user)
+
+    def get_serializer_class(self):
+        if self.action in ('create', 'update', 'partial_update'):
+            return LeaveApplicationCreateSerializer
+        return LeaveApplicationSerializer
+
+    def perform_create(self, serializer):
+        leave = serializer.save(employee=self.request.user, status='pending')
+        AuditLog.objects.create(
+            action='Leave Submitted',
+            user=self.request.user,
+            description=(
+                f'{self.request.user.get_full_name() or self.request.user.username} '
+                f'submitted a {leave.leave_type} leave application '
+                f'({leave.start_date} to {leave.end_date}, {leave.total_days} day(s)).'
+            ),
+            ip_address=self.request.META.get('REMOTE_ADDR'),
+        )
+
+    def update(self, request, *args, **kwargs):
+        leave = self.get_object()
+        if leave.status != 'pending':
+            return Response(
+                {'error': 'Only pending leave applications can be edited.'},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+        if leave.employee != request.user and not self._is_director(request.user):
+            return Response(
+                {'error': 'You cannot edit another employee\'s leave application.'},
+                status=status.HTTP_403_FORBIDDEN,
+            )
+        return super().update(request, *args, **kwargs)
+
+    def _get_or_create_balance(self, employee, year):
+        balance, _ = LeaveBalance.objects.get_or_create(
+            employee=employee, year=year,
+            defaults={'allocated_days': 21, 'used_days': 0}
+        )
+        return balance
+
+    @action(detail=False, methods=['get'], permission_classes=[permissions.IsAuthenticated, IsDirectorOrSuperuser])
+    def pending(self, request):
+        count = self.get_queryset().filter(status='pending').count()
+        return Response({'count': count})
+
+    @action(detail=True, methods=['post'], permission_classes=[permissions.IsAuthenticated, IsDirectorOrSuperuser])
+    def approve(self, request, pk=None):
+        leave = self.get_object()
+
+        if leave.status != 'pending':
+            return Response(
+                {'error': f'Leave application is already {leave.status}. Only pending applications can be actioned.'},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        serializer = LeaveApprovalSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        action_type = serializer.validated_data['action']
+
+        if action_type == 'approve':
+            if leave.leave_type == 'Annual':
+                balance = self._get_or_create_balance(leave.employee, leave.start_date.year)
+                balance.used_days += leave.total_days
+                balance.save()
+
+            leave.status = 'approved'
+            leave.approved_by = request.user
+            leave.approved_at = timezone.now()
+            leave.approval_comments = serializer.validated_data.get('approval_comments', '')
+            leave.save()
+
+            AuditLog.objects.create(
+                action='Leave Approved',
+                user=request.user,
+                description=(
+                    f'Leave application for {leave.employee.get_full_name() or leave.employee.username} '
+                    f'({leave.leave_type}, {leave.start_date} to {leave.end_date}) approved by {request.user.username}.'
+                ),
+                ip_address=request.META.get('REMOTE_ADDR'),
+            )
+
+            leave.refresh_from_db()
+            return Response({
+                'message': 'Leave application approved successfully.',
+                'leave': LeaveApplicationSerializer(leave).data
+            })
+
+        # reject
+        leave.status = 'rejected'
+        leave.rejection_reason = serializer.validated_data.get('rejection_reason', '')
+        leave.approved_by = request.user
+        leave.approved_at = timezone.now()
+        leave.save()
+
+        AuditLog.objects.create(
+            action='Leave Rejected',
+            user=request.user,
+            description=(
+                f'Leave application for {leave.employee.get_full_name() or leave.employee.username} '
+                f'rejected by {request.user.username}. Reason: {leave.rejection_reason}'
+            ),
+            ip_address=request.META.get('REMOTE_ADDR'),
+        )
+
+        leave.refresh_from_db()
+        return Response({
+            'message': 'Leave application has been rejected.',
+            'leave': LeaveApplicationSerializer(leave).data
+        })
+
+    @action(detail=True, methods=['post'], permission_classes=[permissions.IsAuthenticated, IsDirectorOrSuperuser])
+    def cancel(self, request, pk=None):
+        leave = self.get_object()
+
+        if not leave.is_cancellable():
+            return Response(
+                {'error': 'Only approved leave applications with a future start date can be cancelled.'},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        serializer = LeaveCancellationSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        if leave.leave_type == 'Annual':
+            balance = self._get_or_create_balance(leave.employee, leave.start_date.year)
+            balance.used_days = max(balance.used_days - leave.total_days, 0)
+            balance.save()
+
+        leave.status = 'cancelled'
+        leave.cancelled_by = request.user
+        leave.cancelled_at = timezone.now()
+        leave.cancellation_reason = serializer.validated_data['cancellation_reason']
+        leave.save()
+
+        AuditLog.objects.create(
+            action='Leave Cancelled',
+            user=request.user,
+            description=(
+                f'Leave application for {leave.employee.get_full_name() or leave.employee.username} '
+                f'cancelled by {request.user.username}. Reason: {leave.cancellation_reason}'
+            ),
+            ip_address=request.META.get('REMOTE_ADDR'),
+        )
+
+        leave.refresh_from_db()
+        return Response({
+            'message': 'Leave application cancelled and balance fully restored.',
+            'leave': LeaveApplicationSerializer(leave).data
+        })
+
+    @action(detail=True, methods=['post'], permission_classes=[permissions.IsAuthenticated, IsDirectorOrSuperuser])
+    def adjust_return(self, request, pk=None):
+        leave = self.get_object()
+
+        if not leave.is_early_returnable():
+            return Response(
+                {'error': (
+                    'Early return can only be recorded once, for an approved leave application '
+                    'that has already started.'
+                )},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        serializer = LeaveEarlyReturnSerializer(data=request.data, context={'leave': leave})
+        serializer.is_valid(raise_exception=True)
+        actual_return_date = serializer.validated_data['actual_return_date']
+
+        actual_days_used = (actual_return_date - leave.start_date).days
+        days_restored = max(leave.total_days - actual_days_used, 0)
+        days_restored = min(days_restored, leave.total_days)
+
+        if leave.leave_type == 'Annual' and days_restored > 0:
+            balance = self._get_or_create_balance(leave.employee, leave.start_date.year)
+            balance.used_days = max(balance.used_days - days_restored, 0)
+            balance.save()
+
+        leave.actual_return_date = actual_return_date
+        leave.days_restored = days_restored
+        leave.adjusted_by = request.user
+        leave.adjusted_at = timezone.now()
+        # status remains 'approved' per spec, footnote carried by actual_return_date/days_restored
+        leave.save()
+
+        AuditLog.objects.create(
+            action='Leave Early Return',
+            user=request.user,
+            description=(
+                f'{leave.employee.get_full_name() or leave.employee.username} returned early '
+                f'from {leave.leave_type} leave on {actual_return_date}. '
+                f'{days_restored} day(s) restored by {request.user.username}.'
+            ),
+            ip_address=request.META.get('REMOTE_ADDR'),
+        )
+
+        leave.refresh_from_db()
+        return Response({
+            'message': f'Early return recorded. {days_restored} day(s) restored to balance.',
+            'leave': LeaveApplicationSerializer(leave).data
+        })
+
+
+# ========================
+# Leave Balance ViewSet
+# ========================
+class LeaveBalanceViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = LeaveBalance.objects.select_related('employee').order_by('-year')
+    serializer_class = LeaveBalanceSerializer
+    permission_classes = [permissions.IsAuthenticated]
+    filter_backends = [DjangoFilterBackend, OrderingFilter]
+    filterset_fields = ['year', 'employee']
+    ordering_fields = ['year']
+
+    def _is_director(self, user):
+        return bool(
+            user.is_superuser or getattr(getattr(user, 'profile', None), 'is_director', False)
+        )
+
+    def get_queryset(self):
+        user = self.request.user
+        qs = super().get_queryset()
+        if self._is_director(user):
+            return qs
+        return qs.filter(employee=user)
+
+    def list(self, request, *args, **kwargs):
+        # Auto-create current year's balance for the requesting employee on first access
+        if not self._is_director(request.user):
+            LeaveBalance.objects.get_or_create(
+                employee=request.user, year=timezone.now().year,
+                defaults={'allocated_days': 21, 'used_days': 0}
+            )
+        return super().list(request, *args, **kwargs)

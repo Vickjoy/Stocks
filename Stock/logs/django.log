@@ -71368,3 +71368,1858 @@ INFO 2026-06-22 06:48:11,955 wasyncore 9668 9672 Serving on http://0.0.0.0:8000
 INFO 2026-06-22 06:53:44,053 wasyncore 11188 8004 Serving on http://0.0.0.0:8000
 WARNING 2026-06-22 06:54:11,802 task 9668 9672 Task queue depth is 1
 WARNING 2026-06-22 06:54:12,004 log 9668 4528 Not Found: /favicon.ico
+INFO 2026-06-22 06:59:19,426 wasyncore 2024 10340 Serving on http://0.0.0.0:8000
+INFO 2026-06-22 07:02:56,541 wasyncore 9752 9756 Serving on http://0.0.0.0:8000
+INFO 2026-06-22 21:45:38,702 wasyncore 9480 9484 Serving on http://0.0.0.0:8000
+WARNING 2026-06-22 23:02:58,782 log 9480 2164 Unauthorized: /api/users/me/
+WARNING 2026-06-22 23:02:58,799 log 9480 9772 Unauthorized: /api/token/refresh/
+WARNING 2026-06-22 23:11:38,444 log 9480 9772 Unauthorized: /api/users/me/
+WARNING 2026-06-23 00:05:00,630 log 9480 9652 Unauthorized: /api/dashboard/summary/
+WARNING 2026-06-23 00:12:07,324 log 9480 9652 Unauthorized: /api/sales/pending/
+WARNING 2026-06-23 00:12:07,352 log 9480 2164 Unauthorized: /api/token/refresh/
+WARNING 2026-06-23 02:02:27,431 log 9480 9772 Unauthorized: /api/users/me/
+WARNING 2026-06-23 02:04:22,338 task 9480 9484 Task queue depth is 1
+WARNING 2026-06-23 02:04:22,342 task 9480 9484 Task queue depth is 2
+WARNING 2026-06-23 02:04:22,945 log 9480 9652 Not Found: /favicon.ico
+WARNING 2026-06-23 02:04:31,240 task 9480 9484 Task queue depth is 1
+WARNING 2026-06-23 02:04:31,241 task 9480 9484 Task queue depth is 2
+WARNING 2026-06-23 02:04:31,272 task 9480 9484 Task queue depth is 1
+WARNING 2026-06-23 02:04:31,289 task 9480 9484 Task queue depth is 2
+WARNING 2026-06-23 02:04:31,306 task 9480 9484 Task queue depth is 1
+WARNING 2026-06-23 02:04:31,327 task 9480 9484 Task queue depth is 2
+WARNING 2026-06-23 02:04:36,269 task 9480 9484 Task queue depth is 1
+WARNING 2026-06-23 02:04:36,270 task 9480 9484 Task queue depth is 2
+WARNING 2026-06-23 02:04:36,302 task 9480 9484 Task queue depth is 1
+WARNING 2026-06-23 02:04:36,304 task 9480 9484 Task queue depth is 2
+WARNING 2026-06-23 02:05:45,748 task 9480 9484 Task queue depth is 1
+WARNING 2026-06-23 02:10:17,692 log 9480 2164 Unauthorized: /api/sales/search_customers/
+WARNING 2026-06-23 02:10:17,702 log 9480 9652 Unauthorized: /api/sales/search_customers/
+WARNING 2026-06-23 02:26:55,528 task 9480 9484 Task queue depth is 1
+WARNING 2026-06-23 02:26:55,556 task 9480 9484 Task queue depth is 1
+WARNING 2026-06-23 02:26:55,590 task 9480 9484 Task queue depth is 1
+WARNING 2026-06-23 02:26:55,648 task 9480 9484 Task queue depth is 1
+WARNING 2026-06-23 02:26:56,010 task 9480 9484 Task queue depth is 1
+WARNING 2026-06-23 03:26:34,518 log 9480 2164 Unauthorized: /api/sales/search_products/
+INFO 2026-06-23 21:37:17,460 wasyncore 10020 10024 Serving on http://0.0.0.0:8000
+WARNING 2026-06-23 21:55:15,306 log 10020 10036 Unauthorized: /api/users/me/
+WARNING 2026-06-23 23:13:53,649 log 10020 10080 Unauthorized: /api/sales/search_salespersons/
+WARNING 2026-06-23 23:13:53,650 log 10020 10036 Unauthorized: /api/sales/search_customers/
+WARNING 2026-06-23 23:13:53,665 log 10020 10052 Unauthorized: /api/token/refresh/
+WARNING 2026-06-23 23:13:53,667 log 10020 10052 Unauthorized: /api/token/refresh/
+WARNING 2026-06-24 00:00:06,863 log 10020 10052 Unauthorized: /api/sales/pending/
+WARNING 2026-06-24 00:49:51,269 log 10020 10032 Unauthorized: /api/users/me/
+WARNING 2026-06-24 01:00:06,826 log 10020 10052 Unauthorized: /api/sales/pending/
+WARNING 2026-06-24 02:00:06,778 log 10020 10080 Unauthorized: /api/sales/pending/
+WARNING 2026-06-24 02:10:48,650 log 10020 10036 Unauthorized: /api/suppliers/
+WARNING 2026-06-24 03:00:06,756 log 10020 10032 Unauthorized: /api/sales/pending/
+INFO 2026-06-25 21:35:57,689 wasyncore 10060 10064 Serving on http://0.0.0.0:8000
+WARNING 2026-06-25 22:12:43,436 log 10060 10872 Unauthorized: /api/users/me/
+WARNING 2026-06-25 22:12:43,455 log 10060 10880 Unauthorized: /api/token/refresh/
+WARNING 2026-06-25 23:07:09,248 log 10060 10872 Unauthorized: /api/users/me/
+WARNING 2026-06-25 23:07:09,277 log 10060 10868 Unauthorized: /api/token/refresh/
+WARNING 2026-06-26 00:08:03,707 log 10060 10880 Unauthorized: /api/sales/pending/
+WARNING 2026-06-26 01:08:03,741 log 10060 10876 Unauthorized: /api/sales/pending/
+WARNING 2026-06-26 02:08:03,653 log 10060 10872 Unauthorized: /api/sales/pending/
+WARNING 2026-06-26 02:39:45,620 log 10060 10872 Unauthorized: /api/sales/search_customers/
+WARNING 2026-06-26 02:39:45,628 log 10060 10876 Unauthorized: /api/sales/search_customers/
+WARNING 2026-06-26 02:57:29,155 log 10060 10868 Unauthorized: /api/users/me/
+WARNING 2026-06-26 02:57:29,181 log 10060 10876 Unauthorized: /api/token/refresh/
+WARNING 2026-06-26 03:08:03,624 log 10060 10868 Unauthorized: /api/sales/pending/
+WARNING 2026-06-26 03:31:23,522 task 10060 10064 Task queue depth is 1
+WARNING 2026-06-26 03:31:23,553 task 10060 10064 Task queue depth is 1
+WARNING 2026-06-26 04:19:52,582 log 10060 10880 Unauthorized: /api/categories/
+WARNING 2026-06-26 04:19:52,597 log 10060 10872 Unauthorized: /api/suppliers/
+WARNING 2026-06-26 04:19:52,598 log 10060 10868 Unauthorized: /api/products/
+INFO 2026-06-26 23:18:25,606 wasyncore 9760 9744 Serving on http://0.0.0.0:8000
+WARNING 2026-06-26 23:54:33,976 log 9760 2916 Unauthorized: /api/users/me/
+WARNING 2026-06-26 23:54:33,989 log 9760 2160 Unauthorized: /api/token/refresh/
+INFO 2026-06-28 21:40:28,640 wasyncore 10020 10024 Serving on http://0.0.0.0:8000
+WARNING 2026-06-28 23:14:34,752 log 10020 10868 Unauthorized: /api/users/me/
+WARNING 2026-06-28 23:14:34,802 log 10020 10876 Unauthorized: /api/token/refresh/
+INFO 2026-06-28 23:48:58,789 wasyncore 10052 10056 Serving on http://0.0.0.0:8000
+WARNING 2026-06-29 00:15:00,404 log 10052 8324 Unauthorized: /api/sales/pending/
+WARNING 2026-06-29 01:34:04,211 log 10052 9384 Unauthorized: /api/sales/pending/
+WARNING 2026-06-29 01:43:04,281 log 10052 3124 Unauthorized: /api/users/me/
+WARNING 2026-06-29 01:43:04,296 log 10052 9384 Unauthorized: /api/token/refresh/
+INFO 2026-06-29 12:52:25,542 wasyncore 9812 9816 Serving on http://0.0.0.0:8000
+WARNING 2026-06-29 12:53:00,160 log 9812 8216 Unauthorized: /api/sales/pending/
+WARNING 2026-06-29 13:18:58,985 log 9812 8216 Unauthorized: /api/sales/search_customers/
+WARNING 2026-06-29 13:18:58,996 log 9812 8232 Unauthorized: /api/sales/search_customers/
+WARNING 2026-06-29 14:12:10,503 log 9812 8232 Unauthorized: /api/dashboard/summary/
+WARNING 2026-06-29 14:21:29,315 log 9812 8232 Unauthorized: /api/sales/
+INFO 2026-06-29 14:39:02,483 wasyncore 3192 128 Serving on http://0.0.0.0:8000
+WARNING 2026-06-29 14:39:16,031 log 3192 9172 Unauthorized: /api/users/me/
+WARNING 2026-06-29 14:39:16,071 log 3192 7220 Unauthorized: /api/token/refresh/
+WARNING 2026-06-29 14:40:34,017 log 3192 7220 Unauthorized: /api/sales/pending/
+WARNING 2026-06-29 14:40:34,029 log 3192 1564 Unauthorized: /api/sales/pending/
+INFO 2026-06-29 14:51:24,237 wasyncore 1220 2904 Serving on http://0.0.0.0:8000
+WARNING 2026-06-29 15:40:59,884 log 1220 9228 Unauthorized: /api/sales/pending/
+WARNING 2026-06-29 15:59:36,535 log 1220 10200 Unauthorized: /api/users/me/
+INFO 2026-06-30 08:56:04,153 wasyncore 2284 2448 Serving on http://0.0.0.0:8000
+INFO 2026-06-30 09:31:28,518 wasyncore 9448 9452 Serving on http://0.0.0.0:8000
+WARNING 2026-06-30 09:38:55,414 log 9448 10356 Unauthorized: /api/users/me/
+WARNING 2026-06-30 09:38:55,473 log 9448 10376 Unauthorized: /api/token/refresh/
+WARNING 2026-06-30 09:55:41,727 log 9448 10332 Unauthorized: /api/users/me/
+WARNING 2026-06-30 09:55:41,767 log 9448 10356 Unauthorized: /api/token/refresh/
+WARNING 2026-06-30 09:58:33,550 log 9448 10376 Unauthorized: /api/users/me/
+WARNING 2026-06-30 10:32:09,144 log 9448 10356 Unauthorized: /api/users/me/
+WARNING 2026-06-30 10:39:58,580 log 9448 10376 Unauthorized: /api/sales/pending/
+WARNING 2026-06-30 10:50:52,229 log 9448 10356 Unauthorized: /api/token/
+WARNING 2026-06-30 11:05:01,480 log 9448 10376 Unauthorized: /api/users/me/
+WARNING 2026-06-30 11:39:58,564 log 9448 10356 Unauthorized: /api/sales/pending/
+WARNING 2026-06-30 11:41:20,960 log 9448 10356 Unauthorized: /api/dashboard/summary/
+WARNING 2026-06-30 11:51:39,734 log 9448 10364 Unauthorized: /api/sales/pending/
+WARNING 2026-06-30 12:39:58,515 log 9448 10356 Unauthorized: /api/sales/pending/
+WARNING 2026-06-30 12:51:39,789 log 9448 10332 Unauthorized: /api/sales/pending/
+WARNING 2026-06-30 13:21:19,874 log 9448 10376 Unauthorized: /api/dashboard/summary/
+WARNING 2026-06-30 13:21:19,910 log 9448 10364 Unauthorized: /api/token/refresh/
+WARNING 2026-06-30 13:39:58,468 log 9448 10364 Unauthorized: /api/sales/pending/
+WARNING 2026-06-30 13:51:39,791 log 9448 10364 Unauthorized: /api/sales/pending/
+INFO 2026-06-30 14:30:26,046 wasyncore 8128 10560 Serving on http://0.0.0.0:8000
+WARNING 2026-06-30 14:30:45,460 log 8128 9308 Unauthorized: /api/users/me/
+WARNING 2026-06-30 14:39:58,444 log 8128 560 Unauthorized: /api/sales/pending/
+WARNING 2026-06-30 14:51:50,216 log 8128 560 Unauthorized: /api/sales/pending/
+WARNING 2026-06-30 15:07:46,954 log 8128 12476 Unauthorized: /api/sales/search_customers/
+WARNING 2026-06-30 15:07:46,967 log 8128 11228 Unauthorized: /api/sales/search_customers/
+WARNING 2026-06-30 15:40:10,579 log 8128 560 Unauthorized: /api/sales/197/approve/
+WARNING 2026-06-30 15:51:50,246 log 8128 11228 Unauthorized: /api/sales/pending/
+WARNING 2026-06-30 16:09:39,560 log 8128 9308 Unauthorized: /api/dashboard/summary/
+WARNING 2026-06-30 16:09:39,629 log 8128 560 Unauthorized: /api/token/refresh/
+WARNING 2026-06-30 16:21:40,004 log 8128 560 Unauthorized: /api/dashboard/summary/
+WARNING 2026-06-30 16:21:40,060 log 8128 12476 Unauthorized: /api/token/refresh/
+INFO 2026-06-30 16:22:58,040 wasyncore 1692 9752 Serving on http://0.0.0.0:8000
+INFO 2026-06-30 16:27:02,070 wasyncore 7136 5976 Serving on http://0.0.0.0:8000
+WARNING 2026-06-30 16:40:25,324 log 7136 1864 Unauthorized: /api/sales/pending/
+INFO 2026-07-01 09:56:17,103 wasyncore 9684 9688 Serving on http://0.0.0.0:8000
+WARNING 2026-07-01 10:51:05,524 log 9684 10296 Unauthorized: /api/users/me/
+WARNING 2026-07-01 13:44:57,781 log 9684 10296 Unauthorized: /api/sales/
+WARNING 2026-07-01 16:33:47,669 log 9684 10304 Unauthorized: /api/users/me/
+WARNING 2026-07-01 16:33:47,699 log 9684 10296 Unauthorized: /api/token/refresh/
+INFO 2026-07-02 08:45:11,571 wasyncore 9672 9676 Serving on http://0.0.0.0:8000
+WARNING 2026-07-02 09:27:02,790 log 9672 5100 Unauthorized: /api/users/me/
+WARNING 2026-07-02 09:27:02,826 log 9672 5104 Unauthorized: /api/token/refresh/
+WARNING 2026-07-02 10:02:07,853 log 9672 4332 Unauthorized: /api/users/me/
+WARNING 2026-07-02 10:02:07,871 log 9672 5116 Unauthorized: /api/token/refresh/
+WARNING 2026-07-02 10:12:50,666 log 9672 5104 Unauthorized: /api/users/me/
+WARNING 2026-07-02 10:12:50,712 log 9672 5116 Unauthorized: /api/token/refresh/
+WARNING 2026-07-02 10:21:40,971 task 9672 9676 Task queue depth is 1
+WARNING 2026-07-02 10:21:40,975 task 9672 9676 Task queue depth is 2
+WARNING 2026-07-02 10:21:42,130 log 9672 5100 Not Found: /favicon.ico
+WARNING 2026-07-02 10:24:13,506 task 9672 9676 Task queue depth is 1
+WARNING 2026-07-02 10:24:13,523 task 9672 9676 Task queue depth is 1
+WARNING 2026-07-02 10:24:13,539 task 9672 9676 Task queue depth is 2
+WARNING 2026-07-02 10:24:13,563 task 9672 9676 Task queue depth is 2
+WARNING 2026-07-02 10:24:41,284 task 9672 9676 Task queue depth is 1
+WARNING 2026-07-02 10:24:41,291 task 9672 9676 Task queue depth is 2
+WARNING 2026-07-02 10:24:41,329 task 9672 9676 Task queue depth is 1
+WARNING 2026-07-02 10:27:54,224 log 9672 4332 Unauthorized: /api/sales/pending/
+WARNING 2026-07-02 10:28:56,321 task 9672 9676 Task queue depth is 1
+WARNING 2026-07-02 10:37:46,828 task 9672 9676 Task queue depth is 1
+WARNING 2026-07-02 10:40:56,313 task 9672 9676 Task queue depth is 1
+WARNING 2026-07-02 10:48:05,163 task 9672 9676 Task queue depth is 1
+WARNING 2026-07-02 10:59:31,374 task 9672 9676 Task queue depth is 1
+WARNING 2026-07-02 11:28:09,667 log 9672 5100 Unauthorized: /api/sales/pending/
+WARNING 2026-07-02 12:28:54,131 log 9672 5100 Unauthorized: /api/sales/pending/
+WARNING 2026-07-02 13:28:54,102 log 9672 5104 Unauthorized: /api/sales/pending/
+WARNING 2026-07-02 14:18:42,638 log 9672 5116 Unauthorized: /api/users/me/
+WARNING 2026-07-02 14:22:46,686 log 9672 5116 Not Found: /favicon.ico
+WARNING 2026-07-02 14:26:26,426 task 9672 9676 Task queue depth is 1
+WARNING 2026-07-02 14:28:54,053 log 9672 5116 Unauthorized: /api/sales/pending/
+WARNING 2026-07-02 15:28:54,039 log 9672 5104 Unauthorized: /api/sales/pending/
+WARNING 2026-07-02 15:51:13,695 task 9672 9676 Task queue depth is 1
+WARNING 2026-07-02 15:57:50,807 task 9672 9676 Task queue depth is 1
+WARNING 2026-07-02 15:57:50,811 task 9672 9676 Task queue depth is 1
+WARNING 2026-07-02 16:00:09,687 task 9672 9676 Task queue depth is 1
+WARNING 2026-07-02 16:15:32,317 task 9672 9676 Task queue depth is 1
+WARNING 2026-07-02 16:15:32,318 task 9672 9676 Task queue depth is 2
+WARNING 2026-07-02 16:28:32,425 log 9672 5104 Unauthorized: /api/suppliers/
+WARNING 2026-07-02 16:28:32,428 log 9672 5100 Unauthorized: /api/categories/
+WARNING 2026-07-02 16:28:32,430 log 9672 5104 Unauthorized: /api/products/
+WARNING 2026-07-02 16:31:08,805 task 9672 9676 Task queue depth is 1
+WARNING 2026-07-02 16:31:08,806 task 9672 9676 Task queue depth is 2
+WARNING 2026-07-02 16:31:08,822 task 9672 9676 Task queue depth is 1
+WARNING 2026-07-02 16:41:42,465 task 9672 9676 Task queue depth is 1
+INFO 2026-07-03 07:35:00,222 wasyncore 9412 9416 Serving on http://0.0.0.0:8000
+WARNING 2026-07-03 08:19:43,882 log 9412 9976 Unauthorized: /api/users/me/
+WARNING 2026-07-03 08:38:21,761 log 9412 9844 Unauthorized: /api/users/me/
+WARNING 2026-07-03 09:38:52,595 log 9412 9968 Unauthorized: /api/sales/pending/
+WARNING 2026-07-03 09:38:52,623 log 9412 9844 Unauthorized: /api/token/refresh/
+INFO 2026-07-04 09:39:16,561 wasyncore 9360 9364 Serving on http://0.0.0.0:8000
+WARNING 2026-07-04 11:06:50,204 log 9360 2308 Unauthorized: /api/sales/pending/
+WARNING 2026-07-04 12:06:50,171 log 9360 2308 Unauthorized: /api/sales/pending/
+WARNING 2026-07-04 13:06:50,148 log 9360 9948 Unauthorized: /api/sales/pending/
+INFO 2026-07-06 07:28:05,419 wasyncore 9904 9908 Serving on http://0.0.0.0:8000
+WARNING 2026-07-06 09:00:48,497 log 9904 10588 Unauthorized: /api/users/me/
+WARNING 2026-07-06 09:00:48,530 log 9904 10596 Unauthorized: /api/token/refresh/
+WARNING 2026-07-06 10:01:50,104 log 9904 10596 Unauthorized: /api/sales/pending/
+WARNING 2026-07-06 10:45:17,408 log 9904 10592 Unauthorized: /api/users/me/
+WARNING 2026-07-06 10:45:17,423 log 9904 10588 Unauthorized: /api/token/refresh/
+WARNING 2026-07-06 11:01:50,074 log 9904 10592 Unauthorized: /api/sales/pending/
+WARNING 2026-07-06 12:01:50,059 log 9904 10588 Unauthorized: /api/sales/pending/
+WARNING 2026-07-06 13:43:16,314 log 9904 10596 Unauthorized: /api/users/me/
+WARNING 2026-07-06 13:43:16,361 log 9904 10592 Unauthorized: /api/token/refresh/
+WARNING 2026-07-06 13:47:23,722 log 9904 10596 Unauthorized: /api/users/me/
+WARNING 2026-07-06 13:47:23,775 log 9904 10592 Unauthorized: /api/token/refresh/
+WARNING 2026-07-06 13:47:28,522 log 9904 10596 Not Found: /favicon.ico
+WARNING 2026-07-06 15:36:19,313 log 9904 10592 Unauthorized: /api/sales/search_customers/
+WARNING 2026-07-06 15:36:19,323 log 9904 10596 Unauthorized: /api/sales/search_customers/
+WARNING 2026-07-06 16:45:06,904 log 9904 10584 Unauthorized: /api/sales/search_products/
+WARNING 2026-07-06 16:53:43,005 log 9904 10588 Bad Request: /api/sales/
+INFO 2026-07-07 07:45:45,839 wasyncore 9556 9560 Serving on http://0.0.0.0:8000
+WARNING 2026-07-07 08:37:56,799 log 9556 10712 Unauthorized: /api/users/me/
+WARNING 2026-07-07 08:44:40,390 log 9556 10712 Unauthorized: /api/users/me/
+WARNING 2026-07-07 09:44:47,157 log 9556 10720 Unauthorized: /api/sales/pending/
+WARNING 2026-07-07 09:44:47,184 log 9556 10712 Unauthorized: /api/token/refresh/
+WARNING 2026-07-07 11:25:50,191 log 9556 10720 Not Found: /favicon.ico
+WARNING 2026-07-07 12:05:48,229 log 9556 10712 Unauthorized: /api/sales/pending/
+WARNING 2026-07-07 12:55:29,579 log 9556 10720 Unauthorized: /api/users/me/
+WARNING 2026-07-07 12:55:29,597 log 9556 10712 Unauthorized: /api/token/refresh/
+WARNING 2026-07-07 13:05:48,210 log 9556 10720 Unauthorized: /api/sales/pending/
+INFO 2026-07-08 07:42:05,115 wasyncore 9872 9876 Serving on http://0.0.0.0:8000
+WARNING 2026-07-08 08:10:36,263 log 9872 6548 Unauthorized: /api/users/me/
+WARNING 2026-07-08 08:30:23,404 task 9872 9876 Task queue depth is 1
+WARNING 2026-07-08 08:30:23,431 task 9872 9876 Task queue depth is 1
+WARNING 2026-07-08 08:30:23,461 task 9872 9876 Task queue depth is 1
+WARNING 2026-07-08 08:30:24,218 task 9872 9876 Task queue depth is 1
+WARNING 2026-07-08 08:30:24,251 task 9872 9876 Task queue depth is 2
+WARNING 2026-07-08 08:30:24,273 task 9872 9876 Task queue depth is 1
+WARNING 2026-07-08 09:03:49,725 log 9872 1412 Unauthorized: /api/users/me/
+WARNING 2026-07-08 10:04:38,295 log 9872 5956 Unauthorized: /api/sales/pending/
+WARNING 2026-07-08 10:36:39,341 log 9872 5956 Unauthorized: /api/sales/search_products/
+WARNING 2026-07-08 11:04:38,301 log 9872 6548 Unauthorized: /api/sales/pending/
+WARNING 2026-07-08 12:04:38,283 log 9872 1412 Unauthorized: /api/sales/pending/
+WARNING 2026-07-08 12:04:38,422 log 9872 6548 Unauthorized: /api/token/refresh/
+WARNING 2026-07-08 15:02:38,261 log 9872 1412 Unauthorized: /api/sales/pending/
+WARNING 2026-07-08 15:04:09,755 log 9872 5956 Unauthorized: /api/sales/search_customers/
+WARNING 2026-07-08 15:04:09,767 log 9872 1412 Unauthorized: /api/sales/search_customers/
+WARNING 2026-07-08 15:04:09,792 log 9872 5956 Unauthorized: /api/token/refresh/
+WARNING 2026-07-08 15:04:09,796 log 9872 1412 Unauthorized: /api/token/refresh/
+WARNING 2026-07-08 15:25:43,910 task 9872 9876 Task queue depth is 1
+WARNING 2026-07-08 15:25:43,936 task 9872 9876 Task queue depth is 2
+WARNING 2026-07-08 15:25:43,980 task 9872 9876 Task queue depth is 1
+WARNING 2026-07-08 15:25:43,986 task 9872 9876 Task queue depth is 2
+WARNING 2026-07-08 15:25:44,032 task 9872 9876 Task queue depth is 2
+WARNING 2026-07-08 15:25:44,054 task 9872 9876 Task queue depth is 1
+WARNING 2026-07-08 15:25:44,065 task 9872 9876 Task queue depth is 2
+WARNING 2026-07-08 15:25:44,095 task 9872 9876 Task queue depth is 2
+WARNING 2026-07-08 15:25:44,122 task 9872 9876 Task queue depth is 1
+WARNING 2026-07-08 15:25:44,128 task 9872 9876 Task queue depth is 2
+WARNING 2026-07-08 15:25:44,143 task 9872 9876 Task queue depth is 2
+WARNING 2026-07-08 15:25:44,186 task 9872 9876 Task queue depth is 2
+WARNING 2026-07-08 15:25:44,195 task 9872 9876 Task queue depth is 1
+WARNING 2026-07-08 15:25:44,207 task 9872 9876 Task queue depth is 2
+WARNING 2026-07-08 15:25:44,239 task 9872 9876 Task queue depth is 2
+WARNING 2026-07-08 15:25:44,261 task 9872 9876 Task queue depth is 2
+WARNING 2026-07-08 15:25:44,280 task 9872 9876 Task queue depth is 2
+WARNING 2026-07-08 15:25:44,292 task 9872 9876 Task queue depth is 2
+WARNING 2026-07-08 15:25:44,333 task 9872 9876 Task queue depth is 1
+WARNING 2026-07-08 15:25:44,342 task 9872 9876 Task queue depth is 2
+WARNING 2026-07-08 15:25:44,394 task 9872 9876 Task queue depth is 1
+WARNING 2026-07-08 15:25:44,402 task 9872 9876 Task queue depth is 1
+WARNING 2026-07-08 15:25:44,418 task 9872 9876 Task queue depth is 2
+WARNING 2026-07-08 15:25:44,448 task 9872 9876 Task queue depth is 2
+WARNING 2026-07-08 15:25:44,492 task 9872 9876 Task queue depth is 1
+WARNING 2026-07-08 15:25:44,500 task 9872 9876 Task queue depth is 1
+WARNING 2026-07-08 15:25:44,508 task 9872 9876 Task queue depth is 2
+WARNING 2026-07-08 15:25:44,524 task 9872 9876 Task queue depth is 2
+WARNING 2026-07-08 15:25:44,571 task 9872 9876 Task queue depth is 1
+WARNING 2026-07-08 15:25:44,585 task 9872 9876 Task queue depth is 1
+WARNING 2026-07-08 15:25:44,594 task 9872 9876 Task queue depth is 1
+WARNING 2026-07-08 15:25:44,603 task 9872 9876 Task queue depth is 2
+WARNING 2026-07-08 15:25:44,650 task 9872 9876 Task queue depth is 2
+WARNING 2026-07-08 15:25:44,686 task 9872 9876 Task queue depth is 1
+WARNING 2026-07-08 15:25:44,709 task 9872 9876 Task queue depth is 2
+WARNING 2026-07-08 15:25:44,752 task 9872 9876 Task queue depth is 1
+WARNING 2026-07-08 15:25:44,762 task 9872 9876 Task queue depth is 1
+WARNING 2026-07-08 15:25:44,772 task 9872 9876 Task queue depth is 1
+WARNING 2026-07-08 15:25:44,776 task 9872 9876 Task queue depth is 2
+WARNING 2026-07-08 16:02:38,270 log 9872 1412 Unauthorized: /api/sales/pending/
+WARNING 2026-07-08 16:30:00,397 log 9872 1412 Unauthorized: /api/sales/search_products/
+INFO 2026-07-09 07:48:12,111 wasyncore 9452 9456 Serving on http://0.0.0.0:8000
+WARNING 2026-07-09 09:36:09,134 log 9452 1304 Unauthorized: /api/users/me/
+WARNING 2026-07-09 09:51:08,849 log 9452 1988 Unauthorized: /api/users/me/
+WARNING 2026-07-09 10:36:37,060 log 9452 1988 Unauthorized: /api/sales/pending/
+WARNING 2026-07-09 11:08:07,711 log 9452 1304 Unauthorized: /api/users/me/
+WARNING 2026-07-09 11:36:37,055 log 9452 1988 Unauthorized: /api/sales/pending/
+WARNING 2026-07-09 12:11:00,955 log 9452 10156 Unauthorized: /api/users/me/
+WARNING 2026-07-09 12:36:37,033 log 9452 10156 Unauthorized: /api/sales/pending/
+WARNING 2026-07-09 13:18:09,852 log 9452 1988 Unauthorized: /api/dashboard/summary/
+WARNING 2026-07-09 13:36:37,018 log 9452 10156 Unauthorized: /api/sales/pending/
+WARNING 2026-07-09 14:18:09,908 log 9452 2184 Unauthorized: /api/dashboard/summary/
+WARNING 2026-07-09 14:36:37,022 log 9452 1988 Unauthorized: /api/sales/pending/
+WARNING 2026-07-09 14:36:37,065 log 9452 2184 Unauthorized: /api/token/refresh/
+WARNING 2026-07-09 16:53:28,169 log 9452 1988 Unauthorized: /api/dashboard/summary/
+WARNING 2026-07-09 16:53:28,184 log 9452 2184 Unauthorized: /api/token/refresh/
+INFO 2026-07-10 07:47:48,551 wasyncore 9504 9508 Serving on http://0.0.0.0:8000
+WARNING 2026-07-10 08:21:42,550 log 9504 9884 Unauthorized: /api/users/me/
+WARNING 2026-07-10 10:32:27,536 log 9504 9644 Unauthorized: /api/sales/search_customers/
+WARNING 2026-07-10 10:32:27,556 log 9504 9880 Unauthorized: /api/sales/search_customers/
+WARNING 2026-07-10 16:37:16,933 log 9504 9644 Unauthorized: /api/sales/search_customers/
+WARNING 2026-07-10 16:37:16,945 log 9504 9884 Unauthorized: /api/sales/search_customers/
+WARNING 2026-07-10 16:43:37,716 task 9504 9508 Task queue depth is 1
+WARNING 2026-07-10 16:43:37,723 task 9504 9508 Task queue depth is 2
+WARNING 2026-07-10 16:43:37,868 log 9504 9900 Not Found: /favicon.ico
+WARNING 2026-07-10 16:44:00,166 task 9504 9508 Task queue depth is 1
+WARNING 2026-07-10 16:44:00,167 task 9504 9508 Task queue depth is 2
+WARNING 2026-07-10 16:44:00,187 task 9504 9508 Task queue depth is 1
+WARNING 2026-07-10 16:44:00,194 task 9504 9508 Task queue depth is 2
+WARNING 2026-07-10 16:44:00,209 task 9504 9508 Task queue depth is 2
+WARNING 2026-07-10 16:44:00,220 task 9504 9508 Task queue depth is 2
+WARNING 2026-07-10 16:44:00,246 task 9504 9508 Task queue depth is 2
+WARNING 2026-07-10 16:44:00,257 task 9504 9508 Task queue depth is 2
+WARNING 2026-07-10 16:44:09,084 task 9504 9508 Task queue depth is 1
+WARNING 2026-07-10 16:44:09,087 task 9504 9508 Task queue depth is 2
+WARNING 2026-07-10 16:44:09,110 task 9504 9508 Task queue depth is 1
+WARNING 2026-07-10 16:44:09,121 task 9504 9508 Task queue depth is 1
+INFO 2026-07-11 08:01:53,730 wasyncore 10280 10284 Serving on http://0.0.0.0:8000
+WARNING 2026-07-11 09:20:16,855 log 10280 10872 Unauthorized: /api/users/me/
+WARNING 2026-07-11 09:20:16,871 log 10280 10880 Unauthorized: /api/token/refresh/
+INFO 2026-07-13 07:47:46,346 wasyncore 9528 9992 Serving on http://0.0.0.0:8000
+WARNING 2026-07-13 08:51:15,337 log 9528 10872 Unauthorized: /api/users/me/
+WARNING 2026-07-13 08:51:15,354 log 9528 10880 Unauthorized: /api/token/refresh/
+WARNING 2026-07-13 09:44:40,436 log 9528 10876 Unauthorized: /api/users/me/
+WARNING 2026-07-13 09:44:40,483 log 9528 10868 Unauthorized: /api/token/refresh/
+WARNING 2026-07-13 10:45:33,165 log 9528 10876 Unauthorized: /api/sales/pending/
+WARNING 2026-07-13 11:45:33,145 log 9528 10868 Unauthorized: /api/sales/pending/
+WARNING 2026-07-13 12:45:33,158 log 9528 10872 Unauthorized: /api/sales/pending/
+WARNING 2026-07-13 12:50:52,073 log 9528 10868 Unauthorized: /api/dashboard/summary/
+WARNING 2026-07-13 12:52:03,860 task 9528 9992 Task queue depth is 1
+WARNING 2026-07-13 12:52:03,864 task 9528 9992 Task queue depth is 2
+WARNING 2026-07-13 12:52:03,906 task 9528 9992 Task queue depth is 1
+WARNING 2026-07-13 12:52:03,911 task 9528 9992 Task queue depth is 1
+WARNING 2026-07-13 12:52:03,914 task 9528 9992 Task queue depth is 2
+WARNING 2026-07-13 12:52:03,927 task 9528 9992 Task queue depth is 2
+WARNING 2026-07-13 12:52:03,973 task 9528 9992 Task queue depth is 2
+WARNING 2026-07-13 12:52:03,984 task 9528 9992 Task queue depth is 1
+WARNING 2026-07-13 12:52:03,999 task 9528 9992 Task queue depth is 1
+WARNING 2026-07-13 12:52:04,005 task 9528 9992 Task queue depth is 1
+WARNING 2026-07-13 12:52:04,017 task 9528 9992 Task queue depth is 1
+WARNING 2026-07-13 12:52:04,025 task 9528 9992 Task queue depth is 2
+WARNING 2026-07-13 12:52:04,084 task 9528 9992 Task queue depth is 1
+WARNING 2026-07-13 12:52:04,090 task 9528 9992 Task queue depth is 1
+WARNING 2026-07-13 12:52:04,097 task 9528 9992 Task queue depth is 2
+WARNING 2026-07-13 12:52:04,141 task 9528 9992 Task queue depth is 1
+WARNING 2026-07-13 12:52:04,164 task 9528 9992 Task queue depth is 1
+WARNING 2026-07-13 12:52:04,191 task 9528 9992 Task queue depth is 1
+WARNING 2026-07-13 12:52:04,223 task 9528 9992 Task queue depth is 1
+WARNING 2026-07-13 12:52:04,265 task 9528 9992 Task queue depth is 1
+WARNING 2026-07-13 14:23:52,575 log 9528 10876 Unauthorized: /api/sales/
+WARNING 2026-07-13 15:43:07,404 log 9528 10872 Unauthorized: /api/users/me/
+WARNING 2026-07-13 16:24:51,924 log 9528 10880 Unauthorized: /api/sales/search_customers/
+WARNING 2026-07-13 16:24:51,930 log 9528 10868 Unauthorized: /api/sales/search_customers/
+WARNING 2026-07-13 16:43:33,104 log 9528 10868 Unauthorized: /api/sales/pending/
+INFO 2026-07-14 07:47:51,599 wasyncore 5040 1184 Serving on http://0.0.0.0:8000
+WARNING 2026-07-14 09:14:05,214 log 5040 10272 Unauthorized: /api/users/me/
+WARNING 2026-07-14 10:14:32,395 log 5040 10268 Unauthorized: /api/sales/pending/
+WARNING 2026-07-14 10:14:32,423 log 5040 10272 Unauthorized: /api/token/refresh/
+WARNING 2026-07-14 13:35:56,719 log 5040 10280 Unauthorized: /api/users/me/
+WARNING 2026-07-14 13:35:56,737 log 5040 10272 Unauthorized: /api/token/refresh/
+WARNING 2026-07-14 14:37:42,707 log 5040 10276 Unauthorized: /api/sales/search_products/
+WARNING 2026-07-14 15:35:58,912 log 5040 10276 Unauthorized: /api/users/me/
+WARNING 2026-07-14 15:35:58,979 log 5040 10272 Unauthorized: /api/token/refresh/
+WARNING 2026-07-14 15:38:41,082 log 5040 10276 Unauthorized: /api/sales/search_customers/
+WARNING 2026-07-14 15:38:41,090 log 5040 10280 Unauthorized: /api/sales/search_customers/
+WARNING 2026-07-14 16:18:13,118 log 5040 10280 Unauthorized: /api/token/
+WARNING 2026-07-14 16:18:22,588 log 5040 10272 Unauthorized: /api/token/
+WARNING 2026-07-14 16:18:47,112 log 5040 10268 Unauthorized: /api/token/
+WARNING 2026-07-14 16:22:38,204 log 5040 10272 Not Found: /
+WARNING 2026-07-14 16:22:38,285 log 5040 10276 Not Found: /favicon.ico
+WARNING 2026-07-14 16:22:49,139 task 5040 1184 Task queue depth is 1
+WARNING 2026-07-14 16:22:49,141 task 5040 1184 Task queue depth is 2
+WARNING 2026-07-14 16:29:01,215 log 5040 10276 Not Found: /favicon.ico
+WARNING 2026-07-14 17:35:32,397 log 5040 10280 Unauthorized: /api/sales/pending/
+WARNING 2026-07-14 17:53:25,854 log 5040 10280 Not Found: /favicon.ico
+WARNING 2026-07-14 17:53:50,236 log 5040 10280 Unauthorized: /api/users/me/
+INFO 2026-07-15 07:36:09,004 wasyncore 9400 9404 Serving on http://0.0.0.0:8000
+WARNING 2026-07-15 07:53:28,237 log 9400 10040 Unauthorized: /api/users/me/
+WARNING 2026-07-15 09:05:15,614 log 9400 10040 Unauthorized: /api/users/me/
+WARNING 2026-07-15 09:16:41,182 log 9400 10096 Unauthorized: /api/sales/search_customers/
+WARNING 2026-07-15 09:16:41,189 log 9400 10088 Unauthorized: /api/sales/search_customers/
+WARNING 2026-07-15 10:05:28,072 log 9400 10096 Unauthorized: /api/sales/pending/
+WARNING 2026-07-15 11:05:28,085 log 9400 10088 Unauthorized: /api/sales/pending/
+WARNING 2026-07-15 12:05:28,058 log 9400 10092 Unauthorized: /api/sales/pending/
+WARNING 2026-07-15 13:05:28,077 log 9400 10088 Unauthorized: /api/sales/pending/
+INFO 2026-07-16 07:39:15,909 wasyncore 9880 9884 Serving on http://0.0.0.0:8000
+WARNING 2026-07-16 08:15:19,089 log 9880 2024 Unauthorized: /api/users/me/
+WARNING 2026-07-16 08:15:19,105 log 9880 3620 Unauthorized: /api/token/refresh/
+WARNING 2026-07-16 10:36:22,651 log 9880 2220 Unauthorized: /api/users/me/
+WARNING 2026-07-16 10:36:22,738 log 9880 3620 Unauthorized: /api/token/refresh/
+WARNING 2026-07-16 10:38:50,864 log 9880 2220 Unauthorized: /api/users/me/
+WARNING 2026-07-16 11:37:07,404 log 9880 2220 Unauthorized: /api/sales/pending/
+WARNING 2026-07-16 11:53:11,631 log 9880 2388 Unauthorized: /api/sales/search_customers/
+WARNING 2026-07-16 11:53:11,644 log 9880 2024 Unauthorized: /api/sales/search_customers/
+WARNING 2026-07-16 12:37:07,417 log 9880 2220 Unauthorized: /api/sales/pending/
+WARNING 2026-07-16 13:37:07,386 log 9880 2388 Unauthorized: /api/sales/pending/
+WARNING 2026-07-16 14:37:07,369 log 9880 2220 Unauthorized: /api/sales/pending/
+WARNING 2026-07-16 15:37:07,365 log 9880 2024 Unauthorized: /api/sales/pending/
+WARNING 2026-07-16 16:37:07,359 log 9880 2388 Unauthorized: /api/sales/pending/
+INFO 2026-07-17 07:37:47,726 wasyncore 8536 8576 Serving on http://0.0.0.0:8000
+INFO 2026-07-17 17:36:35,685 wasyncore 9644 9648 Serving on http://0.0.0.0:8000
+WARNING 2026-07-18 08:00:16,886 log 9644 10092 Unauthorized: /api/users/me/
+WARNING 2026-07-18 08:00:16,900 log 9644 10100 Unauthorized: /api/token/refresh/
+WARNING 2026-07-18 11:04:59,278 log 9644 10092 Unauthorized: /api/sales/search_customers/
+WARNING 2026-07-18 11:04:59,290 log 9644 10096 Unauthorized: /api/sales/search_customers/
+INFO 2026-07-20 07:31:35,982 wasyncore 9892 9896 Serving on http://0.0.0.0:8000
+WARNING 2026-07-20 09:03:19,991 log 9892 5992 Unauthorized: /api/users/me/
+WARNING 2026-07-20 09:03:20,020 log 9892 488 Unauthorized: /api/token/refresh/
+WARNING 2026-07-20 10:04:15,785 log 9892 8020 Unauthorized: /api/sales/pending/
+WARNING 2026-07-20 11:04:15,794 log 9892 8152 Unauthorized: /api/sales/pending/
+WARNING 2026-07-20 11:30:14,750 log 9892 5992 Unauthorized: /api/users/me/
+WARNING 2026-07-20 11:30:14,766 log 9892 8152 Unauthorized: /api/token/refresh/
+WARNING 2026-07-20 12:04:15,764 log 9892 5992 Unauthorized: /api/sales/pending/
+WARNING 2026-07-20 13:14:07,210 log 9892 5992 Unauthorized: /api/sales/search_customers/
+WARNING 2026-07-20 13:14:07,217 log 9892 488 Unauthorized: /api/sales/search_customers/
+WARNING 2026-07-20 16:21:46,913 log 9892 5992 Unauthorized: /api/sales/search_customers/
+WARNING 2026-07-20 16:21:46,923 log 9892 488 Unauthorized: /api/sales/search_customers/
+WARNING 2026-07-20 16:49:03,724 log 9892 8152 Unauthorized: /api/dashboard/summary/
+WARNING 2026-07-20 16:49:03,729 log 9892 5992 Unauthorized: /api/sales/pending/
+INFO 2026-07-21 07:39:38,411 wasyncore 9676 9680 Serving on http://0.0.0.0:8000
+WARNING 2026-07-21 08:00:53,511 log 9676 10840 Unauthorized: /api/users/me/
+WARNING 2026-07-21 09:00:54,258 log 9676 10836 Unauthorized: /api/dashboard/summary/
+WARNING 2026-07-21 09:03:31,035 log 9676 10840 Unauthorized: /api/users/me/
+WARNING 2026-07-21 09:03:31,075 log 9676 10848 Unauthorized: /api/token/refresh/
+WARNING 2026-07-21 10:00:54,291 log 9676 10840 Unauthorized: /api/dashboard/summary/
+WARNING 2026-07-21 10:04:14,658 log 9676 10844 Unauthorized: /api/sales/pending/
+WARNING 2026-07-21 10:19:19,604 log 9676 10844 Unauthorized: /api/users/me/
+WARNING 2026-07-21 10:19:19,622 log 9676 10840 Unauthorized: /api/token/refresh/
+WARNING 2026-07-21 11:04:14,656 log 9676 10844 Unauthorized: /api/sales/pending/
+WARNING 2026-07-21 11:18:38,480 log 9676 10836 Unauthorized: /api/users/me/
+WARNING 2026-07-21 12:04:14,628 log 9676 10844 Unauthorized: /api/sales/pending/
+WARNING 2026-07-21 12:24:24,254 log 9676 10848 Unauthorized: /api/sales/search_customers/
+WARNING 2026-07-21 12:24:24,266 log 9676 10844 Unauthorized: /api/sales/search_customers/
+WARNING 2026-07-21 12:24:24,281 log 9676 10836 Unauthorized: /api/token/refresh/
+WARNING 2026-07-21 12:24:24,283 log 9676 10848 Unauthorized: /api/token/refresh/
+WARNING 2026-07-21 13:04:14,607 log 9676 10840 Unauthorized: /api/sales/pending/
+WARNING 2026-07-21 13:39:13,129 log 9676 10840 Unauthorized: /api/sales/search_customers/
+WARNING 2026-07-21 13:39:13,143 log 9676 10848 Unauthorized: /api/sales/search_customers/
+WARNING 2026-07-21 13:58:54,828 log 9676 10844 Unauthorized: /api/users/me/
+WARNING 2026-07-21 13:58:54,856 log 9676 10840 Unauthorized: /api/token/refresh/
+WARNING 2026-07-21 14:16:15,982 log 9676 10840 Unauthorized: /api/sales/pending/
+WARNING 2026-07-21 14:16:15,989 log 9676 10844 Unauthorized: /api/dashboard/summary/
+WARNING 2026-07-21 14:18:46,152 task 9676 9680 Task queue depth is 1
+WARNING 2026-07-21 14:18:46,161 task 9676 9680 Task queue depth is 1
+WARNING 2026-07-21 14:18:46,166 task 9676 9680 Task queue depth is 1
+WARNING 2026-07-21 14:18:46,180 task 9676 9680 Task queue depth is 1
+WARNING 2026-07-21 15:17:14,589 log 9676 10844 Unauthorized: /api/sales/pending/
+WARNING 2026-07-21 16:17:14,581 log 9676 10836 Unauthorized: /api/sales/pending/
+WARNING 2026-07-21 16:23:40,820 log 9676 10848 Unauthorized: /api/users/me/
+INFO 2026-07-22 07:35:46,833 wasyncore 10144 10148 Serving on http://0.0.0.0:8000
+WARNING 2026-07-22 08:13:47,352 log 10144 1268 Unauthorized: /api/users/me/
+WARNING 2026-07-22 09:57:36,986 log 10144 1268 Unauthorized: /api/users/me/
+WARNING 2026-07-22 09:57:37,049 log 10144 1372 Unauthorized: /api/token/refresh/
+WARNING 2026-07-22 10:36:05,462 log 10144 1376 Unauthorized: /api/dashboard/summary/
+WARNING 2026-07-22 10:58:12,798 log 10144 1268 Unauthorized: /api/sales/pending/
+WARNING 2026-07-22 11:58:12,811 log 10144 1376 Unauthorized: /api/sales/pending/
+WARNING 2026-07-22 12:58:12,788 log 10144 1372 Unauthorized: /api/sales/pending/
+WARNING 2026-07-22 13:58:12,798 log 10144 1052 Unauthorized: /api/sales/pending/
+WARNING 2026-07-22 14:55:10,768 log 10144 1268 Unauthorized: /api/sales/outstanding/
+WARNING 2026-07-22 14:55:10,808 log 10144 1376 Unauthorized: /api/token/refresh/
+WARNING 2026-07-22 14:58:12,799 log 10144 1052 Unauthorized: /api/sales/pending/
+WARNING 2026-07-22 15:58:12,783 log 10144 1372 Unauthorized: /api/sales/pending/
+WARNING 2026-07-22 16:58:12,790 log 10144 1052 Unauthorized: /api/sales/pending/
+INFO 2026-07-23 07:41:33,249 wasyncore 9424 9428 Serving on http://0.0.0.0:8000
+WARNING 2026-07-23 08:06:54,711 log 9424 9544 Unauthorized: /api/users/me/
+WARNING 2026-07-23 09:29:29,279 log 9424 9544 Unauthorized: /api/products/598/adjust_stock/
+WARNING 2026-07-23 09:58:54,496 log 9424 9540 Unauthorized: /api/users/me/
+WARNING 2026-07-23 09:58:54,658 log 9424 9576 Unauthorized: /api/token/refresh/
+INFO 2026-07-23 11:10:45,914 wasyncore 9108 9112 Serving on http://0.0.0.0:8000
+WARNING 2026-07-23 11:11:12,073 log 9108 9816 Unauthorized: /api/sales/pending/
+WARNING 2026-07-23 12:12:11,867 log 9108 9816 Unauthorized: /api/sales/pending/
+WARNING 2026-07-23 13:12:11,863 log 9108 9828 Unauthorized: /api/sales/pending/
+INFO 2026-07-24 12:05:59,455 wasyncore 4092 8516 Serving on http://0.0.0.0:8000
+WARNING 2026-07-24 12:06:34,643 log 4092 10760 Unauthorized: /api/users/me/
+WARNING 2026-07-24 12:06:34,659 log 4092 10768 Unauthorized: /api/token/refresh/
+WARNING 2026-07-24 13:56:23,648 log 4092 10768 Unauthorized: /api/users/me/
+WARNING 2026-07-24 13:56:23,667 log 4092 10760 Unauthorized: /api/token/refresh/
+WARNING 2026-07-24 14:32:52,710 log 4092 10760 Unauthorized: /api/users/me/
+WARNING 2026-07-24 15:09:24,586 log 4092 10764 Unauthorized: /api/users/me/
+WARNING 2026-07-24 15:09:24,601 log 4092 10768 Unauthorized: /api/token/refresh/
+WARNING 2026-07-24 16:51:58,512 log 4092 10768 Unauthorized: /api/sales/
+INFO 2026-07-27 09:29:13,458 wasyncore 3500 7208 Serving on http://0.0.0.0:8000
+WARNING 2026-07-27 09:33:56,732 log 3500 7192 Unauthorized: /api/users/me/
+WARNING 2026-07-27 09:33:56,763 log 3500 10212 Unauthorized: /api/token/refresh/
+WARNING 2026-07-27 10:22:35,353 log 3500 1604 Unauthorized: /api/users/me/
+WARNING 2026-07-27 10:22:35,377 log 3500 7196 Unauthorized: /api/token/refresh/
+WARNING 2026-07-27 10:35:06,870 log 3500 7196 Unauthorized: /api/sales/pending/
+WARNING 2026-07-27 11:35:12,644 log 3500 7196 Unauthorized: /api/sales/pending/
+WARNING 2026-07-27 12:24:17,194 log 3500 1604 Unauthorized: /api/users/me/
+WARNING 2026-07-27 12:36:06,866 log 3500 1604 Unauthorized: /api/sales/pending/
+WARNING 2026-07-27 13:36:06,850 log 3500 10212 Unauthorized: /api/sales/pending/
+WARNING 2026-07-27 14:36:06,861 log 3500 7196 Unauthorized: /api/sales/pending/
+WARNING 2026-07-27 15:36:06,866 log 3500 1604 Unauthorized: /api/sales/pending/
+WARNING 2026-07-27 15:36:06,883 log 3500 7192 Unauthorized: /api/sales/pending/
+INFO 2026-07-27 16:04:51,101 wasyncore 10056 10060 Serving on http://0.0.0.0:8000
+WARNING 2026-07-27 16:26:22,849 log 10056 6152 Unauthorized: /api/suppliers/
+WARNING 2026-07-27 16:26:22,849 log 10056 1192 Unauthorized: /api/products/
+WARNING 2026-07-27 16:26:22,849 log 10056 9872 Unauthorized: /api/categories/
+WARNING 2026-07-27 16:36:06,608 log 10056 1192 Unauthorized: /api/sales/pending/
+WARNING 2026-07-27 17:04:25,915 task 10056 10060 Task queue depth is 1
+WARNING 2026-07-27 17:04:26,441 log 10056 9872 Not Found: /favicon.ico
+WARNING 2026-07-27 17:04:38,545 task 10056 10060 Task queue depth is 1
+WARNING 2026-07-27 17:04:38,545 task 10056 10060 Task queue depth is 2
+WARNING 2026-07-27 17:04:38,572 task 10056 10060 Task queue depth is 1
+WARNING 2026-07-27 17:04:38,578 task 10056 10060 Task queue depth is 2
+WARNING 2026-07-27 17:04:38,608 task 10056 10060 Task queue depth is 1
+WARNING 2026-07-27 17:04:38,626 task 10056 10060 Task queue depth is 2
+WARNING 2026-07-27 17:04:38,648 task 10056 10060 Task queue depth is 1
+WARNING 2026-07-27 17:36:06,607 log 10056 9872 Unauthorized: /api/sales/pending/
+INFO 2026-07-28 08:23:50,626 wasyncore 10084 10088 Serving on http://0.0.0.0:8000
+WARNING 2026-07-28 08:51:46,922 log 10084 10160 Unauthorized: /api/users/me/
+WARNING 2026-07-28 09:52:05,301 log 10084 9756 Unauthorized: /api/sales/pending/
+WARNING 2026-07-28 09:52:05,329 log 10084 10160 Unauthorized: /api/token/refresh/
+WARNING 2026-07-28 12:06:59,441 log 10084 9756 Unauthorized: /api/users/me/
+WARNING 2026-07-28 12:06:59,471 log 10084 10168 Unauthorized: /api/token/refresh/
+WARNING 2026-07-28 13:08:05,259 log 10084 10168 Unauthorized: /api/sales/pending/
+WARNING 2026-07-28 14:08:05,270 log 10084 10128 Unauthorized: /api/sales/pending/
+WARNING 2026-07-28 14:22:06,284 log 10084 10160 Unauthorized: /api/users/me/
+WARNING 2026-07-28 15:08:05,246 log 10084 9756 Unauthorized: /api/sales/pending/
+WARNING 2026-07-28 16:08:05,234 log 10084 10168 Unauthorized: /api/sales/pending/
+WARNING 2026-07-28 17:08:05,253 log 10084 10168 Unauthorized: /api/sales/pending/
+INFO 2026-07-29 08:42:58,453 wasyncore 9880 9884 Serving on http://0.0.0.0:8000
+WARNING 2026-07-29 09:33:09,106 log 9880 9092 Unauthorized: /api/users/me/
+WARNING 2026-07-29 10:34:03,981 log 9880 4128 Unauthorized: /api/sales/pending/
+WARNING 2026-07-29 10:43:56,932 log 9880 9092 Unauthorized: /api/users/me/
+WARNING 2026-07-29 10:43:56,957 log 9880 9384 Unauthorized: /api/token/refresh/
+WARNING 2026-07-29 11:35:03,977 log 9880 9092 Unauthorized: /api/sales/pending/
+WARNING 2026-07-29 12:05:06,297 log 9880 10232 Unauthorized: /api/sales/search_products/
+WARNING 2026-07-29 12:05:06,608 log 9880 9384 Unauthorized: /api/sales/search_products/
+WARNING 2026-07-29 12:08:04,493 task 9880 9884 Task queue depth is 1
+WARNING 2026-07-29 12:08:04,503 task 9880 9884 Task queue depth is 2
+WARNING 2026-07-29 12:08:04,523 task 9880 9884 Task queue depth is 1
+WARNING 2026-07-29 12:08:04,528 task 9880 9884 Task queue depth is 2
+WARNING 2026-07-29 12:08:04,558 task 9880 9884 Task queue depth is 1
+WARNING 2026-07-29 12:08:04,581 task 9880 9884 Task queue depth is 1
+WARNING 2026-07-29 12:08:04,583 task 9880 9884 Task queue depth is 1
+WARNING 2026-07-29 12:08:04,602 task 9880 9884 Task queue depth is 1
+WARNING 2026-07-29 12:08:04,611 task 9880 9884 Task queue depth is 2
+WARNING 2026-07-29 12:08:04,623 task 9880 9884 Task queue depth is 1
+WARNING 2026-07-29 12:08:04,637 task 9880 9884 Task queue depth is 2
+WARNING 2026-07-29 12:08:04,650 task 9880 9884 Task queue depth is 2
+WARNING 2026-07-29 12:08:04,662 task 9880 9884 Task queue depth is 1
+WARNING 2026-07-29 12:08:04,674 task 9880 9884 Task queue depth is 2
+WARNING 2026-07-29 12:08:04,698 task 9880 9884 Task queue depth is 2
+WARNING 2026-07-29 12:08:04,712 task 9880 9884 Task queue depth is 2
+WARNING 2026-07-29 12:08:04,764 task 9880 9884 Task queue depth is 1
+WARNING 2026-07-29 12:08:04,773 task 9880 9884 Task queue depth is 1
+WARNING 2026-07-29 12:08:04,784 task 9880 9884 Task queue depth is 2
+WARNING 2026-07-29 12:08:04,818 task 9880 9884 Task queue depth is 2
+WARNING 2026-07-29 12:08:04,837 task 9880 9884 Task queue depth is 1
+WARNING 2026-07-29 12:08:04,848 task 9880 9884 Task queue depth is 2
+WARNING 2026-07-29 12:08:04,877 task 9880 9884 Task queue depth is 2
+WARNING 2026-07-29 12:08:04,926 task 9880 9884 Task queue depth is 2
+WARNING 2026-07-29 12:08:04,941 task 9880 9884 Task queue depth is 1
+WARNING 2026-07-29 12:08:04,947 task 9880 9884 Task queue depth is 2
+WARNING 2026-07-29 12:08:04,968 task 9880 9884 Task queue depth is 2
+WARNING 2026-07-29 12:08:05,006 task 9880 9884 Task queue depth is 2
+WARNING 2026-07-29 12:36:03,966 log 9880 9092 Unauthorized: /api/sales/pending/
+WARNING 2026-07-29 12:36:03,992 log 9880 9384 Unauthorized: /api/token/refresh/
+WARNING 2026-07-29 13:06:07,368 log 9880 10232 Unauthorized: /api/products/
+WARNING 2026-07-29 13:06:07,369 log 9880 9092 Unauthorized: /api/suppliers/
+WARNING 2026-07-29 13:06:07,373 log 9880 4128 Unauthorized: /api/categories/
+WARNING 2026-07-29 14:22:43,772 log 9880 4128 Unauthorized: /api/sales/search_salespersons/
+WARNING 2026-07-29 14:22:43,788 log 9880 9092 Unauthorized: /api/sales/search_salespersons/
+WARNING 2026-07-29 14:22:44,008 log 9880 10232 Unauthorized: /api/sales/search_salespersons/
+WARNING 2026-07-29 14:22:44,021 log 9880 9092 Unauthorized: /api/sales/search_salespersons/
+WARNING 2026-07-29 15:27:43,900 log 9880 9092 Unauthorized: /api/categories/
+WARNING 2026-07-29 15:27:43,902 log 9880 4128 Unauthorized: /api/suppliers/
+WARNING 2026-07-29 15:27:43,903 log 9880 9384 Unauthorized: /api/products/
+INFO 2026-07-30 08:19:53,009 wasyncore 9900 9904 Serving on http://0.0.0.0:8000
+WARNING 2026-07-30 09:43:47,854 log 9900 948 Unauthorized: /api/sales/pending/
+WARNING 2026-07-30 10:28:33,788 log 9900 9476 Unauthorized: /api/users/me/
+WARNING 2026-07-30 10:43:47,844 log 9900 948 Unauthorized: /api/sales/pending/
+WARNING 2026-07-30 11:44:01,561 log 9900 9476 Unauthorized: /api/sales/pending/
+WARNING 2026-07-30 12:44:01,577 log 9900 10056 Unauthorized: /api/sales/pending/
+WARNING 2026-07-30 13:02:51,417 log 9900 9476 Unauthorized: /api/users/me/
+WARNING 2026-07-30 13:44:01,558 log 9900 492 Unauthorized: /api/sales/pending/
+WARNING 2026-07-30 14:44:01,542 log 9900 948 Unauthorized: /api/sales/pending/
+WARNING 2026-07-30 14:51:41,421 log 9900 9476 Unauthorized: /api/users/me/
+WARNING 2026-07-30 15:44:01,548 log 9900 492 Unauthorized: /api/sales/pending/
+WARNING 2026-07-30 16:44:01,558 log 9900 948 Unauthorized: /api/sales/pending/
+WARNING 2026-07-30 16:57:04,069 log 9900 9476 Unauthorized: /api/users/me/
+INFO 2026-07-31 08:35:55,948 wasyncore 9484 9476 Serving on http://0.0.0.0:8000
+WARNING 2026-07-31 09:00:36,469 log 9484 8492 Unauthorized: /api/users/me/
+WARNING 2026-07-31 09:24:14,176 log 9484 8340 Unauthorized: /api/users/me/
+WARNING 2026-07-31 09:24:14,208 log 9484 8468 Unauthorized: /api/token/refresh/
+WARNING 2026-07-31 10:24:59,300 log 9484 8492 Unauthorized: /api/sales/pending/
+WARNING 2026-07-31 11:25:00,478 log 9484 8484 Unauthorized: /api/sales/pending/
+WARNING 2026-07-31 11:49:24,920 log 9484 8492 Unauthorized: /api/sales/
+WARNING 2026-07-31 11:49:24,973 log 9484 8340 Unauthorized: /api/token/refresh/
+WARNING 2026-07-31 12:08:59,699 log 9484 8492 Not Found: /favicon.ico
+WARNING 2026-07-31 12:09:22,641 task 9484 9476 Task queue depth is 1
+WARNING 2026-07-31 12:09:22,647 task 9484 9476 Task queue depth is 2
+WARNING 2026-07-31 12:09:22,656 task 9484 9476 Task queue depth is 1
+WARNING 2026-07-31 12:09:22,675 task 9484 9476 Task queue depth is 1
+WARNING 2026-07-31 12:25:00,443 log 9484 8468 Unauthorized: /api/sales/pending/
+WARNING 2026-07-31 13:15:53,097 log 9484 8484 Unauthorized: /api/dashboard/summary/
+WARNING 2026-07-31 16:38:41,062 log 9484 8484 Unauthorized: /api/users/me/
+WARNING 2026-07-31 16:38:53,367 log 9484 8492 Unauthorized: /api/sales/pending/
+WARNING 2026-07-31 16:38:53,381 log 9484 8484 Unauthorized: /api/sales/pending/
+INFO 2026-08-01 09:36:01,717 wasyncore 9460 9580 Serving on http://0.0.0.0:8000
+WARNING 2026-08-01 09:42:49,220 log 9460 10292 Unauthorized: /api/users/me/
+WARNING 2026-08-01 09:42:49,254 log 9460 10300 Unauthorized: /api/token/refresh/
+WARNING 2026-08-01 10:42:59,693 log 9460 10292 Unauthorized: /api/sales/pending/
+WARNING 2026-08-01 11:42:59,727 log 9460 10296 Unauthorized: /api/sales/pending/
+WARNING 2026-08-01 12:42:59,684 log 9460 10288 Unauthorized: /api/sales/pending/
+WARNING 2026-08-01 13:42:59,697 log 9460 10292 Unauthorized: /api/sales/pending/
+INFO 2026-08-03 08:49:19,964 wasyncore 10236 9232 Serving on http://0.0.0.0:8000
+WARNING 2026-08-03 09:57:07,416 log 10236 10440 Unauthorized: /api/users/me/
+WARNING 2026-08-03 09:57:07,458 log 10236 10448 Unauthorized: /api/token/refresh/
+WARNING 2026-08-03 10:09:48,206 log 10236 10448 Unauthorized: /api/users/me/
+WARNING 2026-08-03 10:09:48,284 log 10236 10436 Unauthorized: /api/token/refresh/
+WARNING 2026-08-03 10:57:57,856 log 10236 10444 Unauthorized: /api/sales/pending/
+WARNING 2026-08-03 11:57:57,891 log 10236 10444 Unauthorized: /api/sales/pending/
+WARNING 2026-08-03 12:05:37,200 log 10236 10448 Unauthorized: /api/categories/
+WARNING 2026-08-03 12:05:37,202 log 10236 10436 Unauthorized: /api/suppliers/
+WARNING 2026-08-03 12:05:37,203 log 10236 10440 Unauthorized: /api/products/
+WARNING 2026-08-03 12:57:57,866 log 10236 10444 Unauthorized: /api/sales/pending/
+WARNING 2026-08-03 13:22:59,209 log 10236 10444 Unauthorized: /api/suppliers/
+WARNING 2026-08-03 13:22:59,211 log 10236 10436 Unauthorized: /api/categories/
+WARNING 2026-08-03 13:22:59,212 log 10236 10448 Unauthorized: /api/products/
+WARNING 2026-08-03 15:43:45,566 log 10236 10448 Unauthorized: /api/sales/
+WARNING 2026-08-03 16:19:56,917 log 10236 10436 Unauthorized: /api/dashboard/summary/
+WARNING 2026-08-03 16:19:56,925 log 10236 10440 Unauthorized: /api/sales/pending/
+INFO 2026-08-04 08:34:29,510 wasyncore 10016 10020 Serving on http://0.0.0.0:8000
+WARNING 2026-08-04 08:49:31,201 log 10016 10676 Unauthorized: /api/users/me/
+WARNING 2026-08-04 09:49:56,537 log 10016 10672 Unauthorized: /api/sales/pending/
+WARNING 2026-08-04 10:49:56,528 log 10016 10684 Unauthorized: /api/sales/pending/
+WARNING 2026-08-04 10:49:56,566 log 10016 10676 Unauthorized: /api/token/refresh/
+WARNING 2026-08-04 11:52:35,091 log 10016 10684 Unauthorized: /api/users/me/
+WARNING 2026-08-04 11:52:35,134 log 10016 10676 Unauthorized: /api/token/refresh/
+WARNING 2026-08-04 13:16:19,481 log 10016 10680 Unauthorized: /api/products/
+WARNING 2026-08-04 13:16:19,483 log 10016 10676 Unauthorized: /api/suppliers/
+WARNING 2026-08-04 13:16:19,486 log 10016 10672 Unauthorized: /api/categories/
+WARNING 2026-08-04 13:58:56,283 log 10016 10672 Bad Request: /api/sales/
+WARNING 2026-08-04 14:04:22,937 log 10016 10684 Bad Request: /api/sales/
+WARNING 2026-08-04 14:04:43,686 log 10016 10676 Bad Request: /api/sales/
+WARNING 2026-08-04 16:54:05,411 log 10016 10672 Unauthorized: /api/dashboard/summary/
+INFO 2026-08-05 08:23:49,913 wasyncore 9924 9928 Serving on http://0.0.0.0:8000
+WARNING 2026-08-05 09:56:24,206 log 9924 9276 Unauthorized: /api/users/me/
+WARNING 2026-08-05 09:56:24,227 log 9924 9488 Unauthorized: /api/users/me/
+WARNING 2026-08-05 10:19:20,201 log 9924 9276 Unauthorized: /api/sales/pending/
+WARNING 2026-08-05 10:19:20,204 log 9924 10084 Unauthorized: /api/dashboard/summary/
+WARNING 2026-08-05 11:19:22,210 log 9924 10084 Unauthorized: /api/sales/pending/
+WARNING 2026-08-05 12:16:09,888 log 9924 9276 Unauthorized: /api/sales/pending/
+WARNING 2026-08-05 12:19:56,202 log 9924 10084 Unauthorized: /api/sales/pending/
+WARNING 2026-08-05 13:16:49,869 log 9924 9276 Unauthorized: /api/sales/pending/
+WARNING 2026-08-05 13:20:16,571 log 9924 9276 Unauthorized: /api/sales/pending/
+WARNING 2026-08-05 14:20:56,212 log 9924 9488 Unauthorized: /api/sales/pending/
+WARNING 2026-08-05 15:20:56,207 log 9924 9488 Unauthorized: /api/sales/pending/
+WARNING 2026-08-05 15:32:40,342 log 9924 10084 Unauthorized: /api/users/me/
+WARNING 2026-08-05 16:20:56,205 log 9924 9488 Unauthorized: /api/sales/pending/
+WARNING 2026-08-05 16:52:06,456 log 9924 9276 Unauthorized: /api/users/me/
+WARNING 2026-08-05 16:52:45,910 task 9924 9928 Task queue depth is 1
+WARNING 2026-08-05 16:52:45,937 task 9924 9928 Task queue depth is 1
+WARNING 2026-08-05 16:52:45,980 task 9924 9928 Task queue depth is 1
+WARNING 2026-08-05 16:52:45,997 task 9924 9928 Task queue depth is 2
+WARNING 2026-08-05 16:52:46,028 task 9924 9928 Task queue depth is 1
+WARNING 2026-08-05 16:52:46,238 task 9924 9928 Task queue depth is 1
+WARNING 2026-08-05 16:52:46,328 task 9924 9928 Task queue depth is 1
+INFO 2026-08-06 08:25:47,577 wasyncore 10144 10148 Serving on http://0.0.0.0:8000
+WARNING 2026-08-06 08:36:45,336 log 10144 9432 Unauthorized: /api/users/me/
+WARNING 2026-08-06 09:36:54,072 log 10144 9432 Unauthorized: /api/sales/pending/
+WARNING 2026-08-06 09:36:54,101 log 10144 10060 Unauthorized: /api/token/refresh/
+WARNING 2026-08-06 10:25:02,656 log 10144 8180 Unauthorized: /api/users/me/
+WARNING 2026-08-06 11:30:05,746 log 10144 10044 Unauthorized: /api/suppliers/
+WARNING 2026-08-06 11:30:05,751 log 10144 8180 Unauthorized: /api/products/
+WARNING 2026-08-06 11:30:05,752 log 10144 10060 Unauthorized: /api/categories/
+WARNING 2026-08-06 11:40:03,190 task 10144 10148 Task queue depth is 1
+WARNING 2026-08-06 11:40:03,194 task 10144 10148 Task queue depth is 2
+WARNING 2026-08-06 11:40:03,272 task 10144 10148 Task queue depth is 1
+WARNING 2026-08-06 11:40:03,332 task 10144 10148 Task queue depth is 1
+WARNING 2026-08-06 11:40:03,341 task 10144 10148 Task queue depth is 2
+WARNING 2026-08-06 11:40:03,363 task 10144 10148 Task queue depth is 1
+WARNING 2026-08-06 11:40:03,371 task 10144 10148 Task queue depth is 2
+WARNING 2026-08-06 11:40:03,438 task 10144 10148 Task queue depth is 1
+WARNING 2026-08-06 11:40:03,457 task 10144 10148 Task queue depth is 1
+WARNING 2026-08-06 11:40:03,471 task 10144 10148 Task queue depth is 2
+WARNING 2026-08-06 11:40:03,492 task 10144 10148 Task queue depth is 2
+WARNING 2026-08-06 11:40:03,538 task 10144 10148 Task queue depth is 1
+WARNING 2026-08-06 11:40:03,553 task 10144 10148 Task queue depth is 1
+WARNING 2026-08-06 11:40:03,563 task 10144 10148 Task queue depth is 1
+WARNING 2026-08-06 12:34:58,844 log 10144 9432 Unauthorized: /api/suppliers/
+WARNING 2026-08-06 12:34:58,846 log 10144 8180 Unauthorized: /api/categories/
+WARNING 2026-08-06 12:34:58,847 log 10144 10044 Unauthorized: /api/products/
+WARNING 2026-08-06 12:52:54,063 log 10144 10060 Unauthorized: /api/sales/pending/
+WARNING 2026-08-06 13:52:54,084 log 10144 10060 Unauthorized: /api/sales/pending/
+WARNING 2026-08-06 14:36:19,671 log 10144 10044 Unauthorized: /api/sales/
+WARNING 2026-08-06 14:52:54,074 log 10144 8180 Unauthorized: /api/sales/pending/
+WARNING 2026-08-06 15:52:54,065 log 10144 9432 Unauthorized: /api/sales/pending/
+WARNING 2026-08-06 16:49:27,924 log 10144 10060 Unauthorized: /api/sales/search_customers/
+WARNING 2026-08-06 16:49:27,938 log 10144 9432 Unauthorized: /api/sales/search_customers/
+WARNING 2026-08-06 16:49:27,952 log 10144 10044 Unauthorized: /api/token/refresh/
+WARNING 2026-08-06 16:49:28,155 log 10144 10060 Unauthorized: /api/sales/search_customers/
+WARNING 2026-08-06 16:49:28,340 log 10144 8180 Unauthorized: /api/token/refresh/
+WARNING 2026-08-06 16:49:28,341 log 10144 9432 Unauthorized: /api/sales/search_customers/
+WARNING 2026-08-06 16:49:28,348 log 10144 10044 Unauthorized: /api/token/refresh/
+WARNING 2026-08-06 16:52:54,074 log 10144 8180 Unauthorized: /api/sales/pending/
+INFO 2026-08-07 08:24:14,131 wasyncore 10076 10080 Serving on http://0.0.0.0:8000
+WARNING 2026-08-07 08:39:13,446 log 10076 9900 Unauthorized: /api/users/me/
+WARNING 2026-08-07 09:39:51,187 log 10076 9900 Unauthorized: /api/sales/pending/
+WARNING 2026-08-07 10:19:43,413 log 10076 9908 Unauthorized: /api/sales/search_salespersons/
+WARNING 2026-08-07 10:40:14,427 log 10076 9908 Unauthorized: /api/sales/pending/
+WARNING 2026-08-07 11:20:23,060 log 10076 9896 Unauthorized: /api/users/me/
+WARNING 2026-08-07 11:40:14,423 log 10076 9916 Unauthorized: /api/sales/pending/
+WARNING 2026-08-07 12:07:21,574 log 10076 9896 Unauthorized: /api/users/me/
+WARNING 2026-08-07 12:40:51,176 log 10076 9916 Unauthorized: /api/sales/pending/
+WARNING 2026-08-07 12:40:51,198 log 10076 9908 Unauthorized: /api/token/refresh/
+WARNING 2026-08-07 13:13:10,843 log 10076 9916 Unauthorized: /api/sales/250/record_delivery/
+WARNING 2026-08-07 15:47:30,350 log 10076 9908 Unauthorized: /api/sales/search_customers/
+WARNING 2026-08-07 15:47:30,363 log 10076 9916 Unauthorized: /api/sales/search_customers/
+WARNING 2026-08-07 15:48:01,132 log 10076 9908 Not Found: /favicon.ico
+WARNING 2026-08-07 17:19:51,210 log 10076 9900 Unauthorized: /api/sales/pending/
+INFO 2026-08-08 09:39:54,196 wasyncore 9540 9536 Serving on http://0.0.0.0:8000
+WARNING 2026-08-08 09:48:41,267 log 9540 10232 Unauthorized: /api/users/me/
+WARNING 2026-08-08 10:48:49,547 log 9540 9436 Unauthorized: /api/sales/pending/
+WARNING 2026-08-08 11:48:49,555 log 9540 1712 Unauthorized: /api/sales/pending/
+WARNING 2026-08-08 12:48:49,524 log 9540 9436 Unauthorized: /api/sales/pending/
+INFO 2026-08-10 08:18:02,776 wasyncore 9620 9868 Serving on http://0.0.0.0:8000
+WARNING 2026-08-10 09:44:23,658 log 9620 10948 Unauthorized: /api/users/me/
+WARNING 2026-08-10 09:44:23,809 log 9620 10956 Unauthorized: /api/token/refresh/
+WARNING 2026-08-10 09:45:48,764 log 9620 10948 Unauthorized: /api/users/me/
+WARNING 2026-08-10 09:45:48,779 log 9620 10956 Unauthorized: /api/token/refresh/
+WARNING 2026-08-10 10:46:47,526 log 9620 10956 Unauthorized: /api/sales/pending/
+WARNING 2026-08-10 10:47:30,426 log 9620 10944 Unauthorized: /api/sales/search_customers/
+WARNING 2026-08-10 10:47:30,441 log 9620 10952 Unauthorized: /api/sales/search_customers/
+WARNING 2026-08-10 11:46:47,530 log 9620 10956 Unauthorized: /api/sales/pending/
+WARNING 2026-08-10 11:59:24,807 log 9620 10952 Unauthorized: /api/users/me/
+WARNING 2026-08-10 12:46:47,517 log 9620 10956 Unauthorized: /api/sales/pending/
+WARNING 2026-08-10 13:46:47,516 log 9620 10956 Unauthorized: /api/sales/pending/
+WARNING 2026-08-10 14:46:47,521 log 9620 10944 Unauthorized: /api/sales/pending/
+WARNING 2026-08-10 15:46:47,517 log 9620 10944 Unauthorized: /api/sales/pending/
+WARNING 2026-08-10 16:46:47,520 log 9620 10952 Unauthorized: /api/sales/pending/
+INFO 2026-08-11 07:38:32,197 wasyncore 9780 9784 Serving on http://0.0.0.0:8000
+WARNING 2026-08-11 10:36:41,972 log 9780 10524 Unauthorized: /api/users/me/
+WARNING 2026-08-11 10:36:42,064 log 9780 10532 Unauthorized: /api/token/refresh/
+WARNING 2026-08-11 10:41:48,652 log 9780 10524 Unauthorized: /api/users/me/
+WARNING 2026-08-11 10:41:48,672 log 9780 10528 Unauthorized: /api/token/refresh/
+WARNING 2026-08-11 11:42:45,997 log 9780 10524 Unauthorized: /api/sales/pending/
+WARNING 2026-08-11 12:43:45,982 log 9780 10524 Unauthorized: /api/sales/pending/
+WARNING 2026-08-11 14:29:45,986 log 9780 10532 Unauthorized: /api/sales/pending/
+WARNING 2026-08-11 14:41:28,986 log 9780 10532 Unauthorized: /api/sales/
+WARNING 2026-08-11 14:41:29,043 log 9780 10524 Unauthorized: /api/token/refresh/
+WARNING 2026-08-11 14:48:08,220 log 9780 10524 Unauthorized: /api/users/me/
+WARNING 2026-08-11 15:30:45,971 log 9780 10528 Unauthorized: /api/sales/pending/
+WARNING 2026-08-11 15:45:54,269 task 9780 9784 Task queue depth is 1
+WARNING 2026-08-11 15:45:54,357 task 9780 9784 Task queue depth is 1
+WARNING 2026-08-11 15:45:54,780 task 9780 9784 Task queue depth is 1
+WARNING 2026-08-11 15:45:54,810 task 9780 9784 Task queue depth is 1
+WARNING 2026-08-11 15:45:54,843 task 9780 9784 Task queue depth is 1
+WARNING 2026-08-11 15:45:54,901 task 9780 9784 Task queue depth is 1
+WARNING 2026-08-11 15:45:54,933 task 9780 9784 Task queue depth is 1
+WARNING 2026-08-11 15:45:55,055 task 9780 9784 Task queue depth is 1
+WARNING 2026-08-11 15:45:55,084 task 9780 9784 Task queue depth is 1
+WARNING 2026-08-11 16:21:11,603 log 9780 10528 Unauthorized: /api/categories/
+WARNING 2026-08-11 16:21:11,606 log 9780 10528 Unauthorized: /api/products/
+WARNING 2026-08-11 16:21:11,605 log 9780 10532 Unauthorized: /api/suppliers/
+WARNING 2026-08-11 16:31:06,140 log 9780 10528 Unauthorized: /api/sales/pending/
+INFO 2026-08-12 07:42:27,898 wasyncore 10164 10168 Serving on http://0.0.0.0:8000
+WARNING 2026-08-12 07:52:20,018 log 10164 10592 Unauthorized: /api/users/me/
+WARNING 2026-08-12 08:31:28,687 log 10164 10596 Unauthorized: /api/users/me/
+WARNING 2026-08-12 08:55:58,245 log 10164 10592 Unauthorized: /api/sales/
+WARNING 2026-08-12 09:16:18,523 log 10164 10600 Unauthorized: /api/sales/
+WARNING 2026-08-12 09:31:43,906 log 10164 10596 Unauthorized: /api/sales/pending/
+WARNING 2026-08-12 10:31:43,921 log 10164 10600 Unauthorized: /api/sales/pending/
+WARNING 2026-08-12 10:46:26,469 log 10164 10588 Unauthorized: /api/categories/
+WARNING 2026-08-12 10:46:26,471 log 10164 10592 Unauthorized: /api/products/
+WARNING 2026-08-12 10:46:26,472 log 10164 10596 Unauthorized: /api/suppliers/
+WARNING 2026-08-12 10:46:26,552 log 10164 10600 Unauthorized: /api/token/refresh/
+WARNING 2026-08-12 10:46:26,553 log 10164 10588 Unauthorized: /api/token/refresh/
+WARNING 2026-08-12 10:46:26,555 log 10164 10592 Unauthorized: /api/token/refresh/
+WARNING 2026-08-12 11:31:43,909 log 10164 10600 Unauthorized: /api/sales/pending/
+WARNING 2026-08-12 11:31:43,920 log 10164 10588 Unauthorized: /api/token/refresh/
+WARNING 2026-08-12 12:56:37,150 log 10164 10592 Unauthorized: /api/products/596/adjust_stock/
+WARNING 2026-08-12 14:05:38,911 log 10164 10596 Unauthorized: /api/sales/search_customers/
+WARNING 2026-08-12 14:05:38,924 log 10164 10588 Unauthorized: /api/sales/search_customers/
+WARNING 2026-08-12 15:39:53,568 log 10164 10600 Unauthorized: /api/sales/pending/
+WARNING 2026-08-12 16:02:43,937 log 10164 10600 Unauthorized: /api/sales/pending/
+WARNING 2026-08-12 16:13:28,544 log 10164 10600 Unauthorized: /api/categories/
+WARNING 2026-08-12 16:13:28,545 log 10164 10596 Unauthorized: /api/suppliers/
+WARNING 2026-08-12 16:13:28,547 log 10164 10592 Unauthorized: /api/products/
+WARNING 2026-08-12 16:39:53,643 log 10164 10596 Unauthorized: /api/sales/pending/
+INFO 2026-08-13 08:25:22,703 wasyncore 9612 9616 Serving on http://0.0.0.0:8000
+WARNING 2026-08-13 08:38:07,803 log 9612 10568 Unauthorized: /api/users/me/
+WARNING 2026-08-13 08:52:28,756 log 9612 10576 Unauthorized: /api/users/me/
+WARNING 2026-08-13 09:38:08,466 log 9612 10576 Unauthorized: /api/sales/pending/
+WARNING 2026-08-13 10:03:19,310 log 9612 10572 Unauthorized: /api/sales/
+WARNING 2026-08-13 10:33:00,859 log 9612 10564 Unauthorized: /api/users/me/
+WARNING 2026-08-13 10:38:09,491 log 9612 10576 Unauthorized: /api/sales/pending/
+WARNING 2026-08-13 11:39:08,469 log 9612 10576 Unauthorized: /api/sales/pending/
+WARNING 2026-08-13 12:21:10,218 log 9612 10568 Unauthorized: /api/dashboard/summary/
+WARNING 2026-08-13 12:39:08,482 log 9612 10564 Unauthorized: /api/sales/pending/
+WARNING 2026-08-13 13:37:20,270 log 9612 10576 Unauthorized: /api/dashboard/summary/
+WARNING 2026-08-13 13:39:08,468 log 9612 10568 Unauthorized: /api/sales/pending/
+WARNING 2026-08-13 13:41:58,585 log 9612 10576 Unauthorized: /api/sales/search_customers/
+WARNING 2026-08-13 13:41:58,595 log 9612 10568 Unauthorized: /api/sales/search_customers/
+WARNING 2026-08-13 13:41:58,609 log 9612 10572 Unauthorized: /api/token/refresh/
+WARNING 2026-08-13 13:41:58,611 log 9612 10576 Unauthorized: /api/token/refresh/
+WARNING 2026-08-13 14:39:08,461 log 9612 10564 Unauthorized: /api/sales/pending/
+WARNING 2026-08-13 15:39:08,467 log 9612 10576 Unauthorized: /api/sales/pending/
+WARNING 2026-08-13 15:39:08,490 log 9612 10572 Unauthorized: /api/token/refresh/
+INFO 2026-08-14 07:33:45,581 wasyncore 9668 9672 Serving on http://0.0.0.0:8000
+WARNING 2026-08-14 07:51:17,922 log 9668 10132 Unauthorized: /api/users/me/
+WARNING 2026-08-14 09:43:47,625 log 9668 10196 Unauthorized: /api/users/me/
+WARNING 2026-08-14 09:47:47,171 log 9668 10132 Unauthorized: /api/suppliers/
+WARNING 2026-08-14 12:31:48,506 log 9668 10196 Unauthorized: /api/users/me/
+WARNING 2026-08-14 12:31:48,536 log 9668 9640 Unauthorized: /api/token/refresh/
+WARNING 2026-08-14 12:36:34,940 log 9668 9640 Unauthorized: /api/token/
+WARNING 2026-08-14 12:36:57,474 log 9668 9620 Unauthorized: /api/token/
+WARNING 2026-08-14 12:37:17,303 log 9668 10196 Unauthorized: /api/token/
+WARNING 2026-08-14 12:48:25,725 log 9668 10196 Unauthorized: /api/users/me/
+WARNING 2026-08-14 13:38:29,957 log 9668 10132 Unauthorized: /api/sales/pending/
+WARNING 2026-08-14 13:39:15,633 log 9668 10196 Unauthorized: /api/users/me/
+WARNING 2026-08-14 14:05:19,051 log 9668 10196 Unauthorized: /api/suppliers/
+WARNING 2026-08-14 14:05:19,052 log 9668 9640 Unauthorized: /api/products/
+WARNING 2026-08-14 14:05:19,053 log 9668 10132 Unauthorized: /api/categories/
+WARNING 2026-08-14 14:05:19,296 log 9668 9620 Unauthorized: /api/token/refresh/
+WARNING 2026-08-14 14:05:19,303 log 9668 10196 Unauthorized: /api/token/refresh/
+WARNING 2026-08-14 14:05:19,300 log 9668 9640 Unauthorized: /api/token/refresh/
+WARNING 2026-08-14 14:38:43,796 log 9668 9640 Unauthorized: /api/sales/pending/
+WARNING 2026-08-14 15:51:18,718 log 9668 9620 Unauthorized: /api/categories/
+WARNING 2026-08-14 15:51:18,723 log 9668 10132 Unauthorized: /api/products/
+WARNING 2026-08-14 15:51:18,722 log 9668 9640 Unauthorized: /api/suppliers/
+INFO 2026-08-15 07:51:31,002 wasyncore 9300 9304 Serving on http://0.0.0.0:8000
+WARNING 2026-08-15 08:06:27,139 log 9300 9952 Unauthorized: /api/users/me/
+WARNING 2026-08-15 09:58:23,975 log 9300 10040 Unauthorized: /api/products/474/adjust_stock/
+WARNING 2026-08-15 11:20:19,964 log 9300 9952 Unauthorized: /api/sales/search_customers/
+WARNING 2026-08-15 11:20:19,997 log 9300 9904 Unauthorized: /api/sales/search_customers/
+WARNING 2026-08-15 12:23:35,020 log 9300 10040 Unauthorized: /api/users/me/
+INFO 2026-08-17 07:39:00,110 wasyncore 9752 9756 Serving on http://0.0.0.0:8000
+INFO 2026-08-17 11:08:55,603 wasyncore 8896 8908 Serving on http://0.0.0.0:8000
+WARNING 2026-08-17 11:38:07,371 log 8896 10584 Unauthorized: /api/users/me/
+WARNING 2026-08-17 11:38:08,176 log 8896 10592 Unauthorized: /api/token/refresh/
+WARNING 2026-08-17 12:48:22,783 log 8896 10588 Unauthorized: /api/users/me/
+WARNING 2026-08-17 13:21:45,598 log 8896 10588 Unauthorized: /api/users/me/
+WARNING 2026-08-17 13:21:45,648 log 8896 10592 Unauthorized: /api/token/refresh/
+WARNING 2026-08-17 15:29:56,050 log 8896 10588 Unauthorized: /api/sales/pending/
+WARNING 2026-08-17 15:29:56,052 log 8896 10580 Unauthorized: /api/dashboard/summary/
+WARNING 2026-08-17 15:29:56,131 log 8896 10588 Unauthorized: /api/token/refresh/
+WARNING 2026-08-17 15:29:56,132 log 8896 10580 Unauthorized: /api/token/refresh/
+WARNING 2026-08-17 15:30:04,337 log 8896 10584 Unauthorized: /api/sales/pending/
+WARNING 2026-08-17 15:30:26,049 log 8896 10592 Unauthorized: /api/sales/pending/
+WARNING 2026-08-17 15:30:56,298 log 8896 10588 Unauthorized: /api/sales/pending/
+WARNING 2026-08-17 15:31:26,283 log 8896 10580 Unauthorized: /api/sales/pending/
+WARNING 2026-08-17 15:31:56,288 log 8896 10584 Unauthorized: /api/sales/pending/
+WARNING 2026-08-17 15:32:26,283 log 8896 10592 Unauthorized: /api/sales/pending/
+WARNING 2026-08-17 15:32:56,285 log 8896 10588 Unauthorized: /api/sales/pending/
+WARNING 2026-08-17 15:33:26,289 log 8896 10580 Unauthorized: /api/sales/pending/
+WARNING 2026-08-17 15:34:04,283 log 8896 10584 Unauthorized: /api/sales/pending/
+WARNING 2026-08-17 15:35:04,294 log 8896 10592 Unauthorized: /api/sales/pending/
+WARNING 2026-08-17 15:36:04,291 log 8896 10588 Unauthorized: /api/sales/pending/
+WARNING 2026-08-17 15:37:04,311 log 8896 10580 Unauthorized: /api/sales/pending/
+WARNING 2026-08-17 15:38:04,289 log 8896 10584 Unauthorized: /api/sales/pending/
+WARNING 2026-08-17 15:39:04,306 log 8896 10592 Unauthorized: /api/sales/pending/
+WARNING 2026-08-17 15:40:04,283 log 8896 10588 Unauthorized: /api/sales/pending/
+WARNING 2026-08-17 15:41:04,311 log 8896 10580 Unauthorized: /api/sales/pending/
+WARNING 2026-08-17 15:42:04,291 log 8896 10584 Unauthorized: /api/sales/pending/
+WARNING 2026-08-17 15:43:04,284 log 8896 10592 Unauthorized: /api/sales/pending/
+WARNING 2026-08-17 15:44:04,298 log 8896 10588 Unauthorized: /api/sales/pending/
+WARNING 2026-08-17 15:45:04,290 log 8896 10580 Unauthorized: /api/sales/pending/
+WARNING 2026-08-17 15:46:04,284 log 8896 10584 Unauthorized: /api/sales/pending/
+WARNING 2026-08-17 15:47:04,282 log 8896 10592 Unauthorized: /api/sales/pending/
+INFO 2026-08-17 15:55:48,241 wasyncore 11152 7944 Serving on http://0.0.0.0:8000
+INFO 2026-08-18 08:40:58,988 wasyncore 10548 10932 Serving on http://0.0.0.0:8000
+WARNING 2026-08-18 08:41:28,565 log 10548 9552 Unauthorized: /api/users/me/
+WARNING 2026-08-18 10:06:04,417 log 10548 6740 Unauthorized: /api/sales/pending/
+INFO 2026-08-18 10:42:35,296 wasyncore 8860 1612 Serving on http://0.0.0.0:8000
+WARNING 2026-08-18 10:42:39,931 task 8860 1612 Task queue depth is 1
+WARNING 2026-08-18 10:42:39,932 task 8860 1612 Task queue depth is 2
+WARNING 2026-08-18 10:42:40,151 log 8860 2988 Not Found: /favicon.ico
+WARNING 2026-08-18 10:42:46,577 log 8860 5168 Unauthorized: /api/sales/
+WARNING 2026-08-18 10:43:26,876 task 8860 1612 Task queue depth is 1
+WARNING 2026-08-18 10:43:26,877 task 8860 1612 Task queue depth is 2
+WARNING 2026-08-18 10:43:26,907 task 8860 1612 Task queue depth is 1
+WARNING 2026-08-18 10:43:26,919 task 8860 1612 Task queue depth is 1
+WARNING 2026-08-18 10:43:26,934 task 8860 1612 Task queue depth is 1
+WARNING 2026-08-18 10:43:26,946 task 8860 1612 Task queue depth is 2
+WARNING 2026-08-18 10:43:42,040 task 8860 1612 Task queue depth is 1
+WARNING 2026-08-18 10:46:15,162 log 8860 9348 Unauthorized: /api/users/me/
+WARNING 2026-08-18 11:04:03,549 log 8860 9348 Bad Request: /api/sales/
+WARNING 2026-08-18 11:06:04,414 log 8860 3508 Unauthorized: /api/sales/pending/
+WARNING 2026-08-18 11:47:21,509 log 8860 5168 Unauthorized: /api/sales/pending/
+WARNING 2026-08-18 12:06:04,416 log 8860 2988 Unauthorized: /api/sales/pending/
+WARNING 2026-08-18 12:47:21,588 log 8860 9348 Unauthorized: /api/sales/pending/
+WARNING 2026-08-18 13:06:04,403 log 8860 9348 Unauthorized: /api/sales/pending/
+WARNING 2026-08-18 13:47:21,604 log 8860 5168 Unauthorized: /api/sales/pending/
+WARNING 2026-08-18 14:47:21,632 log 8860 2988 Unauthorized: /api/sales/pending/
+WARNING 2026-08-18 14:57:34,370 log 8860 3508 Unauthorized: /api/users/me/
+WARNING 2026-08-18 14:57:34,403 log 8860 9348 Unauthorized: /api/token/refresh/
+WARNING 2026-08-18 15:47:21,678 log 8860 3508 Unauthorized: /api/sales/pending/
+WARNING 2026-08-18 16:47:21,711 log 8860 9348 Unauthorized: /api/sales/pending/
+INFO 2026-08-19 09:42:56,277 wasyncore 1076 7268 Serving on http://0.0.0.0:8000
+INFO 2026-08-19 10:48:21,009 wasyncore 9492 2548 Serving on http://0.0.0.0:8000
+WARNING 2026-08-19 10:48:21,380 log 9492 5244 Unauthorized: /api/users/me/
+WARNING 2026-08-19 10:48:21,506 log 9492 500 Unauthorized: /api/token/refresh/
+WARNING 2026-08-19 10:48:25,433 log 9492 500 Unauthorized: /api/users/me/
+WARNING 2026-08-19 11:19:43,017 log 9492 5244 Unauthorized: /api/users/me/
+WARNING 2026-08-19 11:19:43,028 log 9492 552 Unauthorized: /api/token/refresh/
+WARNING 2026-08-19 14:52:42,745 log 9492 1996 Unauthorized: /api/users/me/
+WARNING 2026-08-19 16:14:58,633 log 9492 1996 Unauthorized: /api/sales/
+INFO 2026-08-20 09:14:05,924 wasyncore 1420 9708 Serving on http://0.0.0.0:8000
+WARNING 2026-08-20 10:14:08,020 log 1420 11040 Unauthorized: /api/users/me/
+WARNING 2026-08-20 10:14:08,122 log 1420 11048 Unauthorized: /api/token/refresh/
+WARNING 2026-08-20 11:15:32,187 log 1420 11032 Unauthorized: /api/sales/search_customers/
+WARNING 2026-08-20 11:15:32,221 log 1420 11044 Unauthorized: /api/sales/search_customers/
+INFO 2026-08-21 08:17:01,691 wasyncore 9748 9752 Serving on http://0.0.0.0:8000
+WARNING 2026-08-21 08:55:20,402 log 9748 10780 Unauthorized: /api/users/me/
+WARNING 2026-08-21 08:55:20,415 log 9748 10788 Unauthorized: /api/token/refresh/
+WARNING 2026-08-21 09:55:59,307 log 9748 10780 Unauthorized: /api/sales/pending/
+WARNING 2026-08-21 09:56:40,117 log 9748 10776 Unauthorized: /api/sales/search_customers/
+WARNING 2026-08-21 09:56:40,137 log 9748 10784 Unauthorized: /api/sales/search_customers/
+WARNING 2026-08-21 09:56:40,287 log 9748 10784 Unauthorized: /api/sales/search_customers/
+WARNING 2026-08-21 09:56:40,307 log 9748 10780 Unauthorized: /api/sales/search_customers/
+WARNING 2026-08-21 09:56:50,407 log 9748 10776 Unauthorized: /api/users/me/
+WARNING 2026-08-21 10:55:59,270 log 9748 10784 Unauthorized: /api/sales/pending/
+WARNING 2026-08-21 11:54:30,601 log 9748 10784 Unauthorized: /api/sales/search_customers/
+WARNING 2026-08-21 11:54:30,632 log 9748 10788 Unauthorized: /api/sales/search_customers/
+WARNING 2026-08-21 11:55:59,255 log 9748 10784 Unauthorized: /api/sales/pending/
+WARNING 2026-08-21 12:00:16,406 log 9748 10788 Unauthorized: /api/dashboard/summary/
+WARNING 2026-08-21 12:00:16,491 log 9748 10780 Unauthorized: /api/token/refresh/
+WARNING 2026-08-21 12:55:59,252 log 9748 10780 Unauthorized: /api/sales/pending/
+INFO 2026-08-21 13:27:27,396 wasyncore 7940 7432 Serving on http://0.0.0.0:8000
+WARNING 2026-08-21 13:27:47,784 log 7940 9872 Unauthorized: /api/users/me/
+WARNING 2026-08-21 13:55:59,250 log 7940 9872 Unauthorized: /api/sales/pending/
+WARNING 2026-08-21 14:55:59,241 log 7940 7920 Unauthorized: /api/sales/pending/
+WARNING 2026-08-21 15:07:52,533 task 7940 7432 Task queue depth is 1
+WARNING 2026-08-21 15:07:52,538 task 7940 7432 Task queue depth is 2
+WARNING 2026-08-21 15:07:52,558 task 7940 7432 Task queue depth is 1
+WARNING 2026-08-21 15:07:52,572 task 7940 7432 Task queue depth is 2
+WARNING 2026-08-21 15:07:52,597 task 7940 7432 Task queue depth is 2
+WARNING 2026-08-21 15:07:52,639 task 7940 7432 Task queue depth is 1
+WARNING 2026-08-21 15:07:52,653 task 7940 7432 Task queue depth is 1
+WARNING 2026-08-21 15:07:52,665 task 7940 7432 Task queue depth is 1
+WARNING 2026-08-21 15:07:52,699 task 7940 7432 Task queue depth is 1
+WARNING 2026-08-21 15:07:52,722 task 7940 7432 Task queue depth is 1
+WARNING 2026-08-21 15:07:52,735 task 7940 7432 Task queue depth is 2
+WARNING 2026-08-21 15:07:52,825 task 7940 7432 Task queue depth is 1
+WARNING 2026-08-21 15:07:52,831 task 7940 7432 Task queue depth is 2
+WARNING 2026-08-21 15:07:52,932 task 7940 7432 Task queue depth is 2
+WARNING 2026-08-21 15:07:52,965 task 7940 7432 Task queue depth is 2
+WARNING 2026-08-21 15:07:52,998 task 7940 7432 Task queue depth is 1
+WARNING 2026-08-21 15:07:53,015 task 7940 7432 Task queue depth is 2
+WARNING 2026-08-21 15:07:53,125 task 7940 7432 Task queue depth is 1
+WARNING 2026-08-21 15:14:59,622 log 7940 9872 Unauthorized: /api/users/me/
+WARNING 2026-08-21 16:14:59,236 log 7940 7920 Unauthorized: /api/sales/pending/
+WARNING 2026-08-21 16:14:59,237 log 7940 8620 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-08-21 16:15:37,298 log 7940 8620 Unauthorized: /api/leave-applications/
+WARNING 2026-08-21 16:15:56,399 log 7940 8620 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-08-21 16:37:27,112 log 7940 8620 Not Found: /favicon.ico
+INFO 2026-08-24 08:11:29,848 wasyncore 992 8912 Serving on http://0.0.0.0:8000
+WARNING 2026-08-24 08:51:59,562 log 992 6352 Unauthorized: /api/users/me/
+WARNING 2026-08-24 08:51:59,631 log 992 1536 Unauthorized: /api/token/refresh/
+WARNING 2026-08-24 10:33:45,490 log 992 1536 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-08-24 11:31:16,517 log 992 1536 Unauthorized: /api/users/me/
+WARNING 2026-08-24 11:31:16,529 log 992 6352 Unauthorized: /api/token/refresh/
+WARNING 2026-08-24 11:33:45,545 log 992 6352 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-08-24 12:26:16,806 log 992 6444 Unauthorized: /api/users/me/
+WARNING 2026-08-24 12:26:16,847 log 992 2304 Unauthorized: /api/token/refresh/
+WARNING 2026-08-24 12:34:07,148 log 992 6444 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-08-24 16:01:35,175 log 992 2304 Unauthorized: /api/users/me/
+WARNING 2026-08-24 17:01:35,894 log 992 6444 Unauthorized: /api/leave-applications/pending/
+INFO 2026-08-25 09:43:35,018 wasyncore 10168 10172 Serving on http://0.0.0.0:8000
+INFO 2026-08-25 10:01:43,854 wasyncore 9060 9224 Serving on http://0.0.0.0:8000
+INFO 2026-08-25 11:42:34,919 wasyncore 4320 7232 Serving on http://0.0.0.0:8000
+WARNING 2026-08-25 11:42:46,438 log 4320 3008 Unauthorized: /api/users/me/
+WARNING 2026-08-25 11:42:46,590 log 4320 7148 Unauthorized: /api/token/refresh/
+WARNING 2026-08-25 11:58:09,191 log 4320 7148 Unauthorized: /api/users/me/
+WARNING 2026-08-25 11:58:39,225 log 4320 1532 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-08-25 12:47:45,254 log 4320 1532 Unauthorized: /api/users/me/
+WARNING 2026-08-25 12:47:45,283 log 4320 3008 Unauthorized: /api/token/refresh/
+WARNING 2026-08-25 12:58:16,941 log 4320 3008 Unauthorized: /api/sales/pending/
+WARNING 2026-08-25 12:58:16,944 log 4320 7148 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-08-25 12:58:47,892 log 4320 7148 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-08-25 13:59:39,276 log 4320 7148 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-08-25 14:09:42,501 log 4320 1532 Unauthorized: /api/dashboard/summary/
+WARNING 2026-08-25 14:59:44,383 log 4320 1532 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-08-25 15:59:44,425 log 4320 3008 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-08-25 17:00:39,372 log 4320 1532 Unauthorized: /api/leave-applications/pending/
+INFO 2026-08-26 10:54:11,320 wasyncore 10636 10640 Serving on http://0.0.0.0:8000
+WARNING 2026-08-26 10:54:19,858 log 10636 11120 Unauthorized: /api/users/me/
+WARNING 2026-08-26 12:51:59,951 log 10636 11124 Unauthorized: /api/users/me/
+WARNING 2026-08-26 14:28:54,719 log 10636 11120 Unauthorized: /api/sales/search_customers/
+WARNING 2026-08-26 14:28:54,731 log 10636 11116 Unauthorized: /api/sales/search_customers/
+WARNING 2026-08-26 14:28:54,746 log 10636 11120 Unauthorized: /api/token/refresh/
+WARNING 2026-08-26 14:28:54,751 log 10636 11116 Unauthorized: /api/token/refresh/
+WARNING 2026-08-26 16:53:33,966 log 10636 11124 Unauthorized: /api/sales/search_customers/
+WARNING 2026-08-26 16:53:33,978 log 10636 11116 Unauthorized: /api/sales/search_customers/
+WARNING 2026-08-26 16:53:34,227 log 10636 11124 Unauthorized: /api/sales/search_customers/
+WARNING 2026-08-26 16:53:34,244 log 10636 11128 Unauthorized: /api/sales/search_customers/
+WARNING 2026-08-26 16:58:22,189 log 10636 11128 Unauthorized: /api/users/me/
+WARNING 2026-08-26 16:58:22,213 log 10636 11120 Unauthorized: /api/token/refresh/
+INFO 2026-08-27 12:01:02,884 wasyncore 10168 10172 Serving on http://0.0.0.0:8000
+INFO 2026-08-27 12:16:46,196 wasyncore 5864 9148 Serving on http://0.0.0.0:8000
+WARNING 2026-08-27 12:47:56,287 log 5864 9640 Unauthorized: /api/users/me/
+WARNING 2026-08-27 13:04:44,311 log 5864 9636 Unauthorized: /api/users/me/
+WARNING 2026-08-27 14:05:17,056 log 5864 9636 Unauthorized: /api/sales/pending/
+WARNING 2026-08-27 14:05:17,057 log 5864 9648 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-08-27 14:14:14,793 log 5864 9636 Unauthorized: /api/sales/outstanding/
+WARNING 2026-08-27 15:05:42,124 log 5864 9644 Unauthorized: /api/sales/pending/
+WARNING 2026-08-27 15:05:42,127 log 5864 9640 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-08-27 16:05:42,055 log 5864 9644 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-08-27 16:05:42,058 log 5864 9648 Unauthorized: /api/sales/pending/
+WARNING 2026-08-27 17:05:42,057 log 5864 9648 Unauthorized: /api/sales/pending/
+WARNING 2026-08-27 17:05:42,068 log 5864 9644 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-08-27 17:05:42,107 log 5864 9636 Unauthorized: /api/token/refresh/
+WARNING 2026-08-27 17:05:42,165 log 5864 9640 Unauthorized: /api/token/refresh/
+INFO 2026-08-27 19:56:09,173 wasyncore 9540 9544 Serving on http://0.0.0.0:8000
+WARNING 2026-08-28 09:15:53,824 log 9540 9908 Unauthorized: /api/users/me/
+WARNING 2026-08-28 09:15:54,020 log 9540 9916 Unauthorized: /api/token/refresh/
+WARNING 2026-08-28 11:56:00,364 log 9540 9908 Unauthorized: /api/dashboard/summary/
+WARNING 2026-08-28 12:09:11,671 log 9540 9904 Unauthorized: /api/users/me/
+WARNING 2026-08-28 12:09:11,703 log 9540 9908 Unauthorized: /api/token/refresh/
+WARNING 2026-08-28 12:58:38,884 log 9540 9904 Unauthorized: /api/sales/
+WARNING 2026-08-28 13:09:21,734 log 9540 9916 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-08-28 14:09:21,786 log 9540 9908 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-08-28 15:09:21,774 log 9540 9916 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-08-28 15:59:31,966 log 9540 9908 Unauthorized: /api/sales/search_customers/
+WARNING 2026-08-28 15:59:31,988 log 9540 9912 Unauthorized: /api/sales/search_customers/
+WARNING 2026-08-28 16:09:21,795 log 9540 9912 Unauthorized: /api/leave-applications/pending/
+INFO 2026-08-29 14:31:54,171 wasyncore 10184 10188 Serving on http://0.0.0.0:8000
+INFO 2026-08-31 08:32:37,707 wasyncore 10424 10428 Serving on http://0.0.0.0:8000
+INFO 2026-08-31 09:14:37,039 wasyncore 9804 9808 Serving on http://0.0.0.0:8000
+WARNING 2026-08-31 10:56:32,962 log 9804 8900 Unauthorized: /api/users/me/
+WARNING 2026-08-31 10:56:33,037 log 9804 7748 Unauthorized: /api/token/refresh/
+WARNING 2026-08-31 12:26:42,268 log 9804 7748 Unauthorized: /api/sales/
+WARNING 2026-08-31 14:32:11,433 log 9804 7748 Unauthorized: /api/users/me/
+WARNING 2026-08-31 14:32:11,467 log 9804 8932 Unauthorized: /api/token/refresh/
+WARNING 2026-08-31 14:55:44,380 log 9804 8932 Unauthorized: /api/dashboard/summary/
+WARNING 2026-08-31 15:32:40,555 log 9804 7748 Unauthorized: /api/sales/pending/
+WARNING 2026-08-31 15:32:40,559 log 9804 8900 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-08-31 15:55:58,241 log 9804 8284 Unauthorized: /api/products/
+WARNING 2026-08-31 16:32:40,581 log 9804 8932 Unauthorized: /api/sales/pending/
+WARNING 2026-08-31 16:32:40,584 log 9804 7748 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-08-31 17:06:30,598 log 9804 8900 Unauthorized: /api/users/me/
+INFO 2026-09-01 10:03:17,084 wasyncore 7668 7672 Serving on http://0.0.0.0:8000
+WARNING 2026-09-01 10:03:33,721 log 7668 9560 Unauthorized: /api/users/me/
+WARNING 2026-09-01 10:03:33,763 log 7668 9008 Unauthorized: /api/token/refresh/
+WARNING 2026-09-01 11:04:06,508 log 7668 9684 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-01 12:04:06,554 log 7668 9560 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-01 13:04:06,555 log 7668 9008 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-01 14:04:06,594 log 7668 9684 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-01 15:04:06,622 log 7668 9008 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-01 16:04:06,648 log 7668 9844 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-01 16:29:19,327 log 7668 9008 Unauthorized: /api/users/me/
+WARNING 2026-09-01 16:29:19,371 log 7668 9560 Unauthorized: /api/token/refresh/
+WARNING 2026-09-01 16:32:35,629 task 7668 7672 Task queue depth is 1
+WARNING 2026-09-01 16:32:35,638 task 7668 7672 Task queue depth is 1
+WARNING 2026-09-01 16:32:36,017 task 7668 7672 Task queue depth is 1
+WARNING 2026-09-01 16:32:36,139 task 7668 7672 Task queue depth is 1
+WARNING 2026-09-01 16:32:36,322 task 7668 7672 Task queue depth is 1
+WARNING 2026-09-01 16:32:36,352 task 7668 7672 Task queue depth is 2
+WARNING 2026-09-01 16:32:36,479 task 7668 7672 Task queue depth is 1
+WARNING 2026-09-01 16:32:36,488 task 7668 7672 Task queue depth is 2
+WARNING 2026-09-01 16:32:36,515 task 7668 7672 Task queue depth is 2
+WARNING 2026-09-01 16:32:36,584 task 7668 7672 Task queue depth is 1
+WARNING 2026-09-01 16:32:36,591 task 7668 7672 Task queue depth is 1
+WARNING 2026-09-01 16:32:36,606 task 7668 7672 Task queue depth is 2
+WARNING 2026-09-01 16:32:36,702 task 7668 7672 Task queue depth is 1
+WARNING 2026-09-01 16:32:36,744 task 7668 7672 Task queue depth is 1
+WARNING 2026-09-01 16:32:36,810 task 7668 7672 Task queue depth is 1
+WARNING 2026-09-01 16:32:36,869 task 7668 7672 Task queue depth is 1
+WARNING 2026-09-01 16:32:36,925 task 7668 7672 Task queue depth is 1
+WARNING 2026-09-01 16:32:36,988 task 7668 7672 Task queue depth is 1
+WARNING 2026-09-01 16:32:37,046 task 7668 7672 Task queue depth is 1
+WARNING 2026-09-01 16:32:37,078 task 7668 7672 Task queue depth is 2
+WARNING 2026-09-01 16:32:37,227 task 7668 7672 Task queue depth is 1
+WARNING 2026-09-01 16:32:37,261 task 7668 7672 Task queue depth is 1
+WARNING 2026-09-01 16:32:37,279 task 7668 7672 Task queue depth is 1
+WARNING 2026-09-01 16:32:37,289 task 7668 7672 Task queue depth is 2
+WARNING 2026-09-01 16:32:37,396 task 7668 7672 Task queue depth is 1
+WARNING 2026-09-01 16:32:37,413 task 7668 7672 Task queue depth is 1
+WARNING 2026-09-01 16:32:37,434 task 7668 7672 Task queue depth is 1
+WARNING 2026-09-01 16:32:37,452 task 7668 7672 Task queue depth is 2
+WARNING 2026-09-01 16:32:37,479 task 7668 7672 Task queue depth is 2
+WARNING 2026-09-01 17:08:42,659 log 7668 9684 Unauthorized: /api/users/me/
+INFO 2026-09-01 19:34:11,721 wasyncore 3144 948 Serving on http://0.0.0.0:8000
+WARNING 2026-09-02 08:04:14,871 log 3144 4120 Unauthorized: /api/users/me/
+WARNING 2026-09-02 09:05:02,295 log 3144 8380 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-02 10:05:02,338 log 3144 8380 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-02 10:05:02,403 log 3144 10036 Unauthorized: /api/token/refresh/
+WARNING 2026-09-02 11:19:02,345 log 3144 4120 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-02 12:19:02,360 log 3144 10036 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-02 13:19:02,400 log 3144 8372 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-02 14:19:02,418 log 3144 10036 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-02 15:19:02,443 log 3144 8372 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-02 16:19:15,197 log 3144 10036 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-02 17:20:02,494 log 3144 8372 Unauthorized: /api/leave-applications/pending/
+INFO 2026-09-03 07:48:55,067 wasyncore 10124 10128 Serving on http://0.0.0.0:8000
+INFO 2026-09-04 09:07:11,167 wasyncore 1972 3008 Serving on http://0.0.0.0:8000
+WARNING 2026-09-04 09:07:37,296 log 1972 10196 Unauthorized: /api/users/me/
+WARNING 2026-09-04 09:07:37,321 log 1972 10172 Unauthorized: /api/token/refresh/
+WARNING 2026-09-04 09:11:43,206 log 1972 10088 Unauthorized: /api/users/me/
+WARNING 2026-09-04 09:11:43,236 log 1972 10172 Unauthorized: /api/token/refresh/
+WARNING 2026-09-04 09:12:27,986 log 1972 10172 Unauthorized: /api/users/me/
+WARNING 2026-09-04 09:12:28,059 log 1972 10196 Unauthorized: /api/token/refresh/
+INFO 2026-09-04 09:35:38,210 wasyncore 9292 9296 Serving on http://0.0.0.0:8000
+WARNING 2026-09-04 10:07:52,051 log 9292 8560 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-04 10:12:34,370 log 9292 8308 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-04 10:12:34,373 log 9292 8560 Unauthorized: /api/sales/pending/
+INFO 2026-09-04 10:27:18,383 wasyncore 9824 9828 Serving on http://0.0.0.0:8000
+INFO 2026-09-04 10:31:36,683 wasyncore 9628 9632 Serving on http://0.0.0.0:8000
+INFO 2026-09-04 11:05:20,257 wasyncore 9652 9656 Serving on http://0.0.0.0:8000
+WARNING 2026-09-04 11:07:52,449 log 9652 9800 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-04 11:12:34,714 log 9652 9800 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-04 11:12:34,715 log 9652 9808 Unauthorized: /api/sales/pending/
+INFO 2026-09-04 11:18:58,187 wasyncore 9572 9576 Serving on http://0.0.0.0:8000
+INFO 2026-09-04 11:43:28,950 wasyncore 9748 9752 Serving on http://0.0.0.0:8000
+INFO 2026-09-04 11:45:21,391 wasyncore 9480 9484 Serving on http://0.0.0.0:8000
+INFO 2026-09-04 11:51:42,565 wasyncore 9640 9644 Serving on http://0.0.0.0:8000
+INFO 2026-09-04 11:59:56,449 wasyncore 9516 9520 Serving on http://0.0.0.0:8000
+WARNING 2026-09-04 12:08:14,854 log 9516 9732 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-04 12:12:35,108 log 9516 9724 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-04 12:12:35,112 log 9516 9720 Unauthorized: /api/sales/pending/
+WARNING 2026-09-04 12:44:29,240 task 9516 9520 Task queue depth is 1
+WARNING 2026-09-04 12:44:29,246 task 9516 9520 Task queue depth is 2
+WARNING 2026-09-04 12:44:29,312 task 9516 9520 Task queue depth is 2
+WARNING 2026-09-04 12:44:29,367 task 9516 9520 Task queue depth is 1
+WARNING 2026-09-04 12:44:29,370 task 9516 9520 Task queue depth is 2
+WARNING 2026-09-04 12:44:29,458 task 9516 9520 Task queue depth is 1
+WARNING 2026-09-04 12:44:29,477 task 9516 9520 Task queue depth is 2
+WARNING 2026-09-04 12:44:29,512 task 9516 9520 Task queue depth is 1
+WARNING 2026-09-04 12:44:29,531 task 9516 9520 Task queue depth is 1
+WARNING 2026-09-04 12:44:29,551 task 9516 9520 Task queue depth is 1
+WARNING 2026-09-04 12:44:29,567 task 9516 9520 Task queue depth is 1
+INFO 2026-09-04 13:02:49,108 wasyncore 11076 1744 Serving on http://0.0.0.0:8000
+WARNING 2026-09-04 13:02:57,345 log 11076 8912 Unauthorized: /api/users/me/
+INFO 2026-09-04 13:05:33,774 wasyncore 9576 9580 Serving on http://0.0.0.0:8000
+WARNING 2026-09-04 13:08:52,538 log 9576 9772 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-04 14:09:18,974 log 9576 9768 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-04 15:09:19,055 log 9576 9776 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-04 16:09:52,580 log 9576 9768 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-04 16:24:30,770 log 9576 9780 Unauthorized: /api/dashboard/summary/
+WARNING 2026-09-04 16:24:30,773 log 9576 9772 Unauthorized: /api/sales/pending/
+WARNING 2026-09-04 16:24:30,775 log 9576 9768 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-05 13:09:04,259 log 9576 9776 Unauthorized: /api/users/me/
+WARNING 2026-09-05 13:09:04,285 log 9576 9768 Unauthorized: /api/token/refresh/
+INFO 2026-09-07 09:06:14,019 wasyncore 10432 10436 Serving on http://0.0.0.0:8000
+WARNING 2026-09-07 09:29:17,065 log 10432 11064 Unauthorized: /api/users/me/
+WARNING 2026-09-07 09:29:17,108 log 10432 11072 Unauthorized: /api/token/refresh/
+WARNING 2026-09-07 09:37:31,754 task 10432 10436 Task queue depth is 1
+WARNING 2026-09-07 09:37:31,760 task 10432 10436 Task queue depth is 2
+WARNING 2026-09-07 09:37:31,786 task 10432 10436 Task queue depth is 1
+WARNING 2026-09-07 09:37:31,801 task 10432 10436 Task queue depth is 2
+WARNING 2026-09-07 09:37:31,829 task 10432 10436 Task queue depth is 2
+WARNING 2026-09-07 09:37:31,885 task 10432 10436 Task queue depth is 1
+WARNING 2026-09-07 09:37:31,907 task 10432 10436 Task queue depth is 1
+WARNING 2026-09-07 09:37:31,924 task 10432 10436 Task queue depth is 2
+WARNING 2026-09-07 09:37:31,982 task 10432 10436 Task queue depth is 2
+WARNING 2026-09-07 09:37:32,008 task 10432 10436 Task queue depth is 1
+WARNING 2026-09-07 09:38:14,748 task 10432 10436 Task queue depth is 1
+WARNING 2026-09-07 09:38:14,758 task 10432 10436 Task queue depth is 1
+WARNING 2026-09-07 09:38:14,823 task 10432 10436 Task queue depth is 1
+WARNING 2026-09-07 09:38:14,830 task 10432 10436 Task queue depth is 2
+WARNING 2026-09-07 09:38:14,855 task 10432 10436 Task queue depth is 1
+WARNING 2026-09-07 09:38:14,863 task 10432 10436 Task queue depth is 2
+WARNING 2026-09-07 09:38:14,908 task 10432 10436 Task queue depth is 1
+WARNING 2026-09-07 09:38:14,920 task 10432 10436 Task queue depth is 2
+WARNING 2026-09-07 09:38:14,996 task 10432 10436 Task queue depth is 1
+WARNING 2026-09-07 10:29:39,724 log 10432 11060 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-07 10:59:48,208 log 10432 11064 Unauthorized: /api/users/me/
+WARNING 2026-09-07 10:59:48,241 log 10432 11060 Unauthorized: /api/token/refresh/
+INFO 2026-09-07 11:32:16,713 wasyncore 10000 10004 Serving on http://0.0.0.0:8000
+WARNING 2026-09-07 11:32:26,986 log 10000 9012 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-07 12:00:29,867 log 10000 9012 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-07 12:00:29,871 log 10000 9096 Unauthorized: /api/sales/pending/
+INFO 2026-09-07 12:22:11,718 wasyncore 9604 9608 Serving on http://0.0.0.0:8000
+WARNING 2026-09-07 12:32:37,222 log 9604 8324 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-07 12:57:45,513 log 9604 7932 Unauthorized: /api/users/me/
+WARNING 2026-09-07 12:57:46,596 log 9604 8056 Unauthorized: /api/token/refresh/
+WARNING 2026-09-07 13:32:40,362 log 9604 8336 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-07 14:32:40,348 log 9604 8056 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-07 14:44:15,248 log 9604 8336 Unauthorized: /api/suppliers/
+WARNING 2026-09-07 14:44:15,250 log 9604 8324 Unauthorized: /api/categories/
+WARNING 2026-09-07 14:44:15,251 log 9604 7932 Unauthorized: /api/products/
+INFO 2026-09-08 08:16:32,369 wasyncore 9524 9496 Serving on http://0.0.0.0:8000
+WARNING 2026-09-08 08:24:52,421 log 9524 488 Unauthorized: /api/users/me/
+WARNING 2026-09-08 09:25:35,560 log 9524 1924 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-08 10:25:53,290 log 9524 1744 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-08 10:25:53,313 log 9524 1924 Unauthorized: /api/token/refresh/
+WARNING 2026-09-08 13:49:35,673 log 9524 1980 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-08 14:49:52,520 log 9524 1744 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-08 15:50:35,725 log 9524 1744 Unauthorized: /api/leave-applications/pending/
+INFO 2026-09-08 16:27:37,139 wasyncore 9328 6888 Serving on http://0.0.0.0:8000
+WARNING 2026-09-08 16:50:35,753 log 9328 3164 Unauthorized: /api/leave-applications/pending/
+INFO 2026-09-09 07:52:01,883 wasyncore 9628 9588 Serving on http://0.0.0.0:8000
+WARNING 2026-09-09 07:55:22,581 log 9628 10512 Unauthorized: /api/users/me/
+WARNING 2026-09-09 08:55:30,035 log 9628 10508 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-09 09:29:31,664 log 9628 10508 Unauthorized: /api/users/me/
+WARNING 2026-09-09 09:29:31,694 log 9628 10512 Unauthorized: /api/token/refresh/
+WARNING 2026-09-09 09:55:31,748 log 9628 10508 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-09 10:05:23,193 log 9628 10512 Unauthorized: /api/users/me/
+WARNING 2026-09-09 10:05:23,232 log 9628 10520 Unauthorized: /api/token/refresh/
+WARNING 2026-09-09 10:29:58,877 log 9628 10520 Unauthorized: /api/sales/pending/
+WARNING 2026-09-09 10:29:58,880 log 9628 10516 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-09 10:55:31,739 log 9628 10520 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-09 11:05:37,436 log 9628 10516 Unauthorized: /api/sales/pending/
+WARNING 2026-09-09 11:05:37,439 log 9628 10520 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-09 11:30:38,672 log 9628 10520 Unauthorized: /api/sales/pending/
+WARNING 2026-09-09 11:30:38,674 log 9628 10516 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-09 11:55:31,764 log 9628 10508 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-09 12:05:37,493 log 9628 10508 Unauthorized: /api/sales/pending/
+WARNING 2026-09-09 12:05:37,496 log 9628 10516 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-09 12:30:38,656 log 9628 10508 Unauthorized: /api/sales/pending/
+WARNING 2026-09-09 12:30:38,658 log 9628 10516 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-09 12:55:31,796 log 9628 10512 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-09 12:55:31,863 log 9628 10516 Unauthorized: /api/token/refresh/
+WARNING 2026-09-09 13:05:53,710 log 9628 10516 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-09 13:05:53,715 log 9628 10520 Unauthorized: /api/sales/pending/
+WARNING 2026-09-09 13:30:38,654 log 9628 10512 Unauthorized: /api/sales/pending/
+WARNING 2026-09-09 13:30:38,658 log 9628 10516 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-09 14:05:53,780 log 9628 10512 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-09 14:05:53,781 log 9628 10508 Unauthorized: /api/sales/pending/
+WARNING 2026-09-09 14:30:38,642 log 9628 10516 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-09 14:30:38,645 log 9628 10512 Unauthorized: /api/sales/pending/
+WARNING 2026-09-09 14:58:48,950 log 9628 10516 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-09 14:58:54,487 task 9628 9588 Task queue depth is 1
+WARNING 2026-09-09 14:58:54,511 task 9628 9588 Task queue depth is 1
+WARNING 2026-09-09 14:58:54,534 task 9628 9588 Task queue depth is 1
+WARNING 2026-09-09 14:58:54,543 task 9628 9588 Task queue depth is 2
+WARNING 2026-09-09 14:58:54,568 task 9628 9588 Task queue depth is 2
+WARNING 2026-09-09 14:58:54,660 task 9628 9588 Task queue depth is 1
+WARNING 2026-09-09 14:58:54,689 task 9628 9588 Task queue depth is 2
+WARNING 2026-09-09 14:58:54,812 task 9628 9588 Task queue depth is 1
+WARNING 2026-09-09 14:58:54,848 task 9628 9588 Task queue depth is 1
+WARNING 2026-09-09 14:58:54,932 task 9628 9588 Task queue depth is 1
+WARNING 2026-09-09 14:58:54,993 task 9628 9588 Task queue depth is 1
+WARNING 2026-09-09 14:58:55,051 task 9628 9588 Task queue depth is 1
+WARNING 2026-09-09 14:58:55,057 task 9628 9588 Task queue depth is 1
+WARNING 2026-09-09 14:58:55,202 task 9628 9588 Task queue depth is 1
+WARNING 2026-09-09 14:58:55,235 task 9628 9588 Task queue depth is 1
+WARNING 2026-09-09 14:58:55,268 task 9628 9588 Task queue depth is 1
+WARNING 2026-09-09 14:58:55,357 task 9628 9588 Task queue depth is 1
+WARNING 2026-09-09 14:58:55,388 task 9628 9588 Task queue depth is 1
+WARNING 2026-09-09 14:58:55,417 task 9628 9588 Task queue depth is 1
+WARNING 2026-09-09 14:58:55,695 task 9628 9588 Task queue depth is 1
+WARNING 2026-09-09 14:58:55,710 task 9628 9588 Task queue depth is 2
+WARNING 2026-09-09 14:58:55,824 task 9628 9588 Task queue depth is 1
+WARNING 2026-09-09 15:05:53,822 log 9628 10516 Unauthorized: /api/sales/pending/
+WARNING 2026-09-09 15:05:53,826 log 9628 10512 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-09 15:30:38,645 log 9628 10520 Unauthorized: /api/sales/pending/
+WARNING 2026-09-09 15:30:38,647 log 9628 10512 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-09 15:59:18,991 log 9628 10512 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-09 16:05:53,872 log 9628 10512 Unauthorized: /api/sales/pending/
+WARNING 2026-09-09 16:05:53,873 log 9628 10516 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-09 16:32:38,642 log 9628 10520 Unauthorized: /api/sales/pending/
+WARNING 2026-09-09 16:32:38,666 log 9628 10508 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-09 16:59:48,212 log 9628 10516 Unauthorized: /api/sales/
+INFO 2026-09-10 08:08:35,876 wasyncore 9976 9980 Serving on http://0.0.0.0:8000
+WARNING 2026-09-10 08:14:04,907 log 9976 10620 Unauthorized: /api/users/me/
+WARNING 2026-09-10 09:14:17,993 log 9976 10628 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-10 09:29:46,553 task 9976 9980 Task queue depth is 1
+WARNING 2026-09-10 09:29:46,557 task 9976 9980 Task queue depth is 2
+WARNING 2026-09-10 09:29:46,594 task 9976 9980 Task queue depth is 1
+WARNING 2026-09-10 09:29:46,607 task 9976 9980 Task queue depth is 1
+WARNING 2026-09-10 09:29:46,615 task 9976 9980 Task queue depth is 1
+WARNING 2026-09-10 09:29:46,637 task 9976 9980 Task queue depth is 2
+WARNING 2026-09-10 09:29:46,701 task 9976 9980 Task queue depth is 1
+WARNING 2026-09-10 09:29:46,721 task 9976 9980 Task queue depth is 1
+WARNING 2026-09-10 09:29:46,734 task 9976 9980 Task queue depth is 2
+WARNING 2026-09-10 09:29:46,753 task 9976 9980 Task queue depth is 2
+WARNING 2026-09-10 09:29:46,792 task 9976 9980 Task queue depth is 2
+WARNING 2026-09-10 09:29:46,819 task 9976 9980 Task queue depth is 1
+WARNING 2026-09-10 09:29:46,828 task 9976 9980 Task queue depth is 1
+WARNING 2026-09-10 09:29:46,859 task 9976 9980 Task queue depth is 1
+WARNING 2026-09-10 09:29:46,870 task 9976 9980 Task queue depth is 2
+WARNING 2026-09-10 09:29:46,899 task 9976 9980 Task queue depth is 1
+WARNING 2026-09-10 09:29:46,947 task 9976 9980 Task queue depth is 1
+WARNING 2026-09-10 09:29:46,956 task 9976 9980 Task queue depth is 2
+WARNING 2026-09-10 09:29:46,993 task 9976 9980 Task queue depth is 2
+WARNING 2026-09-10 09:29:47,035 task 9976 9980 Task queue depth is 2
+WARNING 2026-09-10 09:29:47,052 task 9976 9980 Task queue depth is 1
+WARNING 2026-09-10 09:29:47,061 task 9976 9980 Task queue depth is 1
+WARNING 2026-09-10 09:29:47,077 task 9976 9980 Task queue depth is 2
+WARNING 2026-09-10 09:29:47,131 task 9976 9980 Task queue depth is 1
+WARNING 2026-09-10 09:29:47,163 task 9976 9980 Task queue depth is 1
+WARNING 2026-09-10 10:14:41,439 log 9976 10616 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-10 11:15:18,027 log 9976 10624 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-10 12:15:18,046 log 9976 10628 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-10 12:40:10,519 log 9976 10616 Unauthorized: /api/users/me/
+WARNING 2026-09-10 12:40:10,807 log 9976 10620 Unauthorized: /api/token/refresh/
+WARNING 2026-09-10 13:15:18,087 log 9976 10620 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-10 14:15:18,121 log 9976 10616 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-10 14:15:18,182 log 9976 10624 Unauthorized: /api/token/refresh/
+INFO 2026-09-10 15:03:26,052 wasyncore 9564 9568 Serving on http://0.0.0.0:8000
+WARNING 2026-09-10 15:57:58,850 log 9564 3064 Unauthorized: /api/sales/
+INFO 2026-09-11 07:41:14,318 wasyncore 7648 3856 Serving on http://0.0.0.0:8000
+WARNING 2026-09-11 10:13:22,569 log 7648 5576 Unauthorized: /api/users/me/
+WARNING 2026-09-11 10:13:22,592 log 7648 6840 Unauthorized: /api/token/refresh/
+WARNING 2026-09-11 10:18:13,806 log 7648 5328 Unauthorized: /api/users/me/
+WARNING 2026-09-11 11:14:26,828 log 7648 6840 Unauthorized: /api/sales/pending/
+WARNING 2026-09-11 11:14:26,831 log 7648 372 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-11 11:18:14,413 log 7648 5576 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-11 12:14:26,850 log 7648 372 Unauthorized: /api/sales/pending/
+WARNING 2026-09-11 12:14:26,859 log 7648 5576 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-11 12:19:11,984 log 7648 5328 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-11 12:51:49,969 log 7648 5328 Unauthorized: /api/users/me/
+WARNING 2026-09-11 12:51:50,012 log 7648 5576 Unauthorized: /api/token/refresh/
+WARNING 2026-09-11 13:14:26,830 log 7648 6840 Unauthorized: /api/sales/pending/
+WARNING 2026-09-11 13:14:26,842 log 7648 5328 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-11 13:20:11,995 log 7648 6840 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-11 14:14:26,832 log 7648 6840 Unauthorized: /api/sales/pending/
+WARNING 2026-09-11 14:14:26,836 log 7648 372 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-11 14:20:12,044 log 7648 5328 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-11 14:32:38,136 log 7648 5328 Unauthorized: /api/dashboard/summary/
+WARNING 2026-09-11 15:14:26,824 log 7648 6840 Unauthorized: /api/sales/pending/
+WARNING 2026-09-11 15:14:26,830 log 7648 5576 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-11 15:20:12,043 log 7648 6840 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-11 15:20:12,092 log 7648 5328 Unauthorized: /api/token/refresh/
+INFO 2026-09-14 07:43:48,861 wasyncore 4460 4432 Serving on http://0.0.0.0:8000
+WARNING 2026-09-14 11:49:02,348 log 4460 10376 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-14 12:49:11,278 log 4460 10384 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-14 13:50:02,386 log 4460 10384 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-14 14:50:02,397 log 4460 10384 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-14 15:50:02,417 log 4460 10372 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-14 16:50:02,486 log 4460 10380 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-14 17:50:02,480 log 4460 10372 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-14 18:30:47,222 log 4460 10372 Unauthorized: /api/token/
+WARNING 2026-09-14 18:31:48,314 log 4460 10380 Unauthorized: /api/token/
+WARNING 2026-09-14 18:33:01,379 log 4460 10380 Unauthorized: /api/token/
+INFO 2026-09-15 15:40:23,408 wasyncore 9420 9400 Serving on http://0.0.0.0:8000
+WARNING 2026-09-15 16:40:50,966 log 9420 10556 Unauthorized: /api/leave-applications/pending/
+INFO 2026-09-16 11:03:52,707 wasyncore 9756 9760 Serving on http://0.0.0.0:8000
+WARNING 2026-09-16 11:04:47,780 log 9756 1548 Unauthorized: /api/users/me/
+WARNING 2026-09-16 11:45:06,729 log 9756 1388 Unauthorized: /api/users/me/
+WARNING 2026-09-16 11:45:06,780 log 9756 1600 Unauthorized: /api/token/refresh/
+WARNING 2026-09-16 11:45:08,971 task 9756 9760 Task queue depth is 1
+WARNING 2026-09-16 11:45:09,337 log 9756 504 Not Found: /favicon.ico
+WARNING 2026-09-16 11:47:43,335 task 9756 9760 Task queue depth is 1
+WARNING 2026-09-16 11:47:43,347 task 9756 9760 Task queue depth is 1
+WARNING 2026-09-16 11:47:43,363 task 9756 9760 Task queue depth is 2
+WARNING 2026-09-16 11:47:43,393 task 9756 9760 Task queue depth is 1
+WARNING 2026-09-16 11:48:07,234 task 9756 9760 Task queue depth is 1
+WARNING 2026-09-16 11:48:07,247 task 9756 9760 Task queue depth is 2
+WARNING 2026-09-16 11:48:07,286 task 9756 9760 Task queue depth is 1
+WARNING 2026-09-16 12:05:23,658 log 9756 504 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-16 13:05:23,702 log 9756 504 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-16 13:18:32,240 log 9756 1548 Unauthorized: /api/users/me/
+WARNING 2026-09-16 13:18:32,279 log 9756 504 Unauthorized: /api/token/refresh/
+WARNING 2026-09-16 14:05:23,703 log 9756 1600 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-16 15:05:23,721 log 9756 1388 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-16 16:05:23,746 log 9756 1388 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-16 16:05:23,773 log 9756 1600 Unauthorized: /api/token/refresh/
+INFO 2026-09-17 07:40:03,792 wasyncore 10148 10152 Serving on http://0.0.0.0:8000
+WARNING 2026-09-17 09:01:14,173 log 10148 10740 Bad Request: /api/products/
+WARNING 2026-09-17 09:16:32,548 log 10148 10736 Bad Request: /api/products/
+WARNING 2026-09-17 09:17:18,230 log 10148 10740 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-17 10:15:23,819 log 10148 10736 Unauthorized: /api/users/me/
+WARNING 2026-09-17 10:15:23,843 log 10148 10728 Unauthorized: /api/token/refresh/
+WARNING 2026-09-17 10:17:18,256 log 10148 10736 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-17 10:23:41,871 log 10148 10736 Bad Request: /api/products/
+WARNING 2026-09-17 10:23:56,692 log 10148 10732 Bad Request: /api/products/
+WARNING 2026-09-17 10:24:11,579 log 10148 10728 Bad Request: /api/products/
+INFO 2026-09-17 11:15:52,609 wasyncore 9188 9184 Serving on http://0.0.0.0:8000
+WARNING 2026-09-17 11:17:19,366 log 9188 9824 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-17 12:17:19,370 log 9188 9804 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-17 13:17:19,399 log 9188 9824 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-17 14:17:19,416 log 9188 9804 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-17 15:15:16,301 log 9188 9816 Unauthorized: /api/users/me/
+WARNING 2026-09-17 15:17:19,303 log 9188 9804 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-17 16:15:36,622 log 9188 9804 Unauthorized: /api/sales/pending/
+WARNING 2026-09-17 16:15:36,625 log 9188 9828 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-17 16:17:19,488 log 9188 9804 Unauthorized: /api/leave-applications/pending/
+INFO 2026-09-18 08:05:04,616 wasyncore 9260 9264 Serving on http://0.0.0.0:8000
+WARNING 2026-09-18 08:41:04,152 log 9260 10056 Unauthorized: /api/users/me/
+WARNING 2026-09-18 08:41:04,206 log 9260 10220 Unauthorized: /api/token/refresh/
+WARNING 2026-09-18 09:41:13,281 log 9260 10212 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-18 10:41:13,316 log 9260 10212 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-18 10:43:31,840 log 9260 10220 Unauthorized: /api/users/me/
+WARNING 2026-09-18 10:43:31,882 log 9260 10056 Unauthorized: /api/token/refresh/
+INFO 2026-09-18 12:00:20,026 wasyncore 9784 9788 Serving on http://0.0.0.0:8000
+WARNING 2026-09-18 12:00:22,692 log 9784 10172 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-18 13:01:13,752 log 9784 10172 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-18 14:01:13,775 log 9784 10184 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-18 15:01:13,795 log 9784 10180 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-18 16:01:13,822 log 9784 10172 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-18 17:01:13,836 log 9784 10172 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-18 17:11:30,335 log 9784 10180 Unauthorized: /api/sales/
+INFO 2026-09-21 07:45:04,265 wasyncore 10564 10568 Serving on http://0.0.0.0:8000
+INFO 2026-09-21 08:00:52,476 wasyncore 9964 9968 Serving on http://0.0.0.0:8000
+INFO 2026-09-21 11:46:51,583 wasyncore 9168 6424 Serving on http://0.0.0.0:8000
+WARNING 2026-09-21 11:47:01,142 log 9168 4268 Unauthorized: /api/users/me/
+WARNING 2026-09-21 11:47:01,187 log 9168 10236 Unauthorized: /api/token/refresh/
+WARNING 2026-09-21 12:02:16,561 log 9168 8912 Unauthorized: /api/users/me/
+WARNING 2026-09-21 12:02:16,636 log 9168 2504 Unauthorized: /api/token/refresh/
+WARNING 2026-09-21 12:48:03,530 log 9168 8912 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-21 13:48:03,561 log 9168 10236 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-21 14:16:04,076 log 9168 8912 Unauthorized: /api/dashboard/summary/
+WARNING 2026-09-21 14:48:03,574 log 9168 4268 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-21 15:37:11,754 task 9168 6424 Task queue depth is 1
+WARNING 2026-09-21 15:37:11,757 task 9168 6424 Task queue depth is 2
+WARNING 2026-09-21 15:37:11,775 task 9168 6424 Task queue depth is 1
+WARNING 2026-09-21 15:37:11,780 task 9168 6424 Task queue depth is 2
+WARNING 2026-09-21 15:37:11,814 task 9168 6424 Task queue depth is 1
+WARNING 2026-09-21 15:37:11,821 task 9168 6424 Task queue depth is 1
+WARNING 2026-09-21 15:37:11,850 task 9168 6424 Task queue depth is 1
+WARNING 2026-09-21 15:37:11,864 task 9168 6424 Task queue depth is 1
+WARNING 2026-09-21 15:37:11,875 task 9168 6424 Task queue depth is 1
+WARNING 2026-09-21 15:37:11,888 task 9168 6424 Task queue depth is 1
+WARNING 2026-09-21 15:37:11,896 task 9168 6424 Task queue depth is 1
+WARNING 2026-09-21 15:37:11,934 task 9168 6424 Task queue depth is 1
+WARNING 2026-09-21 15:37:11,944 task 9168 6424 Task queue depth is 1
+WARNING 2026-09-21 15:37:11,992 task 9168 6424 Task queue depth is 1
+WARNING 2026-09-21 15:37:12,007 task 9168 6424 Task queue depth is 1
+WARNING 2026-09-21 15:37:12,010 task 9168 6424 Task queue depth is 2
+WARNING 2026-09-21 15:37:12,090 task 9168 6424 Task queue depth is 1
+WARNING 2026-09-21 15:37:12,146 task 9168 6424 Task queue depth is 1
+WARNING 2026-09-21 15:37:12,164 task 9168 6424 Task queue depth is 1
+WARNING 2026-09-21 15:37:12,169 task 9168 6424 Task queue depth is 1
+WARNING 2026-09-21 15:37:12,172 task 9168 6424 Task queue depth is 2
+WARNING 2026-09-21 15:48:03,283 log 9168 8912 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-21 16:48:03,620 log 9168 8912 Unauthorized: /api/leave-applications/pending/
+INFO 2026-09-22 07:36:27,703 wasyncore 8660 8756 Serving on http://0.0.0.0:8000
+WARNING 2026-09-22 07:42:53,632 log 8660 3104 Unauthorized: /api/users/me/
+WARNING 2026-09-22 08:42:58,188 log 8660 5580 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-22 09:42:58,252 log 8660 3104 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-22 10:42:58,246 log 8660 3104 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-22 11:42:58,263 log 8660 3104 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-22 12:42:59,622 log 8660 2264 Unauthorized: /api/sales/search_customers/
+WARNING 2026-09-22 12:42:59,656 log 8660 3104 Unauthorized: /api/sales/search_customers/
+WARNING 2026-09-22 12:42:59,694 log 8660 2264 Unauthorized: /api/token/refresh/
+WARNING 2026-09-22 12:42:59,707 log 8660 3104 Unauthorized: /api/token/refresh/
+WARNING 2026-09-22 13:43:12,506 log 8660 3564 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-22 14:43:12,503 log 8660 5580 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-22 15:27:55,023 log 8660 3104 Unauthorized: /api/users/me/
+WARNING 2026-09-22 15:27:55,050 log 8660 2264 Unauthorized: /api/token/refresh/
+WARNING 2026-09-22 15:31:30,276 log 8660 2264 Bad Request: /api/sales/239/
+WARNING 2026-09-22 15:31:38,720 log 8660 3104 Bad Request: /api/sales/239/
+WARNING 2026-09-22 15:31:44,565 log 8660 2264 Bad Request: /api/sales/239/
+WARNING 2026-09-22 15:38:32,695 log 8660 3564 Bad Request: /api/sales/415/
+WARNING 2026-09-22 15:38:40,720 log 8660 3104 Bad Request: /api/sales/415/
+WARNING 2026-09-22 15:43:58,367 log 8660 5580 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-22 16:01:57,026 log 8660 5580 Unauthorized: /api/users/me/
+WARNING 2026-09-22 16:01:57,081 log 8660 2264 Unauthorized: /api/token/refresh/
+WARNING 2026-09-22 16:03:09,683 log 8660 3104 Bad Request: /api/sales/404/
+WARNING 2026-09-22 16:28:03,534 log 8660 3564 Unauthorized: /api/sales/pending/
+WARNING 2026-09-22 16:28:03,546 log 8660 5580 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-22 16:43:58,394 log 8660 2264 Unauthorized: /api/leave-applications/pending/
+INFO 2026-09-23 08:06:48,092 wasyncore 9512 8568 Serving on http://0.0.0.0:8000
+WARNING 2026-09-23 09:14:48,798 log 9512 10816 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-23 10:14:48,822 log 9512 10828 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-23 10:38:12,291 log 9512 10824 Unauthorized: /api/users/me/
+WARNING 2026-09-23 10:38:12,318 log 9512 10816 Unauthorized: /api/token/refresh/
+INFO 2026-09-23 13:07:15,025 wasyncore 8424 8384 Serving on http://0.0.0.0:8000
+WARNING 2026-09-23 13:13:48,858 log 8424 9788 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-23 14:13:48,645 log 8424 9788 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-23 15:13:48,684 log 8424 9788 Unauthorized: /api/leave-applications/pending/
+INFO 2026-09-24 08:10:53,799 wasyncore 9260 9252 Serving on http://0.0.0.0:8000
+WARNING 2026-09-24 09:12:43,366 log 9260 10760 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-24 10:12:43,389 log 9260 10760 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-24 11:12:43,563 log 9260 10752 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-24 12:12:43,592 log 9260 10764 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-24 12:45:00,133 log 9260 10760 Unauthorized: /api/users/me/
+WARNING 2026-09-24 12:45:00,162 log 9260 10752 Unauthorized: /api/token/refresh/
+WARNING 2026-09-24 13:12:43,623 log 9260 10764 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-24 13:45:25,652 log 9260 10764 Unauthorized: /api/sales/pending/
+WARNING 2026-09-24 13:45:25,654 log 9260 10756 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-24 14:12:43,641 log 9260 10760 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-24 14:45:25,688 log 9260 10764 Unauthorized: /api/sales/pending/
+WARNING 2026-09-24 14:45:25,694 log 9260 10760 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-24 15:12:43,661 log 9260 10752 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-24 15:45:25,650 log 9260 10764 Unauthorized: /api/sales/pending/
+WARNING 2026-09-24 15:45:25,652 log 9260 10760 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-24 16:12:43,674 log 9260 10764 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-24 16:45:25,651 log 9260 10756 Unauthorized: /api/sales/pending/
+WARNING 2026-09-24 16:45:25,654 log 9260 10760 Unauthorized: /api/leave-applications/pending/
+INFO 2026-09-25 07:47:19,822 wasyncore 9748 9752 Serving on http://0.0.0.0:8000
+WARNING 2026-09-25 07:50:38,001 log 9748 1900 Unauthorized: /api/users/me/
+WARNING 2026-09-25 08:50:43,873 log 9748 1900 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-25 08:50:43,907 log 9748 1784 Unauthorized: /api/token/refresh/
+INFO 2026-09-26 08:14:35,388 wasyncore 9808 9812 Serving on http://0.0.0.0:8000
+WARNING 2026-09-26 09:26:39,051 log 9808 3448 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-26 10:26:40,235 log 9808 4948 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-26 11:26:40,236 log 9808 3448 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-26 12:26:40,254 log 9808 10184 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-26 13:26:40,279 log 9808 4948 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-26 14:26:40,292 log 9808 4476 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-26 15:26:40,322 log 9808 4476 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-26 16:26:40,354 log 9808 4476 Unauthorized: /api/leave-applications/pending/
+INFO 2026-09-28 09:08:04,711 wasyncore 10020 10052 Serving on http://0.0.0.0:8000
+INFO 2026-09-28 10:13:13,480 wasyncore 9864 9868 Serving on http://0.0.0.0:8000
+WARNING 2026-09-28 12:49:00,870 log 9864 1436 Unauthorized: /api/users/me/
+WARNING 2026-09-28 12:49:00,926 log 9864 1832 Unauthorized: /api/token/refresh/
+WARNING 2026-09-28 17:01:46,278 log 9864 1808 Unauthorized: /api/users/me/
+WARNING 2026-09-28 17:03:01,281 log 9864 1808 Unauthorized: /api/users/me/
+WARNING 2026-09-28 17:03:01,313 log 9864 1832 Unauthorized: /api/token/refresh/
+INFO 2026-09-29 10:46:32,015 wasyncore 10812 10816 Serving on http://0.0.0.0:8000
+INFO 2026-09-29 10:46:32,018 wasyncore 10804 10808 Serving on http://0.0.0.0:8000
+WARNING 2026-09-29 10:46:42,726 log 10804 11224 Unauthorized: /api/users/me/
+WARNING 2026-09-29 10:47:01,231 log 10804 11220 Unauthorized: /api/users/me/
+WARNING 2026-09-29 11:47:20,744 log 10804 11224 Unauthorized: /api/sales/pending/
+WARNING 2026-09-29 11:47:20,749 log 10804 11220 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-29 11:47:25,940 log 10804 11232 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-29 12:24:35,141 log 10804 11220 Unauthorized: /api/dashboard/summary/
+WARNING 2026-09-29 12:47:20,767 log 10804 11228 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-29 12:47:20,769 log 10804 11224 Unauthorized: /api/sales/pending/
+WARNING 2026-09-29 12:47:31,631 log 10804 11228 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-29 13:47:20,756 log 10804 11228 Unauthorized: /api/sales/pending/
+WARNING 2026-09-29 13:47:20,759 log 10804 11232 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-29 13:48:27,646 log 10804 11228 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-29 14:47:20,742 log 10804 11224 Unauthorized: /api/sales/pending/
+WARNING 2026-09-29 14:47:20,745 log 10804 11228 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-29 14:48:27,680 log 10804 11220 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-29 15:47:20,762 log 10804 11232 Unauthorized: /api/sales/pending/
+WARNING 2026-09-29 15:47:20,765 log 10804 11224 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-29 15:48:30,727 log 10804 11224 Unauthorized: /api/leave-applications/pending/
+INFO 2026-09-29 16:31:00,348 wasyncore 10232 10236 Serving on http://0.0.0.0:8000
+WARNING 2026-09-29 16:31:05,394 log 10232 2828 Unauthorized: /api/dashboard/summary/
+WARNING 2026-09-29 16:31:05,486 log 10232 2832 Unauthorized: /api/token/refresh/
+WARNING 2026-09-29 16:47:20,309 log 10232 2828 Unauthorized: /api/sales/pending/
+WARNING 2026-09-29 16:47:20,314 log 10232 2840 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-29 16:49:27,299 log 10232 2840 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-29 17:47:20,319 log 10232 2840 Unauthorized: /api/sales/pending/
+WARNING 2026-09-29 17:47:20,324 log 10232 2832 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-29 17:47:20,397 log 10232 2828 Unauthorized: /api/token/refresh/
+WARNING 2026-09-29 17:47:20,400 log 10232 3228 Unauthorized: /api/token/refresh/
+WARNING 2026-09-29 17:49:27,306 log 10232 3228 Unauthorized: /api/leave-applications/pending/
+INFO 2026-09-30 07:43:34,357 wasyncore 9872 9876 Serving on http://0.0.0.0:8000
+WARNING 2026-09-30 07:46:22,838 log 9872 4540 Unauthorized: /api/users/me/
+WARNING 2026-09-30 08:46:23,754 log 9872 4736 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-30 09:46:25,200 log 9872 4540 Unauthorized: /api/leave-applications/pending/
+INFO 2026-09-30 10:15:03,477 wasyncore 1056 10796 Serving on http://0.0.0.0:8000
+WARNING 2026-09-30 10:15:11,931 log 1056 564 Unauthorized: /api/users/me/
+WARNING 2026-09-30 10:47:23,222 log 1056 10956 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-30 10:47:23,255 log 1056 7624 Unauthorized: /api/token/refresh/
+WARNING 2026-09-30 11:15:18,972 log 1056 10956 Unauthorized: /api/sales/pending/
+WARNING 2026-09-30 11:15:18,976 log 1056 564 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-30 11:15:36,982 log 1056 7196 Unauthorized: /api/categories/
+WARNING 2026-09-30 11:15:36,985 log 1056 7624 Unauthorized: /api/suppliers/
+WARNING 2026-09-30 11:15:36,986 log 1056 10956 Unauthorized: /api/products/
+WARNING 2026-09-30 12:15:19,002 log 1056 10956 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-30 12:15:19,005 log 1056 564 Unauthorized: /api/sales/pending/
+WARNING 2026-09-30 12:39:51,010 log 1056 564 Unauthorized: /api/sales/
+INFO 2026-09-30 12:59:44,839 wasyncore 9396 9400 Serving on http://0.0.0.0:8000
+INFO 2026-09-30 13:03:04,151 wasyncore 9560 9564 Serving on http://0.0.0.0:8000
+INFO 2026-09-30 13:05:44,027 wasyncore 9528 9532 Serving on http://0.0.0.0:8000
+WARNING 2026-09-30 13:05:50,567 log 9528 9744 Unauthorized: /api/users/me/
+WARNING 2026-09-30 13:16:17,875 log 9528 9740 Unauthorized: /api/sales/pending/
+WARNING 2026-09-30 13:16:17,878 log 9528 9748 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-30 13:53:25,048 log 9528 9740 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-30 14:16:17,895 log 9528 9752 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-30 14:16:17,901 log 9528 9740 Unauthorized: /api/sales/pending/
+WARNING 2026-09-30 14:54:22,241 log 9528 9744 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-30 15:16:17,869 log 9528 9740 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-30 15:16:17,869 log 9528 9748 Unauthorized: /api/sales/pending/
+WARNING 2026-09-30 15:54:22,235 log 9528 9752 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-30 16:16:17,860 log 9528 9744 Unauthorized: /api/sales/pending/
+WARNING 2026-09-30 16:16:17,864 log 9528 9748 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-30 16:39:22,655 log 9528 9740 Not Found: /favicon.ico
+WARNING 2026-09-30 16:54:22,255 log 9528 9748 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-09-30 17:16:17,864 log 9528 9748 Unauthorized: /api/sales/pending/
+WARNING 2026-09-30 17:16:17,867 log 9528 9752 Unauthorized: /api/leave-applications/pending/
+INFO 2026-10-01 09:30:17,508 wasyncore 5884 8804 Serving on http://0.0.0.0:8000
+WARNING 2026-10-01 09:30:23,244 log 5884 2356 Unauthorized: /api/users/me/
+INFO 2026-10-01 09:33:14,873 wasyncore 9460 9464 Serving on http://0.0.0.0:8000
+WARNING 2026-10-01 09:35:25,705 task 9460 9464 Task queue depth is 1
+WARNING 2026-10-01 09:35:26,007 task 9460 9464 Task queue depth is 1
+WARNING 2026-10-01 09:35:26,069 task 9460 9464 Task queue depth is 1
+WARNING 2026-10-01 10:31:17,799 log 9460 9664 Unauthorized: /api/leave-applications/pending/
+INFO 2026-10-01 13:02:56,388 wasyncore 9576 9580 Serving on http://0.0.0.0:8000
+WARNING 2026-10-01 13:03:04,978 log 9576 9808 Unauthorized: /api/users/me/
+WARNING 2026-10-01 13:03:05,088 log 9576 9816 Unauthorized: /api/token/refresh/
+WARNING 2026-10-01 13:12:45,920 log 9576 9808 Unauthorized: /api/users/me/
+WARNING 2026-10-01 13:12:45,949 log 9576 9812 Unauthorized: /api/token/refresh/
+WARNING 2026-10-01 14:04:18,849 log 9576 9812 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-01 14:13:11,746 log 9576 9812 Unauthorized: /api/dashboard/summary/
+INFO 2026-10-01 17:43:35,347 wasyncore 9344 9348 Serving on http://0.0.0.0:8000
+INFO 2026-10-01 19:55:18,939 wasyncore 8904 8428 Serving on http://0.0.0.0:8000
+WARNING 2026-10-02 07:53:40,488 log 8904 9764 Unauthorized: /api/users/me/
+INFO 2026-10-02 08:42:54,813 wasyncore 8836 8936 Serving on http://0.0.0.0:8000
+INFO 2026-10-02 08:46:32,229 wasyncore 9412 9416 Serving on http://0.0.0.0:8000
+WARNING 2026-10-02 08:54:12,230 log 9412 9716 Unauthorized: /api/leave-applications/pending/
+INFO 2026-10-02 14:50:01,890 wasyncore 8220 1976 Serving on http://0.0.0.0:8000
+WARNING 2026-10-02 15:57:07,102 log 8220 8216 Unauthorized: /api/users/me/
+WARNING 2026-10-02 15:57:07,184 log 8220 624 Unauthorized: /api/token/refresh/
+INFO 2026-10-02 15:58:15,829 wasyncore 9476 9480 Serving on http://0.0.0.0:8000
+INFO 2026-10-02 18:15:54,250 wasyncore 9456 9460 Serving on http://0.0.0.0:8000
+INFO 2026-10-02 18:22:51,107 wasyncore 9488 9492 Serving on http://0.0.0.0:8000
+INFO 2026-10-02 18:28:12,131 wasyncore 9504 9508 Serving on http://0.0.0.0:8000
+WARNING 2026-10-03 10:24:34,905 log 9504 9768 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-03 11:24:34,961 log 9504 9776 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-03 12:24:34,944 log 9504 9768 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-03 13:24:34,973 log 9504 9776 Unauthorized: /api/leave-applications/pending/
+INFO 2026-10-04 09:19:54,386 wasyncore 10056 10060 Serving on http://0.0.0.0:8000
+INFO 2026-10-05 09:03:54,751 wasyncore 752 8968 Serving on http://0.0.0.0:8000
+WARNING 2026-10-05 09:07:58,800 log 752 9172 Unauthorized: /api/users/me/
+WARNING 2026-10-05 09:07:58,853 log 752 9788 Unauthorized: /api/token/refresh/
+INFO 2026-10-05 10:30:31,043 wasyncore 10100 10152 Serving on http://0.0.0.0:8000
+INFO 2026-10-05 10:46:23,847 wasyncore 3456 3380 Serving on http://0.0.0.0:8000
+INFO 2026-10-05 11:52:47,587 wasyncore 9964 9968 Serving on http://0.0.0.0:8000
+WARNING 2026-10-05 14:22:39,288 log 9964 8028 Unauthorized: /api/users/me/
+WARNING 2026-10-05 14:22:39,315 log 9964 10232 Unauthorized: /api/token/refresh/
+WARNING 2026-10-05 14:24:25,638 log 9964 10232 Unauthorized: /api/users/me/
+WARNING 2026-10-05 14:24:25,665 log 9964 9280 Unauthorized: /api/token/refresh/
+WARNING 2026-10-05 14:26:10,891 log 9964 10232 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-05 15:26:12,338 log 9964 10232 Unauthorized: /api/sales/pending/
+WARNING 2026-10-05 15:26:12,341 log 9964 10236 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-05 15:26:27,271 log 9964 8028 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-05 16:09:15,241 log 9964 10236 Unauthorized: /api/products/531/adjust_stock/
+WARNING 2026-10-05 16:26:12,357 log 9964 10236 Unauthorized: /api/sales/pending/
+WARNING 2026-10-05 16:26:12,359 log 9964 10232 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-05 16:26:27,278 log 9964 10236 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-05 17:12:20,324 log 9964 9280 Unauthorized: /api/sales/pending/
+WARNING 2026-10-05 17:12:20,326 log 9964 8028 Unauthorized: /api/leave-applications/pending/
+INFO 2026-10-06 07:48:52,230 wasyncore 8856 9012 Serving on http://0.0.0.0:8000
+WARNING 2026-10-06 07:49:14,720 log 8856 10136 Unauthorized: /api/users/me/
+WARNING 2026-10-06 08:49:31,692 log 8856 10124 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-06 09:50:23,103 log 8856 10000 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-06 10:50:33,036 log 8856 10136 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-06 11:17:14,897 log 8856 10136 Unauthorized: /api/users/me/
+WARNING 2026-10-06 11:17:14,942 log 8856 10120 Unauthorized: /api/token/refresh/
+WARNING 2026-10-06 11:51:23,178 log 8856 10000 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-06 12:17:21,199 log 8856 10000 Unauthorized: /api/dashboard/summary/
+WARNING 2026-10-06 12:51:23,193 log 8856 10136 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-06 13:51:23,232 log 8856 10120 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-06 13:51:23,280 log 8856 10000 Unauthorized: /api/token/refresh/
+WARNING 2026-10-06 16:46:23,296 log 8856 10124 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-06 17:30:41,160 log 8856 10000 Unauthorized: /api/users/me/
+WARNING 2026-10-06 17:30:41,193 log 8856 10120 Unauthorized: /api/token/refresh/
+WARNING 2026-10-06 17:46:23,341 log 8856 10000 Unauthorized: /api/leave-applications/pending/
+INFO 2026-10-07 08:22:31,719 wasyncore 9964 9968 Serving on http://0.0.0.0:8000
+WARNING 2026-10-07 08:23:22,564 log 9964 1816 Unauthorized: /api/users/me/
+INFO 2026-10-07 09:10:03,884 wasyncore 8496 8564 Serving on http://0.0.0.0:8000
+WARNING 2026-10-07 09:24:17,498 log 8496 9668 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-07 10:24:27,980 log 8496 9668 Unauthorized: /api/leave-applications/pending/
+INFO 2026-10-07 10:52:33,470 wasyncore 9404 9408 Serving on http://0.0.0.0:8000
+WARNING 2026-10-07 11:24:57,607 log 9404 9776 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-07 11:41:31,011 log 9404 9760 Unauthorized: /api/users/me/
+WARNING 2026-10-07 11:41:31,032 log 9404 9776 Unauthorized: /api/token/refresh/
+WARNING 2026-10-07 12:25:17,147 log 9404 9776 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-07 12:42:03,031 log 9404 9876 Unauthorized: /api/sales/pending/
+WARNING 2026-10-07 12:42:03,032 log 9404 9784 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-07 13:25:27,676 log 9404 9876 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-07 13:42:03,043 log 9404 9776 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-07 13:42:03,045 log 9404 9760 Unauthorized: /api/sales/pending/
+WARNING 2026-10-07 14:25:27,680 log 9404 9760 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-07 14:42:03,029 log 9404 9784 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-07 14:42:03,032 log 9404 9776 Unauthorized: /api/sales/pending/
+WARNING 2026-10-07 15:25:27,707 log 9404 9876 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-07 15:42:03,017 log 9404 9876 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-07 15:42:03,020 log 9404 9760 Unauthorized: /api/sales/pending/
+INFO 2026-10-07 16:28:18,766 wasyncore 9500 9504 Serving on http://0.0.0.0:8000
+WARNING 2026-10-07 16:28:28,202 log 9500 9816 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-07 16:28:28,334 log 9500 9824 Unauthorized: /api/token/refresh/
+WARNING 2026-10-07 16:42:03,262 log 9500 9824 Unauthorized: /api/sales/pending/
+WARNING 2026-10-07 16:42:03,266 log 9500 9820 Unauthorized: /api/leave-applications/pending/
+INFO 2026-10-08 08:52:34,000 wasyncore 10128 10124 Serving on http://0.0.0.0:8000
+WARNING 2026-10-08 10:16:12,322 log 10128 4376 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-08 11:16:12,332 log 10128 4376 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-08 12:16:12,355 log 10128 9268 Unauthorized: /api/leave-applications/pending/
+INFO 2026-10-08 12:48:58,976 wasyncore 9804 9808 Serving on http://0.0.0.0:8000
+INFO 2026-10-08 12:57:07,165 wasyncore 9652 9656 Serving on http://0.0.0.0:8000
+WARNING 2026-10-08 14:39:18,263 log 9652 7984 Unauthorized: /api/users/me/
+WARNING 2026-10-08 15:16:05,045 log 9652 7836 Unauthorized: /api/users/me/
+WARNING 2026-10-08 15:16:05,074 log 9652 8000 Unauthorized: /api/token/refresh/
+WARNING 2026-10-08 15:39:18,596 log 9652 8000 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-08 15:52:43,595 log 9652 7836 Unauthorized: /api/sales/
+WARNING 2026-10-08 16:17:01,428 log 9652 7332 Unauthorized: /api/sales/pending/
+WARNING 2026-10-08 16:17:01,432 log 9652 7984 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-08 16:40:12,473 log 9652 7984 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-08 17:17:01,441 log 9652 7332 Unauthorized: /api/sales/pending/
+WARNING 2026-10-08 17:17:01,449 log 9652 8000 Unauthorized: /api/leave-applications/pending/
+INFO 2026-10-09 08:16:44,128 wasyncore 10148 9672 Serving on http://0.0.0.0:8000
+WARNING 2026-10-09 08:46:29,266 log 10148 3488 Unauthorized: /api/users/me/
+WARNING 2026-10-09 09:47:06,284 log 10148 3464 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-09 09:47:06,307 log 10148 4980 Unauthorized: /api/token/refresh/
+WARNING 2026-10-09 10:09:03,471 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 10:09:03,500 task 10148 9672 Task queue depth is 2
+WARNING 2026-10-09 10:09:03,532 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 10:09:03,645 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 10:09:03,652 task 10148 9672 Task queue depth is 2
+WARNING 2026-10-09 10:09:03,715 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 10:09:03,719 task 10148 9672 Task queue depth is 2
+WARNING 2026-10-09 10:09:03,738 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 10:09:03,775 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 10:09:03,805 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 10:09:03,867 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 10:09:04,015 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 10:09:04,106 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 10:09:04,156 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 10:09:04,169 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 10:09:04,197 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 10:09:04,226 task 10148 9672 Task queue depth is 2
+WARNING 2026-10-09 10:09:04,318 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 10:09:04,531 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 10:59:25,580 log 10148 3476 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-09 12:00:08,059 log 10148 3464 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-09 12:13:59,864 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 12:13:59,885 task 10148 9672 Task queue depth is 2
+WARNING 2026-10-09 12:13:59,949 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 12:14:00,145 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 12:14:00,214 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 12:14:00,240 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 12:14:00,248 task 10148 9672 Task queue depth is 2
+WARNING 2026-10-09 12:14:00,296 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 12:14:00,310 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 12:14:00,346 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 12:14:00,362 task 10148 9672 Task queue depth is 2
+WARNING 2026-10-09 12:14:00,376 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 12:14:00,388 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 12:14:00,398 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 12:14:00,431 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 12:14:00,505 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 12:14:00,518 task 10148 9672 Task queue depth is 2
+WARNING 2026-10-09 12:14:00,544 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 12:14:00,545 task 10148 9672 Task queue depth is 2
+WARNING 2026-10-09 12:14:00,569 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 12:14:00,589 task 10148 9672 Task queue depth is 2
+WARNING 2026-10-09 12:14:00,623 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 12:14:00,642 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 12:14:00,655 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 12:14:00,679 task 10148 9672 Task queue depth is 2
+WARNING 2026-10-09 12:14:00,697 task 10148 9672 Task queue depth is 2
+WARNING 2026-10-09 12:14:00,730 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 12:14:00,747 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 12:14:00,759 task 10148 9672 Task queue depth is 2
+WARNING 2026-10-09 12:14:00,774 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 12:14:00,783 task 10148 9672 Task queue depth is 2
+WARNING 2026-10-09 12:14:00,822 task 10148 9672 Task queue depth is 2
+WARNING 2026-10-09 12:14:00,854 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 12:14:00,864 task 10148 9672 Task queue depth is 2
+WARNING 2026-10-09 12:14:00,913 task 10148 9672 Task queue depth is 2
+WARNING 2026-10-09 12:14:00,925 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 12:14:08,456 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 12:14:08,488 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 12:14:08,529 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 12:14:22,740 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 12:14:22,772 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 12:14:22,788 task 10148 9672 Task queue depth is 2
+WARNING 2026-10-09 12:14:22,809 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 12:14:22,848 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 12:14:22,865 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 12:14:22,884 task 10148 9672 Task queue depth is 2
+WARNING 2026-10-09 12:14:22,904 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 12:14:22,920 task 10148 9672 Task queue depth is 2
+WARNING 2026-10-09 12:14:22,963 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 12:14:22,972 task 10148 9672 Task queue depth is 2
+WARNING 2026-10-09 12:14:23,151 task 10148 9672 Task queue depth is 1
+WARNING 2026-10-09 13:00:25,632 log 10148 4980 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-09 13:40:19,033 log 10148 3476 Unauthorized: /api/users/me/
+WARNING 2026-10-09 14:00:25,681 log 10148 3464 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-09 14:41:01,123 log 10148 4980 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-09 14:41:01,124 log 10148 3464 Unauthorized: /api/sales/pending/
+WARNING 2026-10-09 15:01:08,157 log 10148 3488 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-09 15:41:01,124 log 10148 3488 Unauthorized: /api/sales/pending/
+WARNING 2026-10-09 15:41:01,130 log 10148 3476 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-09 15:41:01,182 log 10148 3488 Unauthorized: /api/token/refresh/
+WARNING 2026-10-09 15:41:01,185 log 10148 3476 Unauthorized: /api/token/refresh/
+WARNING 2026-10-09 16:01:08,212 log 10148 4980 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-09 17:01:08,235 log 10148 4980 Unauthorized: /api/leave-applications/pending/
+INFO 2026-10-12 07:56:12,039 wasyncore 9608 9524 Serving on http://0.0.0.0:8000
+WARNING 2026-10-12 08:13:48,680 log 9608 10684 Unauthorized: /api/users/me/
+WARNING 2026-10-12 08:13:48,721 log 9608 10692 Unauthorized: /api/token/refresh/
+WARNING 2026-10-12 10:50:53,230 log 9608 10684 Unauthorized: /api/users/me/
+WARNING 2026-10-12 10:50:53,284 log 9608 10692 Unauthorized: /api/token/refresh/
+WARNING 2026-10-12 14:23:44,613 log 9608 10692 Unauthorized: /api/dashboard/summary/
+INFO 2026-10-12 14:26:09,658 wasyncore 9512 9516 Serving on http://0.0.0.0:8000
+INFO 2026-10-13 07:53:59,393 wasyncore 9656 9660 Serving on http://0.0.0.0:8000
+WARNING 2026-10-13 11:30:39,343 task 9656 9660 Task queue depth is 1
+WARNING 2026-10-13 11:30:39,350 task 9656 9660 Task queue depth is 2
+WARNING 2026-10-13 11:30:39,534 task 9656 9660 Task queue depth is 1
+WARNING 2026-10-13 11:30:39,781 task 9656 9660 Task queue depth is 1
+WARNING 2026-10-13 11:30:39,838 task 9656 9660 Task queue depth is 1
+WARNING 2026-10-13 11:30:40,049 task 9656 9660 Task queue depth is 1
+WARNING 2026-10-13 11:30:40,066 task 9656 9660 Task queue depth is 1
+WARNING 2026-10-13 11:30:40,074 task 9656 9660 Task queue depth is 2
+WARNING 2026-10-13 11:30:40,207 task 9656 9660 Task queue depth is 1
+WARNING 2026-10-13 11:30:40,219 task 9656 9660 Task queue depth is 1
+WARNING 2026-10-13 11:30:40,257 task 9656 9660 Task queue depth is 1
+WARNING 2026-10-13 11:30:40,366 task 9656 9660 Task queue depth is 1
+WARNING 2026-10-13 11:30:40,387 task 9656 9660 Task queue depth is 2
+WARNING 2026-10-13 11:30:40,467 task 9656 9660 Task queue depth is 1
+WARNING 2026-10-13 11:30:40,477 task 9656 9660 Task queue depth is 2
+WARNING 2026-10-13 11:30:40,508 task 9656 9660 Task queue depth is 1
+WARNING 2026-10-13 11:30:40,543 task 9656 9660 Task queue depth is 1
+WARNING 2026-10-13 11:30:40,555 task 9656 9660 Task queue depth is 1
+WARNING 2026-10-13 11:30:40,606 task 9656 9660 Task queue depth is 1
+WARNING 2026-10-13 11:30:40,711 task 9656 9660 Task queue depth is 1
+WARNING 2026-10-13 11:30:40,839 task 9656 9660 Task queue depth is 1
+WARNING 2026-10-13 11:30:40,883 task 9656 9660 Task queue depth is 1
+WARNING 2026-10-13 11:30:40,901 task 9656 9660 Task queue depth is 1
+WARNING 2026-10-13 12:18:52,533 log 9656 2248 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-13 13:19:19,516 log 9656 10020 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-13 14:19:19,493 log 9656 2248 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-13 15:19:19,514 log 9656 3320 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-13 16:19:52,615 log 9656 3320 Unauthorized: /api/leave-applications/pending/
+INFO 2026-10-14 09:38:02,952 wasyncore 9832 9920 Serving on http://0.0.0.0:8000
+INFO 2026-10-14 10:11:07,664 wasyncore 8828 8808 Serving on http://0.0.0.0:8000
+WARNING 2026-10-14 10:34:22,744 log 8828 7556 Unauthorized: /api/users/me/
+WARNING 2026-10-14 10:34:22,797 log 8828 10232 Unauthorized: /api/token/refresh/
+WARNING 2026-10-14 10:39:09,317 log 8828 10236 Unauthorized: /api/sales/pending/
+WARNING 2026-10-14 10:39:09,321 log 8828 9264 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-14 11:11:47,294 log 8828 9264 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-14 11:39:09,346 log 8828 10236 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-14 11:39:09,347 log 8828 9264 Unauthorized: /api/sales/pending/
+WARNING 2026-10-14 12:11:47,338 log 8828 9264 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-14 12:39:09,293 log 8828 10232 Unauthorized: /api/sales/pending/
+WARNING 2026-10-14 12:39:09,296 log 8828 10236 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-14 13:11:47,336 log 8828 9264 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-14 13:39:09,302 log 8828 10232 Unauthorized: /api/sales/pending/
+WARNING 2026-10-14 13:39:09,305 log 8828 9264 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-14 14:12:15,487 log 8828 7556 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-14 14:39:09,291 log 8828 9264 Unauthorized: /api/sales/pending/
+WARNING 2026-10-14 14:39:09,293 log 8828 10232 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-14 14:40:45,308 log 8828 10232 Unauthorized: /api/dashboard/summary/
+WARNING 2026-10-14 14:45:08,650 log 8828 10232 Unauthorized: /api/users/me/
+WARNING 2026-10-14 14:45:08,685 log 8828 10236 Unauthorized: /api/token/refresh/
+WARNING 2026-10-14 14:45:22,238 log 8828 7556 Not Found: /apihttp://192.168.100.120:8000/api/stock-movements/
+WARNING 2026-10-14 14:45:37,930 log 8828 10232 Not Found: /apihttp://192.168.100.120:8000/api/stock-movements/
+WARNING 2026-10-14 14:45:56,788 log 8828 10232 Not Found: /apihttp://192.168.100.120:8000/api/stock-movements/
+WARNING 2026-10-14 14:46:06,346 log 8828 10236 Not Found: /apihttp://192.168.100.120:8000/api/stock-movements/
+WARNING 2026-10-14 14:46:16,391 log 8828 7556 Not Found: /apihttp://192.168.100.120:8000/api/stock-movements/
+WARNING 2026-10-14 14:46:26,780 log 8828 10236 Not Found: /apihttp://192.168.100.120:8000/api/stock-movements/
+WARNING 2026-10-14 14:56:08,504 log 8828 9264 Not Found: /apihttp://192.168.100.120:8000/api/stock-movements/
+WARNING 2026-10-14 15:03:04,222 log 8828 9264 Not Found: /apihttp://192.168.100.120:8000/api/stock-movements/
+WARNING 2026-10-14 15:04:05,812 log 8828 10232 Not Found: /apihttp://192.168.100.120:8000/api/stock-movements/
+WARNING 2026-10-14 15:04:59,613 log 8828 10236 Unauthorized: /api/
+WARNING 2026-10-14 15:04:59,790 log 8828 7556 Not Found: /favicon.ico
+WARNING 2026-10-14 15:07:29,671 task 8828 8808 Task queue depth is 1
+WARNING 2026-10-14 15:07:29,674 task 8828 8808 Task queue depth is 2
+WARNING 2026-10-14 15:08:46,366 log 8828 10232 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-14 15:09:32,777 log 8828 10232 Not Found: /apihttp://192.168.100.120:8000/api/stock-movements/
+WARNING 2026-10-14 15:11:48,871 log 8828 9264 Not Found: /apihttp://192.168.100.120:8000/api/stock-movements/
+WARNING 2026-10-14 15:33:23,472 log 8828 9264 Not Found: /apihttp://192.168.100.120:8000/api/stock-movements/
+WARNING 2026-10-14 15:33:34,827 log 8828 10232 Not Found: /apihttp://192.168.100.120:8000/api/stock-movements/
+INFO 2026-10-14 15:35:14,464 wasyncore 10256 2420 Serving on http://0.0.0.0:8000
+WARNING 2026-10-14 15:35:31,463 log 10256 2464 Not Found: /apihttp://192.168.100.120:8000/api/stock-movements/
+WARNING 2026-10-14 15:35:33,993 log 10256 1664 Not Found: /apihttp://192.168.100.120:8000/api/stock-movements/
+WARNING 2026-10-14 15:39:09,292 log 10256 9896 Unauthorized: /api/sales/pending/
+WARNING 2026-10-14 15:39:09,296 log 10256 1664 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-14 15:45:42,786 log 10256 1664 Unauthorized: /api/sales/pending/
+WARNING 2026-10-14 15:45:42,791 log 10256 7160 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-14 16:10:47,407 log 10256 7160 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-14 16:39:09,269 log 10256 9896 Unauthorized: /api/sales/pending/
+WARNING 2026-10-14 16:39:09,272 log 10256 7160 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-14 16:45:42,811 log 10256 1664 Unauthorized: /api/sales/pending/
+WARNING 2026-10-14 16:45:42,816 log 10256 7160 Unauthorized: /api/leave-applications/pending/
+INFO 2026-10-15 08:43:01,001 wasyncore 2548 2392 Serving on http://0.0.0.0:8000
+WARNING 2026-10-15 08:43:17,426 log 2548 8272 Unauthorized: /api/users/me/
+WARNING 2026-10-15 08:51:50,724 task 2548 2392 Task queue depth is 1
+WARNING 2026-10-15 08:51:50,744 task 2548 2392 Task queue depth is 1
+WARNING 2026-10-15 08:51:50,766 task 2548 2392 Task queue depth is 1
+WARNING 2026-10-15 08:51:50,784 task 2548 2392 Task queue depth is 1
+WARNING 2026-10-15 08:51:50,793 task 2548 2392 Task queue depth is 2
+WARNING 2026-10-15 08:51:50,806 task 2548 2392 Task queue depth is 1
+WARNING 2026-10-15 08:51:50,837 task 2548 2392 Task queue depth is 1
+WARNING 2026-10-15 08:51:50,855 task 2548 2392 Task queue depth is 1
+WARNING 2026-10-15 08:51:50,863 task 2548 2392 Task queue depth is 1
+WARNING 2026-10-15 08:51:50,865 task 2548 2392 Task queue depth is 1
+WARNING 2026-10-15 08:51:50,873 task 2548 2392 Task queue depth is 2
+WARNING 2026-10-15 08:51:50,945 task 2548 2392 Task queue depth is 1
+WARNING 2026-10-15 08:51:50,949 task 2548 2392 Task queue depth is 1
+WARNING 2026-10-15 08:51:50,956 task 2548 2392 Task queue depth is 1
+WARNING 2026-10-15 08:51:50,983 task 2548 2392 Task queue depth is 1
+WARNING 2026-10-15 08:51:50,999 task 2548 2392 Task queue depth is 1
+WARNING 2026-10-15 08:51:51,023 task 2548 2392 Task queue depth is 1
+WARNING 2026-10-15 08:51:51,084 task 2548 2392 Task queue depth is 1
+WARNING 2026-10-15 08:51:51,124 task 2548 2392 Task queue depth is 1
+WARNING 2026-10-15 09:43:19,039 log 2548 1756 Unauthorized: /api/leave-applications/pending/
+INFO 2026-10-15 10:39:25,142 wasyncore 9180 9176 Serving on http://0.0.0.0:8000
+WARNING 2026-10-15 10:43:53,019 log 9180 9980 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-15 10:48:09,113 log 9180 9988 Unauthorized: /api/users/me/
+WARNING 2026-10-15 10:48:09,145 log 9180 9980 Unauthorized: /api/token/refresh/
+INFO 2026-10-15 10:58:39,569 wasyncore 8984 8952 Serving on http://0.0.0.0:8000
+WARNING 2026-10-15 11:30:11,306 log 8984 9772 Unauthorized: /api/users/me/
+INFO 2026-10-15 11:46:11,782 wasyncore 11004 10928 Serving on http://0.0.0.0:8000
+WARNING 2026-10-15 11:48:40,812 log 11004 10980 Unauthorized: /api/sales/pending/
+WARNING 2026-10-15 11:48:40,813 log 11004 10480 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-15 12:30:21,968 log 11004 11040 Unauthorized: /api/sales/pending/
+WARNING 2026-10-15 12:30:21,971 log 11004 10480 Unauthorized: /api/leave-applications/pending/

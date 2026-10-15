@@ -7,7 +7,8 @@ from .models import (
     UserProfile, Category, SubCategory, SubSubCategory,
     Supplier, Customer, Product, Salesperson,
     MonthlyOpeningStock, StockEntry, AuditLog,
-    Sale, SaleLineItem, StockMovement
+    Sale, SaleLineItem, StockMovement,
+    LeaveApplication, LeaveBalance,
 )
 
 @admin.register(UserProfile)
@@ -302,3 +303,62 @@ class StockMovementAdmin(admin.ModelAdmin):
         if obj:  # Editing existing object
             return self.readonly_fields + ('direction', 'reason', 'product', 'quantity')
         return self.readonly_fields
+
+# =====================================================
+# LEAVE MANAGEMENT
+# =====================================================
+
+@admin.register(LeaveApplication)
+class LeaveApplicationAdmin(admin.ModelAdmin):
+    list_display = [
+        'employee', 'leave_type', 'start_date', 'end_date',
+        'total_days', 'status', 'approved_by', 'submitted_at'
+    ]
+    search_fields = ['employee__username', 'employee__first_name', 'employee__last_name']
+    list_filter = ['status', 'leave_type', 'submitted_at']
+    autocomplete_fields = ['employee', 'approved_by', 'cancelled_by', 'adjusted_by']
+    ordering = ['-submitted_at']
+
+    readonly_fields = [
+        'approved_by', 'approved_at',
+        'cancelled_by', 'cancelled_at',
+        'days_restored', 'adjusted_by', 'adjusted_at',
+        'submitted_at',
+    ]
+
+    fieldsets = (
+        ('Application', {
+            'fields': ('employee', 'leave_type', 'start_date', 'end_date', 'total_days', 'remarks', 'attachment')
+        }),
+        ('Status', {
+            'fields': ('status',)
+        }),
+        ('Approval', {
+            'fields': ('approved_by', 'approved_at', 'approval_comments')
+        }),
+        ('Rejection', {
+            'fields': ('rejection_reason',)
+        }),
+        ('Cancellation', {
+            'fields': ('cancelled_by', 'cancelled_at', 'cancellation_reason')
+        }),
+        ('Early Return', {
+            'fields': ('actual_return_date', 'days_restored', 'adjusted_by', 'adjusted_at')
+        }),
+        ('Metadata', {
+            'fields': ('submitted_at',)
+        }),
+    )
+
+
+@admin.register(LeaveBalance)
+class LeaveBalanceAdmin(admin.ModelAdmin):
+    list_display = ['employee', 'year', 'allocated_days', 'used_days', 'remaining_days']
+    search_fields = ['employee__username', 'employee__first_name', 'employee__last_name']
+    list_filter = ['year']
+    autocomplete_fields = ['employee']
+    ordering = ['-year', 'employee']
+
+    def remaining_days(self, obj):
+        return obj.remaining_days
+    remaining_days.short_description = 'Remaining'
