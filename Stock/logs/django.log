@@ -73223,3 +73223,148 @@ WARNING 2026-10-15 11:48:40,812 log 11004 10980 Unauthorized: /api/sales/pending
 WARNING 2026-10-15 11:48:40,813 log 11004 10480 Unauthorized: /api/leave-applications/pending/
 WARNING 2026-10-15 12:30:21,968 log 11004 11040 Unauthorized: /api/sales/pending/
 WARNING 2026-10-15 12:30:21,971 log 11004 10480 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-15 12:47:18,434 log 11004 10980 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-15 12:48:40,824 log 11004 10480 Unauthorized: /api/sales/pending/
+WARNING 2026-10-15 12:48:40,828 log 11004 10980 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-15 13:30:22,030 log 11004 10980 Unauthorized: /api/sales/pending/
+WARNING 2026-10-15 13:30:22,031 log 11004 10480 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-15 13:47:18,459 log 11004 11040 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-15 13:48:40,819 log 11004 10980 Unauthorized: /api/sales/pending/
+WARNING 2026-10-15 13:48:40,822 log 11004 11040 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-15 14:30:22,062 log 11004 10980 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-15 14:30:22,063 log 11004 10480 Unauthorized: /api/sales/pending/
+WARNING 2026-10-15 14:47:18,503 log 11004 7556 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-15 14:48:40,828 log 11004 10480 Unauthorized: /api/sales/pending/
+WARNING 2026-10-15 14:48:40,831 log 11004 10980 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-15 15:47:18,518 log 11004 11040 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-15 15:48:40,816 log 11004 10480 Unauthorized: /api/sales/pending/
+WARNING 2026-10-15 15:48:40,818 log 11004 10980 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-15 16:17:36,881 log 11004 10480 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-15 16:17:36,882 log 11004 10980 Unauthorized: /api/sales/pending/
+WARNING 2026-10-15 16:17:36,978 log 11004 10980 Unauthorized: /api/token/refresh/
+WARNING 2026-10-15 16:17:36,982 log 11004 10480 Unauthorized: /api/token/refresh/
+WARNING 2026-10-15 16:47:18,542 log 11004 11040 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-15 16:48:40,811 log 11004 10980 Unauthorized: /api/sales/pending/
+WARNING 2026-10-15 16:48:40,814 log 11004 11040 Unauthorized: /api/leave-applications/pending/
+INFO 2026-10-16 10:00:18,694 wasyncore 9972 9976 Serving on http://0.0.0.0:8000
+WARNING 2026-10-16 10:22:23,618 log 9972 8240 Unauthorized: /api/users/me/
+WARNING 2026-10-16 11:13:38,790 log 9972 8236 Unauthorized: /api/users/me/
+WARNING 2026-10-16 11:23:13,532 log 9972 3352 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-16 12:23:13,637 log 9972 2384 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-16 12:23:13,729 log 9972 3352 Unauthorized: /api/token/refresh/
+WARNING 2026-10-16 13:31:34,514 log 9972 3352 Unauthorized: /api/dashboard/summary/
+WARNING 2026-10-16 13:35:13,605 log 9972 2384 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-16 14:35:13,652 log 9972 8240 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-16 15:00:39,194 log 9972 2384 Unauthorized: /api/dashboard/summary/
+WARNING 2026-10-16 15:35:13,648 log 9972 8236 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-16 16:35:13,671 log 9972 8240 Unauthorized: /api/leave-applications/pending/
+INFO 2026-10-19 09:11:02,035 wasyncore 9264 9268 Serving on http://0.0.0.0:8000
+WARNING 2026-10-19 09:24:18,012 log 9264 10260 Unauthorized: /api/users/me/
+WARNING 2026-10-19 09:24:18,182 log 9264 10272 Unauthorized: /api/token/refresh/
+WARNING 2026-10-19 10:13:10,216 log 9264 10272 Unauthorized: /api/users/me/
+WARNING 2026-10-19 10:13:10,299 log 9264 10268 Unauthorized: /api/token/refresh/
+WARNING 2026-10-19 10:13:12,760 task 9264 9268 Task queue depth is 1
+WARNING 2026-10-19 10:13:12,763 task 9264 9268 Task queue depth is 2
+WARNING 2026-10-19 10:13:13,067 log 9264 10268 Not Found: /favicon.ico
+WARNING 2026-10-19 10:13:52,627 task 9264 9268 Task queue depth is 1
+WARNING 2026-10-19 10:13:52,627 task 9264 9268 Task queue depth is 2
+WARNING 2026-10-19 10:13:52,656 task 9264 9268 Task queue depth is 1
+WARNING 2026-10-19 10:13:52,668 task 9264 9268 Task queue depth is 2
+WARNING 2026-10-19 10:13:52,689 task 9264 9268 Task queue depth is 1
+WARNING 2026-10-19 10:13:52,706 task 9264 9268 Task queue depth is 1
+WARNING 2026-10-19 10:14:04,490 task 9264 9268 Task queue depth is 1
+WARNING 2026-10-19 10:14:04,491 task 9264 9268 Task queue depth is 2
+WARNING 2026-10-19 10:14:04,531 task 9264 9268 Task queue depth is 1
+WARNING 2026-10-19 10:14:04,533 task 9264 9268 Task queue depth is 2
+WARNING 2026-10-19 10:24:53,059 log 9264 10268 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-19 11:25:00,125 log 9264 10272 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-19 12:25:00,126 log 9264 10268 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-19 13:25:00,152 log 9264 10260 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-19 14:25:00,179 log 9264 10272 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-19 15:25:00,224 log 9264 10260 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-19 16:25:00,254 log 9264 10272 Unauthorized: /api/leave-applications/pending/
+INFO 2026-10-21 07:40:55,586 wasyncore 9928 9932 Serving on http://0.0.0.0:8000
+WARNING 2026-10-21 08:02:28,528 log 9928 2376 Unauthorized: /api/users/me/
+WARNING 2026-10-21 08:02:28,643 log 9928 4648 Unauthorized: /api/token/refresh/
+WARNING 2026-10-21 09:05:51,571 log 9928 4896 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-21 09:11:25,946 log 9928 4896 Unauthorized: /api/users/me/
+WARNING 2026-10-21 09:11:25,995 log 9928 3912 Unauthorized: /api/token/refresh/
+WARNING 2026-10-21 10:05:51,977 log 9928 4648 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-21 11:06:39,956 log 9928 4648 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-21 11:38:08,105 log 9928 3912 Unauthorized: /api/dashboard/summary/
+WARNING 2026-10-21 12:06:39,996 log 9928 2376 Unauthorized: /api/leave-applications/pending/
+INFO 2026-10-21 14:04:27,323 wasyncore 8736 8636 Serving on http://0.0.0.0:8000
+WARNING 2026-10-21 14:04:40,416 log 8736 10228 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-21 15:04:40,157 log 8736 9236 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-21 16:04:40,201 log 8736 10236 Unauthorized: /api/leave-applications/pending/
+INFO 2026-10-22 07:34:07,094 wasyncore 9480 9484 Serving on http://0.0.0.0:8000
+WARNING 2026-10-22 07:52:19,346 log 9480 9696 Unauthorized: /api/users/me/
+WARNING 2026-10-22 08:52:20,337 log 9480 9548 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-22 08:52:20,365 log 9480 9428 Unauthorized: /api/token/refresh/
+WARNING 2026-10-22 09:38:46,912 task 9480 9484 Task queue depth is 1
+WARNING 2026-10-22 09:38:46,974 task 9480 9484 Task queue depth is 1
+WARNING 2026-10-22 09:38:46,988 task 9480 9484 Task queue depth is 1
+WARNING 2026-10-22 09:38:47,035 task 9480 9484 Task queue depth is 1
+WARNING 2026-10-22 09:38:47,095 task 9480 9484 Task queue depth is 1
+WARNING 2026-10-22 09:38:47,240 task 9480 9484 Task queue depth is 1
+WARNING 2026-10-22 09:38:47,248 task 9480 9484 Task queue depth is 2
+WARNING 2026-10-22 09:38:47,280 task 9480 9484 Task queue depth is 1
+WARNING 2026-10-22 09:38:47,311 task 9480 9484 Task queue depth is 1
+WARNING 2026-10-22 09:38:47,491 task 9480 9484 Task queue depth is 1
+WARNING 2026-10-22 09:56:37,843 task 9480 9484 Task queue depth is 1
+WARNING 2026-10-22 09:56:37,908 task 9480 9484 Task queue depth is 1
+WARNING 2026-10-22 09:56:37,911 task 9480 9484 Task queue depth is 2
+WARNING 2026-10-22 09:56:38,017 task 9480 9484 Task queue depth is 1
+WARNING 2026-10-22 09:56:38,029 task 9480 9484 Task queue depth is 1
+WARNING 2026-10-22 09:56:38,059 task 9480 9484 Task queue depth is 1
+WARNING 2026-10-22 09:56:38,123 task 9480 9484 Task queue depth is 1
+WARNING 2026-10-22 09:56:38,148 task 9480 9484 Task queue depth is 1
+WARNING 2026-10-22 09:56:38,182 task 9480 9484 Task queue depth is 1
+WARNING 2026-10-22 09:56:38,202 task 9480 9484 Task queue depth is 2
+WARNING 2026-10-22 09:56:38,283 task 9480 9484 Task queue depth is 1
+WARNING 2026-10-22 09:56:38,307 task 9480 9484 Task queue depth is 2
+WARNING 2026-10-22 09:56:38,358 task 9480 9484 Task queue depth is 1
+WARNING 2026-10-22 09:56:38,409 task 9480 9484 Task queue depth is 1
+WARNING 2026-10-22 09:56:38,416 task 9480 9484 Task queue depth is 2
+WARNING 2026-10-22 09:56:38,521 task 9480 9484 Task queue depth is 1
+WARNING 2026-10-22 09:56:38,541 task 9480 9484 Task queue depth is 1
+WARNING 2026-10-22 09:56:38,570 task 9480 9484 Task queue depth is 1
+WARNING 2026-10-22 09:56:38,581 task 9480 9484 Task queue depth is 2
+WARNING 2026-10-22 10:35:34,953 log 9480 9696 Unauthorized: /api/leave-applications/pending/
+INFO 2026-10-22 11:12:42,494 wasyncore 9108 8592 Serving on http://0.0.0.0:8000
+WARNING 2026-10-22 11:14:58,734 log 9108 9872 Unauthorized: /api/users/me/
+WARNING 2026-10-22 11:14:58,810 log 9108 9880 Unauthorized: /api/token/refresh/
+WARNING 2026-10-22 11:29:34,354 log 9108 9876 Not Found: /favicon.ico
+WARNING 2026-10-22 11:29:54,885 task 9108 8592 Task queue depth is 1
+WARNING 2026-10-22 11:29:54,886 task 9108 8592 Task queue depth is 2
+WARNING 2026-10-22 11:29:54,909 task 9108 8592 Task queue depth is 1
+WARNING 2026-10-22 11:29:54,921 task 9108 8592 Task queue depth is 2
+WARNING 2026-10-22 11:35:35,690 log 9108 9872 Unauthorized: /api/leave-applications/pending/
+INFO 2026-10-22 12:25:46,606 wasyncore 9628 9632 Serving on http://0.0.0.0:8000
+INFO 2026-10-22 12:27:59,798 wasyncore 9392 9396 Serving on http://0.0.0.0:8000
+WARNING 2026-10-22 12:35:35,252 log 9392 4536 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-22 13:35:35,260 log 9392 4352 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-22 14:35:35,291 log 9392 4348 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-22 15:35:35,313 log 9392 4536 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-22 16:35:35,329 log 9392 4536 Unauthorized: /api/leave-applications/pending/
+WARNING 2026-10-22 16:38:41,181 log 9392 4352 Unauthorized: /api/sales/
+INFO 2026-10-23 08:59:05,407 wasyncore 9904 9908 Serving on http://0.0.0.0:8000
+WARNING 2026-10-23 10:07:57,903 log 9904 10684 Unauthorized: /api/users/me/
+WARNING 2026-10-23 10:07:57,991 log 9904 10692 Unauthorized: /api/token/refresh/
+WARNING 2026-10-23 10:31:29,919 log 9904 10680 Unauthorized: /api/users/me/
+WARNING 2026-10-23 11:08:04,014 log 9904 10692 Unauthorized: /api/sales/pending/
+WARNING 2026-10-23 11:12:12,884 log 9904 10680 Bad Request: /api/sales/481/approve/
+WARNING 2026-10-23 11:12:56,081 log 9904 10684 Bad Request: /api/sales/481/approve/
+WARNING 2026-10-23 11:13:17,837 log 9904 10680 Bad Request: /api/sales/481/approve/
+WARNING 2026-10-23 11:16:45,268 log 9904 10692 Bad Request: /api/sales/481/approve/
+WARNING 2026-10-23 11:25:14,278 log 9904 10680 Bad Request: /api/sales/481/approve/
+WARNING 2026-10-23 12:00:41,812 log 9904 10692 Unauthorized: /api/leave-applications/pending/
+INFO 2026-10-23 12:28:53,023 wasyncore 3652 12016 Serving on http://0.0.0.0:8000
+INFO 2026-10-23 12:29:18,228 wasyncore 3076 10400 Serving on http://0.0.0.0:8000
+WARNING 2026-10-23 12:29:33,355 log 3652 1660 Unauthorized: /api/users/me/
+WARNING 2026-10-23 12:29:33,398 log 3652 5020 Unauthorized: /api/token/refresh/
+INFO 2026-10-23 12:44:44,425 wasyncore 2688 8032 Serving on http://0.0.0.0:8000
+INFO 2026-10-23 13:01:53,766 wasyncore 7264 9668 Serving on http://0.0.0.0:8000
+WARNING 2026-10-23 13:02:29,498 log 7264 12076 Unauthorized: /api/leave-applications/pending/
+INFO 2026-10-23 13:51:07,688 wasyncore 8776 8392 Serving on http://0.0.0.0:8000
+WARNING 2026-10-23 14:03:28,633 log 8776 10096 Unauthorized: /api/leave-applications/pending/

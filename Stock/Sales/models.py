@@ -272,6 +272,7 @@ class Sale(models.Model):
     )
 
     lpo_quotation_number = models.CharField(max_length=100, blank=True)
+    project = models.CharField(max_length=200, blank=True, default='', help_text="Optional project name and/or number for this sale")
     delivery_number = models.CharField(max_length=100, blank=True)
     mode_of_payment = models.CharField(max_length=20, choices=PAYMENT_MODE_CHOICES, default='Not Paid')
 

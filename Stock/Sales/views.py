@@ -33,6 +33,7 @@ from .serializers import (
     LeaveApplicationSerializer, LeaveApplicationCreateSerializer,
     LeaveApprovalSerializer, LeaveCancellationSerializer, LeaveEarlyReturnSerializer,
     LeaveBalanceSerializer,
+    find_duplicate_lpo, duplicate_sale_summary,
 )
 
 from .permissions import IsDirectorOrSuperuser
@@ -586,7 +587,7 @@ class SaleViewSet(viewsets.ModelViewSet):
     filterset_fields = ['customer', 'mode_of_payment', 'status', 'created_at']
     search_fields = [
         'sale_number', 'customer__company_name',
-        'lpo_quotation_number', 'delivery_number',
+        'lpo_quotation_number', 'delivery_number', 'project', 
         'line_items__product__code', 'line_items__product__name'
     ]
     ordering_fields = ['created_at', 'total_amount']
@@ -862,6 +863,36 @@ class SaleViewSet(viewsets.ModelViewSet):
         ).all()
         serializer = DeliveryRecordSerializer(deliveries, many=True)
         return Response(serializer.data)
+
+    @action(detail=False, methods=['get'])
+    def check_lpo(self, request):
+        """
+        Live duplicate-LPO lookup used by the sale form.
+        Query params: lpo (required), customer (customer id, required),
+        exclude (sale id being edited, optional).
+        """
+        lpo = request.query_params.get('lpo', '').strip()
+        customer_id = request.query_params.get('customer')
+        exclude_id = request.query_params.get('exclude')
+
+        if not lpo or not customer_id:
+            return Response({'duplicate': False})
+
+        try:
+            customer = Customer.objects.get(pk=int(customer_id))
+        except (Customer.DoesNotExist, ValueError, TypeError):
+            return Response({'duplicate': False})
+
+        try:
+            exclude_id = int(exclude_id) if exclude_id else None
+        except ValueError:
+            exclude_id = None
+
+        existing = find_duplicate_lpo(customer, lpo, exclude_id)
+        if not existing:
+            return Response({'duplicate': False})
+
+        return Response({'duplicate': True, 'sale': duplicate_sale_summary(existing)})
 
     @action(detail=False, methods=['get'])
     def search_products(self, request):

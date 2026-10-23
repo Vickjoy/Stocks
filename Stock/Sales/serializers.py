@@ -7,6 +7,7 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_str
 from django.core.mail import send_mail
 from django.conf import settings
+from django.db.models.functions import Trim
 from .models import (
     UserProfile, Category, SubCategory, SubSubCategory, ProductGroup, Supplier, Customer, Product,
     Salesperson, MonthlyOpeningStock, StockEntry, AuditLog, Sale, SaleLineItem, StockMovement, DeliveryRecord,
@@ -354,7 +355,7 @@ class SaleSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'sale_number', 'customer', 'customer_name',
             'sale_date',
-            'lpo_quotation_number', 'delivery_number',
+            'lpo_quotation_number', 'delivery_number', 'project',
             'mode_of_payment', 'subtotal', 'vat_amount', 'total_amount',
             'amount_paid', 'outstanding_balance',
             'vat_applied',
@@ -377,9 +378,69 @@ class SaleSerializer(serializers.ModelSerializer):
         return obj.is_fully_paid()
 
 
+# ========================
+# Duplicate LPO helpers
+# ========================
+def find_duplicate_lpo(customer, lpo_number, exclude_sale_id=None):
+    """
+    Returns an existing PENDING or APPROVED sale for the SAME customer with the
+    same LPO/Quotation number (trimmed, case-insensitive). Rejected sales are
+    ignored. When editing, pass exclude_sale_id so a sale never matches itself.
+    Blank LPO numbers never count as duplicates.
+    """
+    lpo = (lpo_number or '').strip()
+    if not lpo or customer is None:
+        return None
+
+    qs = (
+        Sale.objects
+        .annotate(lpo_clean=Trim('lpo_quotation_number'))
+        .filter(
+            customer=customer,
+            lpo_clean__iexact=lpo,
+            status__in=['pending', 'approved'],
+        )
+    )
+    if exclude_sale_id:
+        qs = qs.exclude(pk=exclude_sale_id)
+
+    return (
+        qs.select_related('customer')
+        .prefetch_related('line_items__product')
+        .order_by('-created_at')
+        .first()
+    )
+
+
+def duplicate_sale_summary(sale):
+    """Compact, read-only summary of an existing sale for the duplicate pop-up."""
+    display_date = sale.sale_date or timezone.localtime(sale.created_at).date()
+    return {
+        'id': sale.id,
+        'sale_number': sale.sale_number,
+        'sale_date': str(display_date),
+        'customer_name': sale.customer.company_name,
+        'salesperson': sale.salesperson or '',
+        'project': sale.project or '',
+        'status': sale.status,
+        'status_display': sale.get_status_display(),
+        'total_amount': str(sale.total_amount),
+        'line_items': [
+            {
+                'product_code': li.product.code,
+                'product_name': li.product.name,
+                'quantity_ordered': li.quantity_ordered,
+                'quantity_supplied': li.quantity_supplied,
+                'supply_status': li.supply_status,
+            }
+            for li in sale.line_items.all()
+        ],
+    }
+
+
 class SaleCreateSerializer(serializers.ModelSerializer):
     line_items = SaleLineItemSerializer(many=True)
- 
+
     customer_name = serializers.CharField(
         write_only=True,
         required=False,
@@ -391,7 +452,7 @@ class SaleCreateSerializer(serializers.ModelSerializer):
         allow_null=True,
         help_text="The date the sale took place, as entered by staff.",
     )
- 
+
     class Meta:
         model = Sale
         fields = [
@@ -400,6 +461,7 @@ class SaleCreateSerializer(serializers.ModelSerializer):
             'sale_date',
             'lpo_quotation_number',
             'delivery_number',
+            'project',
             'mode_of_payment',
             'subtotal',
             'vat_amount',
@@ -411,12 +473,12 @@ class SaleCreateSerializer(serializers.ModelSerializer):
         extra_kwargs = {
             'customer': {'required': False},
         }
- 
+
     # ── shared validation (used for both create and update) ──────────────────
     def validate(self, data):
         customer = data.get('customer')
         customer_name = data.pop('customer_name', None)
- 
+
         if not customer:
             if not customer_name or not customer_name.strip():
                 raise serializers.ValidationError(
@@ -427,10 +489,33 @@ class SaleCreateSerializer(serializers.ModelSerializer):
                 defaults={'company_name': customer_name.strip()},
             )
             data['customer'] = customer_obj
- 
+
+        # ── Tidy optional text fields ────────────────────────────────────────
+        if 'lpo_quotation_number' in data:
+            data['lpo_quotation_number'] = (data['lpo_quotation_number'] or '').strip()
+        if 'project' in data:
+            data['project'] = (data['project'] or '').strip()
+
+        # ── Duplicate LPO check (same customer, pending/approved only) ───────
+        lpo = data.get(
+            'lpo_quotation_number',
+            getattr(self.instance, 'lpo_quotation_number', '')
+        )
+        exclude_id = self.instance.pk if self.instance else None
+        duplicate = find_duplicate_lpo(data['customer'], lpo, exclude_id)
+        if duplicate:
+            raise serializers.ValidationError({
+                'lpo_quotation_number': [
+                    f'This LPO/Quotation number has already been used for this customer '
+                    f'on sale {duplicate.sale_number} ({duplicate.get_status_display()}). '
+                    f'Please change or clear it.'
+                ],
+                'duplicate_sale': duplicate_sale_summary(duplicate),
+            })
+
         mode_of_payment = data.get('mode_of_payment')
         amount_paid = data.get('amount_paid', 0)
- 
+
         if mode_of_payment == 'Not Paid':
             data['amount_paid'] = Decimal('0.00')
         elif mode_of_payment in ['Cash', 'Cheque', 'Mpesa']:
@@ -441,83 +526,69 @@ class SaleCreateSerializer(serializers.ModelSerializer):
             data['amount_paid'] = Decimal(str(amount_paid)).quantize(
                 Decimal('0.01'), rounding=ROUND_HALF_UP
             )
- 
+
         line_items = data.get('line_items', [])
         if not line_items:
             raise serializers.ValidationError({
                 'line_items': 'At least one product must be added to the sale'
             })
- 
+
         subtotal = data.get('subtotal', 0)
         data['subtotal'] = Decimal(str(subtotal)).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
         data['vat_amount'] = Decimal('0.00')
         data['total_amount'] = data['subtotal']
- 
+
         return data
- 
-    # ── CREATE (unchanged from original) ────────────────────────────────────
+
+    # ── CREATE ───────────────────────────────────────────────────────────────
     def create(self, validated_data):
         line_items_data = validated_data.pop('line_items')
         validated_data['recorded_by'] = self.context['request'].user
         validated_data['status'] = 'pending'
         validated_data['vat_applied'] = False
- 
+
         sale = Sale.objects.create(**validated_data)
- 
+
         for item_data in line_items_data:
-            # 'id' should never be present on create, but strip defensively
-            # in case a stray value slips through from a copy/paste payload.
             item_data.pop('id', None)
             SaleLineItem.objects.create(sale=sale, **item_data)
- 
+
         sale.calculate_total()
         return sale
- 
-    # ── UPDATE (new — syncs line items properly) ─────────────────────────────
+
+    # ── UPDATE ───────────────────────────────────────────────────────────────
     def update(self, instance, validated_data):
         line_items_data = validated_data.pop('line_items', [])
- 
-        # Only pending sales may be edited
+
         if instance.status != 'pending':
             raise serializers.ValidationError(
                 'Only pending sales can be edited.'
             )
- 
-        # ── Update scalar fields on the Sale ────────────────────────────────
+
         for attr, value in validated_data.items():
             setattr(instance, attr, value)
         instance.save()
- 
-        # ── Sync line items ───────────────────────────────────────────────────
-        # Build a map of existing line item ids so we can update / delete them.
-        # With the `id` fix on SaleLineItemSerializer above, item_data now
-        # actually carries the submitted id through validation, so existing
-        # rows are correctly matched and updated in place instead of being
-        # deleted and recreated on every edit.
+
         existing_ids = {item.id: item for item in instance.line_items.all()}
         submitted_ids = set()
- 
+
         for item_data in line_items_data:
             item_id = item_data.pop('id', None)
- 
+
             if item_id and item_id in existing_ids:
-                # UPDATE existing line item
                 line_item = existing_ids[item_id]
                 for attr, value in item_data.items():
                     setattr(line_item, attr, value)
                 line_item.save()
                 submitted_ids.add(item_id)
             else:
-                # CREATE new line item
                 new_item = SaleLineItem.objects.create(sale=instance, **item_data)
                 submitted_ids.add(new_item.id)
- 
-        # DELETE line items that were removed by the user
+
         for existing_id, line_item in existing_ids.items():
             if existing_id not in submitted_ids:
                 line_item.delete()
- 
-        # Recalculate totals from the updated line items
+
         instance.calculate_total()
         instance.refresh_from_db()
         return instance
